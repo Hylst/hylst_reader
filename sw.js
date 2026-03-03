@@ -1,7 +1,7 @@
 // sw.js
 // Service Worker Minimal pour Hylst Reader
 
-const CACHE_NAME = 'hylst-reader-v7';
+const CACHE_NAME = 'hylst-reader-v8';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',

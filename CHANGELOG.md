@@ -49,6 +49,16 @@ Toutes les modifications notables apportées au projet **Hylst Books & Reader** 
 ### Corrigé
 - Indicateur loop rendu visuel et durable via alternance d’icônes.
 
+## [1.1.8] - 2026-03-03
+### Ajouté
+- **Ambiance Visuelle** : Effet de grain de papier animé et poussière flottante discrète dans les modes Sépia et Sombre pour une immersion renforcée.
+- **Mode Immersion** : Bouton plein écran dans le lecteur pour masquer l'interface du navigateur.
+- **Temps de lecture dynamique** : Affichage du temps restant estimé pour finir le chapitre, mis à jour en temps réel selon votre progression.
+
+### Modifié
+- **About Modal** : Refonte complète du design. Le modal est plus large (1100px), mieux structuré et responsive. Correction des problèmes de troncature de texte.
+- **Icônes** : Ajout des icônes Maximize/Minimize pour le mode plein écran.
+
 ## [1.1.7] - 2026-03-03
 ### Corrigé
 - **Crash AboutModal** : Correction de l'erreur React #130 causée par l'utilisation d'icônes non définies. Ajout de 10 nouvelles icônes au set global.

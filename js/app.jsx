@@ -182,6 +182,16 @@ const Icon = {
             <polygon points="5 4 15 12 5 20 5 4" /><line x1="19" y1="5" x2="19" y2="19" />
         </svg>
     ),
+    Maximize: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+        </svg>
+    ),
+    Minimize: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" />
+        </svg>
+    ),
 };
 
 const FUTURE_BOOKS = [
@@ -211,6 +221,33 @@ const FUTURE_BOOKS = [
 
 
 
+// ── Ambience Component ────────────────────────────────────────────────────────
+function Ambience({ theme }) {
+    if (theme === 'light') return null;
+
+    return (
+        <div className="ambience-overlay">
+            <div className="grain-effect" />
+            <div className="particles-container">
+                {[...Array(12)].map((_, i) => (
+                    <div
+                        key={i}
+                        className="dust-particle"
+                        style={{
+                            left: `${Math.random() * 100}%`,
+                            width: `${2 + Math.random() * 4}px`,
+                            height: `${2 + Math.random() * 4}px`,
+                            animationDuration: `${10 + Math.random() * 20}s`,
+                            animationDelay: `${-Math.random() * 20}s`,
+                            opacity: 0.1 + Math.random() * 0.4
+                        }}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+}
+
 // ── App Component ────────────────────────────────────────────────────────────
 function App() {
     const [books, setBooks] = useState([]);
@@ -227,6 +264,23 @@ function App() {
     const [currentTrack, setCurrentTrack] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [isLoop, setIsLoop] = useState(false);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
+    const toggleFullscreen = useCallback(() => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().then(() => setIsFullscreen(true)).catch(err => {
+                console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+            });
+        } else {
+            document.exitFullscreen().then(() => setIsFullscreen(false));
+        }
+    }, []);
+
+    useEffect(() => {
+        const handleFsChange = () => setIsFullscreen(!!document.fullscreenElement);
+        document.addEventListener('fullscreenchange', handleFsChange);
+        return () => document.removeEventListener('fullscreenchange', handleFsChange);
+    }, []);
 
     useEffect(() => {
         const audio = audioRef.current;
@@ -431,6 +485,8 @@ function App() {
                     onToggleLoop={toggleLoop}
                     onShowMusic={() => setShowMusic(true)}
                     onStop={stopPlay}
+                    onToggleFullscreen={toggleFullscreen}
+                    isFullscreen={isFullscreen}
                 />
             );
         }
@@ -439,6 +495,7 @@ function App() {
 
     return (
         <div className={`app-root theme-${settings.theme}`}>
+            <Ambience theme={settings.theme} />
             {renderView()}
             {showAbout && <AboutModal onClose={() => setShowAbout(false)} />}
             {showSettings && (
@@ -481,7 +538,7 @@ function AboutModal({ onClose }) {
                         <div className="about-logo">H</div>
                         <div>
                             <h3>Hylst Books &amp; Reader</h3>
-                            <span className="about-version">Version 1.1.6 &middot; 2026</span>
+                            <span className="about-version">Version 1.1.8 &middot; 2026</span>
                         </div>
                     </div>
                     <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
@@ -1109,7 +1166,7 @@ function BookHomeView({ book, onBack, onStartReading }) {
 }
 
 // ── Reader View ────────────────────────────────────────────────────────────────
-function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, isPlaying, isLoop, onTogglePlay, onToggleLoop, onShowMusic, onStop }) {
+function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, isPlaying, isLoop, onTogglePlay, onToggleLoop, onShowMusic, onStop, onToggleFullscreen, isFullscreen }) {
     const [currentChapterIdx, setCurrentChapterIdx] = useState(0);
     const [chapterHtml, setChapterHtml] = useState('');
     const [showUI, setShowUI] = useState(true);
@@ -1227,13 +1284,20 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
         if (currentChapterIdx > 0) setCurrentChapterIdx(i => i - 1);
     };
 
-    const readingTime = useMemo(() => {
-        if (!chapterHtml) return '';
+    const { readingTime, remainingTime } = useMemo(() => {
+        if (!chapterHtml) return { readingTime: '', remainingTime: '' };
         const text = chapterHtml.replace(/<[^>]+>/g, ' ');
         const words = text.split(/\s+/).filter(w => w.length > 0).length;
         const mins = Math.ceil(words / 220);
-        return mins > 0 ? `${mins} min de lecture` : "Moins d'une minute";
-    }, [chapterHtml]);
+        
+        const remWords = Math.ceil(words * (1 - scrollProgress));
+        const remMins = Math.ceil(remWords / 220);
+
+        return {
+            readingTime: mins > 0 ? `${mins} min de lecture` : "Moins d'une minute",
+            remainingTime: remMins > 0 ? `${remMins} min restantes` : ""
+        };
+    }, [chapterHtml, scrollProgress]);
 
     const handleSliderClick = (e) => {
         if (!containerRef.current) return;
@@ -1270,29 +1334,26 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
             // Ignore if in input or text area
             if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
 
-            if (currentView === 'reader') {
-                if (e.key === 'ArrowRight') nextChapter();
-                if (e.key === 'ArrowLeft') prevChapter();
-                if (e.key === ' ') {
-                    e.preventDefault();
-                    if (containerRef.current) {
-                        containerRef.current.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
-                    }
+            if (e.key === 'ArrowRight') nextChapter();
+            if (e.key === 'ArrowLeft') prevChapter();
+            if (e.key === ' ') {
+                e.preventDefault();
+                if (containerRef.current) {
+                    containerRef.current.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
                 }
-                if (e.key === 'Home') scrollTo('top');
-                if (e.key === 'End') scrollTo('bottom');
             }
+            if (e.key === 'Home') scrollTo('top');
+            if (e.key === 'End') scrollTo('bottom');
 
             if (e.key === 'Escape') {
                 if (showSidebar) setShowSidebar(false);
                 else if (showSettings) setShowSettings(false);
-                else if (showMusic) setShowMusic(false);
             }
         };
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [currentView, currentChapterIdx, showSidebar, showSettings, showMusic, nextChapter, prevChapter, scrollTo]);
+    }, [currentChapterIdx, showSidebar, showSettings, nextChapter, prevChapter, scrollTo]);
 
     const containerClass = `reader-container${showUI ? ' show-ui' : ''}${settings.focusMode ? ' focus-mode' : ''}`;
 
@@ -1429,14 +1490,22 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                         <button className="btn btn-icon" title="Arrêter" onClick={e => { e.stopPropagation(); onStop(); }}>
                             <Icon.Square />
                         </button>
+                        <button className="btn btn-icon" title="Immersion (Plein écran)" onClick={e => { e.stopPropagation(); onToggleFullscreen(); }}>
+                            {isFullscreen ? <Icon.Minimize /> : <Icon.Maximize />}
+                        </button>
                     </div>
                 </div>
 
                 {/* Content */}
                 <article className="reader-content">
-                    {readingTime && (
-                        <span className="reading-time-badge"><Icon.Clock /> {readingTime}</span>
-                    )}
+                    <div className="reading-time-info">
+                        {readingTime && (
+                            <span className="reading-time-badge"><Icon.Clock /> {readingTime}</span>
+                        )}
+                        {remainingTime && (
+                            <span className="remaining-time-badge">{remainingTime}</span>
+                        )}
+                    </div>
                     {chapterHtml
                         ? <div className="reader-article" dangerouslySetInnerHTML={{ __html: chapterHtml }} />
                         : <div style={{ textAlign: 'center', padding: '4rem 0', opacity: 0.4 }}>

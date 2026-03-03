@@ -79,7 +79,15 @@
     gap: 0.4rem;
 }
 
-.reading-time-badge {
+.reading-time-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0 0.5rem;
+}
+
+.reading-time-badge,
+.remaining-time-badge {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
@@ -89,7 +97,11 @@
     color: var(--book-accent-dark);
     border: 1px solid var(--book-border);
     background: color-mix(in srgb, var(--book-surface) 70%, transparent);
-    margin: 1rem 0 0.5rem;
+}
+
+.remaining-time-badge {
+    opacity: 0.6;
+    border-style: dashed;
 }
 
 /* Typography */

@@ -1,6 +1,16 @@
 # Environment variables
 .env
 
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Build
+dist/
+build/
+
 # Python
 __pycache__/
 *.py[cod]
@@ -12,5 +22,5 @@ Thumbs.db
 
 # Project specific
 livres_pour_import/
-# mp3_online.csv and mp3_online.txt are data sources, usually kept in repo if small/shared, 
-# but they are quite large (226KB). I'll keep them for now as they are part of the "source" for the music player.
+*.zip
+*.tar.gz

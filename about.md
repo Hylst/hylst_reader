@@ -1,24 +1,24 @@
-# À Propos de Hylst Reader
+# À Propos de Hylst Books & Reader
 
-**Hylst Reader** est une liseuse web moderne conçue pour offrir une expérience de lecture premium, immersive et totalement hors ligne.
+**Hylst Books & Reader** est plus qu'une simple liseuse ; c'est un sanctuaire numérique dédié à la lecture et à l'immersion sonore. 
 
-## La Vision
-Le projet est né de la volonté de créer un pont entre l'élégance du livre papier et la puissance du web moderne. Dans un monde saturé de notifications, Hylst Reader propose un environnement de lecture calme, sans distraction, où la typographie et le contenu sont rois.
+L'application a été conçue pour offrir un cadre noble et apaisant aux œuvres de Geoffroy Streit (Hylst), tout en permettant aux lecteurs d'importer leurs propres contenus dans un environnement respectueux de leur vie privée.
 
-## Technologies
-L'application repose sur des technologies web standards et performantes :
+## 🌟 Expérience de lecture premium
+- **Typographie Noble** : Design soigné utilisant des polices classiques (Cormorant Garamond, Libre Baskerville).
+- **Thèmes Adaptatifs** : Modes Sépia, Clair et Sombre personnalisables.
+- **Accompagnement Musical** : Un lecteur audio premium intégré avec accès à plus de 280 compositions originales de Hylst.
+- **Souveraineté des Données** : Pas de cloud imposé. Vos livres et votre progression restent dans votre navigateur grâce à IndexedDB.
 
-- **React (Standalone)** : Une interface réactive et modulaire, exécutée directement dans le navigateur.
-- **IndexedDB (`idb-keyval`)** : Pour un stockage persistant et robuste des livres et de la progression, même sans connexion.
-- **Service Workers** : Assure le fonctionnement offline intégral (PWA).
-- **CSS3 Avancé** : Système de thèmes (Sépia, Sombre, Clair), glassmorphisme et typographie optimisée.
-- **Python Build Script** : Un parser intelligent qui transforme des fichiers texte bruts en HTML sémantique riche.
+## 🚀 Technologie
+Le projet utilise une stack moderne "Pure Frontend" :
+- **React 18** (Interface réactive via CDN)
+- **IndexedDB / idb-keyval** (Persistance robuste sans serveur)
+- **Service Workers** (Fonctionnement offline PWA)
+- **CSS3 Avancé** (Design modulaire, animations fluides et glassmorphisme)
 
-## Fonctionnalités Clés
-- **Design Littéraire** : Polices *Cormorant Garamond* et *Libre Baskerville*.
-- **Persistance Totale** : Reprise automatique de la lecture là où vous vous êtes arrêté.
-- **Outils de Lecture** : Recherche plein texte, temps de lecture estimé, signets et thèmes personnalisés.
-- **Zéro Cloud** : Vos livres restent dans votre navigateur. Votre vie privée est respectée par design.
+## 🎨 L'Auteur & Créateur
+**Geoffroy Streit** (Hylst) est au cœur de ce projet. Écrivain et compositeur alsacien, il a imaginé cet outil pour offrir à ses lecteurs un cadre à la hauteur de ses récits. La musique intégrée à l'application fait partie intégrante de son univers artistique, conçue pour accompagner le rythme des mots.
 
 ---
-*Hylst — Lire, tout simplement.*
+*Hylst — Lire, Écouter, Ressentir.*

@@ -1,39 +1,36 @@
-# Hylst Reader
+# Hylst Books & Reader
 
-**Hylst Reader** est une application web de lecture de livres numériques (PWA) conçue avec une architecture *Offline-First* et *Pure Frontend* (sans build Node.js). L'accent a été mis sur le confort de lecture, l'esthétique premium et la capacité à stocker sa bibliothèque localement dans son navigateur via IndexedDB.
+**Hylst Books & Reader** est une application web de lecture (PWA) conçue avec une architecture *Offline-First* et *Pure Frontend*. Elle offre une expérience de lecture premium, une gestion de bibliothèque locale et une intégration musicale unique pour accompagner vos moments de lecture.
 
-Ce projet inclut par défaut les premiers chapitres de l'ouvrage *L'odyssée de l'IA - 2 futurs, un choix* (de Hylst).
+## 🌟 Points Forts
+- **Expérience Premium** : Design typographique soigné (Cormorant Garamond, Libre Baskerville).
+- **Musique Intégrée** : Accès à la bibliothèque musicale de Geoffroy Streit directement dans l'app.
+- **Zéro Backend** : Tout tourne dans votre navigateur. Vos données (livres, progression) restent chez vous dans IndexedDB.
+- **Import Flexible** : Importez vos propres dossiers HML pour les lire avec le confort du Reader Hylst.
 
-## Architecture
-- **HTML/CSS/JS** purs. Un seul point d'entrée : `index.html`.
-- **Framework** : React chargé via CDN (avec Babel Standalone pour le rendu JSX à la volée).
-- **Stockage** : Librairie `idb-keyval` (IndexedDB) pour sauvegarder les livres, la progression de lecture et le thème.
-- **Service Worker** : `sw.js` fait à la main pour le cache de l'application et la PWA.
-- **Génération statique** : Un script Python (`build_books.py`) permet de parser simplement des dossiers contenant des fichiers textes pour les intégrer à l'application.
+## 🚀 Architecture & Technos
+- **Framework** : React 18 (CDN)
+- **Stockage** : `idb-keyval` (IndexedDB) pour la persistance locale totale.
+- **PWA** : Service Worker (`sw.js`) pour l'installation native.
+- **Design** : CSS3 Vanilla (Thèmes dynamiques, animations optimisées).
 
-## Fonctionnalités
-- PWA installable sur desktop, mobile ou tablette.
-- Thèmes modulables par livre : Chaque livre intégre dans son `config.json` ses propres polices, couleurs de textes et styles d'arrière-plan.
-- Design ultra-premium : Interface sombre globale optionelle et expérience de lecture typographique soignée (Inter, Playfair Display, Georgia).
-- Génération automatique de préfaces si l'introduction (`intro.txt`) est manquante tout en générant le HTML depuis vos simples `.txt`.
+## ⌨️ Raccourcis Clavier
+- `Espace` / `PageDown` : Faire défiler vers le bas.
+- `Flèche Droite` / `Gauche` : Chapitre suivant / précédent.
+- `Home` / `End` : Haut / Bas de page.
+- `Esc` : Fermer les menus et modals.
 
-## Comment tester et héberger l'application
+## 🔮 Suggestions & Évolutions
+- **Export ZIP** : Permettre d'exporter ses propres livres importés pour les partager.
+- **Mode Plein Écran** : Un bouton dédié pour une immersion totale.
+- **Ambiance Dynamique** : Fond d'écran animé discret (ex: poussière flottante ou dégradés lents) évoluant selon le thème choisi.
+- **Temps Restant** : Calcul dynamique du temps de lecture restant pour le chapitre en cours basé sur la vitesse de scroll.
 
-Puisqu'il n'y a pas de dépendance `Node.js` d'exécution, le déploiement est trivial.
+## 🛠️ Utilisation locale
+1. Clonez le dépôt.
+2. Lancez un serveur statique : `python -m http.server 8000`.
+3. Accédez à `http://localhost:8000`.
 
-### En local (sur votre machine)
-1. Ouvrez un terminal dans le dossier principal.
-2. Démarrez un serveur HTTP basique avec Python (ou Live Server) :
-   ```bash
-   python -m http.server 8000
-   ```
-3. Ouvrez votre navigateur sur `http://localhost:8000`.
-
-### Sur Coolify / Nginx 
-1. Créez un nouveau projet/service sur Coolify pointant sur ce dépôt (ou le dossier du projet déployé).
-2. Choisissez le type "Serveur web statique (Nginx)".
-3. Dirigez le document root sur la racine (`/`). Nginx servira automatiquement `index.html` !
-4. Pensez à relancer `python build_books.py` au préalable si vous importez de nouveaux dossiers statiques de M. Streit ou de vous-même dans le dossier `livres_pour_import/`. L'application les chargera nativement via le fetch du `books.json`.
-
----
-*Ce lecteur a été conçu par Antigravity pour Hylst.*
+## 📜 Licence & Crédits
+Créé par **Geoffroy Streit**. Développé par **Antigravity**.
+Tous les contenus musicaux et littéraires natifs sont la propriété exclusive de Geoffroy Streit (Hylst).

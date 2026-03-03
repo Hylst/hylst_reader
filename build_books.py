@@ -123,7 +123,7 @@ def parse_chapter_txt(content):
             css_class = 'chapter-paragraph'
             # Apply dropcap to the first significant paragraph of the chapter
             if not first_paragraph_done and len(line) > 60:
-                css_class = 'chapter-paragraph dropcap'
+                css_class = 'dropcap'
                 first_paragraph_done = True
             
             html_parts.append(f'<p class="{css_class}">{line}</p>')
@@ -155,9 +155,9 @@ if os.path.exists(SOURCE_DIR):
         book_out_dir = os.path.join(BOOKS_DIR, book_id)
         os.makedirs(book_out_dir, exist_ok=True)
 
-        # 1. Handle Cover - support .jpg, .jpeg, .png
+        # 1. Handle Cover - support .jpg, .jpeg, .webp
         cover_ext = None
-        for ext in ['.jpg', '.jpeg', '.png']:
+        for ext in ['.jpg', '.jpeg', '.webp']:
             base = 'cover'
             src = os.path.join(folder_path, f'{base}{ext}')
             dst_base = os.path.join(COVERS_DIR, f'{book_id}{ext}')
@@ -168,7 +168,7 @@ if os.path.exists(SOURCE_DIR):
 
         # Also check if cover already exists in public/covers (pre-generated)
         if not cover_ext:
-            for ext in ['.jpg', '.jpeg', '.png']:
+            for ext in ['.jpg', '.jpeg', '.webp']:
                 if os.path.exists(os.path.join(COVERS_DIR, f'{book_id}{ext}')):
                     cover_ext = ext
                     break
@@ -202,7 +202,7 @@ if os.path.exists(SOURCE_DIR):
             intro_html = f"""<div class="book-intro-generated">
   <h2>Préface</h2>
   <hr class="ornament">
-  <p class="chapter-paragraph dropcap">Cet ouvrage, intitulé <strong>{title}</strong>, a été intégré automatiquement dans Hylst Reader.</p>
+  <p class="dropcap">Cet ouvrage, intitulé <strong>{title}</strong>, a été intégré automatiquement dans Hylst Reader.</p>
   <p class="chapter-paragraph">L'interface s'adapte dynamiquement aux couleurs et à la typographie choisies pour ce livre afin d'offrir une immersion optimale lors de votre lecture.</p>
   <p class="chapter-continuation">Bonne lecture — {author}</p>
 </div>"""

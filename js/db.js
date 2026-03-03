@@ -87,7 +87,8 @@ export async function getSettings() {
         theme: 'auto', // auto, light, dark, sepia
         fontScale: 1.0,
         alignment: 'left', // left, justify
-        focusMode: false
+        focusMode: false,
+        contentWidth: 'medium' // small | medium | large
     };
 }
 

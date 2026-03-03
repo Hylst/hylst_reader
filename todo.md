@@ -1,21 +1,18 @@
-# Améliorations Futures (TODO / Idées)
+# Hylst Books & Reader - TODO
 
-## 1. Ergonomie Lecteur & Personnalisation (UI/UX)
-- **Menu de style ("Settings") dans le `ReaderView`** : Proposer une modale (ou un drawer en bas) permettant à l'utilisateur de :
-  - Modifier la taille de la police : `var(--font-size-multiplier)`.
-  - Forcer l'alignement (`justify` ou `left`) : `var(--text-alignment)`.
-  - Basculer le mode sombre (`dark` / `light` / `auto`) via l'attribut global HTML `data-theme`.
-- **Mode Focus** : Disparition complète de la Top-Bar et du scrollbar lors du scroll (ou via un switch UI).
-- **Contrôles Tactiles (Gestures)** : Swipe Gauche/Droit pour naviguer entre les chapitres sur terminaux mobiles.
+## 🎯 Priorités Actuelles
+- [ ] **Refactorisation CSS** : Diviser `styles.css` en modules pour faciliter la maintenance.
+- [ ] **Export de Bibliothèque** : Permettre de télécharger un backup `.json` de ses livres importés.
+- [ ] **Correction de bugs mineurs** : Vérifier la cohérence du mode responsive sur vieux mobiles.
 
-## 2. Fonctionnalités de la Liseuse Pure
-- **Signets et Surlignages** : Permettre à l'utilisateur de sélectionner du texte, de le surligner et d'ajouter une note, puis de stocker ces signets dans `IndexedDB`.
-- **Recherche plein texte** : Indexation asynchrone pour la recherche de mots à l'intérieur d'un ouvrage (local ou pré-intégré).
-- **Temps estimé de lecture** : Calcul basé sur le nombre de mots du chapitre pour afficher un `X minutes restants`.
+## ✅ Terminé (Récemment)
+- [x] **Système de Musique** : Intégration complète et redesign du modal (v1.1).
+- [x] **Paramètres de lecture** : Menu "Settings" fonctionnel (taille police, thèmes).
+- [x] **Section Import** : Bouton restauré et séparation claire des types de bibliothèque.
+- [x] **About Modal** : Refonte visuelle et rédactionnelle.
 
-## 3. Format et Architecture (Data)
-- **Markdown / Extensions** : Apporter une librairie (ex: `marked.js` en CDN) pour parser du Markdown au lieu du simple `.txt` dans l'import `app.js` et le `build_books.py`.
-- **Export de la bibliothèque** : Fonctionnalité pour exporter la base IndexedDB dans un fichier de sauvegarde (`.json` compressé), permettant la continuité depuis plusieurs appareils.
-
-## 4. Outils de Déploiement
-- **Script interactif Node.js / Python** (côté développeur) pour pouvoir éditer la couleur des livres (`config.json`) via une pseudo-interface CLI Terminal locale plutot que d'éditer manuellement les fichiers `.json`.
+## 💡 Idées Futures
+- **Audio Sync** : Permettre de synchroniser la lecture audio avec le chapitre en cours.
+- **Signets & Notes** : Système d'annotations directement sur le texte.
+- **Recherche Plein Texte** : Recherche dans le contenu des chapitres indexés.
+- **Lecteur de EPUB** : Support natif du format standard `.epub` en plus du `.hml`.

@@ -38,7 +38,7 @@ blessed_soldiers_and_dead_heroes.jpg
 blessed_soldiers_and_dead_heroes.mp3
 blood_moon_ritual.jpg
 blood_moon_ritual.mp3
-blood_moon_ritual.png
+blood_moon_ritual.webp
 blues-inflected_jazz.jpg
 blues-inflected_jazz.mp3
 bluff_beat.jpg
@@ -239,7 +239,7 @@ haunted_cello_chamber.jpg
 haunted_cello_chamber.mp3
 haunted_manor.jpg
 haunted_manor.mp3
-haunted_manor.png
+haunted_manor.webp
 heureux_denouement.jpg
 heureux_denouement.mp3
 ignite_the_chaos.jpg

@@ -1,0 +1,198 @@
+/* ─── Reset ───────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-sans);
+    background-color: var(--app-bg);
+    color: var(--app-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+    overflow: hidden;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* ─── View Transition (fade-slide) ───────────────────────── */
+.view-enter {
+    animation: viewEnter 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    flex: 1;
+    min-height: 0;
+    height: 100%;
+}
+
+@keyframes viewEnter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ─── Initial Loader ──────────────────────────────────────── */
+.initial-loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 1.25rem;
+    background: var(--app-bg);
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--app-card-border);
+    border-top: 3px solid var(--app-primary);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ─── Buttons ───────────────────────────────────────────── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.55rem 1.1rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid var(--app-card-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast), color var(--transition-fast);
+    background: var(--app-surface);
+    color: var(--app-text);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    user-select: none;
+}
+
+.btn:hover {
+    background: var(--app-surface-hover);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn svg {
+    flex-shrink: 0;
+}
+
+.btn-primary {
+    background: var(--app-primary);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 4px 14px var(--app-primary-glow);
+}
+
+.btn-primary:hover {
+    background: var(--app-primary-hover);
+    box-shadow: 0 6px 20px var(--app-primary-glow);
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    color: var(--app-muted);
+}
+
+.btn-ghost:hover {
+    background: var(--app-surface-hover);
+    color: var(--app-text);
+    box-shadow: none;
+}
+
+.btn-icon {
+    padding: 0.55rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+/* ─── Selection ────────────────────────────────────────── */
+::selection {
+    background: color-mix(in srgb, var(--book-accent, var(--app-primary)) 25%, transparent);
+    color: var(--book-text, var(--app-text));
+}
+
+/* ─── Focus Visible ────────────────────────────────────── */
+:focus-visible {
+    outline: 2px solid var(--app-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ─── Scrollbar Styling ────────────────────────────────── */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--app-card-border);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--app-muted);
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

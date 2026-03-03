@@ -281,7 +281,545 @@ body {
 .library-container {
     flex: 1;
     overflow-y: auto;
-    padding: 2.5rem 2rem 4rem;
+    padding: 1.5rem 2rem 2rem;
+}
+
+/* ─── Music Player ────────────────────────────────────────── */
+/* Override .modal-content: la musicothèque doit être bien plus large */
+.music-modal {
+    width: clamp(560px, 90vw, 1100px) !important;
+    max-width: none !important;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border-radius: 18px;
+}
+
+.music-search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--app-card-border);
+    background: var(--app-surface-hover);
+}
+
+.music-search-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    color: var(--app-text);
+}
+
+.music-player-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+    height: calc(88vh - 120px);
+    /* account for header + search */
+}
+
+.music-list-side {
+    overflow-y: auto;
+    padding: 1.25rem;
+    scroll-behavior: smooth;
+}
+
+.music-list-side::-webkit-scrollbar {
+    width: 4px;
+}
+
+.music-list-side::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.music-list-side::-webkit-scrollbar-thumb {
+    background: var(--app-card-border);
+    border-radius: 999px;
+}
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 1rem;
+}
+
+.music-item {
+    border-radius: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+.music-item:hover {
+    background: var(--app-surface-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.music-item.active {
+    background: var(--app-primary-glow);
+    border-color: var(--app-primary);
+}
+
+.music-item-cover {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 0.6rem;
+    background: var(--app-surface-hover);
+}
+
+.music-item-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.music-item-info {
+    font-size: 0.85rem;
+}
+
+.music-item-title {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--app-text);
+}
+
+.music-item-genre {
+    font-size: 0.7rem;
+    color: var(--app-muted);
+}
+
+/* Playing Wave Animation */
+.playing-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wave-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 18px;
+}
+
+.wave-bar {
+    width: 3px;
+    height: 100%;
+    background: #fff;
+    border-radius: 2px;
+    animation: wave-anim 0.8s ease-in-out infinite;
+}
+
+.wave-bar:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.wave-bar:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+@keyframes wave-anim {
+
+    0%,
+    100% {
+        height: 6px;
+    }
+
+    50% {
+        height: 18px;
+    }
+}
+
+/* Controls Side */
+.music-controls-side {
+    background: linear-gradient(175deg, var(--app-card-bg) 0%, var(--app-surface-hover) 100%);
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-left: 1px solid var(--app-card-border);
+    overflow-y: auto;
+}
+
+.current-track-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+.current-track-cover-container {
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-width: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    background: var(--app-surface-hover);
+    flex-shrink: 0;
+}
+
+.current-track-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.current-track-details {
+    text-align: center;
+    flex: 1;
+}
+
+.current-track-details h4 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+    color: var(--app-text);
+}
+
+.current-track-details .artist {
+    color: var(--app-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+}
+
+.track-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.meta-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    background: var(--app-surface-hover);
+    border-radius: 6px;
+    color: var(--app-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--app-card-border);
+}
+
+.track-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.track-tags .tag {
+    font-size: 0.75rem;
+    color: var(--app-primary);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    width: 100%;
+}
+
+.control-btn {
+    background: transparent;
+    border: none;
+    color: var(--app-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.control-btn:hover {
+    color: var(--app-text);
+    transform: scale(1.15);
+}
+
+.control-btn.active {
+    color: var(--app-primary);
+}
+
+.play-btn {
+    width: 52px;
+    height: 52px;
+    background: var(--app-primary);
+    color: white !important;
+    border-radius: 50%;
+    box-shadow: 0 4px 18px var(--app-primary-glow);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.play-btn:hover {
+    background: var(--app-primary-hover);
+    transform: scale(1.08);
+    box-shadow: 0 8px 24px var(--app-primary-glow);
+}
+
+.music-empty {
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--app-muted);
+    font-style: italic;
+    grid-column: 1 / -1;
+}
+
+/* ─── Music Item Extra ─────────────────────────────────── */
+.music-item-duration {
+    font-size: 0.65rem;
+    color: var(--app-muted);
+    margin-top: 2px;
+}
+
+/* Paused state overlay */
+.paused-overlay {
+    color: white;
+    opacity: 0.85;
+}
+
+/* Cover play/pause overlay on hover */
+.current-track-cover-container {
+    position: relative;
+}
+
+.cover-overlay-controls {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.0);
+    transition: background 0.25s ease;
+    border-radius: inherit;
+}
+
+.current-track-cover-container:hover .cover-overlay-controls {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.cover-control-btn {
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.9);
+    color: #1a1a1a;
+    border: none;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.current-track-cover-container:hover .cover-control-btn {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.cover-control-btn:hover {
+    transform: scale(1.15) !important;
+    background: #fff;
+}
+
+/* Mood tag with accent color */
+.mood-tag {
+    background: var(--app-primary-glow);
+    color: var(--app-primary);
+    border-color: var(--app-primary);
+}
+
+/* Music icon pulse when active */
+.music-active {
+    color: var(--app-primary) !important;
+    position: relative;
+}
+
+.music-active::after {
+    content: '';
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--app-primary);
+    animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.6);
+        opacity: 0.6;
+    }
+}
+
+/* ─── Music Mini Bar (inline header controls) ──────────── */
+.music-mini-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.75rem 0.3rem 0.4rem;
+    background: var(--app-primary-glow);
+    border: 1px solid var(--app-primary);
+    border-radius: 24px;
+    max-width: 260px;
+    animation: miniBarIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+@keyframes miniBarIn {
+    from {
+        opacity: 0;
+        transform: scaleX(0.7) translateX(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleX(1) translateX(0);
+    }
+}
+
+.mini-cover {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1.5px solid var(--app-primary);
+    animation: spin-slow 8s linear infinite;
+}
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.mini-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--app-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+    flex: 1;
+}
+
+.mini-ctrl {
+    width: 28px !important;
+    height: 28px !important;
+    padding: 0.3rem !important;
+    color: var(--app-primary) !important;
+    flex-shrink: 0;
+}
+
+.mini-ctrl:hover {
+    background: var(--app-primary) !important;
+    color: white !important;
+}
+
+.active-loop {
+    color: var(--app-primary) !important;
+    background: var(--app-primary-glow) !important;
+}
+
+@media (max-width: 768px) {
+    .music-mini-bar {
+        max-width: 160px;
+    }
+
+    .mini-title {
+        max-width: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .music-player-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        height: 70vh;
+    }
+
+    .music-list-side {
+        border-right: none;
+    }
+
+    .music-controls-side {
+        padding: 1.25rem;
+        border-left: none;
+        border-top: 1px solid var(--app-card-border);
+    }
+
+    .current-track-card {
+        flex-direction: row;
+        text-align: left;
+        gap: 1.25rem;
+    }
+
+    .current-track-cover-container {
+        width: 100px;
+        height: 100px;
+    }
+
+    .current-track-details {
+        text-align: left;
+    }
+
+    .player-controls {
+        width: auto;
+        gap: 1rem;
+    }
+
+    .track-tags,
+    .track-meta {
+        display: none;
+    }
 }
 
 .library-grid {
@@ -1444,6 +1982,20 @@ body {
 .future-label {
     margin-top: 3rem;
     color: var(--app-muted);
+}
+
+.user-library-label {
+    margin-top: 3rem;
+    color: var(--app-text);
+}
+
+/* Short description under section labels */
+.library-section-desc {
+    font-size: 0.85rem;
+    color: var(--app-muted);
+    font-style: italic;
+    margin: -0.5rem 0 1.25rem;
+    line-height: 1.6;
 }
 
 .future-intro {

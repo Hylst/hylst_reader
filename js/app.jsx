@@ -485,16 +485,17 @@ function App() {
     }, [activeBook, settings.theme]);
 
     const handleImport = async () => {
-        // We create a hidden file input to support all browsers and single file selection
         const input = document.createElement('input');
         input.type = 'file';
-        input.accept = '.json,.txt,.md';
+        input.accept = '.json,.txt,.md,.epub';
 
         input.onchange = async (e) => {
             const file = e.target.files[0];
             if (!file) return;
 
+            const isEpub = file.name.endsWith('.epub');
             const reader = new FileReader();
+
             reader.onload = async (event) => {
                 const content = event.target.result;
                 let book = null;
@@ -505,6 +506,47 @@ function App() {
                         book.isImported = true;
                     } catch (err) {
                         alert("Erreur de lecture du JSON: " + err.message);
+                        return;
+                    }
+                } else if (isEpub) {
+                    try {
+                        // EPUB parsing using epub.js (CDN)
+                        const epub = ePub(content);
+                        const metadata = await epub.loaded.metadata;
+                        const spine = await epub.loaded.spine;
+
+                        const chapters = [];
+                        // spine.items is the array of sections
+                        for (const item of spine.items) {
+                            const section = epub.section(item.href);
+                            const doc = await section.load(epub.contents);
+                            // Simple extraction of innerHTML from the section body
+                            // We use a temporary container to clean up if needed
+                            chapters.push({
+                                id: item.idref,
+                                title: item.label || `Section ${chapters.length + 1}`,
+                                html: doc.innerHTML
+                            });
+                            section.unload();
+                        }
+
+                        book = {
+                            id: 'epub-' + Date.now(),
+                            title: metadata.title || file.name,
+                            author: metadata.creator || "Auteur inconnu",
+                            year: new Date().getFullYear(),
+                            isImported: true,
+                            design: { variables: { "--book-font-size": "1.05rem", "--book-line-height": "1.7" } },
+                            introHtml: `<h1>${metadata.title || file.name}</h1><p class="dropcap">EPUB importé : ${file.name}</p>`,
+                            chapters: chapters.length > 0 ? chapters : [{
+                                id: 'ch-error',
+                                title: 'Erreur',
+                                html: '<p>Impossible d\'extraire les chapitres de cet EPUB.</p>'
+                            }]
+                        };
+                    } catch (err) {
+                        alert("Erreur de lecture de l'EPUB: " + err.message);
+                        console.error(err);
                         return;
                     }
                 } else {
@@ -536,7 +578,12 @@ function App() {
                     alert(`"${book.title}" a été ajouté à votre bibliothèque !`);
                 }
             };
-            reader.readAsText(file);
+
+            if (isEpub) {
+                reader.readAsArrayBuffer(file);
+            } else {
+                reader.readAsText(file);
+            }
         };
         input.click();
     };

@@ -791,7 +791,7 @@ function AboutModal({ onClose }) {
                                 <div className="about-card">
                                     <Icon.Download />
                                     <h4>Importation Libre</h4>
-                                    <p>Importez vos propres textes au format HML. Vos livres et votre progression restent dans votre navigateur grâce à IndexedDB.</p>
+                                    <p>Importez vos textes (EPUB, TXT, JSON) ou dossiers complets (HML). Tout reste stocké physiquement dans votre navigateur.</p>
                                 </div>
                                 <div className="about-card">
                                     <Icon.Shield />

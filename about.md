@@ -8,7 +8,8 @@ L'application a été conçue pour offrir un cadre noble et apaisant aux œuvres
 - **Typographie Noble** : Design soigné utilisant des polices classiques (Cormorant Garamond, Libre Baskerville).
 - **Thèmes Adaptatifs** : Modes Sépia, Clair et Sombre personnalisables avec animations d'ambiance spécifiques.
 - **Accompagnement Musical** : Un lecteur audio premium intégré avec accès à plus de 280 compositions originales de Hylst.
-- **Souveraineté des Données** : Pas de cloud imposé. Vos livres et votre progression restent dans votre navigateur grâce à IndexedDB.
+- **Ouverture et Liberté** : Importez vos propres livres (EPUB, TXT, Markdown, JSON) pour en profiter dans cet écrin de lecture.
+- **Souveraineté des Données** : Pas de cloud imposé. Vos livres et votre progression restent stockés physiquement dans votre navigateur.
 - **Intelligence de Lecture** : Calcul dynamique du temps restant et indicateurs de progression contextuels.
 - **Immersion Visuelle** : Effets d'ambiance subtils et animations optimisées pour chaque thème.
 

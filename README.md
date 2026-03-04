@@ -6,7 +6,7 @@
 - **Expérience Premium** : Design typographique soigné (Cormorant Garamond, Libre Baskerville).
 - **Musique Intégrée** : Accès à la bibliothèque musicale de Geoffroy Streit directement dans l'app.
 - **Zéro Backend** : Tout tourne dans votre navigateur. Vos données (livres, progression) restent chez vous dans IndexedDB.
-- **Import Flexible** : Importez vos propres dossiers HML pour les lire avec le confort du Reader Hylst.
+- **Import Flexible** : Importez vos propres textes (EPUB, JSON, TXT, Markdown) ou dossiers HML complets, lus confortablement dans le Reader Hylst.
 - **Ambiance Visuelle** : Animations d'ambiance subtiles adaptées à chaque thème (Sépia, Clair, Sombre).
 - **Temps de Lecture Intelligent** : Calcul dynamique du temps restant et indicateur contextuel.
 - **Interface Adaptative** : Navigation fluide avec indicateurs de progression intégrés.

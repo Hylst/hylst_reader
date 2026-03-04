@@ -202,7 +202,7 @@ if os.path.exists(SOURCE_DIR):
             intro_html = f"""<div class="book-intro-generated">
   <h2>Préface</h2>
   <hr class="ornament">
-  <p class="dropcap">Cet ouvrage, intitulé <strong>{title}</strong>, a été intégré automatiquement dans Hylst Reader.</p>
+  <p class="dropcap">Cet ouvrage, intitulé <strong>{title}</strong>, a été traité pour l'intégration dans Hylst Reader à partir de fichiers textes.</p>
   <p class="chapter-paragraph">L'interface s'adapte dynamiquement aux couleurs et à la typographie choisies pour ce livre afin d'offrir une immersion optimale lors de votre lecture.</p>
   <p class="chapter-continuation">Bonne lecture — {author}</p>
 </div>"""

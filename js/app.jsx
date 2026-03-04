@@ -780,13 +780,13 @@ function AboutModal({ onClose }) {
                     {activeTab === 'about' && (
                         <div className="about-tab-content animate-fade-in">
                             <p className="about-hero-text">
-                                <strong>Hylst Books & Reader</strong> est plus qu'une simple liseuse ; c'est un petit havre numérique dédié à la lecture et à l'immersion sonore.
+                                <strong>Hylst Books & Reader</strong> est plus qu'une simple liseuse, c'est un petit havre numérique dédié à la lecture et à l'immersion sonore.
                             </p>
                             <div className="about-grid">
                                 <div className="about-card">
                                     <Icon.Book />
                                     <h4>Bibliothèque Hylst</h4>
-                                    <p>Explorez les créations de Geoffroy Streit : romans, nouvelles, poésie, guides, réflexions, JDR... un univers artistique complet à portée de clic.</p>
+                                    <p>Explorez les créations de Geoffroy Streit : romans, nouvelles, poésie, guides, réflexions, JDR... un petit monde artistique et littéraire,  imparfait mais inédit à portée de clic.</p>
                                 </div>
                                 <div className="about-card">
                                     <Icon.Download />
@@ -801,7 +801,7 @@ function AboutModal({ onClose }) {
                                 <div className="about-card">
                                     <Icon.Music />
                                     <h4>Immersion</h4>
-                                    <p>Un lecteur audio premium intégré pour plonger dans l'ambiance des œuvres de Hylst avec plus de 280 compositions.</p>
+                                    <p>Une musicothèque du même auteur et un lecteur audio intégré pour augmenter l'expérience de lecture des écrits de Hylst avec plus de 280 de ses compositions, assistées par IA pour la majorité, et d'autres plus anciennes.</p>
                                 </div>
                             </div>
                         </div>
@@ -809,20 +809,20 @@ function AboutModal({ onClose }) {
 
                     {activeTab === 'features' && (
                         <div className="about-tab-content animate-fade-in">
-                            <h4>L'expérience de lecture premium</h4>
+                            <h4>L'expérience de lecture agrémentée</h4>
                             <div className="features-list">
                                 <div className="feature-item">
                                     <div className="feature-icon"><Icon.Type /></div>
                                     <div className="feature-details">
                                         <strong>Typographie Noble</strong>
-                                        <p>Utilisation de polices classiques (Cormorant Garamond, Libre Baskerville) pour un confort visuel optimal.</p>
+                                        <p>Utilisation de polices classiques (Cormorant Garamond, Libre Baskerville) pour un meilleur confort de lecture.</p>
                                     </div>
                                 </div>
                                 <div className="feature-item">
                                     <div className="feature-icon"><Icon.Moon /></div>
                                     <div className="feature-details">
                                         <strong>Thèmes Adaptatifs</strong>
-                                        <p>Modes Sépia, Clair et Sombre avec personnalisation de la taille et de l'alignement.</p>
+                                        <p>Modes Sépia, Clair et Sombre avec animations et personnalisation de la taille et de l'alignement.</p>
                                     </div>
                                 </div>
                                 <div className="feature-item">
@@ -855,7 +855,7 @@ function AboutModal({ onClose }) {
                                 </div>
                                 <p className="creator-bio">
                                     Au cœur de ce projet se trouve une volonté d'offrir un cadre à la hauteur des récits.
-                                    Écrivain et compositeur, Geoffroy Streit (Hylst) a conçu cet outil pour que la musique
+                                    Écrivain occasionnel et créateur de musiques d'ambiances, Geoffroy Streit (Hylst) a conçu ce lecteur personnalisé pour que la musique
                                     et les mots s'entremêlent harmonieusement.
                                 </p>
                                 <div className="creator-links">
@@ -1264,7 +1264,7 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                 </div>
                 <div className="future-intro">
                     <div className="future-block">
-                        <p>De mes anciens blogs et sites webs, des tiroirs numériques encombrés qui n'ont reçu d'autres visites que les miennes, j'aurai matière à réunir bon nombre de mes écrits passés en ce lieu, parfois inachevés ou à revoir, rangés dans cette bibliothèque numérique que je travaille à concevoir pour y présenter, ouverts à la consultation libre, mes anciennes nouvelles, récits d'aventures HF et SF, livres dont vous êtes le héros, scénarios et campagnes de jeux de rôles, histoires fantasques, réflexions existentielles, recueils de proses et poésies, analyses pseudo-scientifiques ou plus sérieuses, recherche de sens et vérité, guides pédagogiques, frustrastions & passions, divagations & claivoyances, ... issus des méandres de mon esprit bancal et arborescent au fil des années.</p>
+                        <p>De mes anciens blogs et sites webs, des tiroirs numériques encombrés qui n'ont reçu d'autres visites que les miennes, j'aurai matière à réunir bon nombre de mes écrits passés en ce lieu, parfois inachevés ou à revoir, rangés dans cette bibliothèque numérique que je travaille à concevoir pour y présenter, ouverts à la consultation libre, mes anciennes nouvelles, récits d'aventures HF et SF, livres dont vous êtes le héros, scénarios et campagnes de jeux de rôles, histoires fantasques, réflexions existentielles, recueils de proses et poésies, analyses pseudo-scientifiques ou plus sérieuses, recherche de sens et vérité, guides pédagogiques, frustrastions & passions, divagations & claivoyances, ... issus des méandres de mon cerveau bancal et de mes idées vagabondes au fil des années.</p>
                     </div>
                     <div className="future-block">
                         <p>Avec le recul & l'expérience, j'aimerais reprendre bon nombre d'entre eux pour les améliorer, corriger ou compléter avant de les partager, mais en aurais-je la motivation continue ? En prendrai-je le temps ? Ne finirais-je pas encore une fois par les laisser choir au fond de mes disques dans l'obscurité, si imparfaits soient-ils ?</p>

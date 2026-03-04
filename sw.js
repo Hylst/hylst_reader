@@ -1,20 +1,28 @@
 // sw.js
 // Service Worker Minimal pour Hylst Reader
 
-const CACHE_NAME = 'hylst-reader-v12';
+const CACHE_NAME = 'hylst-reader-v13';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
-    './styles.css',
-    './js/db.js',
-    './js/importAPI.js',
-    './js/app.jsx',
+    './css/variables.css?v=1.1.10',
+    './css/base.css?v=1.1.10',
+    './css/layout.css?v=1.1.10',
+    './css/components.css?v=1.1.10',
+    './css/modals.css?v=1.1.10',
+    './css/music.css?v=1.1.10',
+    './css/reader.css?v=1.1.10',
+    './css/responsive.css?v=1.1.10',
+    './js/db.js?v=1.1.10',
+    './js/importAPI.js?v=1.1.10',
+    './js/app.jsx?v=1.1.10',
     // CDNs (Optional: caching external dependencies if offline happens immediately)
     'https://unpkg.com/react@18/umd/react.production.min.js',
     'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js',
     'https://unpkg.com/@babel/standalone/babel.min.js',
     'https://cdn.jsdelivr.net/npm/idb-keyval@6/dist/umd.js',
     'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/epub.js/0.3.88/epub.min.js',
     'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Georgia&display=swap'
 ];
 
@@ -58,7 +66,7 @@ self.addEventListener('fetch', (event) => {
             return fetch(event.request).then((response) => {
                 // Check if valid response
                 if (!response || response.status !== 200 || response.type !== 'basic') {
-                    if (event.request.url.includes('unpkg.com') || event.request.url.includes('cdn.jsdelivr.net')) {
+                    if (event.request.url.includes('unpkg.com') || event.request.url.includes('cdn.jsdelivr.net') || event.request.url.includes('cdnjs.cloudflare.com')) {
                         // Allow cors requests for CDN caching
                         const responseToCache = response.clone();
                         caches.open(CACHE_NAME).then((cache) => {

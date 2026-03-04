@@ -1,6 +1,6 @@
 # À Propos de Hylst Books & Reader
 
-**Hylst Books & Reader** est plus qu'une simple liseuse ; c'est un sanctuaire numérique dédié à la lecture et à l'immersion sonore. 
+**Hylst Books & Reader** est plus qu'une simple liseuse, c'est un sanctuaire numérique dédié à la lecture et à l'immersion sonore. 
 
 L'application a été conçue pour offrir un cadre noble et apaisant aux œuvres de Geoffroy Streit (Hylst), tout en permettant aux lecteurs d'importer leurs propres contenus dans un environnement respectueux de leur vie privée.
 

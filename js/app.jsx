@@ -517,17 +517,26 @@ function App() {
 
                         const chapters = [];
                         // spine.items is the array of sections
+                        const requestFn = epub.load.bind(epub);
                         for (const item of spine.items) {
-                            const section = epub.section(item.href);
-                            const doc = await section.load(epub.contents);
-                            // Simple extraction of innerHTML from the section body
-                            // We use a temporary container to clean up if needed
-                            chapters.push({
-                                id: item.idref,
-                                title: item.label || `Section ${chapters.length + 1}`,
-                                html: doc.innerHTML
-                            });
-                            section.unload();
+                            try {
+                                const section = epub.spine.get(item.idref);
+                                if (!section) continue;
+                                const doc = await section.load(requestFn);
+                                const body = doc.querySelector("body");
+                                let html = body ? body.innerHTML : "";
+                                // Clean up scripts to be safe
+                                html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+
+                                chapters.push({
+                                    id: item.idref,
+                                    title: section.label || item.idref,
+                                    html: html
+                                });
+                                section.unload();
+                            } catch (e) {
+                                console.warn(`Could not load section ${item.idref}`, e);
+                            }
                         }
 
                         book = {

@@ -30,9 +30,6 @@
     font-weight: 600;
     letter-spacing: -0.02em;
     background: linear-gradient(135deg, var(--app-primary), #c4853a);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
     user-select: none;
 }
 
@@ -49,6 +46,10 @@
 .wave-char {
     display: inline-block;
     white-space: pre;
+    background: inherit;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     animation: waveLetter 2.5s infinite ease-in-out;
     animation-delay: calc(var(--char-index) * 0.08s);
 }

@@ -406,6 +406,20 @@
     position: relative;
 }
 
+.about-modal-glass-header {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--app-primary) 12%, var(--app-surface)), color-mix(in srgb, var(--app-surface-hover) 80%, var(--app-surface)));
+    padding: 1.5rem 2rem 1.5rem 2rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--app-card-border) 40%, transparent);
+    z-index: 10;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.about-modal-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .about-header-title {
     display: flex;
     align-items: center;

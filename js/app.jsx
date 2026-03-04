@@ -752,15 +752,17 @@ function AboutModal({ onClose }) {
     return (
         <div className="modal-backdrop" onClick={e => e.target === e.currentTarget && onClose()}>
             <div className="modal-content about-modal-v2">
-                <div className="modal-header">
-                    <div className="about-header-title">
-                        <div className="about-logo">H</div>
-                        <div>
-                            <h3>Hylst Books &amp; Reader</h3>
-                            <span className="about-version">Version 1.1.10 &middot; 2026</span>
+                <div className="about-modal-glass-header">
+                    <div className="about-modal-topbar">
+                        <div className="about-header-title">
+                            <div className="about-logo">H</div>
+                            <div>
+                                <h3>Hylst Books &amp; Reader</h3>
+                                <span className="about-version">Version 1.1.10 &middot; 2026</span>
+                            </div>
                         </div>
+                        <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
                     </div>
-                    <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
                 </div>
 
                 <div className="about-tabs">

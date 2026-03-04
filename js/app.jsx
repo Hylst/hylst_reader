@@ -1158,6 +1158,25 @@ function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isLoop, on
     );
 }
 
+// ── Animated Title Component ───────────────────────────────────────────────────
+function AnimatedAppTitle({ className = "", style = {} }) {
+    const text = "Hylst Books & Reader";
+    return (
+        <span className={`app-title animated-title ${className}`.trim()} style={style} aria-label={text} title={text}>
+            {text.split('').map((char, index) => (
+                <span
+                    key={index}
+                    className="wave-char"
+                    style={{ '--char-index': index }}
+                    aria-hidden="true"
+                >
+                    {char}
+                </span>
+            ))}
+        </span>
+    );
+}
+
 // ── Library View ─────────────────────────────────────────────────────────────
 function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings, onUpdateSettings, lastSession, onResume, onShowAbout, onShowMusic, onShowSettings, currentTrack, isPlaying, isLoop, onTogglePlay, onToggleLoop, onStop }) {
     // Séparer les livres intégrés des imports utilisateur (isImported vient de importAPI.js)
@@ -1168,7 +1187,7 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
     return (
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: 0 }} className="view-enter">
             <header className="app-header">
-                <span className="app-title">Hylst Books &amp; Reader</span>
+                <AnimatedAppTitle />
                 <div className="header-actions">
                     <button className="btn btn-ghost btn-icon" title="À propos" onClick={onShowAbout}>
                         <Icon.Info />

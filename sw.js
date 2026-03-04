@@ -1,21 +1,21 @@
 // sw.js
 // Service Worker Minimal pour Hylst Reader
 
-const CACHE_NAME = 'hylst-reader-v16';
+const CACHE_NAME = 'hylst-reader-v17';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
-    './css/variables.css?v=1.1.15',
-    './css/base.css?v=1.1.15',
-    './css/layout.css?v=1.1.15',
-    './css/components.css?v=1.1.15',
-    './css/modals.css?v=1.1.15',
-    './css/music.css?v=1.1.15',
-    './css/reader.css?v=1.1.15',
-    './css/responsive.css?v=1.1.15',
-    './js/db.js?v=1.1.15',
-    './js/importAPI.js?v=1.1.15',
-    './js/app.jsx?v=1.1.15',
+    './css/variables.css?v=1.1.16',
+    './css/base.css?v=1.1.16',
+    './css/layout.css?v=1.1.16',
+    './css/components.css?v=1.1.16',
+    './css/modals.css?v=1.1.16',
+    './css/music.css?v=1.1.16',
+    './css/reader.css?v=1.1.16',
+    './css/responsive.css?v=1.1.16',
+    './js/db.js?v=1.1.16',
+    './js/importAPI.js?v=1.1.16',
+    './js/app.jsx?v=1.1.16',
     // CDNs (Optional: caching external dependencies if offline happens immediately)
     'https://unpkg.com/react@18/umd/react.production.min.js',
     'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js',

@@ -505,7 +505,7 @@
 .about-card:hover {
     border-color: var(--app-primary);
     transform: translateY(-6px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .about-card svg {
@@ -715,30 +715,96 @@
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 900px) {
-    .about-grid, .features-list, .tips-grid {
+
+    .about-grid,
+    .features-list,
+    .tips-grid {
         grid-template-columns: 1fr;
     }
+
     .about-tabs {
         padding: 0 1rem;
         gap: 0.25rem;
     }
+
     .about-tab-btn span {
         display: none;
     }
+
     .about-tab-btn {
         padding: 1rem;
     }
+
     .creator-header {
         flex-direction: column;
         text-align: center;
         gap: 1.5rem;
     }
+
     .creator-links {
         flex-direction: column;
+    }
+}
+
+/* ─── Import Zones ────────────────────────────────────────── */
+.import-zone-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0 3rem;
+}
+
+.import-zone {
+    padding: 2.5rem 1.5rem;
+    border-radius: 18px;
+    border: 2px dashed var(--app-card-border);
+    background: var(--app-card-bg);
+    color: var(--app-muted);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.import-zone:hover {
+    border-color: var(--app-primary);
+    background: var(--app-surface-hover);
+    color: var(--app-text);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.import-zone svg {
+    margin-bottom: 1rem;
+    width: 38px;
+    height: 38px;
+    opacity: 0.6;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.import-zone:hover svg {
+    opacity: 1;
+    transform: scale(1.1);
+    color: var(--app-primary);
+}
+
+@media (max-width: 640px) {
+    .import-zone-container {
+        grid-template-columns: 1fr;
     }
 }

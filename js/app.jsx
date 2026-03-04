@@ -192,6 +192,11 @@ const Icon = {
             <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" />
         </svg>
     ),
+    Plus: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+    ),
 };
 
 const FUTURE_BOOKS = [
@@ -222,9 +227,9 @@ const FUTURE_BOOKS = [
 
 
 const THEME_KEYS = ['sepia', 'light', 'dark'];
-const DEFAULT_BACKGROUND_ANIMATIONS = { sepia: true, light: true, dark: true };
+const DEFAULT_BACKGROUND_ANIMATIONS = { sepia: false, light: false, dark: false };
 const DEFAULT_SETTINGS = {
-    theme: 'sepia',
+    theme: 'dark',
     fontScale: 1.0,
     alignment: 'left',
     focusMode: false,
@@ -290,7 +295,22 @@ function App() {
     const [books, setBooks] = useState([]);
     const [currentView, setCurrentView] = useState('library');
     const [activeBookId, setActiveBookId] = useState(null);
-    const [settings, setSettingsState] = useState(DEFAULT_SETTINGS);
+    const [settings, setSettingsState] = useState(() => {
+        try {
+            const saved = localStorage.getItem('hylst_settings');
+            if (saved) {
+                return { ...DEFAULT_SETTINGS, ...JSON.parse(saved) };
+            }
+        } catch (e) {
+            console.error("Failed to parse settings from localStorage", e);
+        }
+        return DEFAULT_SETTINGS;
+    });
+
+    useEffect(() => {
+        localStorage.setItem('hylst_settings', JSON.stringify(settings));
+    }, [settings]);
+
     const [lastReadSession, setLastReadSession] = useState(null);
     const [showAbout, setShowAbout] = useState(false);
     const [showMusic, setShowMusic] = useState(false);
@@ -465,6 +485,99 @@ function App() {
     }, [activeBook, settings.theme]);
 
     const handleImport = async () => {
+        // We create a hidden file input to support all browsers and single file selection
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.json,.txt,.md';
+
+        input.onchange = async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = async (event) => {
+                const content = event.target.result;
+                let book = null;
+
+                if (file.name.endsWith('.json')) {
+                    try {
+                        book = JSON.parse(content);
+                        book.isImported = true;
+                    } catch (err) {
+                        alert("Erreur de lecture du JSON: " + err.message);
+                        return;
+                    }
+                } else {
+                    // TXT or MD parsing
+                    const title = file.name.replace(/\.[^/.]+$/, "").replace(/[_-]/g, " ");
+                    book = {
+                        id: 'import-' + Date.now(),
+                        title: title.charAt(0).toUpperCase() + title.slice(1),
+                        author: "Import Local",
+                        year: new Date().getFullYear(),
+                        isImported: true,
+                        design: { variables: { "--book-font-size": "1.05rem", "--book-line-height": "1.8" } },
+                        introHtml: `<h1>${title}</h1><p class="dropcap">Fichier importé : ${file.name}</p>`,
+                        chapters: [{
+                            id: 'ch-1',
+                            title: 'Texte complet',
+                            html: parseImportedText(content)
+                        }]
+                    };
+                }
+
+                if (book) {
+                    await saveBook(book);
+                    setBooks(prev => {
+                        const idx = prev.findIndex(b => b.id === book.id);
+                        if (idx >= 0) { const n = [...prev]; n[idx] = book; return n; }
+                        return [...prev, book];
+                    });
+                    alert(`"${book.title}" a été ajouté à votre bibliothèque !`);
+                }
+            };
+            reader.readAsText(file);
+        };
+        input.click();
+    };
+
+    // Helper to parse TXT/MD to HTML (JS version of the Python logic)
+    const parseImportedText = (text) => {
+        const lines = text.split(/\r?\n/);
+        let html = '';
+        let firstPara = true;
+
+        lines.forEach(line => {
+            const trimmed = line.trim();
+            if (!trimmed) {
+                html += '<br/>';
+                return;
+            }
+
+            let content = trimmed;
+            let className = 'chapter-paragraph';
+
+            if (firstPara && trimmed.length > 50) {
+                className = 'dropcap';
+                firstPara = false;
+            }
+
+            // Basic Markdown
+            content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            content = content.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+            if (trimmed.startsWith('# ')) {
+                html += `<h1 class="chapter-main-title">${content.replace('# ', '')}</h1>`;
+            } else if (trimmed.startsWith('## ')) {
+                html += `<h2 class="chapter-subtitle">${content.replace('## ', '')}</h2>`;
+            } else {
+                html += `<p class="${className}">${content}</p>`;
+            }
+        });
+        return html;
+    };
+
+    const handleImportDirectory = async () => {
         if (!window.showDirectoryPicker) {
             alert("L'API File System Access n'est pas supportée par ce navigateur.");
             return;
@@ -497,6 +610,7 @@ function App() {
                 <LibraryView
                     books={books}
                     onImport={handleImport}
+                    onImportDirectory={handleImportDirectory}
                     onOpenBook={openBook}
                     settings={settings}
                     onUpdateSettings={setSettings}
@@ -986,7 +1100,7 @@ function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isLoop, on
 }
 
 // ── Library View ─────────────────────────────────────────────────────────────
-function LibraryView({ books, onImport, onOpenBook, settings, onUpdateSettings, lastSession, onResume, onShowAbout, onShowMusic, onShowSettings, currentTrack, isPlaying, isLoop, onTogglePlay, onToggleLoop, onStop }) {
+function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings, onUpdateSettings, lastSession, onResume, onShowAbout, onShowMusic, onShowSettings, currentTrack, isPlaying, isLoop, onTogglePlay, onToggleLoop, onStop }) {
     // Séparer les livres intégrés des imports utilisateur (isImported vient de importAPI.js)
     const hylstBooks = books.filter(b => !b.isImported);
     const userBooks = books.filter(b => b.isImported);
@@ -1049,8 +1163,8 @@ function LibraryView({ books, onImport, onOpenBook, settings, onUpdateSettings, 
                     <button className={`btn btn-ghost btn-icon${currentTrack ? ' music-active' : ''}`} title="Bibliothèque musicale" onClick={onShowMusic}>
                         <Icon.Music />
                     </button>
-                    <button className="btn btn-primary" style={{ gap: '0.4rem', paddingLeft: '0.75rem', paddingRight: '0.9rem', fontSize: '0.82rem' }} onClick={onImport} title="Importer un dossier HML">
-                        <Icon.Upload /> Importer
+                    <button className="btn btn-primary" style={{ gap: '0.4rem', paddingLeft: '0.75rem', paddingRight: '0.9rem', fontSize: '0.82rem' }} onClick={onImport} title="Importer un fichier (TXT, JSON, MD)">
+                        <Icon.Plus /> Nouveau
                     </button>
                 </div>
             </header>
@@ -1109,18 +1223,30 @@ function LibraryView({ books, onImport, onOpenBook, settings, onUpdateSettings, 
                 {/* ── Section : Vos autres lectures ── */}
                 <div className="library-section-label user-library-label">
                     Vos autres lectures
-                    <button className="btn btn-primary" style={{ marginLeft: '1rem', fontSize: '0.8rem', padding: '0.35rem 0.9rem' }} onClick={onImport}>
-                        <Icon.Upload /> Importer un dossier
-                    </button>
+                    <div style={{ display: 'flex', gap: '0.5rem', marginLeft: 'auto' }}>
+                        <button className="btn" style={{ fontSize: '0.75rem', padding: '0.25rem 0.6rem' }} onClick={onImport} title="Importer .txt, .md ou .json">
+                            <Icon.Plus /> Fichier
+                        </button>
+                        <button className="btn" style={{ fontSize: '0.75rem', padding: '0.25rem 0.6rem' }} onClick={onImportDirectory} title="Importer un dossier HML complet">
+                            <Icon.Upload /> Dossier HML
+                        </button>
+                    </div>
                 </div>
                 <p className="library-section-desc">
                     Contenus que vous avez importés &mdash; stockés localement sur votre appareil.
                 </p>
                 {userBooks.length === 0 ? (
-                    <div className="import-zone" onClick={onImport}>
-                        <Icon.Upload />
-                        <p style={{ marginTop: '0.75rem', fontWeight: 500 }}>Cliquez pour importer un dossier</p>
-                        <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.7 }}>Format HML : un dossier contenant <code>config.json</code> + fichiers HTML des chapitres</p>
+                    <div className="import-zone-container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                        <div className="import-zone" onClick={onImport}>
+                            <Icon.Plus />
+                            <p style={{ marginTop: '0.75rem', fontWeight: 500 }}>Importer un fichier</p>
+                            <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.7 }}>JSON, TXT ou Markdown</p>
+                        </div>
+                        <div className="import-zone" onClick={onImportDirectory}>
+                            <Icon.Upload />
+                            <p style={{ marginTop: '0.75rem', fontWeight: 500 }}>Importer un dossier</p>
+                            <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.7 }}>Format HML (dossier complet)</p>
+                        </div>
                     </div>
                 ) : (
                     <div className="library-grid">

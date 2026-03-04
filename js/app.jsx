@@ -829,7 +829,7 @@ function AboutModal({ onClose }) {
                                     <div className="feature-icon"><Icon.Cpu /></div>
                                     <div className="feature-details">
                                         <strong>Offline First (PWA)</strong>
-                                        <p>Installez l'application et lisez vos livres même sans connexion internet grâce aux Service Workers.</p>
+                                        <p>Installez l'application et lisez vos livres ou ceux de Geoffroy même sans connexion internet grâce aux Service Workers.</p>
                                     </div>
                                 </div>
                                 <div className="feature-item">

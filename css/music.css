@@ -20,40 +20,85 @@
     overflow: hidden;
 }
 
-/* Track List Side */
-.music-list-side {
-    padding: 1.5rem;
-    overflow-y: auto;
-    background: var(--app-bg);
+/* Glass Header */
+.music-modal-glass-header {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--app-primary) 12%, var(--app-surface)), color-mix(in srgb, var(--app-surface-hover) 80%, var(--app-surface)));
+    padding: 1.5rem 2rem 1rem 2rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--app-card-border) 40%, transparent);
+    z-index: 10;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.music-modal-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.music-modal-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.music-modal-brand h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.music-track-count {
+    font-size: 0.85rem;
+    opacity: 0.6;
 }
 
 .music-search-bar {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    background: var(--app-bg);
-    padding-bottom: 1.25rem;
-    margin-bottom: 0.5rem;
     display: flex;
     align-items: center;
-    gap: 0.65rem;
-    border-bottom: 1px solid var(--app-card-border);
+    gap: 0.75rem;
+    background: color-mix(in srgb, var(--app-surface) 60%, transparent);
+    border: 1px solid var(--app-card-border);
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.music-search-bar:focus-within {
+    border-color: var(--app-primary);
+    box-shadow: 0 0 0 3px var(--app-primary-glow), inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    background: var(--app-surface);
 }
 
 .music-search-bar input {
     flex: 1;
-    padding: 0.75rem 1rem;
-    background: var(--app-surface);
-    border: 1px solid var(--app-card-border);
-    border-radius: 12px;
-    font-size: 0.95rem;
+    background: transparent;
+    border: none;
+    outline: none;
     color: var(--app-text);
+    font-size: 0.95rem;
+    padding: 0.25rem 0;
 }
 
-.music-search-bar input:focus {
-    outline: none;
-    border-color: var(--app-primary);
-    box-shadow: 0 0 0 3px var(--app-primary-glow);
+.clear-search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+    color: var(--app-text);
+    padding: 0;
+    display: flex;
+}
+
+.clear-search-btn:hover {
+    opacity: 1;
+}
+
+/* Track List Side */
+.music-list-side {
+    padding: 1.5rem;
+    overflow-y: auto;
+    background: transparent;
 }
 
 .music-grid {

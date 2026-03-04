@@ -1051,27 +1051,28 @@ function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isLoop, on
     return (
         <div className="modal-backdrop" onClick={e => e.target === e.currentTarget && onClose()}>
             <div className="modal-content music-modal" onClick={e => e.stopPropagation()}>
-                <header className="modal-header">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <Icon.Music />
-                        <h3>Bibliothèque Musicale</h3>
-                        <span style={{ fontSize: '0.8rem', opacity: 0.5 }}>{MUSIC_LIBRARY.length} titres</span>
+                <div className="music-modal-glass-header">
+                    <div className="music-modal-topbar">
+                        <div className="music-modal-brand">
+                            <Icon.Music />
+                            <h3>Bibliothèque Musicale</h3>
+                            <span className="music-track-count">{MUSIC_LIBRARY.length} titres</span>
+                        </div>
+                        <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
                     </div>
-                    <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
-                </header>
 
-                <div className="music-search-bar">
-                    <Icon.Search />
-                    <input
-                        type="text"
-                        placeholder="Rechercher une musique, un genre, un mood..."
-                        value={searchTerm}
-                        onChange={e => setSearchTerm(e.target.value)}
-                    />
-                    {searchTerm && (
-                        <button style={{ background: 'none', border: 'none', cursor: 'pointer', opacity: 0.5 }}
-                            onClick={() => setSearchTerm('')}><Icon.X /></button>
-                    )}
+                    <div className="music-search-bar">
+                        <Icon.Search />
+                        <input
+                            type="text"
+                            placeholder="Rechercher une musique, un genre, un mood..."
+                            value={searchTerm}
+                            onChange={e => setSearchTerm(e.target.value)}
+                        />
+                        {searchTerm && (
+                            <button className="clear-search-btn" onClick={() => setSearchTerm('')}><Icon.X /></button>
+                        )}
+                    </div>
                 </div>
 
                 <div className="music-player-layout">

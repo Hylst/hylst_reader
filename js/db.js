@@ -84,11 +84,18 @@ export async function removeSignet(bookId, signetId) {
 // --- Global Settings ---
 export async function getSettings() {
     return (await idb.get(STORE_KEYS.SETTINGS)) || {
-        theme: 'auto', // auto, light, dark, sepia
+        theme: 'sepia',
         fontScale: 1.0,
-        alignment: 'left', // left, justify
+        alignment: 'left',
         focusMode: false,
-        contentWidth: 'medium' // small | medium | large
+        contentWidth: 'medium',
+        showReadingTime: true,
+        showProgressPercent: true,
+        backgroundAnimations: {
+            sepia: true,
+            light: true,
+            dark: true
+        }
     };
 }
 

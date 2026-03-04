@@ -221,25 +221,62 @@ const FUTURE_BOOKS = [
 
 
 
-// ── Ambience Component ────────────────────────────────────────────────────────
-function Ambience({ theme }) {
-    if (theme === 'light') return null;
+const THEME_KEYS = ['sepia', 'light', 'dark'];
+const DEFAULT_BACKGROUND_ANIMATIONS = { sepia: true, light: true, dark: true };
+const DEFAULT_SETTINGS = {
+    theme: 'sepia',
+    fontScale: 1.0,
+    alignment: 'left',
+    focusMode: false,
+    contentWidth: 'medium',
+    showReadingTime: true,
+    showProgressPercent: true,
+    backgroundAnimations: DEFAULT_BACKGROUND_ANIMATIONS
+};
+
+const normalizeBackgroundAnimations = (value) => ({
+    ...DEFAULT_BACKGROUND_ANIMATIONS,
+    ...(value || {})
+});
+
+function Ambience({ theme, enabledByTheme, inReader = false }) {
+    const enabled = normalizeBackgroundAnimations(enabledByTheme)[theme];
+    const particles = useMemo(() => {
+        const count = theme === 'dark' ? 24 : theme === 'sepia' ? 18 : 16;
+        return Array.from({ length: count }, (_, i) => ({
+            id: i,
+            x: Math.random() * 100,
+            y: Math.random() * 100,
+            size: theme === 'dark' ? 2 + Math.random() * 3 : 2.5 + Math.random() * 4,
+            duration: 12 + Math.random() * 20,
+            delay: -Math.random() * 20,
+            drift: (Math.random() - 0.5) * 40,
+            opacity: theme === 'dark' ? 0.3 + Math.random() * 0.4 : theme === 'sepia' ? 0.2 + Math.random() * 0.3 : 0.2 + Math.random() * 0.4
+        }));
+    }, [theme]);
+
+    if (!enabled) return null;
 
     return (
-        <div className="ambience-overlay">
-            <div className="grain-effect" />
-            <div className="particles-container">
-                {[...Array(12)].map((_, i) => (
-                    <div
-                        key={i}
-                        className="dust-particle"
+        <div className={`ambience-overlay ambience-${theme}${inReader ? ' ambience-reader' : ' ambience-app'}`} aria-hidden="true">
+            <div className="ambience-grain" />
+            <div className="ambience-gradient" />
+            {theme === 'sepia' && <div className="ambience-sepia-wave" />}
+            {theme === 'dark' && <div className="ambience-dark-aura" />}
+            {theme === 'light' && <div className="ambience-light-haze" />}
+            <div className={`ambience-particles ${theme}-particles`}>
+                {particles.map(particle => (
+                    <span
+                        key={particle.id}
+                        className={`ambience-particle ${theme}-particle`}
                         style={{
-                            left: `${Math.random() * 100}%`,
-                            width: `${2 + Math.random() * 4}px`,
-                            height: `${2 + Math.random() * 4}px`,
-                            animationDuration: `${10 + Math.random() * 20}s`,
-                            animationDelay: `${-Math.random() * 20}s`,
-                            opacity: 0.1 + Math.random() * 0.4
+                            '--x': `${particle.x}%`,
+                            '--y': `${particle.y}%`,
+                            '--size': `${particle.size}px`,
+                            '--duration': `${particle.duration}s`,
+                            '--delay': `${particle.delay}s`,
+                            '--drift': `${particle.drift}px`,
+                            '--opacity': particle.opacity
                         }}
                     />
                 ))}
@@ -253,7 +290,7 @@ function App() {
     const [books, setBooks] = useState([]);
     const [currentView, setCurrentView] = useState('library');
     const [activeBookId, setActiveBookId] = useState(null);
-    const [settings, setSettingsState] = useState({ theme: 'sepia', fontScale: 1.0, alignment: 'left', focusMode: false });
+    const [settings, setSettingsState] = useState(DEFAULT_SETTINGS);
     const [lastReadSession, setLastReadSession] = useState(null);
     const [showAbout, setShowAbout] = useState(false);
     const [showMusic, setShowMusic] = useState(false);
@@ -338,7 +375,12 @@ function App() {
             if (loader) loader.style.display = 'none';
 
             const savedSettings = await getSettings();
-            const merged = { theme: 'sepia', fontScale: 1.0, alignment: 'left', focusMode: false, ...savedSettings };
+            const merged = {
+                ...DEFAULT_SETTINGS,
+                ...savedSettings,
+                theme: THEME_KEYS.includes(savedSettings?.theme) ? savedSettings.theme : 'sepia',
+                backgroundAnimations: normalizeBackgroundAnimations(savedSettings?.backgroundAnimations)
+            };
             setSettingsState(merged);
 
             let localBooks = [];
@@ -374,8 +416,14 @@ function App() {
     }, []);
 
     const setSettings = useCallback(async (newSettings) => {
-        setSettingsState(newSettings);
-        await saveSettings(newSettings);
+        const normalized = {
+            ...DEFAULT_SETTINGS,
+            ...newSettings,
+            theme: THEME_KEYS.includes(newSettings?.theme) ? newSettings.theme : 'sepia',
+            backgroundAnimations: normalizeBackgroundAnimations(newSettings?.backgroundAnimations)
+        };
+        setSettingsState(normalized);
+        await saveSettings(normalized);
     }, []);
 
     // Book CSS variable keys managed by the app
@@ -478,6 +526,7 @@ function App() {
                     onBack={() => goBack('bookHome')}
                     settings={settings}
                     onUpdateSettings={setSettings}
+                    backgroundAnimations={settings.backgroundAnimations}
                     currentTrack={currentTrack}
                     isPlaying={isPlaying}
                     isLoop={isLoop}
@@ -495,7 +544,7 @@ function App() {
 
     return (
         <div className={`app-root theme-${settings.theme}`}>
-            <Ambience theme={settings.theme} />
+            {currentView !== 'reader' && <Ambience theme={settings.theme} enabledByTheme={settings.backgroundAnimations} />}
             {renderView()}
             {showAbout && <AboutModal onClose={() => setShowAbout(false)} />}
             {showSettings && (
@@ -538,7 +587,7 @@ function AboutModal({ onClose }) {
                         <div className="about-logo">H</div>
                         <div>
                             <h3>Hylst Books &amp; Reader</h3>
-                            <span className="about-version">Version 1.1.8 &middot; 2026</span>
+                            <span className="about-version">Version 1.1.10 &middot; 2026</span>
                         </div>
                     </div>
                     <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
@@ -561,13 +610,13 @@ function AboutModal({ onClose }) {
                     {activeTab === 'about' && (
                         <div className="about-tab-content animate-fade-in">
                             <p className="about-hero-text">
-                                <strong>Hylst Books & Reader</strong> est plus qu'une simple liseuse ; c'est un sanctuaire numérique dédié à la lecture et à l'immersion sonore.
+                                <strong>Hylst Books & Reader</strong> est plus qu'une simple liseuse ; c'est un petit havre numérique dédié à la lecture et à l'immersion sonore.
                             </p>
                             <div className="about-grid">
                                 <div className="about-card">
                                     <Icon.Book />
                                     <h4>Bibliothèque Hylst</h4>
-                                    <p>Explorez les œuvres de Geoffroy Streit : romans, nouvelles, poésie, JDR... un univers artistique complet à portée de clic.</p>
+                                    <p>Explorez les créations de Geoffroy Streit : romans, nouvelles, poésie, guides, réflexions, JDR... un univers artistique complet à portée de clic.</p>
                                 </div>
                                 <div className="about-card">
                                     <Icon.Download />
@@ -635,8 +684,8 @@ function AboutModal({ onClose }) {
                                     </div>
                                 </div>
                                 <p className="creator-bio">
-                                    Au cœur de ce projet se trouve une volonté d'offrir un cadre à la hauteur des récits. 
-                                    Écrivain et compositeur, Geoffroy Streit (Hylst) a conçu cet outil pour que la musique 
+                                    Au cœur de ce projet se trouve une volonté d'offrir un cadre à la hauteur des récits.
+                                    Écrivain et compositeur, Geoffroy Streit (Hylst) a conçu cet outil pour que la musique
                                     et les mots s'entremêlent harmonieusement.
                                 </p>
                                 <div className="creator-links">
@@ -673,8 +722,8 @@ function AboutModal({ onClose }) {
                                 </div>
                                 <div className="tip-box full-width">
                                     <h5><Icon.Settings /> Astuce d'importation</h5>
-                                    <p>Pour vos propres livres, assurez-vous que votre dossier contient un <code>config.json</code> valide. 
-                                    L'application créera automatiquement une expérience de lecture sur mesure basée sur vos réglages.</p>
+                                    <p>Pour vos propres livres, assurez-vous que votre dossier contient un <code>config.json</code> valide.
+                                        L'application créera automatiquement une expérience de lecture sur mesure basée sur vos réglages.</p>
                                 </div>
                             </div>
                         </div>
@@ -707,12 +756,39 @@ function GlobalSettingsModal({ settings, onUpdateSettings, onClose }) {
                     <div className="setting-group">
                         <label>Thème</label>
                         <div className="setting-options">
-                            {['sepia', 'light', 'dark'].map(t => (
+                            {THEME_KEYS.map(t => (
                                 <button key={t} className={`btn${settings.theme === t ? ' btn-primary' : ''}`}
                                     onClick={() => onUpdateSettings({ ...settings, theme: t })}>
-                                    {t === 'sepia' ? '📖 Sépia' : t === 'light' ? '☀️ Clair' : '🌙 Sombre'}
+                                    {t === 'sepia' ? <Icon.Book /> : t === 'light' ? <Icon.Sun /> : <Icon.Moon />}
+                                    {t === 'sepia' ? 'Sépia' : t === 'light' ? 'Clair' : 'Sombre'}
                                 </button>
                             ))}
+                        </div>
+                    </div>
+                    <div className="setting-group">
+                        <label>Animations de fond par thème</label>
+                        <div className="theme-animation-grid">
+                            {THEME_KEYS.map(t => {
+                                const label = t === 'sepia' ? 'Sépia' : t === 'light' ? 'Clair' : 'Sombre';
+                                const active = !!normalizeBackgroundAnimations(settings.backgroundAnimations)[t];
+                                return (
+                                    <div className="theme-animation-item" key={`global-anim-${t}`}>
+                                        <span className="theme-animation-label">{label}</span>
+                                        <button
+                                            className={`btn${active ? ' btn-primary' : ''}`}
+                                            onClick={() => onUpdateSettings({
+                                                ...settings,
+                                                backgroundAnimations: {
+                                                    ...normalizeBackgroundAnimations(settings.backgroundAnimations),
+                                                    [t]: !active
+                                                }
+                                            })}
+                                        >
+                                            {active ? 'Animé' : 'Statique'}
+                                        </button>
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                     <div className="setting-group">
@@ -751,6 +827,19 @@ function GlobalSettingsModal({ settings, onUpdateSettings, onClose }) {
                             <button className={`btn${settings.focusMode ? ' btn-primary' : ''}`}
                                 onClick={() => onUpdateSettings({ ...settings, focusMode: !settings.focusMode })}>
                                 <Icon.Eye /> {settings.focusMode ? 'Actif' : 'Inactif'}
+                            </button>
+                        </div>
+                    </div>
+                    <div className="setting-group">
+                        <label>Indicateurs</label>
+                        <div className="setting-options">
+                            <button className={`btn${settings.showReadingTime ? ' btn-primary' : ''}`}
+                                onClick={() => onUpdateSettings({ ...settings, showReadingTime: !settings.showReadingTime })}>
+                                Temps
+                            </button>
+                            <button className={`btn${settings.showProgressPercent ? ' btn-primary' : ''}`}
+                                onClick={() => onUpdateSettings({ ...settings, showProgressPercent: !settings.showProgressPercent })}>
+                                % Slider
                             </button>
                         </div>
                     </div>
@@ -968,11 +1057,17 @@ function LibraryView({ books, onImport, onOpenBook, settings, onUpdateSettings, 
             <main className="library-container">
                 {lastSession && (
                     <div className="resume-banner">
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <div className="resume-banner-icon">
                             <Icon.Book />
-                            <span>Continuer : <strong>{lastSession.bookTitle}</strong> &mdash; Chap. {lastSession.chapterIndex + 1}</span>
                         </div>
-                        <button className="resume-btn" onClick={() => onResume(lastSession)}>Reprendre</button>
+                        <div className="resume-banner-content">
+                            <span className="resume-banner-label">Continuer la lecture</span>
+                            <strong className="resume-banner-title">{lastSession.bookTitle}</strong>
+                            <span className="resume-banner-meta">Chapitre {lastSession.chapterIndex + 1}</span>
+                        </div>
+                        <button className="resume-btn" onClick={() => onResume(lastSession)}>
+                            Reprendre <Icon.ArrowRight />
+                        </button>
                     </div>
                 )}
 
@@ -1166,7 +1261,7 @@ function BookHomeView({ book, onBack, onStartReading }) {
 }
 
 // ── Reader View ────────────────────────────────────────────────────────────────
-function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, isPlaying, isLoop, onTogglePlay, onToggleLoop, onShowMusic, onStop, onToggleFullscreen, isFullscreen }) {
+function ReaderView({ book, onBack, settings, onUpdateSettings, backgroundAnimations, currentTrack, isPlaying, isLoop, onTogglePlay, onToggleLoop, onShowMusic, onStop, onToggleFullscreen, isFullscreen }) {
     const [currentChapterIdx, setCurrentChapterIdx] = useState(0);
     const [chapterHtml, setChapterHtml] = useState('');
     const [showUI, setShowUI] = useState(true);
@@ -1289,7 +1384,7 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
         const text = chapterHtml.replace(/<[^>]+>/g, ' ');
         const words = text.split(/\s+/).filter(w => w.length > 0).length;
         const mins = Math.ceil(words / 220);
-        
+
         const remWords = Math.ceil(words * (1 - scrollProgress));
         const remMins = Math.ceil(remWords / 220);
 
@@ -1359,6 +1454,7 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
 
     return (
         <div className="reader-wrapper view-enter">
+            <Ambience theme={settings.theme} enabledByTheme={settings.backgroundAnimations} inReader />
             {/* Progress bar */}
             <div className="reader-progress-bar" style={{ width: `${scrollProgress * 100}%` }} />
 
@@ -1405,12 +1501,39 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                             <div className="setting-group">
                                 <label>Thème</label>
                                 <div className="setting-options">
-                                    {['sepia', 'light', 'dark'].map(t => (
+                                    {THEME_KEYS.map(t => (
                                         <button key={t} className={`btn${settings.theme === t ? ' btn-primary' : ''}`}
                                             onClick={() => onUpdateSettings({ ...settings, theme: t })}>
+                                            {t === 'sepia' ? <Icon.Book /> : t === 'light' ? <Icon.Sun /> : <Icon.Moon />}
                                             {t === 'sepia' ? 'Sépia' : t === 'light' ? 'Clair' : 'Sombre'}
                                         </button>
                                     ))}
+                                </div>
+                            </div>
+                            <div className="setting-group">
+                                <label>Animations de fond par thème</label>
+                                <div className="theme-animation-grid">
+                                    {THEME_KEYS.map(t => {
+                                        const label = t === 'sepia' ? 'Sépia' : t === 'light' ? 'Clair' : 'Sombre';
+                                        const active = !!normalizeBackgroundAnimations(settings.backgroundAnimations)[t];
+                                        return (
+                                            <div className="theme-animation-item" key={`reader-anim-${t}`}>
+                                                <span className="theme-animation-label">{label}</span>
+                                                <button
+                                                    className={`btn${active ? ' btn-primary' : ''}`}
+                                                    onClick={() => onUpdateSettings({
+                                                        ...settings,
+                                                        backgroundAnimations: {
+                                                            ...normalizeBackgroundAnimations(settings.backgroundAnimations),
+                                                            [t]: !active
+                                                        }
+                                                    })}
+                                                >
+                                                    {active ? 'Animé' : 'Statique'}
+                                                </button>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
                             <div className="setting-group">
@@ -1441,6 +1564,19 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                                     </button>
                                 </div>
                             </div>
+                            <div className="setting-group">
+                                <label>Indicateurs</label>
+                                <div className="setting-options">
+                                    <button className={`btn${settings.showReadingTime ? ' btn-primary' : ''}`}
+                                        onClick={() => onUpdateSettings({ ...settings, showReadingTime: !settings.showReadingTime })}>
+                                        Temps
+                                    </button>
+                                    <button className={`btn${settings.showProgressPercent ? ' btn-primary' : ''}`}
+                                        onClick={() => onUpdateSettings({ ...settings, showProgressPercent: !settings.showProgressPercent })}>
+                                        % Slider
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1448,9 +1584,21 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
 
             {/* Scroll Slider */}
             <div className="reader-slider" onClick={handleSliderClick}>
-                <div className="reader-slider-handle" style={{ top: `${scrollProgress * 100}%`, height: '20px' }} />
-                <div className="reader-slider-progress" style={{ top: `${scrollProgress * 100}%` }}>{Math.round(scrollProgress * 100)}%</div>
+                <div className="reader-slider-handle" style={{ top: `${scrollProgress * 100}%`, height: '20px' }}>
+                    {settings.showProgressPercent && (
+                        <div className="reader-slider-tooltip">{Math.round(scrollProgress * 100)}%</div>
+                    )}
+                </div>
             </div>
+
+            {/* Bottom Status Bar - Reading Time (Removed, moved to nav) */}
+            {/* 
+            {settings.showReadingTime && (remainingTime || readingTime) && (
+                <div className={`reader-status-bar${showUI ? ' visible' : ''}`}>
+                    {remainingTime || readingTime}
+                </div>
+            )}
+            */}
 
             {/* Main reader area */}
             <div
@@ -1498,14 +1646,6 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
 
                 {/* Content */}
                 <article className="reader-content">
-                    <div className="reading-time-info">
-                        {readingTime && (
-                            <span className="reading-time-badge"><Icon.Clock /> {readingTime}</span>
-                        )}
-                        {remainingTime && (
-                            <span className="remaining-time-badge">{remainingTime}</span>
-                        )}
-                    </div>
                     {chapterHtml
                         ? <div className="reader-article" dangerouslySetInnerHTML={{ __html: chapterHtml }} />
                         : <div style={{ textAlign: 'center', padding: '4rem 0', opacity: 0.4 }}>
@@ -1522,8 +1662,13 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                             <Icon.ArrowLeft /> <span>Précédent</span>
                         </button>
                     </div>
-                    
+
                     <div className="chapter-nav-center">
+                        {settings.showReadingTime && (remainingTime || readingTime) && (
+                            <span className="reading-time-inline" style={{ fontSize: '0.8rem', opacity: 0.8, marginRight: '1rem', fontStyle: 'italic' }}>
+                                {remainingTime || readingTime}
+                            </span>
+                        )}
                         <span className="chapter-counter">{currentChapterIdx + 1} / {book.chapters.length}</span>
                     </div>
 
@@ -1532,7 +1677,7 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                             disabled={currentChapterIdx === book.chapters.length - 1}>
                             <span>Suivant</span> <Icon.ArrowRight />
                         </button>
-                        
+
                         <div className="jump-controls-inline">
                             <button className="jump-btn-small" onClick={e => { e.stopPropagation(); scrollTo('top'); }} title="Haut"><Icon.ChevronUp /></button>
                             <button className="jump-btn-small" onClick={e => { e.stopPropagation(); scrollTo('bottom'); }} title="Bas"><Icon.ChevronDown /></button>

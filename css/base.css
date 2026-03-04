@@ -62,71 +62,249 @@ body {
 /* ─── Visual Ambience ────────────────────────────────────── */
 .ambience-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 6;
     opacity: 0;
-    transition: opacity 1s ease;
-}
-
-.theme-sepia .ambience-overlay,
-.theme-dark .ambience-overlay {
-    opacity: 0.4;
-}
-
-/* Paper Grain Effect */
-.grain-effect {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.04;
-    animation: grain 8s steps(10) infinite;
-}
-
-@keyframes grain {
-    0%, 100% { transform:translate(0, 0) }
-    10% { transform:translate(-5%, -10%) }
-    20% { transform:translate(-15%, 5%) }
-    30% { transform:translate(7%, -25%) }
-    40% { transform:translate(-5%, 25%) }
-    50% { transform:translate(-15%, 10%) }
-    60% { transform:translate(15%, 0%) }
-    70% { transform:translate(0%, 15%) }
-    80% { transform:translate(3%, 35%) }
-    90% { transform:translate(-10%, 10%) }
-}
-
-/* Dust Particles */
-.particles-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    transition: opacity 0.5s ease;
     overflow: hidden;
 }
 
-.dust-particle {
+/* Force higher opacity for visibility */
+.ambience-overlay.ambience-sepia {
+    opacity: 1;
+}
+
+.ambience-overlay.ambience-light {
+    opacity: 0.85;
+}
+
+.ambience-overlay.ambience-dark {
+    opacity: 0.9;
+}
+
+/* Specific visibility for Reader View */
+.ambience-reader {
     position: absolute;
-    background: rgba(255, 255, 255, 0.15);
+    inset: 0;
+    z-index: 1;
+    /* Ensure it is behind content (z=5) but above bg (z=0) */
+    pointer-events: none;
+    display: block !important;
+    visibility: visible !important;
+    /* Extra opacity boost for reader view specifically */
+    filter: contrast(1.1) brightness(1.05);
+}
+
+.ambience-reader.ambience-sepia {
+    opacity: 0.95;
+}
+
+.ambience-reader.ambience-light {
+    opacity: 0.85;
+}
+
+.ambience-reader.ambience-dark {
+    opacity: 0.85;
+}
+
+.ambience-grain {
+    position: absolute;
+    inset: -150%;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAEVBMVEUAAAACAgICAgICAgICAgICAgI7nNYZAAAABnRSTlMAAAAAAADKED9JAAABLUlEQVQ4y2NgQAUGBgUGP3//wA1EBb///H8fN6DBwO//z8A80EAGQ0OD/xAGBgeD///N4A4ygA1g+P/fD24jQ4OB/3//wU0kGgA08P/3PyAHDgYGCA2M////Z8CA1P////8HNyP///+//+A2MjAAO+f///9wE4kGYAfi/8HNxMjA4A8X4MRA8B9sAhMHg///1eBmojTq/w/yUANEA0gDUQ2QBgIBoIFYANJAtIEMIHh//9sPbiI2N8IEIEBMAO//w0wUB0R6ADGQBgIAoAaIBiAEEANpIAAAaiAigBgIJQANEDaQByAGEgKgAcIGcQJiIJAAboBIAyEBYiAMQAiEA7gBIgPEQAiAEEgIQAKiDQQHiIHQACFA2EAOQAxEGkAa4DQgB0AMRBxAGkAciA2IG+Am4gcAAI6x2Q2ludD+AAAAAElFTkSuQmCC");
+    background-repeat: repeat;
+    background-size: 152px;
+    opacity: 0.12;
+    mix-blend-mode: overlay;
+    animation: ambience-grain 26s steps(10) infinite;
+}
+
+.ambience-gradient {
+    position: absolute;
+    inset: 0;
+    animation: ambience-pan 24s ease-in-out infinite alternate;
+}
+
+.ambience-sepia .ambience-gradient {
+    background:
+        radial-gradient(120vw 120vh at 14% -18%, color-mix(in srgb, var(--book-accent) 26%, transparent), transparent 70%),
+        radial-gradient(100vw 100vh at 86% 112%, color-mix(in srgb, var(--book-accent-dark) 22%, transparent), transparent 72%);
+}
+
+.ambience-light .ambience-gradient {
+    background:
+        radial-gradient(110vw 110vh at 0% 0%, rgba(255, 255, 255, 0.75), transparent 66%),
+        radial-gradient(100vw 100vh at 100% 100%, color-mix(in srgb, var(--app-primary) 22%, transparent), transparent 74%);
+}
+
+.ambience-dark .ambience-gradient {
+    background:
+        radial-gradient(130vw 130vh at 50% -10%, rgba(212, 149, 90, 0.16), transparent 70%),
+        radial-gradient(100vw 100vh at 82% 108%, rgba(73, 48, 27, 0.22), transparent 72%);
+}
+
+.ambience-sepia-wave,
+.ambience-dark-aura,
+.ambience-light-haze {
+    position: absolute;
+    inset: -24% -10%;
+    pointer-events: none;
+}
+
+.ambience-sepia-wave {
+    background:
+        radial-gradient(780px 320px at 24% 24%, rgba(196, 140, 74, 0.28), transparent 62%),
+        radial-gradient(700px 300px at 80% 70%, rgba(160, 110, 62, 0.22), transparent 64%);
+    mix-blend-mode: multiply;
+    animation: sepia-wave 24s ease-in-out infinite alternate;
+}
+
+.ambience-dark-aura {
+    background: radial-gradient(circle at 18% 16%, rgba(255, 173, 96, 0.16) 0%, transparent 42%),
+        radial-gradient(circle at 82% 86%, rgba(255, 220, 170, 0.12) 0%, transparent 44%);
+    mix-blend-mode: screen;
+    animation: dark-aura 20s ease-in-out infinite alternate;
+}
+
+.ambience-light-haze {
+    background: radial-gradient(circle at 20% 22%, rgba(255, 255, 255, 0.72) 0%, transparent 42%),
+        radial-gradient(circle at 82% 14%, rgba(249, 232, 210, 0.45) 0%, transparent 42%);
+    mix-blend-mode: screen;
+    animation: light-haze 18s ease-in-out infinite alternate;
+}
+
+.ambience-particles {
+    position: absolute;
+    inset: 0;
+}
+
+.ambience-particle {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
     border-radius: 50%;
-    filter: blur(1px);
-    animation: float-dust linear infinite;
+    opacity: var(--opacity);
+    transform: translate3d(0, 0, 0);
+    animation: ambience-float var(--duration) linear infinite;
+    animation-delay: var(--delay);
 }
 
-.theme-sepia .dust-particle {
-    background: rgba(139, 69, 19, 0.1);
+.sepia-particle {
+    background: color-mix(in srgb, var(--book-accent) 22%, rgba(255, 236, 199, 0.65));
+    filter: blur(0.4px);
+    box-shadow: 0 0 8px rgba(255, 200, 100, 0.25);
 }
 
-@keyframes float-dust {
-    0% { transform: translateY(100vh) translateX(0) scale(1); opacity: 0; }
-    10% { opacity: 0.8; }
-    90% { opacity: 0.8; }
-    100% { transform: translateY(-10vh) translateX(20px) scale(0.5); opacity: 0; }
+.light-particle {
+    background: color-mix(in srgb, var(--app-primary) 16%, rgba(255, 255, 255, 0.95));
+    filter: blur(0.25px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.dark-particle {
+    background: rgba(255, 226, 176, 0.55);
+    box-shadow: 0 0 6px rgba(255, 200, 130, 0.35);
+    animation-name: ambience-float, dark-twinkle;
+    animation-duration: var(--duration), calc(var(--duration) * 0.45);
+    animation-iteration-count: infinite, infinite;
+    animation-timing-function: linear, ease-in-out;
+    animation-delay: var(--delay), calc(var(--delay) * -0.35);
+}
+
+@keyframes ambience-grain {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: translate3d(-5%, 6%, 0);
+    }
+
+    50% {
+        transform: translate3d(4%, -5%, 0);
+    }
+
+    75% {
+        transform: translate3d(3%, 2%, 0);
+    }
+}
+
+@keyframes ambience-pan {
+    0% {
+        transform: scale(1) translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: scale(1.015) translate3d(-1%, 1%, 0);
+    }
+}
+
+@keyframes sepia-wave {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate3d(-1.8%, 1.2%, 0) scale(1.03);
+    }
+}
+
+@keyframes dark-aura {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate3d(1.2%, -1.2%, 0) scale(1.02);
+    }
+}
+
+@keyframes light-haze {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate3d(-1.3%, 1.1%, 0) scale(1.02);
+    }
+}
+
+@keyframes ambience-float {
+    0% {
+        transform: translate3d(0, 12px, 0) scale(0.82);
+        opacity: 0;
+    }
+
+    16% {
+        opacity: var(--opacity);
+    }
+
+    84% {
+        opacity: var(--opacity);
+    }
+
+    100% {
+        transform: translate3d(var(--drift), -36px, 0) scale(1.02);
+        opacity: 0;
+    }
+}
+
+@keyframes dark-twinkle {
+
+    0%,
+    100% {
+        background-color: rgba(255, 226, 176, 0.15);
+        box-shadow: 0 0 2px rgba(255, 200, 130, 0.1);
+    }
+
+    50% {
+        background-color: rgba(255, 226, 176, 0.45);
+        box-shadow: 0 0 5px rgba(255, 200, 130, 0.3);
+    }
 }
 
 /* ─── Initial Loader ──────────────────────────────────────── */

@@ -7,6 +7,9 @@
 - **Musique Intégrée** : Accès à la bibliothèque musicale de Geoffroy Streit directement dans l'app.
 - **Zéro Backend** : Tout tourne dans votre navigateur. Vos données (livres, progression) restent chez vous dans IndexedDB.
 - **Import Flexible** : Importez vos propres dossiers HML pour les lire avec le confort du Reader Hylst.
+- **Ambiance Visuelle** : Animations d'ambiance subtiles adaptées à chaque thème (Sépia, Clair, Sombre).
+- **Temps de Lecture Intelligent** : Calcul dynamique du temps restant et indicateur contextuel.
+- **Interface Adaptative** : Navigation fluide avec indicateurs de progression intégrés.
 
 ## 🚀 Architecture & Technos
 - **Framework** : React 18 (CDN)
@@ -23,8 +26,8 @@
 ## 🔮 Suggestions & Évolutions
 - **Export ZIP** : Permettre d'exporter ses propres livres importés pour les partager.
 - **Mode Plein Écran** : Un bouton dédié pour une immersion totale.
-- **Ambiance Dynamique** : Fond d'écran animé discret (ex: poussière flottante ou dégradés lents) évoluant selon le thème choisi.
-- **Temps Restant** : Calcul dynamique du temps de lecture restant pour le chapitre en cours basé sur la vitesse de scroll.
+- **Intensité Ambiance** : Contrôle fin de l'intensité des effets visuels (faible/moyen/élevé).
+- **Preset Lecture Longue** : Réduction automatique des animations pour les sessions prolongées.
 
 ## 🛠️ Utilisation locale
 1. Clonez le dépôt.

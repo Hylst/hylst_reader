@@ -41,6 +41,31 @@
     --book-dropcap-size: 4.5em;
     --book-h1-size: 2.72rem;
     --book-h2-size: 2.08rem;
+    --book-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+/* ─── Sepia Theme (Explicite) ─────────────────────────────── */
+[data-theme='sepia'] {
+    --app-bg: #f4f1eb;
+    --app-text: #1c1917;
+    --app-muted: #78716c;
+    --app-card-bg: #ffffff;
+    --app-card-border: rgba(0, 0, 0, 0.07);
+    --app-surface: #ffffff;
+    --app-surface-hover: #f7f3ee;
+    --app-primary: #8b5a2b;
+    --app-primary-hover: #6d4521;
+    --app-primary-glow: rgba(139, 90, 43, 0.25);
+
+    --book-bg: #faf4e8;
+    --book-text: #2e2b28;
+    --book-accent: #c47c3a;
+    --book-accent-dark: #8b5a2b;
+    --book-surface: #f0e6cc;
+    --book-border: rgba(139, 90, 43, 0.15);
+    --book-h1-size: 2.72rem;
+    --book-h2-size: 2.08rem;
+    --book-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
 /* ─── Dark Theme ──────────────────────────────────────────── */
@@ -64,6 +89,7 @@
     --book-border: rgba(212, 149, 90, 0.15);
     --book-h1-size: 2.46rem;
     --book-h2-size: 1.9rem;
+    --book-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
 }
 
 /* ─── Light Theme ─────────────────────────────────────────── */
@@ -87,4 +113,5 @@
     --book-border: rgba(120, 60, 20, 0.12);
     --book-h1-size: 2.58rem;
     --book-h2-size: 1.96rem;
+    --book-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
 }

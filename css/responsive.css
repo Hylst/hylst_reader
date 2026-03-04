@@ -20,6 +20,16 @@
         padding: 1.5rem 1rem 3rem;
     }
 
+    .resume-banner {
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .resume-btn {
+        grid-column: 1 / -1;
+        width: 100%;
+        justify-content: center;
+    }
+
     .library-grid {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         gap: 1.25rem;

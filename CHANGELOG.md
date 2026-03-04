@@ -1,6 +1,55 @@
 # Changelog
 Toutes les modifications notables apportées au projet **Hylst Books & Reader** sont documentées dans ce fichier.
 
+## [1.1.12] - 2026-03-03
+### Corrigé
+- **Animations d'ambiance** : Correction définitive de la visibilité des effets en forçant la transparence des conteneurs de texte et en boostant l'opacité et le contraste des calques d'animation. Le z-index a été réorganisé pour garantir que l'ambiance soit toujours visible sous le texte.
+- **Temps de lecture** : Déplacé à l'intérieur de la barre de navigation inférieure (au centre, à gauche du compteur de chapitre) pour éviter tout chevauchement avec les boutons de saut de page.
+- **Nettoyage UI** : Suppression de l'ancien indicateur flottant et des badges redondants en haut de page.
+
+## [1.1.11] - 2026-03-03
+### Corrigé
+- **Animations d'ambiance** : Correction du problème de z-index qui rendait les animations invisibles. Elles sont maintenant visibles dans tous les modes (Sépia, Clair, Sombre).
+- **Temps de lecture** : Déplacement de l'indicateur en bas à droite de l'écran (visible uniquement au clic/touch) pour plus de discrétion et d'utilité.
+
+### Ajouté
+- **Indicateurs paramétrables** : Nouveaux réglages pour activer/désactiver l'affichage du temps restant et du pourcentage de progression dans le slider.
+- **Slider pourcentage** : Affichage dynamique du pourcentage de lecture au niveau du curseur de défilement.
+
+## [1.1.10] - 2026-03-03
+### Corrigé
+- **Lecture (layout)** : Correction du rendu du mode lecture perturbé par la couche d’ambiance (empilement/z-index stabilisé, affichage de contenu restauré).
+- **Mode Sombre** : Effet allégé pour éviter le voile trop dense et améliorer le confort visuel.
+- **Mode Clair** : Effet rendu visible avec halos très subtils et particules discrètes.
+
+### Modifié
+- **Mode Sépia** : Remplacement des bandes trop marquées par des nappes lumineuses douces et lentes, mieux intégrées au style littéraire.
+- **Animations ambiantes** : Particules moins nombreuses, plus lentes, plus légères GPU/CPU, dérive réduite pour un mouvement plus naturel.
+- **Transitions d’ambiance** : Opacités et amplitudes ajustées pour des animations progressives, qualitatives et non intrusives.
+
+### À faire
+- Ajouter un réglage utilisateur “Intensité ambiance” global (faible/moyen/élevé).
+- Ajouter un preset “Lecture longue” qui réduit automatiquement l’animation.
+
+## [1.1.9] - 2026-03-03
+### Ajouté
+- **Animations par thème** : Nouveau réglage dans les modals de paramètres pour activer/désactiver indépendamment les animations de fond en Sépia, Clair et Sombre.
+- **Ambiance différenciée** : Trois identités visuelles distinctes selon le thème (onde chaleureuse en Sépia, halo clair en mode Clair, aura + scintillement en mode Sombre).
+
+### Modifié
+- **Bloc Continuer/Reprendre** : Refonte complète du composant avec hiérarchie typographique, meilleure lisibilité du titre, troncature élégante et CTA premium.
+- **Paramètres UI** : Boutons de thème harmonisés avec icônes du design system (sans emoji), cohérence renforcée avec les tokens existants.
+- **Ambiance en lecture** : Les animations de fond sont désormais visibles dans ReaderView et non uniquement dans les écrans bibliothèque/modals.
+
+### Corrigé
+- **Visibilité Sépia** : Intensité et contraste ajustés pour rendre l’ambiance perceptible sans nuire au confort de lecture.
+- **Persistance settings** : Normalisation des préférences d’animation par thème dans les settings sauvegardés.
+- **Cache** : Bump cache-busting vers `v1.1.9` et Service Worker `hylst-reader-v9` pour forcer la prise en compte des nouveaux styles.
+
+### À faire
+- Ajuster un slider de densité des effets pour un contrôle fin de l’intensité visuelle.
+- Ajouter un preset “Mode minimal” (animations ultra-subtiles) pour les longues sessions de lecture.
+
 ## [1.1.0] - 2026-03-03
 ### Ajouté
 - **Bibliothèque Musicale** : Accès direct aux compositions de Geoffroy Streit.

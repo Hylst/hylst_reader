@@ -2,12 +2,23 @@
 .reader-wrapper {
     position: fixed;
     inset: 0;
-    background: var(--book-bg);
+    /* Background moved to pseudo-element to allow ambience layering */
+    background: transparent;
     color: var(--book-text);
     z-index: 100;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    isolation: isolate;
+}
+
+.reader-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--book-bg);
+    z-index: 0;
+    /* Behind Ambience (1) */
 }
 
 .reader-progress-bar {
@@ -15,6 +26,8 @@
     background: var(--book-accent);
     box-shadow: 0 0 12px color-mix(in srgb, var(--book-accent) 50%, transparent);
     transition: width 0.2s ease;
+    position: relative;
+    z-index: 10;
 }
 
 .reader-container {
@@ -23,7 +36,53 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    padding: 0 2rem 6rem; /* Increased bottom padding for the fixed nav */
+    z-index: 5;
+    /* Above Ambience */
+    padding: 0 2rem 6rem;
+    /* Increased bottom padding for the fixed nav */
+    background: transparent !important;
+    /* Ensure no bg hides ambience */
+}
+
+.reader-status-bar {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--book-surface);
+    border: 1px solid var(--book-border);
+    color: var(--book-text);
+    font-family: var(--book-font-heading);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 99px;
+    box-shadow: var(--shadow-sm);
+    z-index: 120;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.reader-status-bar.visible {
+    opacity: 0.9;
+    transform: translateY(0);
+}
+
+.reader-slider-tooltip {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--book-surface);
+    border: 1px solid var(--book-border);
+    color: var(--book-text);
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0.9;
+    box-shadow: var(--shadow-sm);
+    pointer-events: none;
 }
 
 .reader-container.focus-mode .reader-toolbar,
@@ -47,6 +106,8 @@
     max-width: var(--book-content-max, var(--book-max-width));
     margin: 0 auto;
     width: 100%;
+    background: transparent !important;
+    /* Ensure no bg hides ambience */
 }
 
 /* Toolbar */
@@ -111,7 +172,12 @@
     line-height: var(--book-line-height);
     color: var(--book-text);
     text-align: justify;
+    text-justify: inter-word;
+    -webkit-text-justify: inter-word;
     hyphens: auto;
+    background: transparent !important;
+    /* Ensure no bg hides ambience */
+    text-shadow: var(--book-text-shadow, none);
 }
 
 .reader-article h1,
@@ -257,7 +323,8 @@
     pointer-events: none;
 }
 
-.chapter-nav-left, .chapter-nav-right {
+.chapter-nav-left,
+.chapter-nav-right {
     display: flex;
     align-items: center;
     gap: 1rem;

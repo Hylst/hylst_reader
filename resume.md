@@ -19,12 +19,17 @@ L'objectif principal actuel est d'affiner l'expérience de lecture et la perform
 - [x] **Optimisation Images** : Conversion PNG vers WEBP effectuée, `app.jsx`, `books.json` et les fichiers HTML mis à jour.
 - [x] **Music Player (UI)** : Restauration du bouton Paramètres, génération des prompts de musiques instrumentales.
 - [x] **Bibliothèque** : Séparation natif/importé, correction de bugs d'IndexedDB.
+- [x] **Animations d'Ambiance** : Implémentation complète des effets visuels pour tous les thèmes avec gestion avancée du z-index.
+- [x] **Temps de Lecture Intelligent** : Calcul dynamique et affichage contextuel intégré à la navigation.
+- [x] **Optimisation Performance** : Cache-busting vers v1.1.12 et service worker actualisé pour garantir les mises à jour.
 
 ## 🛠️ Stack Technique
-- **Frontend** : React 18 (via CDN), Vanilla CSS, Lucide Icons.
-- **Stockage** : IndexedDB (`idb-keyval`) pour l'offline total.
+- **Frontend** : React 18 (via CDN), Vanilla CSS avec modules modulaires, Lucide Icons.
+- **Stockage** : IndexedDB (`idb-keyval`) pour l'offline total avec persistance robuste.
+- **Animations** : CSS3 avancé avec keyframes, transitions et gestion fine du z-index.
+- **Algorithmes** : Calcul intelligent du temps de lecture basé sur la vitesse et la longueur du contenu.
 - **Automation** : Python pour le build des livres et la conversion d'images.
-- **Versioning** : Git (Github: [hylst_reader](https://github.com/Hylst/hylst_reader)).
+- **Versioning** : Git (Github: [hylst_reader](https://github.com/Hylst/hylst_reader)) avec suivi détaillé des changements.
 
 ---
 *Ce document sert de référence pour maintenir la continuité du développement 

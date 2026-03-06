@@ -15,11 +15,11 @@ L'application a été conçue pour offrir un cadre noble et apaisant aux œuvres
 
 ## 🚀 Technologie
 Le projet utilise une stack moderne "Pure Frontend" :
-- **React 18** (Interface réactive via CDN)
-- **IndexedDB / idb-keyval** (Persistance robuste sans serveur)
-- **Service Workers** (Fonctionnement offline PWA avec cache-busting intelligent)
+- **React 18 & Babel** (Interface réactive et compilation à la volée chargées via CDN externes)
+- **IndexedDB / idb-keyval** (Persistance robuste sans serveur pour les textes et progressions)
+- **Service Workers (PWA)** (Fonctionnement offline total : pré-chargement strict des fichiers natifs, et mise en cache dynamique des CDNs externes pour éviter les blocages de sécurité CORS).
 - **CSS3 Avancé** (Design modulaire, animations fluides, gestion avancée du z-index et transitions optimisées)
-- **Algorithmes de Lecture** : Calcul intelligent du temps de lecture basé sur la vitesse de défilement et la longueur du contenu
+- **Algorithmes de Lecture** : Calcul intelligent du temps de lecture basé sur la vitesse de défilement et la longueur du contenu.
 
 ## 🎨 L'Auteur & Créateur
 **Geoffroy Streit** (Hylst) est au cœur de ce projet. Écrivain et compositeur alsacien, il a imaginé cet outil pour offrir à ses lecteurs un cadre à la hauteur de ses récits. La musique intégrée à l'application fait partie intégrante de son univers artistique, conçue pour accompagner le rythme des mots.

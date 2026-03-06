@@ -1,5 +1,5 @@
 // js/app.jsx
-import { getBooks, saveBook, deleteBook, getProgress, getProgressAll, saveProgress, getSettings, saveSettings, getSignets, saveSignet, removeSignet } from '/js/db.js';
+import { getBooks, saveBook, deleteBook, getProgress, getProgressAll, saveProgress, getSettings, saveSettings, getSignets, getSignetsAll, saveSignet, removeSignet } from '/js/db.js';
 import { importBookFromDirectory } from '/js/importAPI.js';
 import { MUSIC_LIBRARY } from '/js/music_data.js';
 
@@ -197,6 +197,26 @@ const Icon = {
             <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
         </svg>
     ),
+    Headphones: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 18v-6a9 9 0 0 1 18 0v6" /><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+        </svg>
+    ),
+    Mic: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><line x1="12" y1="19" x2="12" y2="23" /><line x1="8" y1="23" x2="16" y2="23" />
+        </svg>
+    ),
+    Image: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" />
+        </svg>
+    ),
+    Youtube: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" /><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+        </svg>
+    ),
 };
 
 const FUTURE_BOOKS = [
@@ -227,7 +247,7 @@ const FUTURE_BOOKS = [
 
 
 const THEME_KEYS = ['sepia', 'light', 'dark'];
-const DEFAULT_BACKGROUND_ANIMATIONS = { sepia: false, light: false, dark: false };
+const DEFAULT_BACKGROUND_ANIMATIONS = { sepia: true, light: true, dark: true };
 const DEFAULT_SETTINGS = {
     theme: 'dark',
     fontScale: 1.0,
@@ -361,6 +381,26 @@ function App() {
         return () => audio.removeEventListener('ended', handleEnded);
     }, [isLoop]);
 
+    // Keep audio alive through orientation change / tab visibility change
+    // On iOS, the AudioContext may be suspended when the page is hidden.
+    useEffect(() => {
+        let wasPlayingBeforeHide = false;
+        const handleVisibility = () => {
+            if (document.hidden) {
+                // Page becoming hidden: remember if we were playing
+                wasPlayingBeforeHide = isPlaying;
+            } else {
+                // Page becoming visible again: resume if we were playing
+                if (wasPlayingBeforeHide && currentTrack && audioRef.current) {
+                    audioRef.current.play().catch(() => { });
+                    setIsPlaying(true);
+                }
+            }
+        };
+        document.addEventListener('visibilitychange', handleVisibility);
+        return () => document.removeEventListener('visibilitychange', handleVisibility);
+    }, [isPlaying, currentTrack]);
+
     const playTrack = useCallback((track) => {
         if (currentTrack?.id === track.id) {
             if (isPlaying) { audioRef.current.pause(); setIsPlaying(false); }
@@ -419,15 +459,25 @@ function App() {
 
             setBooks(localBooks);
 
-            // Find most recent session
-            const allProg = await getProgressAll();
+            // Find most recent session from SIGNETS instead of auto-saved PROGRESS
+            const allSignets = await getSignetsAll();
             let latest = null;
             let latestTime = 0;
-            for (const [bid, p] of Object.entries(allProg)) {
-                if (p.lastRead > latestTime) {
-                    latestTime = p.lastRead;
-                    const b = localBooks.find(x => x.id === bid);
-                    if (b) latest = { ...p, bookId: bid, bookTitle: b.title };
+            for (const [bid, signetsList] of Object.entries(allSignets)) {
+                if (!signetsList || signetsList.length === 0) continue;
+                for (const s of signetsList) {
+                    if (s.addedAt > latestTime) {
+                        latestTime = s.addedAt;
+                        const b = localBooks.find(x => x.id === bid);
+                        if (b) {
+                            latest = {
+                                bookId: bid,
+                                bookTitle: b.title,
+                                chapterIndex: s.chapterIdx || 0,
+                                addedAt: s.addedAt
+                            };
+                        }
+                    }
                 }
             }
             setLastReadSession(latest);
@@ -671,7 +721,11 @@ function App() {
                     settings={settings}
                     onUpdateSettings={setSettings}
                     lastSession={lastReadSession}
-                    onResume={resumeReading}
+                    onResume={(session) => {
+                        saveProgress(session.bookId, session.chapterIndex || 0, 0).then(() => {
+                            handleOpenBook(session.bookId);
+                        });
+                    }}
                     onShowAbout={() => setShowAbout(true)}
                     onShowMusic={() => setShowMusic(true)}
                     onShowSettings={() => setShowSettings(true)}
@@ -782,28 +836,28 @@ function AboutModal({ onClose }) {
                     {activeTab === 'about' && (
                         <div className="about-tab-content animate-fade-in">
                             <p className="about-hero-text">
-                                <strong>Hylst Books & Reader</strong> est plus qu'une simple liseuse, c'est un petit havre numérique dédié à la lecture et à l'immersion sonore.
+                                <strong>Hylst Books & Reader</strong> est bien plus qu'une simple liseuse, c'est un havre numérique intimiste pensé pour l'immersion littéraire et sonore. Un cocon façonné avec soin pour s'évader du bruit du web.
                             </p>
                             <div className="about-grid">
                                 <div className="about-card">
                                     <Icon.Book />
-                                    <h4>Bibliothèque Hylst</h4>
-                                    <p>Explorez les créations de Geoffroy Streit : romans, nouvelles, poésie, guides, réflexions, JDR... un petit monde artistique et littéraire,  imparfait mais inédit à portée de clic.</p>
+                                    <h4>La Bibliothèque Légendaire</h4>
+                                    <p>Parcourez l'ensemble des créations de <strong className="highlight-text">Geoffroy Streit</strong> (alias Hylst) : romans ambitieux, nouvelles singulières, poésies mélancoliques, guides techniques et jeux de rôles... Un univers artistique protéiforme, imparfait mais résolument unique, à portée de clic.</p>
                                 </div>
                                 <div className="about-card">
                                     <Icon.Download />
-                                    <h4>Importation Libre</h4>
-                                    <p>Importez vos textes (EPUB, TXT, JSON) ou dossiers complets (HML). Tout reste stocké physiquement dans votre navigateur.</p>
+                                    <h4>Importation Universelle</h4>
+                                    <p>Propulsez vos propres récits au cœur de la liseuse ! Importez vos fichiers <code>.EPUB</code>, <code>.TXT</code>, <code>.JSON</code> ou des dossiers d'œuvres complexes. Votre collection vous suit partout, stockée en toute sécurité au sein de votre navigateur.</p>
                                 </div>
                                 <div className="about-card">
                                     <Icon.Shield />
-                                    <h4>Souveraineté</h4>
-                                    <p>Zéro backend. Pas de cloud imposé. Une architecture "Pure Frontend" pour une confidentialité absolue.</p>
+                                    <h4>Souveraineté Absolue</h4>
+                                    <p>Zéro pistage, zéro backend, pas de cloud imposé. Une architecture <strong>"Pure Frontend"</strong> pour une confidentialité inviolable, vous laissant seul maître de vos lectures et de vos données.</p>
                                 </div>
                                 <div className="about-card">
                                     <Icon.Music />
-                                    <h4>Immersion</h4>
-                                    <p>Une musicothèque du même auteur et un lecteur audio intégré pour augmenter l'expérience de lecture des écrits de Hylst avec plus de 280 de ses compositions, assistées par IA pour la majorité, et d'autres plus anciennes.</p>
+                                    <h4>Symphonies Immersives</h4>
+                                    <p>Plongez dans l'expérience ultime grâce à une musicothèque intégrée de plus de <strong>300 titres</strong> ! La majorité de ces ambiances sonores ont été composées et co-produites (avec l'assistance minutieuse de l'IA par Hylst) spécialement pour décupler les émotions de vos lectures.</p>
                                 </div>
                             </div>
                         </div>
@@ -811,34 +865,41 @@ function AboutModal({ onClose }) {
 
                     {activeTab === 'features' && (
                         <div className="about-tab-content animate-fade-in">
-                            <h4>L'expérience de lecture agrémentée</h4>
+                            <h4>Une plateforme conçue pour l'évasion</h4>
                             <div className="features-list">
                                 <div className="feature-item">
                                     <div className="feature-icon"><Icon.Type /></div>
                                     <div className="feature-details">
-                                        <strong>Typographie Noble</strong>
-                                        <p>Utilisation de polices classiques (Cormorant Garamond, Libre Baskerville) pour un meilleur confort de lecture.</p>
+                                        <strong>Typographie Noble & Confort</strong>
+                                        <p>L'interface sublime le texte en utilisant des polices à empattements organiques telles que <em>Cormorant Garamond</em> et <em>Libre Baskerville</em>, garantissant une lisibilité optimale digne des ouvrages imprimés traditionnels.</p>
                                     </div>
                                 </div>
                                 <div className="feature-item">
                                     <div className="feature-icon"><Icon.Moon /></div>
                                     <div className="feature-details">
-                                        <strong>Thèmes Adaptatifs</strong>
-                                        <p>Modes Sépia, Clair et Sombre avec animations et personnalisation de la taille et de l'alignement.</p>
+                                        <strong>Thèmes Adaptatifs Magiques</strong>
+                                        <p>Alternez entre les modes <strong>Sépia</strong>, <strong>Clair</strong> et <strong>Sombre</strong>. Égayez votre lecture avec des animations ambiantes (particules) subtiles. La taille des polices, l'alignement et les gouttières sont finement paramétrables.</p>
                                     </div>
                                 </div>
                                 <div className="feature-item">
                                     <div className="feature-icon"><Icon.Cpu /></div>
                                     <div className="feature-details">
-                                        <strong>Offline First (PWA)</strong>
-                                        <p>Installez l'application et lisez vos livres ou ceux de Geoffroy même sans connexion internet grâce aux Service Workers.</p>
+                                        <strong>Technologie PWA "Offline First"</strong>
+                                        <p>Votre bibliothèque ne craint pas les coupures réseau. En installant l'application sur votre appareil (PC, Tablette, Smartphone), le Service Worker sauvegarde vos lectures. Lisez n'importe où, même au fin fond d'une forêt sans connexion internet.</p>
                                     </div>
                                 </div>
                                 <div className="feature-item">
                                     <div className="feature-icon"><Icon.Music /></div>
                                     <div className="feature-details">
-                                        <strong>Lecteur Audio Intégré</strong>
-                                        <p>Contrôles avancés, mode boucle, et mini-player accessible partout.</p>
+                                        <strong>Lecteur Audio Intégré "Gapless"</strong>
+                                        <p>Un baladeur minimaliste avec contrôles avancés pour vous accompagner : lecture aléatoire, mode boucle (sur une piste ou toute la bibliothèque) et mini-player flottant persistant lors du changement de chapitre.</p>
+                                    </div>
+                                </div>
+                                <div className="feature-item">
+                                    <div className="feature-icon"><Icon.BookmarkFilled /></div>
+                                    <div className="feature-details">
+                                        <strong>Mémoire et Signets Intelligents</strong>
+                                        <p>Ne perdez jamais le fil. L'applicationémorise discrètement votre progression en temps réel pour l'autofocus, et vous permet d'épingler manuellement vos chapitres favoris via le système de <strong>Signets</strong>. La page d'accueil vous proposera instantanément de <em>Continuer la lecture</em> à partir de votre dernier signet.</p>
                                     </div>
                                 </div>
                             </div>
@@ -861,11 +922,29 @@ function AboutModal({ onClose }) {
                                     et les mots s'entremêlent harmonieusement.
                                 </p>
                                 <div className="creator-links">
-                                    <a href="https://hylst.fr" target="_blank" className="creator-link-btn">
-                                        <Icon.Globe /> Visiter hylst.fr
+                                    <a href="https://hylst.fr" target="_blank" className="creator-link-btn" title="Site web Hylst">
+                                        <Icon.Globe /> <span>Visiter mon site hylst.fr</span>
                                     </a>
-                                    <a href="mailto:geoffroy.streit@gmail.com" className="creator-link-btn">
-                                        <Icon.Mail /> Me contacter
+                                    <a href="https://hylst.bandcamp.com/" target="_blank" className="creator-link-btn" title="Bandcamp">
+                                        <Icon.Music /> <span>Musiques composées (sans IA) (Bandcamp)</span>
+                                    </a>
+                                    <a href="https://soundcloud.com/hhhylst" target="_blank" className="creator-link-btn" title="Soundcloud (Musique)">
+                                        <Icon.Headphones /> <span>Musiques composées (sans IA) (sans IA) (SoundCloud)</span>
+                                    </a>
+                                    <a href="https://www.wattpad.com/user/GeoffroyStreit" target="_blank" className="creator-link-btn" title="Wattpad (Proses)">
+                                        <Icon.Book /> <span>Anciennes proses et poésies (sans IA) (Wattpad)</span>
+                                    </a>
+                                    <a href="https://www.deviantart.com/hhylst" target="_blank" className="creator-link-btn" title="DeviantArt">
+                                        <Icon.Image /> <span>Dessins, Pixel Art & Digital Painting (sans IA) (DeviantArt)</span>
+                                    </a>
+                                    <a href="https://www.youtube.com/@HyLsT16" target="_blank" className="creator-link-btn" title="YouTube">
+                                        <Icon.Youtube /> <span>Vidéos & Clips (sans IA sauf mention) (YouTube)</span>
+                                    </a>
+                                    <a href="https://demozoo.org/sceners/2341/" target="_blank" className="creator-link-btn" title="Demozoo">
+                                        <Icon.Cpu /> <span>Contributions Demoscene &mdash; code, musique, gfx (Demozoo)</span>
+                                    </a>
+                                    <a href="mailto:geoffroy.streit@gmail.com" className="creator-link-btn" title="Email">
+                                        <Icon.Mail /> <span>Me contacter</span>
                                     </a>
                                 </div>
                             </div>
@@ -878,24 +957,26 @@ function AboutModal({ onClose }) {
                                 <div className="tip-box">
                                     <h5><Icon.Zap /> Raccourcis Clavier</h5>
                                     <ul>
-                                        <li><code>Espace</code> / <code>PageDown</code> : Faire défiler vers le bas</li>
-                                        <li><code>Flèche Droite</code> / <code>Gauche</code> : Chapitre suivant / précédent</li>
-                                        <li><code>Esc</code> : Fermer les menus ou modals</li>
-                                        <li><code>Ctrl + F</code> : Recherche native du navigateur (recommandé)</li>
+                                        <li><code>Espace</code> ou <code>Page Down</code> : Défilement fluide vers le bas d'environ 80% de la hauteur de l'écran. Parfait pour lire de longues tirades.</li>
+                                        <li><code>Flèche Droite</code> &rarr; / <code>Gauche</code> &larr; : Navigation rapide et silencieuse entre les chapitres d'un livre.</li>
+                                        <li><code>Touche Début</code> / <code>Fin</code> :  Aller directement tout en haut ou tout en bas de la page.</li>
+                                        <li><code>Échap</code> : Ferme instinctivement les barres latérales, modales de menu et d'informations.</li>
+                                        <li><code>Ctrl + F</code> : Utilisez la recherche native du navigateur (recommandé pour sa fiabilité).</li>
                                     </ul>
                                 </div>
                                 <div className="tip-box">
-                                    <h5><Icon.Mouse /> Souris & Tactile</h5>
+                                    <h5><Icon.Mouse /> Tactile, Stylus & Souris</h5>
                                     <ul>
-                                        <li><code>Swipe</code> latéral : Changer de chapitre (tactile)</li>
-                                        <li><code>Double Tap</code> : Afficher/Masquer l'interface de lecture</li>
-                                        <li><code>Clic</code> sur le titre : Ouvrir la barre musicale</li>
+                                        <li><strong>Geste (Swipe) Latéral</strong> : Sur mobile, glissez vers la gauche ou la droite pour tourner les pages virtuelles (changer de chapitre).</li>
+                                        <li><strong>Double Tap (ou Clic)</strong> n'importe où dans le texte : Fait apparaître ou disparaître instantanément toutes les barres d'interfaces (Mode Focus absolu).</li>
+                                        <li><strong>Barre de Progression Intelligente</strong> : Utilisez la barre en pointillés en haut du lecteur ; un clic n'importe où fait défiler le texte de manière fluide (utile pour s'y retrouver dans un long chapitre) </li>
+                                        <li><strong>En-tête Interactif</strong> : Cliquez sur le titre du livre dans l'en-tête (en mode sombre ou lecteur) pour déployer discrètement la barre de la bibliothèque musicale.</li>
                                     </ul>
                                 </div>
                                 <div className="tip-box full-width">
-                                    <h5><Icon.Settings /> Astuce d'importation</h5>
-                                    <p>Pour vos propres livres, assurez-vous que votre dossier contient un <code>config.json</code> valide.
-                                        L'application créera automatiquement une expérience de lecture sur mesure basée sur vos réglages.</p>
+                                    <h5><Icon.Settings /> Secret & Astuce d'importation avancée</h5>
+                                    <p>Vous souhaitez intégrer un tome entier avec sa structure originale ? Vous pouvez glisser-déposer tout le dossier d'un livre (s'il suit l'architecture Hylst HTML), mais pour une expérience sur mesure : assurez-vous de concevoir <strong>un fichier <code>config.json</code> racine</strong>.</p>
+                                    <p className="tip-hint">L'application se chargera alors de construire automatiquement l'interface narrative, avec les chapitres ordonnés, la couverture, l'auteur, et le résumé officiel !</p>
                                 </div>
                             </div>
                         </div>
@@ -1195,7 +1276,7 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                     <button className="btn btn-ghost btn-icon" title="Paramètres" onClick={onShowSettings}>
                         <Icon.Settings />
                     </button>
-                    <button className="btn btn-ghost btn-icon" title="Changer le thème"
+                    <button className="btn btn-ghost btn-icon btn-theme-toggle" title="Changer le thème"
                         onClick={() => {
                             const themes = ['sepia', 'light', 'dark'];
                             const next = themes[(themes.indexOf(settings.theme) + 1) % themes.length];
@@ -1242,7 +1323,7 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                         <Icon.Music />
                     </button>
                     <button className="btn btn-primary" style={{ gap: '0.4rem', paddingLeft: '0.75rem', paddingRight: '0.9rem', fontSize: '0.82rem' }} onClick={onImport} title="Importer un fichier (TXT, JSON, MD)">
-                        <Icon.Plus /> Nouveau
+                        <Icon.Plus /> <span className="btn-new-label">Nouveau</span>
                     </button>
                 </div>
             </header>

@@ -47,7 +47,7 @@ for filename in sorted(available_mp3s):
     
     # Build safe slug (filename without extension)
     slug = filename.replace('.mp3', '')
-    jpg_name = slug + '.jpg'
+    jpg_name = slug + '.webp'
 
     title = (row.get('Title') or slug.replace('_', ' ').title()).strip()
     artist = (row.get('Artist') or 'Hylst').strip()

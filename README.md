@@ -12,9 +12,9 @@
 - **Interface Adaptative** : Navigation fluide avec indicateurs de progression intégrés.
 
 ## 🚀 Architecture & Technos
-- **Framework** : React 18 (CDN)
-- **Stockage** : `idb-keyval` (IndexedDB) pour la persistance locale totale.
-- **PWA** : Service Worker (`sw.js`) pour l'installation native.
+- **Framework** : React 18, Babel, et dépendances externes (JSZip, ePub.js) chargés via **CDN externes** (unpkg, CDNJS) dynamiquement.
+- **Stockage** : `idb-keyval` (IndexedDB) pour la persistance locale totale de vos bibliothèques.
+- **PWA & Offline** : Service Worker (`sw.js`) pour l'installation native. Stratégie de cache mixte : pré-chargement strict des assets internes, et mise en cache "à la volée" (Runtime Caching) des CDNs externes pour éviter les blocages de sécurité (CORS) lors de l'installation. Le mode hors-ligne est donc pleinement fonctionnel une fois l'application ouverte une première fois.
 - **Design** : CSS3 Vanilla (Thèmes dynamiques, animations optimisées).
 
 ## ⌨️ Raccourcis Clavier

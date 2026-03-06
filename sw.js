@@ -1,29 +1,21 @@
 // sw.js
 // Service Worker Minimal pour Hylst Reader
 
-const CACHE_NAME = 'hylst-reader-v20';
+const CACHE_NAME = 'hylst-reader-v28';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
-    './css/variables.css?v=1.1.19',
-    './css/base.css?v=1.1.19',
-    './css/layout.css?v=1.1.19',
-    './css/components.css?v=1.1.19',
-    './css/modals.css?v=1.1.19',
-    './css/music.css?v=1.1.19',
-    './css/reader.css?v=1.1.19',
-    './css/responsive.css?v=1.1.19',
-    './js/db.js?v=1.1.19',
-    './js/importAPI.js?v=1.1.19',
-    './js/app.jsx?v=1.1.19',
-    // CDNs (Optional: caching external dependencies if offline happens immediately)
-    'https://unpkg.com/react@18/umd/react.production.min.js',
-    'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js',
-    'https://unpkg.com/@babel/standalone/babel.min.js',
-    'https://cdn.jsdelivr.net/npm/idb-keyval@6/dist/umd.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/epub.js/0.3.88/epub.min.js',
-    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Georgia&display=swap'
+    './css/variables.css?v=1.1.28',
+    './css/base.css?v=1.1.28',
+    './css/layout.css?v=1.1.28',
+    './css/components.css?v=1.1.28',
+    './css/modals.css?v=1.1.28',
+    './css/music.css?v=1.1.28',
+    './css/reader.css?v=1.1.28',
+    './css/responsive.css?v=1.1.28',
+    './js/db.js?v=1.1.28',
+    './js/importAPI.js?v=1.1.28',
+    './js/app.jsx?v=1.1.28'
 ];
 
 self.addEventListener('install', (event) => {
@@ -55,37 +47,25 @@ self.addEventListener('fetch', (event) => {
     // Ignore Blob URLs (IndexDB objects) and Chrome Extension URLs
     if (event.request.url.startsWith('blob:') || event.request.url.startsWith('chrome-extension:')) return;
 
+    // NETWORK FIRST STRATEGY (solves the issue of old content sticking around)
     event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-            // Serve from cache if available
-            if (cachedResponse) {
-                return cachedResponse;
-            }
-
-            // Otherwise, fetch from network and cache for next time
-            return fetch(event.request).then((response) => {
-                // Check if valid response
-                if (!response || response.status !== 200 || response.type !== 'basic') {
-                    if (event.request.url.includes('unpkg.com') || event.request.url.includes('cdn.jsdelivr.net') || event.request.url.includes('cdnjs.cloudflare.com')) {
-                        // Allow cors requests for CDN caching
-                        const responseToCache = response.clone();
-                        caches.open(CACHE_NAME).then((cache) => {
-                            cache.put(event.request, responseToCache);
-                        });
-                        return response;
-                    }
-                    return response;
+        fetch(event.request).then((networkResponse) => {
+            // Cache the new response if valid
+            if (networkResponse && networkResponse.status === 200) {
+                if (networkResponse.type === 'basic' || event.request.url.includes('cdn.jsdelivr.net') || event.request.url.includes('unpkg.com')) {
+                    const responseToCache = networkResponse.clone();
+                    caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
                 }
-
-                const responseToCache = response.clone();
-                caches.open(CACHE_NAME).then((cache) => {
-                    cache.put(event.request, responseToCache);
-                });
-
-                return response;
-            }).catch(() => {
-                // Return offline fallback if network fails
-                if (event.request.url.indexOf('.html') > -1) {
+            }
+            return networkResponse;
+        }).catch(() => {
+            // Fallback to cache if offline
+            return caches.match(event.request).then((cachedResponse) => {
+                if (cachedResponse) {
+                    return cachedResponse;
+                }
+                // Offline fallback for HTML
+                if (event.request.url.includes('.html') || event.request.mode === 'navigate') {
                     return caches.match('./index.html');
                 }
             });

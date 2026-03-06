@@ -812,7 +812,7 @@ function AboutModal({ onClose }) {
                             <div className="about-logo">H</div>
                             <div>
                                 <h3>Hylst Books &amp; Reader</h3>
-                                <span className="about-version">Version 1.1.10 &middot; 2026</span>
+                                <span className="about-version">Version 1.1.28 &middot; 2026</span>
                             </div>
                         </div>
                         <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
@@ -836,13 +836,13 @@ function AboutModal({ onClose }) {
                     {activeTab === 'about' && (
                         <div className="about-tab-content animate-fade-in">
                             <p className="about-hero-text">
-                                <strong>Hylst Books & Reader</strong> est bien plus qu'une simple liseuse, c'est un havre numérique intimiste pensé pour l'immersion littéraire et sonore. Un cocon façonné avec soin pour s'évader du bruit du web.
+                                <strong>Hylst Books & Reader</strong> est plus qu'une simple liseuse, c'est un petit havre numérique intimiste pensé pour l'immersion littéraire, graphique et sonore. Un cocon personnalisé façonné avec soin pour s'évader du bruit du web.
                             </p>
                             <div className="about-grid">
                                 <div className="about-card">
                                     <Icon.Book />
                                     <h4>La Bibliothèque Légendaire</h4>
-                                    <p>Parcourez l'ensemble des créations de <strong className="highlight-text">Geoffroy Streit</strong> (alias Hylst) : romans ambitieux, nouvelles singulières, poésies mélancoliques, guides techniques et jeux de rôles... Un univers artistique protéiforme, imparfait mais résolument unique, à portée de clic.</p>
+                                    <p>Parcourez les écrits de <strong className="highlight-text">Geoffroy Streit</strong> (alias Hylst) : romans ambitieux, nouvelles singulières, poésies mélancoliques, guides techniques et jeux de rôles... Un univers artistique protéiforme, imparfait mais résolument unique, à portée de clic.</p>
                                 </div>
                                 <div className="about-card">
                                     <Icon.Download />
@@ -851,13 +851,18 @@ function AboutModal({ onClose }) {
                                 </div>
                                 <div className="about-card">
                                     <Icon.Shield />
-                                    <h4>Souveraineté Absolue</h4>
-                                    <p>Zéro pistage, zéro backend, pas de cloud imposé. Une architecture <strong>"Pure Frontend"</strong> pour une confidentialité inviolable, vous laissant seul maître de vos lectures et de vos données.</p>
+                                    <h4>Souveraineté Accrue</h4>
+                                    <p>Zéro pistage, zéro backend, pas de cloud imposé. Une architecture <strong>"Pure Frontend"</strong> pour préserver votre confidentialité, vous laissant seul maître de vos lectures et de vos données.</p>
                                 </div>
                                 <div className="about-card">
                                     <Icon.Music />
                                     <h4>Symphonies Immersives</h4>
-                                    <p>Plongez dans l'expérience ultime grâce à une musicothèque intégrée de plus de <strong>300 titres</strong> ! La majorité de ces ambiances sonores ont été composées et co-produites (avec l'assistance minutieuse de l'IA par Hylst) spécialement pour décupler les émotions de vos lectures.</p>
+                                    <p>Plongez dans l'expérience d'une lecture graphique accompagnée de musique ambiante grâce à une musicothèque intégrée de plus de <strong>280 titres</strong> ! La majorité de ces ambiances sonores ont été composées et co-produites (avec l'assistance minutieuse de l'IA par Hylst) pour augmenter les émotions de vos lectures.</p>
+                                </div>
+                                <div className="about-card">
+                                    <Icon.Shield />
+                                    <h4>Des améliorations prévues</h4>
+                                    <p>- <strong>Personnalisation :</strong> À chaque écrit proposé, une sélection de musiques d'ambiances adéquates, mais aussi un environnement graphique spécifique.<br />- Mes écrits que j'importerai et activerai progressivement.<br />- Correction de coquilles & bugs, améliorations UX/UI progressives...</p>
                                 </div>
                             </div>
                         </div>
@@ -899,7 +904,7 @@ function AboutModal({ onClose }) {
                                     <div className="feature-icon"><Icon.BookmarkFilled /></div>
                                     <div className="feature-details">
                                         <strong>Mémoire et Signets Intelligents</strong>
-                                        <p>Ne perdez jamais le fil. L'applicationémorise discrètement votre progression en temps réel pour l'autofocus, et vous permet d'épingler manuellement vos chapitres favoris via le système de <strong>Signets</strong>. La page d'accueil vous proposera instantanément de <em>Continuer la lecture</em> à partir de votre dernier signet.</p>
+                                        <p>Ne perdez jamais le fil. L'application mémorise discrètement votre progression en temps réel pour l'autofocus, et vous permet d'épingler manuellement vos chapitres favoris via le système de <strong>Signets</strong>. La page d'accueil vous proposera instantanément de <em>Continuer la lecture</em> à partir de votre dernier signet.</p>
                                     </div>
                                 </div>
                             </div>
@@ -929,7 +934,7 @@ function AboutModal({ onClose }) {
                                         <Icon.Music /> <span>Musiques composées (sans IA) (Bandcamp)</span>
                                     </a>
                                     <a href="https://soundcloud.com/hhhylst" target="_blank" className="creator-link-btn" title="Soundcloud (Musique)">
-                                        <Icon.Headphones /> <span>Musiques composées (sans IA) (sans IA) (SoundCloud)</span>
+                                        <Icon.Headphones /> <span>Musiques composées (sans IA) (SoundCloud)</span>
                                     </a>
                                     <a href="https://www.wattpad.com/user/GeoffroyStreit" target="_blank" className="creator-link-btn" title="Wattpad (Proses)">
                                         <Icon.Book /> <span>Anciennes proses et poésies (sans IA) (Wattpad)</span>
@@ -991,6 +996,7 @@ function AboutModal({ onClose }) {
         </div>
     );
 }
+
 
 
 // ── Global Settings Modal ───────────────────────────────────────────────────

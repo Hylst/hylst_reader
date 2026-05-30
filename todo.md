@@ -1,22 +1,19 @@
 # Hylst Books & Reader - TODO
 
 ## 🎯 Priorités Actuelles
-- [ ] **Refactorisation CSS** : Diviser `styles.css` en modules pour faciliter la maintenance.
-- [ ] **Export de Bibliothèque** : Permettre de télécharger un backup `.json` de ses livres importés.
-- [ ] **Correction de bugs mineurs** : Vérifier la cohérence du mode responsive sur vieux mobiles.
+- [ ] **Refactorisation CSS** : Diviser `css/base.css` et autres styles en modules encore plus fins ou harmoniser le chargement.
+- [ ] **Export de Bibliothèque** : Permettre de télécharger un backup `.json` de ses livres importés pour partage et sauvegarde.
+- [ ] **Preset Lecture Longue** : Ajouter une option pour réduire automatiquement toutes les animations après 20 minutes de lecture.
 
 ## ✅ Terminé (Récemment)
-- [x] **Système de Musique** : Intégration complète et redesign du modal (v1.1).
-- [x] **Paramètres de lecture** : Menu "Settings" fonctionnel (taille police, thèmes).
-- [x] **Section Import** : Bouton restauré et séparation claire des types de bibliothèque.
-- [x] **About Modal** : Refonte visuelle et rédactionnelle.
-- [x] **Animations d'ambiance** : Implémentation d'effets visuels animés pour tous les thèmes (Sépia, Clair, Sombre).
-- [x] **Indicateur temps de lecture** : Calcul dynamique et affichage contextuel dans la navigation.
-- [x] **Optimisation z-index** : Correction des problèmes d'empilement des calques d'ambiance.
-- [x] **Cache busting** : Mise à jour vers v1.1.12 avec service worker actualisé.
+- [x] **Intégration du Chapitre 5** : Nettoyage littéraire des tics d'IA (caractères `—`, `✦` et « Dualis-IA ») et création de la couverture `chapitre-5-cover.webp` (v1.2.0).
+- [x] **Modularisation de l'Application** : Découpe de `js/app.jsx` (2000 lignes) en composants React ES6 réutilisables au sein de `js/components/` (v1.2.0).
+- [x] **Mise en cache PWA Robuste** : sw.js optimisé pour la mise en cache offline-first des CDN externes (unpkg, jsdelivr), garantissant le fonctionnement hors-ligne (v1.2.0).
+- [x] **Documentation Complète** : Rédaction des fichiers `structure.md`, `features.md`, `readme-dev.md` et du guide débutant `test_build_deploy.md` (v1.2.0).
+- [x] **Système de Musique** : Intégration complète et mini-player flottant persistant (v1.1).
+- [x] **Signets & Lecture** : Calcul du temps restant de lecture et mémorisation automatique de la progression IndexedDB.
 
 ## 💡 Idées Futures
-- **Audio Sync** : Permettre de synchroniser la lecture audio avec le chapitre en cours.
-- **Signets & Notes** : Système d'annotations directement sur le texte.
-- **Recherche Plein Texte** : Recherche dans le contenu des chapitres indexés.
-- **Lecteur de EPUB** : Support natif du format standard `.epub` en plus du `.hml`.
+- **Audio Sync** : Synchroniser finement le défilement du chapitre avec la lecture audio ou des ambiances musicales changeant de manière contextuelle.
+- **Signets enrichis** : Pouvoir ajouter des notes et commentaires personnels sur les chapitres d'un livre.
+- **Recherche Plein Texte** : Ajouter un outil d'indexation locale pour chercher un mot dans tout le contenu des chapitres d'un livre.

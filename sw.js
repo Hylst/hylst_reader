@@ -1,7 +1,7 @@
-// sw.js - Service Worker Hylst Reader v1.2.0
+// sw.js - Service Worker Hylst Reader v1.2.2
 // Stratégie: Network-First avec fallback cache pour le local, et Cache-First pour les CDNs.
 
-const CACHE_NAME = 'hylst-reader-v40';
+const CACHE_NAME = 'hylst-reader-v42';
 
 self.addEventListener('install', (event) => {
     self.skipWaiting();
@@ -58,23 +58,33 @@ self.addEventListener('fetch', (event) => {
     }
 
     // NETWORK-FIRST pour tous les assets locaux
+    // On nettoie l'URL des paramètres de requête (comme ?t=...) pour éviter de gonfler le cache
+    // et pour permettre une correspondance parfaite hors-ligne.
+    const cleanUrl = url.split('?')[0];
+
     event.respondWith(
         fetch(event.request)
             .then((networkResponse) => {
                 if (networkResponse && networkResponse.ok && networkResponse.type === 'basic') {
                     const responseToCache = networkResponse.clone();
                     caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(event.request, responseToCache);
+                        cache.put(cleanUrl, responseToCache);
                     });
                 }
                 return networkResponse;
             })
             .catch(() => {
-                return caches.match(event.request).then((cached) => {
+                return caches.match(cleanUrl).then((cached) => {
                     if (cached) return cached;
                     if (event.request.mode === 'navigate') {
                         return caches.match('./index.html');
                     }
+                    // Retourner une réponse d'erreur propre plutôt que undefined (qui cause ERR_FAILED)
+                    return new Response(JSON.stringify({ error: 'offline' }), {
+                        status: 503,
+                        statusText: 'Service Unavailable (offline)',
+                        headers: { 'Content-Type': 'application/json' }
+                    });
                 });
             })
     );

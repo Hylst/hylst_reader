@@ -106,6 +106,11 @@
     "introPath": "books/l-odyss-e-de-l-nergie/intro.html",
     "chapters": [
       {
+        "id": "0-preambule.html",
+        "title": "Préambule",
+        "path": "books/l-odyss-e-de-l-nergie/0-preambule.html"
+      },
+      {
         "id": "chapitre-1.html",
         "title": "Chapitre 1",
         "path": "books/l-odyss-e-de-l-nergie/chapitre-1.html"
@@ -113,37 +118,44 @@
       {
         "id": "chapitre-2.html",
         "title": "Chapitre 2",
-        "path": "books/l-odyss-e-de-l-nergie/chapitre-2.html"
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-2.html",
+        "available": false
       },
       {
         "id": "chapitre-3.html",
         "title": "Chapitre 3",
-        "path": "books/l-odyss-e-de-l-nergie/chapitre-3.html"
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-3.html",
+        "available": false
       },
       {
         "id": "chapitre-4.html",
         "title": "Chapitre 4",
-        "path": "books/l-odyss-e-de-l-nergie/chapitre-4.html"
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-4.html",
+        "available": false
       },
       {
         "id": "chapitre-5.html",
         "title": "Chapitre 5",
-        "path": "books/l-odyss-e-de-l-nergie/chapitre-5.html"
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-5.html",
+        "available": false
       },
       {
         "id": "chapitre-6.html",
         "title": "Chapitre 6",
-        "path": "books/l-odyss-e-de-l-nergie/chapitre-6.html"
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-6.html",
+        "available": false
       },
       {
         "id": "chapitre-7.html",
         "title": "Chapitre 7",
-        "path": "books/l-odyss-e-de-l-nergie/chapitre-7.html"
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-7.html",
+        "available": false
       },
       {
         "id": "chapitre-8.html",
         "title": "Chapitre 8",
-        "path": "books/l-odyss-e-de-l-nergie/chapitre-8.html"
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-8.html",
+        "available": false
       }
     ]
   }

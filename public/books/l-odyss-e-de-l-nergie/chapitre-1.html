@@ -1,0 +1,120 @@
+<figure class="chapter-cover"><img src="chapitre-1-cover.webp" alt="Chapitre 1 : couverture" /></figure>
+<h1 class="chapter-main-title"><strong>Chapitre 1</strong></h1>
+<h2 class="chapter-subtitle"><strong>La faim électrique</strong> — <em>Mesurer ce que nous ne voyons pas</em></h2>
+
+<p class="chapter-paragraph" style="text-align: center; font-style: italic; font-size: 1.05rem; margin-bottom: 2rem; color: var(--text-secondary, #888);">« <em>Vous ne pouvez pas gérer ce que vous ne pouvez pas mesurer. Et vous ne pouvez pas mesurer ce que vous avez décidé de ne pas regarder.</em><br>— Adapté du principe de gestion de Peter Drucker »</p>
+
+<p class="chapter-paragraph">Il y a quelques années, si on vous avait demandé d'évaluer la consommation électrique d'une conversation avec un assistant IA, vous auriez probablement répondu : presque rien. Un serveur quelque part, quelques millisecondes de calcul, quelques microwatts. L'ordre de grandeur d'un clignotement de curseur.</p>
+
+<p class="chapter-paragraph">La réalité est plus intéressante, et plus préoccupante. Une requête adressée à un grand modèle de langage contemporain consomme entre 0,0003 et 0,01 kilowattheure selon sa complexité et selon le modèle utilisé. Les modèles les plus récents (Gemini, GPT-4o) consomment environ 0,0003 kWh par requête simple, mais les tâches de raisonnement avancé peuvent atteindre 0,01 kWh ou plus. Pour fixer un repère : envoyer un email consomme environ 0,000017 kWh. Une requête IA standard est donc de 15 à 600 fois plus énergivore qu'un email banal.</p>
+
+<p class="chapter-paragraph">Pris individuellement, ces chiffres restent modestes. Multipliés par les milliards de requêtes quotidiennes adressées aux différents systèmes d'IA déployés dans le monde en 2026, ils deviennent une grandeur que les réseaux électriques commencent à ressentir physiquement.</p>
+
+<p class="chapter-paragraph"><strong>L'anatomie d'une consommation</strong></p>
+
+<p class="chapter-paragraph">Pour comprendre d'où vient cette consommation, il faut distinguer deux moments très différents dans la vie d'un modèle d'IA. Ces deux moments ont des natures et des ordres de grandeur radicalement différents, et les confondre conduit à des erreurs de raisonnement importantes.</p>
+
+<p class="chapter-paragraph"><strong>L'entraînement.</strong> C'est la phase de création du modèle. On présente des quantités astronomiques de texte, d'images ou d'autres données au système, et on ajuste progressivement des milliards de paramètres mathématiques pour que le modèle apprenne à prédire, à générer, à raisonner. Cette phase est extraordinairement énergivore et ne se produit qu'une fois par version de modèle, ou quelques fois lors de mises à jour majeures.</p>
+
+<p class="chapter-paragraph">Entraîner un modèle comme GPT-4 a consommé, selon les estimations les plus sérieuses disponibles, entre 50 et 65 gigawattheures d'électricité. Pour que ce chiffre ait un sens : c'est la consommation annuelle d'environ 5 000 foyers français. En quelques semaines. Sur un seul cluster de serveurs.</p>
+
+<p class="chapter-paragraph">Les modèles entraînés fin 2025 et début 2026 sont significativement plus grands. Certains atteignent des paramètres qui, il y a trois ans, semblaient relever de la science-fiction. Les estimations de leur coût énergétique d'entraînement sont moins bien documentées publiquement, mais les ordres de grandeur que les initiés mentionnent font parler de centaines de gigawattheures, voire davantage pour les projets les plus ambitieux.</p>
+
+<p class="chapter-paragraph"><strong>L'inférence.</strong> C'est la phase d'utilisation : quand vous posez votre question et que le modèle génère sa réponse. La consommation par requête est bien moindre que lors de l'entraînement, mais elle se répète des milliards de fois par jour. C'est l'inférence qui représente, en volume cumulé quotidien, la part dominante de la consommation opérationnelle des grandes plateformes IA.</p>
+
+<p class="chapter-paragraph">La distinction est importante pour comprendre les leviers d'action. Réduire la consommation à l'entraînement, c'est une démarche de recherche et d'ingénierie qui implique des méthodes d'entraînement plus efficaces, de meilleures architectures, une meilleure utilisation des données. Réduire la consommation à l'inférence, c'est une démarche de déploiement qui implique des puces plus adaptées, des modèles plus petits et plus efficaces pour les tâches courantes, une meilleure gestion des clusters de serveurs.</p>
+
+<p class="chapter-paragraph"><strong>Le froid qui coûte autant que le calcul</strong></p>
+
+<p class="chapter-paragraph">Une dimension souvent oubliée dans les discussions sur la consommation des data centers est le refroidissement. Un processeur qui calcule produit de la chaleur. Cette chaleur doit être évacuée pour que le processeur continue à fonctionner sans s'endommager. Dans un data center standard, le refroidissement représente environ 30 à 40 % de la consommation électrique totale.</p>
+
+<p class="chapter-paragraph">Les ingénieurs mesurent l'efficacité énergétique d'un data center par un indicateur appelé PUE, Power Usage Effectiveness. Un PUE de 2,0 signifie que pour chaque watt utilisé pour le calcul, un autre watt est utilisé pour alimenter l'infrastructure (refroidissement, alimentation électrique, éclairage). Un PUE de 1,0 serait parfait mais impossible en pratique. Les meilleurs data centers hyperscale atteignent aujourd'hui des PUE de 1,1 à 1,2, ce qui représente une amélioration considérable par rapport aux PUE de 2,0 ou plus qui étaient courants il y a quinze ans.</p>
+
+<p class="chapter-paragraph">Mais cette amélioration de l'efficacité par watt de calcul a été intégralement rattrapée et dépassée par la croissance de la densité de calcul dans les centres. On fait beaucoup mieux par unité. On fait tellement plus en volume total que la consommation globale continue d'augmenter rapidement malgré les progrès.</p>
+
+<p class="chapter-paragraph">La recherche sur le refroidissement est active et produit des résultats intéressants. Le refroidissement par immersion, qui consiste à plonger les serveurs directement dans des fluides diélectriques, peut réduire la consommation énergétique du refroidissement d'un facteur 10 à 20 par rapport aux systèmes à air. Microsoft a expérimenté des data centers sous-marins, Project Natick, exploitant la fraîcheur naturelle de l'eau de mer. Google expérimente des systèmes à deux phases liquide-vapeur. Ces solutions existent et fonctionnent techniquement, mais leur déploiement à grande échelle reste coûteux et lent.</p>
+
+<p class="chapter-paragraph"><strong>L'eau : le chiffre que personne n'aime mentionner</strong></p>
+
+<p class="chapter-paragraph">À côté de l'électricité, il y a une ressource que les grandes entreprises tech mentionnent encore moins volontiers dans leurs rapports de durabilité : l'eau.</p>
+
+<p class="chapter-paragraph">Les data centers refroidis par évaporation, qui représentent encore une part importante du parc mondial, consomment des quantités d'eau considérables. Un data center de 100 mégawatts refroidi par tours de refroidissement à eau peut consommer entre 3 et 5 millions de litres d'eau par jour. Par jour. Soit la consommation domestique quotidienne d'une ville de 15 000 à 25 000 habitants.</p>
+
+<p class="chapter-paragraph">Google a reconnu en 2023 que sa consommation d'eau mondiale avait augmenté de 20 % entre 2021 et 2022, en grande partie à cause de ses investissements dans l'IA. Microsoft a subi des critiques sévères pour l'implantation de data centers en Iowa, dans une région qui connaît des périodes de stress hydrique croissantes. Des villes de l'Arizona et du Nevada, déjà sous tension sur leurs ressources en eau, ont commencé à imposer des conditions strictes aux nouveaux projets de data centers.</p>
+
+<p class="chapter-paragraph">Ce n'est pas une crise imminente, mais c'est une tension réelle qui va s'aggraver avec la multiplication des installations et l'aggravation du stress hydrique dans de nombreuses régions du monde sous l'effet du changement climatique. Un data center construit pour 30 ans dans une région actuellement tempérée pourrait se retrouver en 2045 dans une région semi-aride.</p>
+
+<p class="chapter-paragraph"><strong>Les métaux que l'IA consomme sans les rendre</strong></p>
+
+<p class="chapter-paragraph">La consommation électrique est au moins mesurable et, dans une certaine mesure, peut être décarbonée. La question des métaux est plus radicale : ces ressources sont non renouvelables à l'échelle humaine, et leur extraction laisse des traces profondes.</p>
+
+<p class="chapter-paragraph">Un GPU de dernière génération, tel que le H100 de Nvidia qui équipe la grande majorité des data centers IA en 2026, contient plusieurs dizaines de métaux différents. Le silicium pour la base du semiconducteur, bien sûr, mais aussi du cobalt dans les circuits d'alimentation, du tantale dans les condensateurs, du ruthénium dans les connexions, du gallium dans certaines couches fonctionnelles, et une dizaine de terres rares aux noms latins savants qui interviennent à différentes étapes du processus de fabrication.</p>
+
+<p class="chapter-paragraph">La géographie de ces métaux dessine une carte géopolitique qui n'est pas celle que nous apprenons à l'école. La République Démocratique du Congo fournit entre 60 et 70 % du cobalt mondial. La Chine contrôle le raffinage de plus de 85 % des terres rares mondiales, même pour les minerais extraits ailleurs. Le lithium nécessaire aux batteries de stockage qui accompagneront les data centers alimentés par des énergies intermittentes est concentré dans le triangle chilien-argentin-bolivien. Le gallium et le germanium, essentiels dans les semiconducteurs de nouvelle génération, sont produits à 80 % en Chine, qui a d'ailleurs imposé des restrictions à leur exportation en 2023, préfigurant des tensions à venir.</p>
+
+<p class="chapter-paragraph">Ces dépendances ne sont pas des détails technico-économiques. Ce sont des vulnérabilités stratégiques. Un pays ou un bloc économique qui veut une souveraineté réelle dans l'intelligence artificielle doit avoir accès à ces métaux, soit par extraction domestique, soit par des chaînes d'approvisionnement diversifiées et sécurisées, soit par des programmes ambitieux de recyclage et de substitution.</p>
+
+<p class="chapter-paragraph chapter-pullquote"><em>La révolution de l'IA est, dans sa réalité physique, une révolution minière autant qu'une révolution logicielle. Elle consomme des ressources que la planète a mis des millions d'années à concentrer, à un rythme que la planète ne peut pas reconstituer.</em></p>
+
+<p class="chapter-paragraph"><strong>L'empreinte carbone réelle : entre mesure et communication</strong></p>
+
+<p class="chapter-paragraph">Les grandes entreprises technologiques publient des rapports de durabilité annuels qui proclament des ambitions carbone admirables. Google vise la neutralité carbone 24/7 dès 2030. Microsoft ambitionne d'être carbone négatif d'ici 2030. Amazon s'est engagé dans l'initiative The Climate Pledge.</p>
+
+<p class="chapter-paragraph">Ces engagements sont réels. Ils mobilisent des investissements considérables. Mais ils méritent d'être lus avec attention, parce que les mots ont des sens précis dans ce domaine, et que deux entreprises peuvent dire la même chose en voulant dire des choses très différentes.</p>
+
+<p class="chapter-paragraph">La première distinction fondamentale est entre les trois périmètres d'émission, appelés Scope 1, 2 et 3 dans le vocabulaire comptable carbone. Le Scope 1 couvre les émissions directes de l'entreprise, le carburant de ses véhicules, le gaz de ses bâtiments. Le Scope 2 couvre les émissions liées à l'électricité qu'elle consomme. Le Scope 3 couvre tout le reste : la fabrication de ses équipements, les déplacements de ses employés, les émissions générées par ses fournisseurs et ses clients dans l'usage de ses produits.</p>
+
+<p class="chapter-paragraph">Or le Scope 3 représente, pour une entreprise comme Google ou Microsoft, entre 70 et 90 % de l'empreinte carbone totale. Et c'est précisément le périmètre le moins bien mesuré, le moins bien reporté, et sur lequel les engagements sont les plus vagues. Dire qu'on est neutre en carbone sur les Scopes 1 et 2 en 2026, c'est comme dire qu'on ne fume pas dans son bureau tout en gérant une plantation de tabac.</p>
+
+<p class="chapter-paragraph">La deuxième distinction est entre la compensation et la décarbonation réelle. Acheter des crédits carbone, qui financent la préservation de forêts existantes ou la distribution d'ampoules basse consommation dans des pays en développement, n'est pas la même chose que ne pas émettre de CO₂. Les crédits carbone existent dans un continuum de qualité allant du sérieux au franchement douteux, et même les meilleurs ne sont qu'un emplâtre temporaire sur une plaie structurelle.</p>
+
+<p class="chapter-paragraph">La troisième distinction est entre le bilan carbone de l'usage et le bilan carbone de la fabrication. Quand Microsoft annonce que ses data centers fonctionnent à 100 % avec des énergies renouvelables, cela ne dit rien des émissions générées par la fabrication des millions de serveurs qui les équipent. La fabrication d'un serveur représente, selon les études disponibles, entre 50 et 80 % de son empreinte carbone totale sur sa durée de vie. Un data center alimenté en électricité verte mais renouvellant son parc de serveurs tous les trois ans a une empreinte carbone bien différente d'un data center alimenté en électricité grise mais faisant durer ses serveurs dix ans.</p>
+
+<p class="chapter-paragraph"><strong>La courbe exponentielle et le paradoxe de Jevons</strong></p>
+
+<p class="chapter-paragraph">Les optimistes de la tech ont un argument que j'entends souvent et qui mérite d'être traité sérieusement : les puces deviennent de plus en plus efficaces. Un GPU de 2025 fait beaucoup plus de calcul par watt qu'un GPU de 2020. La tendance continue. L'efficacité énergétique par opération mathématique s'améliore régulièrement. Pourquoi s'inquiéter ?</p>
+
+<p class="chapter-paragraph">C'est un argument juste dans ses prémisses et erroné dans sa conclusion. Il ignore ce que les économistes de l'environnement appellent l'effet Jevons, du nom de William Stanley Jevons qui l'a observé au XIXe siècle en étudiant la consommation de charbon en Grande-Bretagne. Jevons a montré que les améliorations de l'efficacité des moteurs à vapeur n'avaient pas réduit la consommation de charbon : elles l'avaient au contraire augmentée, parce que rendre le charbon plus utile l'avait rendu plus attractif, ce qui avait multiplié les usages.</p>
+
+<p class="chapter-paragraph">La même dynamique est à l'œuvre dans le numérique. Chaque gain d'efficacité des puces rend l'IA moins chère à l'usage, ce qui multiplie les déploiements, ce qui crée de nouveaux usages qui n'existaient pas avant, ce qui consomme plus d'électricité totale même si chaque opération individuelle en consomme moins. C'est pour cette raison que malgré des améliorations considérables de l'efficacité des puces depuis dix ans, la consommation électrique mondiale des data centers a continué à croître de 20 à 30 % par an en volume total.</p>
+
+<p class="chapter-paragraph">L'Agence Internationale de l'Énergie est la source de référence sur ces questions. Ses projections ont évolué : en 2024, l'AIE prévoyait que la consommation des data centers mondiaux pourrait atteindre 1 000 térawattheures dès 2026. La consommation réelle de 2024 s'est établie à 415 TWh, et l'AIE a révisé sa projection 2030 à 945 TWh — un doublement en six ans. Un térawattheure, c'est la consommation annuelle d'environ 90 000 foyers français. La croissance entre 2024 et 2030 équivaut à ajouter la consommation électrique cumulée de plusieurs pays de taille moyenne.</p>
+
+<table class="chapter-stats-table">
+  <thead>
+    <tr><th>Indicateur</th><th>Valeur</th><th>Source / Note</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Consommation data centers mondiaux (2020)</td><td>~200 TWh/an</td><td>AIE</td></tr>
+    <tr><td>Consommation data centers mondiaux (2024, réel)</td><td>~415 TWh/an</td><td>Rapport AIE 2025</td></tr>
+    <tr><td>Projection 2030</td><td>~945 TWh/an</td><td>Rapport AIE 2025</td></tr>
+    <tr><td>Facteur de croissance (2024–2030)</td><td>× 2,3</td><td></td></tr>
+    <tr><td>Équivalent approximatif (2030)</td><td>Consommation totale du Japon</td><td></td></tr>
+  </tbody>
+</table>
+
+<p class="chapter-paragraph">Ces chiffres ne sont pas des projections alarmistes d'organisations militantes. Ce sont les données de l'agence intergouvernementale qui conseille les gouvernements du monde entier sur leurs politiques énergétiques. Ils méritent d'être pris au sérieux.</p>
+
+<p class="chapter-paragraph"><strong>Ce qui est vrai pour l'IA l'est aussi pour l'ensemble du numérique</strong></p>
+
+<p class="chapter-paragraph">L'IA n'est pas seule en cause. La conversation sur sa consommation énergétique ne doit pas faire oublier que l'ensemble du numérique est énergivore. Les réseaux de communication consomment environ autant que les data centers. Les appareils terminaux, smartphones, ordinateurs, téléviseurs, constituent un troisième poste comparable.</p>
+
+<p class="chapter-paragraph">La vidéo en streaming mérite une mention particulière. Elle représente à elle seule environ 60 % du trafic internet mondial. Visionner une heure de vidéo en haute définition consomme, selon l'endroit où les serveurs sont localisés et le mode de transmission, entre 0,036 et 0,3 kWh selon les études, avec des controverses importantes sur la méthodologie. Même en prenant les chiffres les plus favorables, la totalité du streaming vidéo mondial représente une consommation annuelle considérable, et elle croît régulièrement avec l'amélioration des résolutions et la généralisation des écrans.</p>
+
+<p class="chapter-paragraph">Je mentionne cela non pour diluer le sujet de l'IA dans un problème plus vaste, mais pour replacer les enjeux dans leur contexte réel. La transformation numérique dans son ensemble pose une question systémique sur l'approvisionnement en énergie du monde connecté. L'IA est le chapitre le plus récent et le plus dynamique de cette question, mais pas le seul.</p>
+
+<p class="chapter-paragraph"><strong>La question qui précède toutes les autres</strong></p>
+
+<p class="chapter-paragraph">Avant de pouvoir répondre à la question de savoir comment alimenter l'IA, il faut se poser une question préalable qui est rarement posée directement : pour quoi exactement voulons-nous l'alimenter ?</p>
+
+<p class="chapter-paragraph">L'IA qui détecte des cancers à un stade précoce sur des radiographies et l'IA qui génère des images de synthèse pour illustrer des articles de blog ne consomment pas nécessairement des ordres de grandeur différents d'électricité. Mais leur valeur sociale et leur justification ne sont pas dans le même registre. La question de savoir si nous sommes prêts à consacrer des gigawatts supplémentaires de production électrique à une certaine catégorie d'usages de l'IA est une question politique et éthique autant qu'énergétique.</p>
+
+<p class="chapter-paragraph">Cette question sera centrale dans la suite de ce livre. Pour l'heure, l'essentiel est d'avoir établi quelques vérités fondamentales : la consommation de l'IA est réelle, mesurable, significative et en croissance rapide. Elle touche l'électricité, l'eau et les métaux. Elle est mal connue du grand public, insuffisamment transparente dans les communications des entreprises, et sous-estimée dans la plupart des scénarios énergétiques nationaux et internationaux.</p>
+
+<p class="chapter-paragraph">Le chapitre suivant examine ce qui se passe quand cette consommation déjà considérable se combine avec l'explosion simultanée d'autres technologies tout aussi énergivores : la robotisation industrielle, les véhicules autonomes, la 5G, les satellites en constellation. Car l'IA n'arrive pas dans un monde électrique calme et bien géré. Elle arrive dans un monde dont les réseaux électriques sont déjà sous tension, et dont les besoins en énergie propre et disponible vont croître de toutes parts à la fois.</p>
+
+<p class="chapter-paragraph" style="text-align:center; letter-spacing: 0.3em; color: var(--text-secondary, #888); margin-top: 2.5rem; margin-bottom: 1rem;">— &nbsp; —</p>
+
+<p class="chapter-paragraph"><em>Chapitre suivant :</em></p>
+<p class="chapter-paragraph"><strong>L'inflation des besoins</strong></p>
+<p class="chapter-paragraph"><em>Quand tout devient électrique en même temps</em></p>

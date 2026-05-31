@@ -45,7 +45,15 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
 
     useEffectReader(() => {
         getProgress(book.id).then(prog => {
-            if (prog) setCurrentChapterIdx(prog.chapterIndex || 0);
+            if (prog) {
+                const idx = prog.chapterIndex || 0;
+                if (book.chapters?.[idx] && book.chapters[idx].available !== false) {
+                    setCurrentChapterIdx(idx);
+                } else {
+                    const firstAvail = book.chapters?.findIndex(ch => ch.available !== false);
+                    setCurrentChapterIdx(firstAvail >= 0 ? firstAvail : 0);
+                }
+            }
         });
     }, [book.id]);
 
@@ -110,11 +118,21 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
         else prevChapter();
     };
 
+    const hasNextChapter = useMemoReader(() => {
+        if (!book.chapters || currentChapterIdx >= book.chapters.length - 1) return false;
+        return book.chapters[currentChapterIdx + 1].available !== false;
+    }, [book.chapters, currentChapterIdx]);
+
+    const hasPrevChapter = useMemoReader(() => {
+        if (!book.chapters || currentChapterIdx <= 0) return false;
+        return book.chapters[currentChapterIdx - 1].available !== false;
+    }, [book.chapters, currentChapterIdx]);
+
     const nextChapter = () => {
-        if (currentChapterIdx < book.chapters.length - 1) setCurrentChapterIdx(i => i + 1);
+        if (hasNextChapter) setCurrentChapterIdx(i => i + 1);
     };
     const prevChapter = () => {
-        if (currentChapterIdx > 0) setCurrentChapterIdx(i => i - 1);
+        if (hasPrevChapter) setCurrentChapterIdx(i => i - 1);
     };
 
     const { readingTime, remainingTime } = useMemoReader(() => {
@@ -206,13 +224,26 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                 </div>
                 <div className="sidebar-body">
                     <div className="toc-section-label">Chapitres</div>
-                    {book.chapters.map((ch, i) => (
-                        <div key={ch.id} className={`toc-item${i === currentChapterIdx ? ' active' : ''}`}
-                            onClick={() => { setCurrentChapterIdx(i); setShowSidebar(false); }}>
-                            <span className="toc-num">{i + 1}</span>
-                            <span>{ch.title}</span>
-                        </div>
-                    ))}
+                    {book.chapters.map((ch, i) => {
+                        const isAvailable = ch.available !== false;
+                        return (
+                            <div key={ch.id} className={`toc-item${i === currentChapterIdx ? ' active' : ''}${!isAvailable ? ' disabled' : ''}`}
+                                onClick={() => {
+                                    if (isAvailable) {
+                                        setCurrentChapterIdx(i);
+                                        setShowSidebar(false);
+                                    }
+                                }}
+                                style={!isAvailable ? { opacity: 0.5, cursor: 'not-allowed', display: 'flex', alignItems: 'center', justifyContent: 'space-between' } : {}}
+                            >
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                    <span className="toc-num">{i + 1}</span>
+                                    <span>{ch.title}</span>
+                                </div>
+                                {!isAvailable && <Icon.Lock />}
+                            </div>
+                        );
+                    })}
                     {signets.length > 0 && (
                         <>
                             <div className="toc-section-label" style={{ marginTop: '1rem' }}>Signets</div>
@@ -382,7 +413,7 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                 <div className="chapter-nav">
                     <div className="chapter-nav-left">
                         <button className="nav-btn" onClick={e => { e.stopPropagation(); prevChapter(); }}
-                            disabled={currentChapterIdx === 0}>
+                            disabled={!hasPrevChapter}>
                             <Icon.ArrowLeft /> <span>Précédent</span>
                         </button>
                     </div>
@@ -398,7 +429,7 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
 
                     <div className="chapter-nav-right">
                         <button className="nav-btn" onClick={e => { e.stopPropagation(); nextChapter(); }}
-                            disabled={currentChapterIdx === book.chapters.length - 1}>
+                            disabled={!hasNextChapter}>
                             <span>Suivant</span> <Icon.ArrowRight />
                         </button>
 

@@ -1,59 +1,55 @@
 // js/components/ReaderView.jsx
-import { Icon } from './Icon.jsx';
-import { Ambience, normalizeBackgroundAnimations } from './Ambience.jsx';
-import { getProgress, saveProgress, getSignets, saveSignet, removeSignet } from '../db.js';
-const { useState, useEffect, useMemo, useRef, useCallback } = React;
+// Dépend de : window.Icon, window.Ambience, window.normalizeBackgroundAnimations, window.HylstDB
 
-const THEME_KEYS = ['sepia', 'light', 'dark'];
+const { useState: useStateReader, useEffect: useEffectReader, useMemo: useMemoReader, useRef: useRefReader, useCallback: useCallbackReader } = React;
 
-export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroundAnimations, currentTrack, isPlaying, isLoop, onTogglePlay, onToggleLoop, onShowMusic, onStop, onToggleFullscreen, isFullscreen }) {
-    const [currentChapterIdx, setCurrentChapterIdx] = useState(0);
-    const [chapterHtml, setChapterHtml] = useState('');
-    const [showUI, setShowUI] = useState(true);
-    const [showSidebar, setShowSidebar] = useState(false);
-    const [showSettings, setShowSettings] = useState(false);
-    const [scrollProgress, setScrollProgress] = useState(0);
-    const [signets, setSignets] = useState([]);
+const THEME_KEYS_READER = ['sepia', 'light', 'dark'];
 
-    const containerRef = useRef(null);
-    const touchStartRef = useRef(null);
-    const uiTimeoutRef = useRef(null);
+function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, isPlaying, isLoop, onTogglePlay, onToggleLoop, onShowMusic, onStop, onToggleFullscreen, isFullscreen }) {
+    const Icon = window.Icon;
+    const Ambience = window.Ambience;
+    const normalizeBackgroundAnimations = window.normalizeBackgroundAnimations;
+    const { getProgress, saveProgress, getSignets, saveSignet, removeSignet } = window.HylstDB;
+
+    const [currentChapterIdx, setCurrentChapterIdx] = useStateReader(0);
+    const [chapterHtml, setChapterHtml] = useStateReader('');
+    const [showUI, setShowUI] = useStateReader(true);
+    const [showSidebar, setShowSidebar] = useStateReader(false);
+    const [showSettings, setShowSettings] = useStateReader(false);
+    const [scrollProgress, setScrollProgress] = useStateReader(0);
+    const [signets, setSignets] = useStateReader([]);
+
+    const containerRef = useRefReader(null);
+    const touchStartRef = useRefReader(null);
+    const uiTimeoutRef = useRefReader(null);
     const chapter = book.chapters?.[currentChapterIdx];
 
-    const transformChapterHTML = useCallback((html) => {
+    const transformChapterHTML = useCallbackReader((html) => {
         if (!html) return html;
         let out = html;
-
-        // --- Rewrite relative images to full path ---
-        // Note: book.id is the directory name in public/books/
         const basePath = `public/books/${book.id}/`;
         out = out.replace(/<img\s+src="([^"]+)"/g, (match, src) => {
-            // Skip absolute, root, or data URLs
             if (src.startsWith('http') || src.startsWith('/') || src.startsWith('data:')) return match;
             return `<img src="${basePath}${src}"`;
         });
-
         out = out.replace(/<p>\s*PARTIE\s*II\s*<\/p>/i, '<h1>Partie 1 :</h1>');
         out = out.replace(/<p>\s*La\s+Capitulation\s+Silencieuse\s*<\/p>/i, '<h2>La Capitulation Silencieuse</h2>');
         out = out.replace(/<p>\s*Partie\s*I\s*<\/p>/i, '<h1>Partie I</h1>');
-        out = out.replace(/<p>\s*Le\s+grand\s+point d'inflexion\s*<\/p>/i, '<h2>Le grand point d\'inflexion</h2>');
+        out = out.replace(/<p>\s*Le\s+grand\s+point d'inflexion\s*<\/p>/i, "<h2>Le grand point d'inflexion</h2>");
         return out;
     }, [book.id]);
 
-    // Load signets
-    useEffect(() => {
+    useEffectReader(() => {
         getSignets(book.id).then(s => setSignets(s || []));
     }, [book.id]);
 
-    // Restore progress
-    useEffect(() => {
+    useEffectReader(() => {
         getProgress(book.id).then(prog => {
             if (prog) setCurrentChapterIdx(prog.chapterIndex || 0);
         });
     }, [book.id]);
 
-    // Load chapter HTML
-    useEffect(() => {
+    useEffectReader(() => {
         if (!chapter) return;
         if (chapter.html) {
             setChapterHtml(transformChapterHTML(chapter.html));
@@ -67,7 +63,6 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
         if (containerRef.current) containerRef.current.scrollTop = 0;
         setScrollProgress(0);
 
-        // Auto-restore scroll position after HTML is rendered
         const timer = setTimeout(async () => {
             const prog = await getProgress(book.id);
             if (prog && prog.chapterIndex === currentChapterIdx && prog.scrollRatio > 0 && containerRef.current) {
@@ -79,8 +74,7 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
         return () => clearTimeout(timer);
     }, [chapter, transformChapterHTML]);
 
-    // Auto show UI on chapter change, then hide it
-    useEffect(() => {
+    useEffectReader(() => {
         setShowUI(true);
         clearTimeout(uiTimeoutRef.current);
         uiTimeoutRef.current = setTimeout(() => setShowUI(false), 3000);
@@ -98,7 +92,7 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
         });
     };
 
-    const handleScroll = useCallback(() => {
+    const handleScroll = useCallbackReader(() => {
         if (!containerRef.current) return;
         const { scrollTop, scrollHeight, clientHeight } = containerRef.current;
         const ratio = scrollTop / Math.max(scrollHeight - clientHeight, 1);
@@ -106,7 +100,6 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
         saveProgress(book.id, currentChapterIdx, ratio);
     }, [book.id, currentChapterIdx]);
 
-    // Touch swipe
     const handleTouchStart = (e) => { touchStartRef.current = e.changedTouches[0].clientX; };
     const handleTouchEnd = (e) => {
         if (touchStartRef.current === null) return;
@@ -124,15 +117,13 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
         if (currentChapterIdx > 0) setCurrentChapterIdx(i => i - 1);
     };
 
-    const { readingTime, remainingTime } = useMemo(() => {
+    const { readingTime, remainingTime } = useMemoReader(() => {
         if (!chapterHtml) return { readingTime: '', remainingTime: '' };
         const text = chapterHtml.replace(/<[^>]+>/g, ' ');
         const words = text.split(/\s+/).filter(w => w.length > 0).length;
         const mins = Math.ceil(words / 220);
-
         const remWords = Math.ceil(words * (1 - scrollProgress));
         const remMins = Math.ceil(remWords / 220);
-
         return {
             readingTime: mins > 0 ? `${mins} min de lecture` : "Moins d'une minute",
             remainingTime: remMins > 0 ? `${remMins} min restantes` : ""
@@ -168,12 +159,9 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
         }
     };
 
-    // Keyboard shortcuts
-    useEffect(() => {
+    useEffectReader(() => {
         const handleKeyDown = (e) => {
-            // Ignore if in input or text area
             if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
-
             if (e.key === 'ArrowRight') nextChapter();
             if (e.key === 'ArrowLeft') prevChapter();
             if (e.key === ' ') {
@@ -184,26 +172,32 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
             }
             if (e.key === 'Home') scrollTo('top');
             if (e.key === 'End') scrollTo('bottom');
-
             if (e.key === 'Escape') {
                 if (showSidebar) setShowSidebar(false);
                 else if (showSettings) setShowSettings(false);
+                else {
+                    setShowUI(v => {
+                        const next = !v;
+                        if (next) {
+                            clearTimeout(uiTimeoutRef.current);
+                            uiTimeoutRef.current = setTimeout(() => setShowUI(false), 3000);
+                        }
+                        return next;
+                    });
+                }
             }
         };
-
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [currentChapterIdx, showSidebar, showSettings, nextChapter, prevChapter, scrollTo]);
+    }, [currentChapterIdx, showSidebar, showSettings]);
 
     const containerClass = `reader-container${showUI ? ' show-ui' : ''}${settings.focusMode ? ' focus-mode' : ''}`;
 
     return (
         <div className="reader-wrapper view-enter">
             <Ambience theme={settings.theme} enabledByTheme={settings.backgroundAnimations} inReader />
-            {/* Progress bar */}
             <div className="reader-progress-bar" style={{ width: `${scrollProgress * 100}%` }} />
 
-            {/* Sidebar */}
             <div className={`sidebar-overlay${showSidebar ? ' open' : ''}`} onClick={() => setShowSidebar(false)} />
             <aside className={`sidebar${showSidebar ? ' open' : ''}`}>
                 <div className="sidebar-header">
@@ -234,7 +228,6 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
                 </div>
             </aside>
 
-            {/* Settings Modal */}
             {showSettings && (
                 <div className="modal-backdrop" onClick={e => e.target === e.currentTarget && setShowSettings(false)}>
                     <div className="modal-content settings-modal">
@@ -246,7 +239,7 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
                             <div className="setting-group">
                                 <label>Thème</label>
                                 <div className="setting-options">
-                                    {THEME_KEYS.map(t => (
+                                    {THEME_KEYS_READER.map(t => (
                                         <button key={t} className={`btn${settings.theme === t ? ' btn-primary' : ''}`}
                                             onClick={() => onUpdateSettings({ ...settings, theme: t })}>
                                             {t === 'sepia' ? <Icon.Book /> : t === 'light' ? <Icon.Sun /> : <Icon.Moon />}
@@ -258,7 +251,7 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
                             <div className="setting-group">
                                 <label>Animations de fond par thème</label>
                                 <div className="theme-animation-grid">
-                                    {THEME_KEYS.map(t => {
+                                    {THEME_KEYS_READER.map(t => {
                                         const label = t === 'sepia' ? 'Sépia' : t === 'light' ? 'Clair' : 'Sombre';
                                         const active = !!normalizeBackgroundAnimations(settings.backgroundAnimations)[t];
                                         return (
@@ -327,7 +320,6 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
                 </div>
             )}
 
-            {/* Scroll Slider */}
             <div className="reader-slider" onClick={handleSliderClick}>
                 <div className="reader-slider-handle" style={{ top: `${scrollProgress * 100}%`, height: '20px' }}>
                     {settings.showProgressPercent && (
@@ -336,7 +328,6 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
                 </div>
             </div>
 
-            {/* Main reader area */}
             <div
                 ref={containerRef}
                 className={containerClass}
@@ -345,7 +336,6 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
             >
-                {/* Toolbar */}
                 <div className="reader-toolbar">
                     <button className="btn btn-icon" onClick={e => { e.stopPropagation(); onBack(); }} title="Retour">
                         <Icon.ArrowLeft />
@@ -380,7 +370,6 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
                     </div>
                 </div>
 
-                {/* Content */}
                 <article className="reader-content">
                     {chapterHtml
                         ? <div className="reader-article" dangerouslySetInnerHTML={{ __html: chapterHtml }} />
@@ -390,7 +379,6 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
                     }
                 </article>
 
-                {/* Bottom nav combined with jump buttons */}
                 <div className="chapter-nav">
                     <div className="chapter-nav-left">
                         <button className="nav-btn" onClick={e => { e.stopPropagation(); prevChapter(); }}
@@ -424,3 +412,5 @@ export function ReaderView({ book, onBack, settings, onUpdateSettings, backgroun
         </div>
     );
 }
+
+window.ReaderView = ReaderView;

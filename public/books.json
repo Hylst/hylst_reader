@@ -37,22 +37,27 @@
     "introPath": "books/l-odyss-e-de-l-ia-2-futurs-un-choix/intro.html",
     "chapters": [
       {
-        "id": "chapitre 1.txt",
+        "id": "0-preface.html",
+        "title": "Preface",
+        "path": "books/l-odyss-e-de-l-ia-2-futurs-un-choix/0-preface.html"
+      },
+      {
+        "id": "chapitre-1.html",
         "title": "Chapitre 1",
         "path": "books/l-odyss-e-de-l-ia-2-futurs-un-choix/chapitre-1.html"
       },
       {
-        "id": "chapitre 2.txt",
+        "id": "chapitre-2.html",
         "title": "Chapitre 2",
         "path": "books/l-odyss-e-de-l-ia-2-futurs-un-choix/chapitre-2.html"
       },
       {
-        "id": "chapitre 3.txt",
+        "id": "chapitre-3.html",
         "title": "Chapitre 3",
         "path": "books/l-odyss-e-de-l-ia-2-futurs-un-choix/chapitre-3.html"
       },
       {
-        "id": "chapitre 4.txt",
+        "id": "chapitre-4.html",
         "title": "Chapitre 4",
         "path": "books/l-odyss-e-de-l-ia-2-futurs-un-choix/chapitre-4.html"
       },
@@ -60,6 +65,85 @@
         "id": "chapitre-5.html",
         "title": "Chapitre 5",
         "path": "books/l-odyss-e-de-l-ia-2-futurs-un-choix/chapitre-5.html"
+      }
+    ]
+  },
+  {
+    "id": "l-odyss-e-de-l-nergie",
+    "title": "L'odyssée de l'énergie",
+    "author": "Hylst (Geoffroy Streit)",
+    "year": 2026,
+    "design": {
+      "fonts": {
+        "heading": "Outfit",
+        "body": "Merriweather",
+        "googleFonts": "family=Outfit:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400"
+      },
+      "colors": {
+        "background": "#f3f6f7",
+        "text": "#1c2833",
+        "primary": "#0e6251",
+        "secondary": "#d5dbdb",
+        "accent": "#f39c12"
+      },
+      "variables": {
+        "--book-bg": "#f3f6f7",
+        "--book-text": "#1c2833",
+        "--book-accent": "#f39c12",
+        "--book-accent-dark": "#0e6251",
+        "--book-surface": "#e5e8e8",
+        "--book-border": "rgba(14, 98, 81, 0.15)",
+        "--book-font-body": "'Merriweather', Georgia, serif",
+        "--book-font-heading": "'Outfit', sans-serif",
+        "--book-font-title": "'Outfit', sans-serif",
+        "--book-font-size": "1.05rem",
+        "--book-line-height": "1.85",
+        "--book-max-width": "700px",
+        "--book-dropcap-size": "4.5em"
+      }
+    },
+    "coverPath": "covers/l-odyss-e-de-l-nergie.webp",
+    "introPath": "books/l-odyss-e-de-l-nergie/intro.html",
+    "chapters": [
+      {
+        "id": "chapitre-1.html",
+        "title": "Chapitre 1",
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-1.html"
+      },
+      {
+        "id": "chapitre-2.html",
+        "title": "Chapitre 2",
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-2.html"
+      },
+      {
+        "id": "chapitre-3.html",
+        "title": "Chapitre 3",
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-3.html"
+      },
+      {
+        "id": "chapitre-4.html",
+        "title": "Chapitre 4",
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-4.html"
+      },
+      {
+        "id": "chapitre-5.html",
+        "title": "Chapitre 5",
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-5.html"
+      },
+      {
+        "id": "chapitre-6.html",
+        "title": "Chapitre 6",
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-6.html"
+      },
+      {
+        "id": "chapitre-7.html",
+        "title": "Chapitre 7",
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-7.html"
+      },
+      {
+        "id": "chapitre-8.html",
+        "title": "Chapitre 8",
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-8.html"
       }
     ]
   }

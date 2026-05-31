@@ -1,12 +1,14 @@
 // js/components/MusicPlayerModal.jsx
-import { Icon } from './Icon.jsx';
-import { MUSIC_LIBRARY } from '../music_data.js';
-const { useState, useMemo } = React;
+// Dépend de : window.Icon, window.MUSIC_LIBRARY
 
-export function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isLoop, onPlayTrack, onTogglePlay, onToggleLoop }) {
-    const [searchTerm, setSearchTerm] = useState('');
+const { useState: useStateMusicModal, useMemo: useMemoMusicModal } = React;
 
-    const filteredTracks = useMemo(() => {
+function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isLoop, onPlayTrack, onTogglePlay, onToggleLoop }) {
+    const Icon = window.Icon;
+    const MUSIC_LIBRARY = window.MUSIC_LIBRARY;
+    const [searchTerm, setSearchTerm] = useStateMusicModal('');
+
+    const filteredTracks = useMemoMusicModal(() => {
         if (!searchTerm) return MUSIC_LIBRARY;
         const low = searchTerm.toLowerCase();
         return MUSIC_LIBRARY.filter(t =>
@@ -14,7 +16,7 @@ export function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isL
             t.genre.toLowerCase().includes(low) ||
             t.tags.some(tag => tag.toLowerCase().includes(low))
         );
-    }, [searchTerm]);
+    }, [searchTerm, MUSIC_LIBRARY]);
 
     if (!isOpen) return null;
 
@@ -125,3 +127,5 @@ export function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isL
         </div>
     );
 }
+
+window.MusicPlayerModal = MusicPlayerModal;

@@ -1,14 +1,5 @@
 // js/app.jsx
-import { getBooks, saveBook, getSettings, saveSettings, getSignetsAll } from './db.js';
-import { importBookFromDirectory } from './importAPI.js';
-import { Icon } from './components/Icon.jsx';
-import { Ambience, normalizeBackgroundAnimations } from './components/Ambience.jsx';
-import { AboutModal } from './components/AboutModal.jsx';
-import { GlobalSettingsModal } from './components/GlobalSettingsModal.jsx';
-import { MusicPlayerModal } from './components/MusicPlayerModal.jsx';
-import { LibraryView } from './components/LibraryView.jsx';
-import { BookHomeView } from './components/BookHomeView.jsx';
-import { ReaderView } from './components/ReaderView.jsx';
+// Orchestrateur principal — utilise les globals window.* exposés par chaque composant
 
 const { useState, useEffect, useMemo, useRef, useCallback } = React;
 
@@ -25,7 +16,6 @@ const DEFAULT_SETTINGS = {
     backgroundAnimations: DEFAULT_BACKGROUND_ANIMATIONS
 };
 
-// Book CSS variable keys managed by the app
 const BOOK_VAR_KEYS = [
     '--book-bg',
     '--book-text',
@@ -39,6 +29,18 @@ const BOOK_VAR_KEYS = [
 ];
 
 function App() {
+    // Récupération des globals exposés par chaque fichier composant
+    const { getBooks, saveBook, getSettings, saveSettings, getSignetsAll } = window.HylstDB;
+    const { importBookFromDirectory } = window.HylstImport;
+    const normalizeBackgroundAnimations = window.normalizeBackgroundAnimations;
+    const Ambience = window.Ambience;
+    const AboutModal = window.AboutModal;
+    const GlobalSettingsModal = window.GlobalSettingsModal;
+    const MusicPlayerModal = window.MusicPlayerModal;
+    const LibraryView = window.LibraryView;
+    const BookHomeView = window.BookHomeView;
+    const ReaderView = window.ReaderView;
+
     const [books, setBooks] = useState([]);
     const [currentView, setCurrentView] = useState('library');
     const [activeBookId, setActiveBookId] = useState(null);
@@ -108,7 +110,6 @@ function App() {
         return () => audio.removeEventListener('ended', handleEnded);
     }, [isLoop]);
 
-    // Keep audio alive through orientation change / tab visibility change
     useEffect(() => {
         let wasPlayingBeforeHide = false;
         const handleVisibility = () => {
@@ -183,7 +184,6 @@ function App() {
 
             setBooks(localBooks);
 
-            // Find most recent session from SIGNETS
             const allSignets = await getSignetsAll();
             let latest = null;
             let latestTime = 0;
@@ -220,7 +220,6 @@ function App() {
         await saveSettings(normalized);
     }, []);
 
-    // Apply global theme + font settings
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', settings.theme);
         document.documentElement.style.setProperty('--font-size-multiplier', settings.fontScale);
@@ -234,7 +233,6 @@ function App() {
 
     const activeBook = useMemo(() => books.find(b => b.id === activeBookId), [books, activeBookId]);
 
-    // Apply book-specific CSS variables (only in sepia mode)
     useEffect(() => {
         if (settings.theme !== 'sepia') return;
         if (activeBook?.design?.variables) {
@@ -252,6 +250,37 @@ function App() {
             BOOK_VAR_KEYS.forEach(k => document.documentElement.style.removeProperty(k));
         }
     }, [activeBook, settings.theme]);
+
+    const parseImportedText = (text) => {
+        const lines = text.split(/\r?\n/);
+        let html = '';
+        let firstPara = true;
+
+        lines.forEach(line => {
+            const trimmed = line.trim();
+            if (!trimmed) { html += '<br/>'; return; }
+
+            let content = trimmed;
+            let className = 'chapter-paragraph';
+
+            if (firstPara && trimmed.length > 50) {
+                className = 'dropcap';
+                firstPara = false;
+            }
+
+            content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            content = content.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+            if (trimmed.startsWith('# ')) {
+                html += `<h1 class="chapter-main-title">${content.replace('# ', '')}</h1>`;
+            } else if (trimmed.startsWith('## ')) {
+                html += `<h2 class="chapter-subtitle">${content.replace('## ', '')}</h2>`;
+            } else {
+                html += `<p class="${className}">${content}</p>`;
+            }
+        });
+        return html;
+    };
 
     const handleImport = async () => {
         const input = document.createElement('input');
@@ -316,7 +345,7 @@ function App() {
                             chapters: chapters.length > 0 ? chapters : [{
                                 id: 'ch-error',
                                 title: 'Erreur',
-                                html: '<p>Impossible d\'extraire les chapitres de cet EPUB.</p>'
+                                html: "<p>Impossible d'extraire les chapitres de cet EPUB.</p>"
                             }]
                         };
                     } catch (err) {
@@ -362,40 +391,6 @@ function App() {
         input.click();
     };
 
-    const parseImportedText = (text) => {
-        const lines = text.split(/\r?\n/);
-        let html = '';
-        let firstPara = true;
-
-        lines.forEach(line => {
-            const trimmed = line.trim();
-            if (!trimmed) {
-                html += '<br/>';
-                return;
-            }
-
-            let content = trimmed;
-            let className = 'chapter-paragraph';
-
-            if (firstPara && trimmed.length > 50) {
-                className = 'dropcap';
-                firstPara = false;
-            }
-
-            content = content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-            content = content.replace(/\*(.*?)\*/g, '<em>$1</em>');
-
-            if (trimmed.startsWith('# ')) {
-                html += `<h1 class="chapter-main-title">${content.replace('# ', '')}</h1>`;
-            } else if (trimmed.startsWith('## ')) {
-                html += `<h2 class="chapter-subtitle">${content.replace('## ', '')}</h2>`;
-            } else {
-                html += `<p class="${className}">${content}</p>`;
-            }
-        });
-        return html;
-    };
-
     const handleImportDirectory = async () => {
         if (!window.showDirectoryPicker) {
             alert("L'API File System Access n'est pas supportée par ce navigateur.");
@@ -416,7 +411,11 @@ function App() {
     };
 
     const openBook = (id) => { setActiveBookId(id); setCurrentView('bookHome'); };
-    const startReading = () => setCurrentView('reader');
+    const startReading = () => {
+        window.HylstDB.saveProgress(activeBookId, 0, 0).then(() => {
+            setCurrentView('reader');
+        });
+    };
     const goBack = (to = 'library') => setCurrentView(to);
 
     const renderView = () => {

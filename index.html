@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Hylst Books & Reader</title>
+    <title>Hylst Books &amp; Reader</title>
 
     <!-- Meta/SEO -->
     <meta name="description"
@@ -14,13 +14,13 @@
         content="liseuse, ebook, epub, hors-ligne, pwa, Hylst, Geoffroy Streit, lecture, web reader, offline, livre audio">
 
     <!-- Open Graph / Social -->
-    <meta property="og:title" content="Hylst Books & Reader">
+    <meta property="og:title" content="Hylst Books &amp; Reader">
     <meta property="og:description"
         content="Bibliothèque numérique de Geoffroy Streit et liseuse web élégante offline-first.">
     <meta property="og:image" content="./public/social-share.png">
     <meta property="og:type" content="website">
 
-    <!-- Theme & PWA Settings -->
+    <!-- Theme &amp; PWA Settings -->
     <meta name="theme-color" content="#faf4e8" id="theme-color-meta">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -38,28 +38,28 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Georgia&display=swap"
         rel="stylesheet">
 
-    <!-- CSS -->
-    <!-- Design System -->
-    <link rel="stylesheet" href="css/variables.css?v=1.1.35">
-    <link rel="stylesheet" href="css/base.css?v=1.1.35">
-    <link rel="stylesheet" href="css/layout.css?v=1.1.35">
-    <link rel="stylesheet" href="css/components.css?v=1.1.35">
-    <link rel="stylesheet" href="css/modals.css?v=1.1.35">
-    <link rel="stylesheet" href="css/music.css?v=1.1.35">
-    <link rel="stylesheet" href="css/reader.css?v=1.1.35">
-    <link rel="stylesheet" href="css/responsive.css?v=1.1.35">
+    <!-- CSS Design System -->
+    <link rel="stylesheet" href="css/variables.css?v=1.2.0">
+    <link rel="stylesheet" href="css/base.css?v=1.2.0">
+    <link rel="stylesheet" href="css/layout.css?v=1.2.0">
+    <link rel="stylesheet" href="css/components.css?v=1.2.0">
+    <link rel="stylesheet" href="css/modals.css?v=1.2.0">
+    <link rel="stylesheet" href="css/music.css?v=1.2.0">
+    <link rel="stylesheet" href="css/reader.css?v=1.2.0">
+    <link rel="stylesheet" href="css/responsive.css?v=1.2.0">
 
-    <!-- External Dependencies via CDN (No Build) -->
-    <!-- React & ReactDOM -->
+    <!-- External Dependencies via CDN (No Build Tool) -->
+    <!-- React & ReactDOM (UMD) -->
     <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
     <!-- Babel for in-browser JSX transpilation -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <!-- idb-keyval for IndexedDB storage -->
+    <!-- idb-keyval for IndexedDB storage (UMD → window.idbKeyval) -->
     <script src="https://cdn.jsdelivr.net/npm/idb-keyval@6/dist/umd.js"></script>
-    <!-- JSZip for zip import fallback -->
+    <!-- JSZip & epub.js for EPUB import -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+
     <link rel="manifest" href="manifest.json">
 </head>
 
@@ -71,10 +71,36 @@
         </div>
     </div>
 
-    <!-- Application Scripts -->
-    <script type="text/babel" data-type="module" src="js/db.js?v=1.1.35"></script>
-    <script type="text/babel" data-type="module" src="js/importAPI.js?v=1.1.35"></script>
-    <script type="text/babel" data-type="module" src="js/app.jsx?v=1.1.35"></script>
+    <!--
+        IMPORTANT : Babel standalone ne supporte PAS les imports ES6 inter-fichiers.
+        Chaque fichier JSX doit être chargé individuellement, SANS data-type="module".
+        L'ordre de chargement est critique : les dépendances d'abord, l'app en dernier.
+        Chaque fichier expose son contenu sur window.* pour être accessible globalement.
+    -->
+
+    <!-- 1. Données -->
+    <script src="js/music_data.js?v=1.2.0"></script>
+
+    <!-- 2. Utilitaires & DB (plain JS, pas de JSX) -->
+    <script src="js/db.js?v=1.2.0"></script>
+    <script src="js/importAPI.js?v=1.2.0"></script>
+
+    <!-- 3. Composants de base (sans dépendances inter-composants) -->
+    <script type="text/babel" src="js/components/Icon.jsx?v=1.2.0"></script>
+    <script type="text/babel" src="js/components/Ambience.jsx?v=1.2.0"></script>
+
+    <!-- 4. Composants modaux (dépendent de Icon & Ambience) -->
+    <script type="text/babel" src="js/components/AboutModal.jsx?v=1.2.0"></script>
+    <script type="text/babel" src="js/components/GlobalSettingsModal.jsx?v=1.2.0"></script>
+    <script type="text/babel" src="js/components/MusicPlayerModal.jsx?v=1.2.0"></script>
+
+    <!-- 5. Vues (dépendent de Icon, Ambience, HylstDB) -->
+    <script type="text/babel" src="js/components/BookHomeView.jsx?v=1.2.0"></script>
+    <script type="text/babel" src="js/components/LibraryView.jsx?v=1.2.0"></script>
+    <script type="text/babel" src="js/components/ReaderView.jsx?v=1.2.0"></script>
+
+    <!-- 6. App principale (orchestre tout) -->
+    <script type="text/babel" src="js/app.jsx?v=1.2.0"></script>
 
     <!-- PWA Service Worker Registration -->
     <script>

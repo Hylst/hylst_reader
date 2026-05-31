@@ -524,3 +524,95 @@
     justify-content: center;
     font-size: 0.7rem;
 }
+
+/* ─── Chapter Content Enhancements ──────────────────────────── */
+
+/* Pull quote / citation mise en valeur */
+.chapter-pullquote {
+    border-left: 3px solid var(--book-accent);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: color-mix(in srgb, var(--book-accent) 6%, transparent);
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: var(--book-accent-dark);
+    line-height: 1.8;
+}
+
+/* Séparateur de section ornemental */
+.chapter-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--book-border) 30%,
+        var(--book-accent) 50%,
+        var(--book-border) 70%,
+        transparent
+    );
+    margin: 3rem auto;
+    max-width: 60%;
+    opacity: 0.6;
+}
+
+/* Titre de section interne (sous-chapitre) */
+.chapter-section-title {
+    font-family: var(--book-font-heading);
+    font-size: 1.5rem;
+    color: var(--book-accent);
+    text-align: center;
+    margin: 2rem 0 1.5rem;
+    letter-spacing: 0.03em;
+    opacity: 0.9;
+}
+
+/* Table de statistiques */
+.chapter-stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-family: var(--book-font-body);
+    font-size: 0.92rem;
+}
+
+.chapter-stats-table thead tr {
+    background: color-mix(in srgb, var(--book-accent) 15%, transparent);
+    color: var(--book-accent-dark);
+}
+
+.chapter-stats-table th {
+    padding: 0.7rem 1rem;
+    text-align: left;
+    font-family: var(--book-font-heading);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--book-accent);
+}
+
+.chapter-stats-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--book-border);
+    vertical-align: middle;
+    line-height: 1.5;
+}
+
+.chapter-stats-table tbody tr:nth-child(even) {
+    background: color-mix(in srgb, var(--book-surface) 50%, transparent);
+}
+
+.chapter-stats-table tbody tr:hover {
+    background: color-mix(in srgb, var(--book-accent) 8%, transparent);
+}
+
+.chapter-stats-table td:nth-child(2) {
+    font-weight: 600;
+    color: var(--book-accent-dark);
+}
+
+.chapter-stats-table td:nth-child(3) {
+    font-style: italic;
+    opacity: 0.75;
+    font-size: 0.85rem;
+}

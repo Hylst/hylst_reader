@@ -1,10 +1,12 @@
 // js/components/GlobalSettingsModal.jsx
-import { Icon } from './Icon.jsx';
-import { normalizeBackgroundAnimations } from './Ambience.jsx';
+// Dépend de : window.Icon, window.normalizeBackgroundAnimations
 
-const THEME_KEYS = ['sepia', 'light', 'dark'];
+const THEME_KEYS_SETTINGS = ['sepia', 'light', 'dark'];
 
-export function GlobalSettingsModal({ settings, onUpdateSettings, onClose }) {
+function GlobalSettingsModal({ settings, onUpdateSettings, onClose }) {
+    const Icon = window.Icon;
+    const normalizeBackgroundAnimations = window.normalizeBackgroundAnimations;
+
     return (
         <div className="modal-backdrop" onClick={e => e.target === e.currentTarget && onClose()}>
             <div className="modal-content settings-modal">
@@ -19,7 +21,7 @@ export function GlobalSettingsModal({ settings, onUpdateSettings, onClose }) {
                     <div className="setting-group">
                         <label>Thème</label>
                         <div className="setting-options">
-                            {THEME_KEYS.map(t => (
+                            {THEME_KEYS_SETTINGS.map(t => (
                                 <button key={t} className={`btn${settings.theme === t ? ' btn-primary' : ''}`}
                                     onClick={() => onUpdateSettings({ ...settings, theme: t })}>
                                     {t === 'sepia' ? <Icon.Book /> : t === 'light' ? <Icon.Sun /> : <Icon.Moon />}
@@ -31,7 +33,7 @@ export function GlobalSettingsModal({ settings, onUpdateSettings, onClose }) {
                     <div className="setting-group">
                         <label>Animations de fond par thème</label>
                         <div className="theme-animation-grid">
-                            {THEME_KEYS.map(t => {
+                            {THEME_KEYS_SETTINGS.map(t => {
                                 const label = t === 'sepia' ? 'Sépia' : t === 'light' ? 'Clair' : 'Sombre';
                                 const active = !!normalizeBackgroundAnimations(settings.backgroundAnimations)[t];
                                 return (
@@ -124,3 +126,5 @@ export function GlobalSettingsModal({ settings, onUpdateSettings, onClose }) {
         </div>
     );
 }
+
+window.GlobalSettingsModal = GlobalSettingsModal;

@@ -1,12 +1,14 @@
 // js/components/BookHomeView.jsx
-import { Icon } from './Icon.jsx';
-const { useState, useEffect } = React;
+// Dépend de : window.Icon
 
-export function BookHomeView({ book, onBack, onStartReading }) {
-    const [coverUrl, setCoverUrl] = useState(null);
-    const [introHtml, setIntroHtml] = useState('');
+const { useState: useStateBookHome, useEffect: useEffectBookHome } = React;
 
-    useEffect(() => {
+function BookHomeView({ book, onBack, onStartReading }) {
+    const Icon = window.Icon;
+    const [coverUrl, setCoverUrl] = useStateBookHome(null);
+    const [introHtml, setIntroHtml] = useStateBookHome('');
+
+    useEffectBookHome(() => {
         if (book.coverBlob) {
             const url = URL.createObjectURL(book.coverBlob);
             setCoverUrl(url);
@@ -16,7 +18,7 @@ export function BookHomeView({ book, onBack, onStartReading }) {
         }
     }, [book.coverBlob, book.coverPath]);
 
-    useEffect(() => {
+    useEffectBookHome(() => {
         if (!book.introHtml && book.introPath) {
             window.fetch(`public/${book.introPath}?t=${Date.now()}`)
                 .then(r => r.text())
@@ -48,3 +50,5 @@ export function BookHomeView({ book, onBack, onStartReading }) {
         </div>
     );
 }
+
+window.BookHomeView = BookHomeView;

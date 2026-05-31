@@ -1,7 +1,7 @@
 // js/components/LibraryView.jsx
-import { Icon } from './Icon.jsx';
-import { getProgress } from '../db.js';
-const { useState, useEffect, useMemo } = React;
+// Dépend de : window.Icon, window.HylstDB
+
+const { useState: useStateLib, useEffect: useEffectLib, useMemo: useMemoLib } = React;
 
 const FUTURE_BOOKS = [
     { id: 'f1', title: "L'Odyssée de l'Énergie", subtitle: "Le Carburant Invisible de l'IA", genre: 'Essai SF', cover: 'covers/cover_odyssee_energie.webp' },
@@ -27,7 +27,7 @@ const FUTURE_BOOKS = [
     { id: 'f20', title: "Les Éclats du Corbeau", subtitle: "Livre dont vous êtes le héros · Mystère & Étrange", genre: 'LDVELH', cover: 'covers/cover_eclats_corbeau.webp' },
 ];
 
-export function AnimatedAppTitle({ className = "", style = {} }) {
+function AnimatedAppTitle({ className = "", style = {} }) {
     const text = "Hylst Books & Reader";
     return (
         <span className={`app-title animated-title ${className}`.trim()} style={style} aria-label={text} title={text}>
@@ -46,6 +46,7 @@ export function AnimatedAppTitle({ className = "", style = {} }) {
 }
 
 function FutureBookCard({ book, delay = 0 }) {
+    const Icon = window.Icon;
     return (
         <div className="book-card future-card" style={{ animationDelay: `${delay}ms` }} title="Bientot disponible" role="img">
             <div className="book-cover-container">
@@ -65,10 +66,12 @@ function FutureBookCard({ book, delay = 0 }) {
 }
 
 function BookCard({ book, onClick, delay = 0 }) {
-    const [coverUrl, setCoverUrl] = useState(null);
-    const [progress, setProgress] = useState(null);
+    const Icon = window.Icon;
+    const { getProgress } = window.HylstDB;
+    const [coverUrl, setCoverUrl] = useStateLib(null);
+    const [progress, setProgress] = useStateLib(null);
 
-    useEffect(() => {
+    useEffectLib(() => {
         if (book.coverBlob) {
             const url = URL.createObjectURL(book.coverBlob);
             setCoverUrl(url);
@@ -78,7 +81,7 @@ function BookCard({ book, onClick, delay = 0 }) {
         }
     }, [book.coverBlob, book.coverPath]);
 
-    useEffect(() => {
+    useEffectLib(() => {
         getProgress(book.id).then(p => { if (p) setProgress(p.scrollRatio || 0); });
     }, [book.id]);
 
@@ -104,8 +107,8 @@ function BookCard({ book, onClick, delay = 0 }) {
     );
 }
 
-export function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings, onUpdateSettings, lastSession, onResume, onShowAbout, onShowMusic, onShowSettings, currentTrack, isPlaying, isLoop, onTogglePlay, onToggleLoop, onStop }) {
-    // Séparer les livres intégrés des imports utilisateur (isImported vient de importAPI.js)
+function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings, onUpdateSettings, lastSession, onResume, onShowAbout, onShowMusic, onShowSettings, currentTrack, isPlaying, isLoop, onTogglePlay, onToggleLoop, onStop }) {
+    const Icon = window.Icon;
     const hylstBooks = books.filter(b => !b.isImported);
     const userBooks = books.filter(b => b.isImported);
 
@@ -129,7 +132,6 @@ export function LibraryView({ books, onImport, onImportDirectory, onOpenBook, se
                     >
                         {settings.theme === 'dark' ? <Icon.Sun /> : settings.theme === 'light' ? <Icon.Moon /> : <Icon.Book />}
                     </button>
-                    {/* Mini-contrôles audio inline : visibles quand une piste est active */}
                     {currentTrack && (
                         <div className="music-mini-bar" title={currentTrack.title}>
                             <button className="mini-open" onClick={onShowMusic} title="Ouvrir la bibliothèque musicale" type="button">
@@ -188,10 +190,9 @@ export function LibraryView({ books, onImport, onImportDirectory, onOpenBook, se
                     </div>
                 )}
 
-                {/* ── Section : Bibliothèque de Hylst ── */}
                 <div className="library-section-label">Bibliothèque de Hylst</div>
                 <p className="library-section-desc">
-                    Œuvres intégrées &mdash; romans, nouvelles, essais, JDR et poésie de Geoffroy Streit (alias Hylst).
+                    Oeuvres intégrées &mdash; romans, nouvelles, essais, JDR et poésie de Geoffroy Streit (alias Hylst).
                 </p>
                 {hylstBooks.length === 0 ? (
                     <div className="empty-state" style={{ padding: '2rem' }}>
@@ -205,16 +206,15 @@ export function LibraryView({ books, onImport, onImportDirectory, onOpenBook, se
                     </div>
                 )}
 
-                {/* ── Section : À venir ── */}
                 <div className="library-section-label future-label">
                     À venir &mdash; Contenus en préparation <span className="wip-badge">En cours</span>
                 </div>
                 <div className="future-intro">
                     <div className="future-block">
-                        <p>De mes anciens blogs et sites webs, des tiroirs numériques encombrés qui n'ont reçu d'autres visites que les miennes, j'aurai matière à réunir bon nombre de mes écrits passés en ce lieu, parfois inachevés ou à revoir, rangés dans cette bibliothèque numérique que je travaille à concevoir pour y présenter, ouverts à la consultation libre, mes anciennes nouvelles, récits d'aventures HF et SF, livres dont vous êtes le héros, scénarios et campagnes de jeux de rôles, histoires fantasques, réflexions existentielles, recueils de proses et poésies, analyses pseudo-scientifiques ou plus sérieuses, recherche de sens et vérité, guides pédagogiques, frustrastions & passions, divagations & claivoyances, ... issus des méandres de mon cerveau bancal et de mes idées vagabondes au fil des années.</p>
+                        <p>De mes anciens blogs et sites webs, des tiroirs numériques encombrés qui n'ont reçu d'autres visites que les miennes, j'aurai matière à réunir bon nombre de mes écrits passés en ce lieu, parfois inachevés ou à revoir, rangés dans cette bibliothèque numérique que je travaille à concevoir pour y présenter, ouverts à la consultation libre, mes anciennes nouvelles, récits d'aventures HF et SF, livres dont vous êtes le héros, scénarios et campagnes de jeux de rôles, histoires fantasques, réflexions existentielles, recueils de proses et poésies, analyses pseudo-scientifiques ou plus sérieuses, recherche de sens et vérité, guides pédagogiques, frustrastions &amp; passions, divagations &amp; claivoyances, ... issus des méandres de mon cerveau bancal et de mes idées vagabondes au fil des années.</p>
                     </div>
                     <div className="future-block">
-                        <p>Avec le recul & l'expérience, j'aimerais reprendre bon nombre d'entre eux pour les améliorer, corriger ou compléter avant de les partager, mais en aurais-je la motivation continue ? En prendrai-je le temps ? Ne finirais-je pas encore une fois par les laisser choir au fond de mes disques dans l'obscurité, si imparfaits soient-ils ?</p>
+                        <p>Avec le recul &amp; l'expérience, j'aimerais reprendre bon nombre d'entre eux pour les améliorer, corriger ou compléter avant de les partager, mais en aurais-je la motivation continue ? En prendrai-je le temps ? Ne finirais-je pas encore une fois par les laisser choir au fond de mes disques dans l'obscurité, si imparfaits soient-ils ?</p>
                     </div>
                 </div>
                 <div className="library-grid">
@@ -223,7 +223,6 @@ export function LibraryView({ books, onImport, onImportDirectory, onOpenBook, se
                     ))}
                 </div>
 
-                {/* ── Section : Vos autres lectures ── */}
                 <div className="library-section-label user-library-label">
                     Vos autres lectures
                     <div style={{ display: 'flex', gap: '0.5rem', marginLeft: 'auto' }}>
@@ -279,3 +278,6 @@ export function LibraryView({ books, onImport, onImportDirectory, onOpenBook, se
         </div>
     );
 }
+
+window.AnimatedAppTitle = AnimatedAppTitle;
+window.LibraryView = LibraryView;

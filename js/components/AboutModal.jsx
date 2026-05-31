@@ -1,9 +1,11 @@
 // js/components/AboutModal.jsx
-import { Icon } from './Icon.jsx';
-const { useState } = React;
+// Dépend de : window.Icon
 
-export function AboutModal({ onClose }) {
-    const [activeTab, setActiveTab] = useState('about');
+const { useState: useStateAbout } = React;
+
+function AboutModal({ onClose }) {
+    const [activeTab, setActiveTab] = useStateAbout('about');
+    const Icon = window.Icon;
 
     const tabs = [
         { id: 'about', label: 'À propos', icon: <Icon.Info /> },
@@ -45,7 +47,7 @@ export function AboutModal({ onClose }) {
                     {activeTab === 'about' && (
                         <div className="about-tab-content animate-fade-in">
                             <p className="about-hero-text">
-                                <strong>Hylst Books & Reader</strong> est plus qu'une simple liseuse, c'est un petit havre numérique intimiste pensé pour l'immersion littéraire, graphique et sonore. Un cocon personnalisé façonné avec soin pour s'évader du bruit du web.
+                                <strong>Hylst Books &amp; Reader</strong> est plus qu'une simple liseuse, c'est un petit havre numérique intimiste pensé pour l'immersion littéraire, graphique et sonore. Un cocon personnalisé façonné avec soin pour s'évader du bruit du web.
                             </p>
                             <div className="about-grid">
                                 <div className="about-card">
@@ -71,7 +73,7 @@ export function AboutModal({ onClose }) {
                                 <div className="about-card">
                                     <Icon.Shield />
                                     <h4>Des améliorations prévues</h4>
-                                    <p>- <strong>Personnalisation :</strong> À chaque écrit proposé, une sélection de musiques d'ambiances adéquates, mais aussi un environnement graphique spécifique.<br />- Mes écrits que j'importerai et activerai progressivement.<br />- Correction de coquilles & bugs, améliorations UX/UI progressives...</p>
+                                    <p>- <strong>Personnalisation :</strong> À chaque écrit proposé, une sélection de musiques d'ambiances adéquates, mais aussi un environnement graphique spécifique.<br />- Mes écrits que j'importerai et activerai progressivement.<br />- Correction de coquilles &amp; bugs, améliorations UX/UI progressives...</p>
                                 </div>
                             </div>
                         </div>
@@ -84,7 +86,7 @@ export function AboutModal({ onClose }) {
                                 <div className="feature-item">
                                     <div className="feature-icon"><Icon.Type /></div>
                                     <div className="feature-details">
-                                        <strong>Typographie Noble & Confort</strong>
+                                        <strong>Typographie Noble &amp; Confort</strong>
                                         <p>L'interface sublime le texte en utilisant des polices à empattements organiques telles que <em>Cormorant Garamond</em> et <em>Libre Baskerville</em>, garantissant une lisibilité optimale digne des ouvrages imprimés traditionnels.</p>
                                     </div>
                                 </div>
@@ -142,17 +144,17 @@ export function AboutModal({ onClose }) {
                                     <a href="https://hylst.bandcamp.com/" target="_blank" className="creator-link-btn" title="Bandcamp">
                                         <Icon.Music /> <span>Musiques composées (sans IA) (Bandcamp)</span>
                                     </a>
-                                    <a href="https://soundcloud.com/hhhylst" target="_blank" className="creator-link-btn" title="Soundcloud (Musique)">
+                                    <a href="https://soundcloud.com/hhhylst" target="_blank" className="creator-link-btn" title="Soundcloud">
                                         <Icon.Headphones /> <span>Musiques composées (sans IA) (SoundCloud)</span>
                                     </a>
-                                    <a href="https://www.wattpad.com/user/GeoffroyStreit" target="_blank" className="creator-link-btn" title="Wattpad (Proses)">
+                                    <a href="https://www.wattpad.com/user/GeoffroyStreit" target="_blank" className="creator-link-btn" title="Wattpad">
                                         <Icon.Book /> <span>Anciennes proses et poésies (sans IA) (Wattpad)</span>
                                     </a>
                                     <a href="https://www.deviantart.com/hhylst" target="_blank" className="creator-link-btn" title="DeviantArt">
-                                        <Icon.Image /> <span>Dessins, Pixel Art & Digital Painting (sans IA) (DeviantArt)</span>
+                                        <Icon.Image /> <span>Dessins, Pixel Art &amp; Digital Painting (sans IA) (DeviantArt)</span>
                                     </a>
                                     <a href="https://www.youtube.com/@HyLsT16" target="_blank" className="creator-link-btn" title="YouTube">
-                                        <Icon.Youtube /> <span>Vidéos & Clips (sans IA sauf mention) (YouTube)</span>
+                                        <Icon.Youtube /> <span>Vidéos &amp; Clips (sans IA sauf mention) (YouTube)</span>
                                     </a>
                                     <a href="https://demozoo.org/sceners/2341/" target="_blank" className="creator-link-btn" title="Demozoo">
                                         <Icon.Cpu /> <span>Contributions Demoscene &mdash; code, musique, gfx (Demozoo)</span>
@@ -171,24 +173,23 @@ export function AboutModal({ onClose }) {
                                 <div className="tip-box">
                                     <h5><Icon.Zap /> Raccourcis Clavier</h5>
                                     <ul>
-                                        <li><code>Espace</code> ou <code>Page Down</code> : Défilement fluide vers le bas d'environ 80% de la hauteur de l'écran. Parfait pour lire de longues tirades.</li>
-                                        <li><code>Flèche Droite</code> &rarr; / <code>Gauche</code> &larr; : Navigation rapide et silencieuse entre les chapitres d'un livre.</li>
-                                        <li><code>Touche Début</code> / <code>Fin</code> :  Aller directement tout en haut ou tout en bas de la page.</li>
-                                        <li><code>Échap</code> : Ferme instinctivement les barres latérales, modales de menu et d'informations.</li>
-                                        <li><code>Ctrl + F</code> : Utilisez la recherche native du navigateur (recommandé pour sa fiabilité).</li>
+                                        <li><code>Espace</code> ou <code>Page Down</code> : Défilement fluide vers le bas d'environ 80% de la hauteur de l'écran.</li>
+                                        <li><code>Flèche Droite</code> / <code>Gauche</code> : Navigation rapide entre les chapitres d'un livre.</li>
+                                        <li><code>Touche Début</code> / <code>Fin</code> : Aller directement tout en haut ou tout en bas de la page.</li>
+                                        <li><code>Échap</code> : Ferme les barres latérales et modales.</li>
+                                        <li><code>Ctrl + F</code> : Utilisez la recherche native du navigateur.</li>
                                     </ul>
                                 </div>
                                 <div className="tip-box">
-                                    <h5><Icon.Mouse /> Tactile, Stylus & Souris</h5>
+                                    <h5><Icon.Mouse /> Tactile, Stylus &amp; Souris</h5>
                                     <ul>
-                                        <li><strong>Geste (Swipe) Latéral</strong> : Sur mobile, glissez vers la gauche ou la droite pour tourner les pages virtuelles (changer de chapitre).</li>
-                                        <li><strong>Double Tap (ou Clic)</strong> n'importe où dans le texte : Fait apparaître ou disparaître instantanément toutes les barres d'interfaces (Mode Focus absolu).</li>
-                                        <li><strong>Barre de Progression Intelligente</strong> : Utilisez la barre en pointillés en haut du lecteur ; un clic n'importe où fait défiler le texte de manière fluide (utile pour s'y retrouver dans un long chapitre) </li>
-                                        <li><strong>En-tête Interactif</strong> : Cliquez sur le titre du livre dans l'en-tête (en mode sombre ou lecteur) pour déployer discrètement la barre de la bibliothèque musicale.</li>
+                                        <li><strong>Geste (Swipe) Latéral</strong> : Sur mobile, glissez vers la gauche ou la droite pour tourner les pages virtuelles.</li>
+                                        <li><strong>Double Tap (ou Clic)</strong> n'importe où dans le texte : Fait apparaître ou disparaître toutes les barres d'interfaces (Mode Focus).</li>
+                                        <li><strong>Barre de Progression Intelligente</strong> : Un clic n'importe où fait défiler le texte de manière fluide.</li>
                                     </ul>
                                 </div>
                                 <div className="tip-box full-width">
-                                    <h5><Icon.Settings /> Secret & Astuce d'importation avancée</h5>
+                                    <h5><Icon.Settings /> Secret &amp; Astuce d'importation avancée</h5>
                                     <p>Vous souhaitez intégrer un tome entier avec sa structure originale ? Vous pouvez glisser-déposer tout le dossier d'un livre (s'il suit l'architecture Hylst HTML), mais pour une expérience sur mesure : assurez-vous de concevoir <strong>un fichier <code>config.json</code> racine</strong>.</p>
                                     <p className="tip-hint">L'application se chargera alors de construire automatiquement l'interface narrative, avec les chapitres ordonnés, la couverture, l'auteur, et le résumé officiel !</p>
                                 </div>
@@ -205,3 +206,5 @@ export function AboutModal({ onClose }) {
         </div>
     );
 }
+
+window.AboutModal = AboutModal;

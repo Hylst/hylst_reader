@@ -1,14 +1,15 @@
 // js/components/Ambience.jsx
+// Effets de fond animés — exposé via window.Ambience / window.normalizeBackgroundAnimations
+
 const { useMemo } = React;
 
-const DEFAULT_BACKGROUND_ANIMATIONS = { sepia: true, light: true, dark: true };
+const _DEFAULT_BG_ANIMS = { sepia: true, light: true, dark: true };
 
-export const normalizeBackgroundAnimations = (value) => ({
-    ...DEFAULT_BACKGROUND_ANIMATIONS,
-    ...(value || {})
-});
+function normalizeBackgroundAnimations(value) {
+    return { ..._DEFAULT_BG_ANIMS, ...(value || {}) };
+}
 
-export function Ambience({ theme, enabledByTheme, inReader = false }) {
+function Ambience({ theme, enabledByTheme, inReader = false }) {
     const enabled = normalizeBackgroundAnimations(enabledByTheme)[theme];
     const particles = useMemo(() => {
         const count = theme === 'dark' ? 24 : theme === 'sepia' ? 18 : 16;
@@ -53,3 +54,6 @@ export function Ambience({ theme, enabledByTheme, inReader = false }) {
         </div>
     );
 }
+
+window.Ambience = Ambience;
+window.normalizeBackgroundAnimations = normalizeBackgroundAnimations;

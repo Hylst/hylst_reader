@@ -23,7 +23,7 @@ function AboutModal({ onClose }) {
                             <div className="about-logo">H</div>
                             <div>
                                 <h3>Hylst Books &amp; Reader</h3>
-                                <span className="about-version">Version 1.2.0 &middot; 2026</span>
+                                <span className="about-version">Version 1.2.1 &middot; 2026</span>
                             </div>
                         </div>
                         <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
@@ -138,25 +138,25 @@ function AboutModal({ onClose }) {
                                     et les mots s'entremêlent harmonieusement.
                                 </p>
                                 <div className="creator-links">
-                                    <a href="https://hylst.fr" target="_blank" className="creator-link-btn" title="Site web Hylst">
+                                    <a href="https://hylst.fr" target="_blank" rel="noopener noreferrer" className="creator-link-btn" title="Site web Hylst">
                                         <Icon.Globe /> <span>Visiter mon site hylst.fr</span>
                                     </a>
-                                    <a href="https://hylst.bandcamp.com/" target="_blank" className="creator-link-btn" title="Bandcamp">
+                                    <a href="https://hylst.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="creator-link-btn" title="Bandcamp">
                                         <Icon.Music /> <span>Musiques composées (sans IA) (Bandcamp)</span>
                                     </a>
-                                    <a href="https://soundcloud.com/hhhylst" target="_blank" className="creator-link-btn" title="Soundcloud">
+                                    <a href="https://soundcloud.com/hhhylst" target="_blank" rel="noopener noreferrer" className="creator-link-btn" title="Soundcloud">
                                         <Icon.Headphones /> <span>Musiques composées (sans IA) (SoundCloud)</span>
                                     </a>
-                                    <a href="https://www.wattpad.com/user/GeoffroyStreit" target="_blank" className="creator-link-btn" title="Wattpad">
+                                    <a href="https://www.wattpad.com/user/GeoffroyStreit" target="_blank" rel="noopener noreferrer" className="creator-link-btn" title="Wattpad">
                                         <Icon.Book /> <span>Anciennes proses et poésies (sans IA) (Wattpad)</span>
                                     </a>
-                                    <a href="https://www.deviantart.com/hhylst" target="_blank" className="creator-link-btn" title="DeviantArt">
+                                    <a href="https://www.deviantart.com/hhylst" target="_blank" rel="noopener noreferrer" className="creator-link-btn" title="DeviantArt">
                                         <Icon.Image /> <span>Dessins, Pixel Art &amp; Digital Painting (sans IA) (DeviantArt)</span>
                                     </a>
-                                    <a href="https://www.youtube.com/@HyLsT16" target="_blank" className="creator-link-btn" title="YouTube">
+                                    <a href="https://www.youtube.com/@HyLsT16" target="_blank" rel="noopener noreferrer" className="creator-link-btn" title="YouTube">
                                         <Icon.Youtube /> <span>Vidéos &amp; Clips (sans IA sauf mention) (YouTube)</span>
                                     </a>
-                                    <a href="https://demozoo.org/sceners/2341/" target="_blank" className="creator-link-btn" title="Demozoo">
+                                    <a href="https://demozoo.org/sceners/2341/" target="_blank" rel="noopener noreferrer" className="creator-link-btn" title="Demozoo">
                                         <Icon.Cpu /> <span>Contributions Demoscene &mdash; code, musique, gfx (Demozoo)</span>
                                     </a>
                                     <a href="mailto:geoffroy.streit@gmail.com" className="creator-link-btn" title="Email">

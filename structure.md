@@ -30,20 +30,26 @@ Hylst_Reader/
 │   ├── app.jsx              # Orchestrateur général des états de l'application
 │   ├── db.js                # Couche IndexedDB pour la persistance locale (idb-keyval)
 │   ├── importAPI.js         # API d'importation de fichiers et dossiers HML
-│   └── music_data.js        # Catalogue de 280+ morceaux de Hylst (tags, cover, src)
+│   ├── sanitize.js          # Assainissement des contenus importés (DOMPurify)
+│   └── music_data.js        # Catalogue de 282 morceaux de Hylst (tags, cover, src)
 │
 ├── public/                  # Contenus littéraires statiques et images
 │   ├── books/               # Ouvrages intégrés d'origine
-│   │   └── l-odyss-e-de-l-ia-2-futurs-un-choix/ # Dossier de l'ouvrage IA
-│   │       ├── chapitre-1-cover.webp
-│   │       ├── chapitre-1.html
-│   │       ├── ...
-│   │       ├── chapitre-5-cover.webp # Couverture du chapitre 5 générée
-│   │       └── chapitre-5.html       # Chapitre final nettoyé
+│   │   ├── l-odyss-e-de-l-ia-2-futurs-un-choix/ # Dossier de l'ouvrage IA
+│   │   │   ├── chapitre-1-cover.webp
+│   │   │   ├── chapitre-1.html
+│   │   │   ├── ...
+│   │   │   ├── chapitre-5-cover.webp # Couverture du chapitre 5 générée
+│   │   │   └── chapitre-5.html       # Chapitre final nettoyé
+│   │   └── l-odyss-e-de-l-nergie/    # Ouvrage Énergie (chapitres 2-8 verrouillés)
 │   ├── covers/              # Emplacement des couvertures de livres
 │   ├── books.json           # Index général et descriptifs des livres
 │   └── social-share.png     # Image de partage Open Graph
 │
+├── vendor/                  # Dépendances JS auto-hébergées (React, Babel, JSZip, epub.js, DOMPurify)
+│   └── LICENSES.md          # Versions, licences et empreintes SHA-256
+├── scripts/
+│   └── sync-to-platform.ps1 # Synchronisation sûre vers Cours_Memos/Docker/books_reader
 ├── livres_pour_import/      # [Ignoré par Git] Sources des livres en local
 │   └── 2 futurs un choix/   # Fichiers originaux non-compilés
 │
@@ -63,4 +69,6 @@ Hylst_Reader/
 
 - **`build_books.py`** : Script Python qui scanne le dossier `livres_pour_import/`, convertit les fichiers textuels bruts en structures HTML sémantiques compatibles avec notre liseuse, copie les couvertures et génère l'index global dans `public/books.json`.
 - **`sw.js`** : Service Worker implémentant une stratégie de cache hybride (Network-First pour les fichiers locaux et Cache-First pour les CDN externes) garantissant l'accès complet hors-ligne.
-- **`index.html`** : Point d'entrée unique. Il charge les styles CSS Vanilla et transpile à la volée le code JSX en JavaScript compréhensible par le navigateur grâce à Babel CDN.
+- **`index.html`** : Point d'entrée unique. Il charge les styles CSS Vanilla et transpile à la volée le code JSX en JavaScript compréhensible par le navigateur grâce à Babel Standalone (auto-hébergé dans `vendor/`).
+- **`vendor/`** : Bibliothèques JS servies localement, sans CDN au runtime.
+- **`scripts/sync-to-platform.ps1`** : Miroir de production vers `D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader` (dépôt `Hylst/cours_info`, Coolify `hylst-cours`). Le script préserve l'`index.html` de production, calcule une empreinte de build et la propage dans `sw.js` et les `?v=`.

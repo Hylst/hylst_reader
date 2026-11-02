@@ -6,6 +6,7 @@
 - [ ] **Preset Lecture Longue** : Ajouter une option pour réduire automatiquement toutes les animations après 20 minutes de lecture.
 
 ## ✅ Terminé (Récemment)
+- [x] **Sécurité 1.2.1** : dépendances auto-hébergées, DOMPurify sur les imports, audit OSV sans CVE connue, `rel="noopener noreferrer"`, script `scripts/sync-to-platform.ps1`.
 - [x] **Intégration du Chapitre 5** : Nettoyage littéraire des tics d'IA (caractères `—`, `✦` et « Dualis-IA ») et création de la couverture `chapitre-5-cover.webp` (v1.2.0).
 - [x] **Modularisation de l'Application** : Découpe de `js/app.jsx` (2000 lignes) en composants React ES6 réutilisables au sein de `js/components/` (v1.2.0).
 - [x] **Mise en cache PWA Robuste** : sw.js optimisé pour la mise en cache offline-first des CDN externes (unpkg, jsdelivr), garantissant le fonctionnement hors-ligne (v1.2.0).

@@ -2,6 +2,26 @@
 // Script to handle parsing pure folders using File System Access API
 
 (function() {
+    const Sanitize = window.HylstSanitize;
+
+    function sanitizeHtml(html) {
+        if (!Sanitize) return '<p>Import bloqué : le module de sécurité HylstSanitize est indisponible.</p>';
+        return Sanitize.sanitizeHtml(html);
+    }
+
+    function escapeHtml(value) {
+        if (!Sanitize) return String(value == null ? '' : value);
+        return Sanitize.escapeHtml(value);
+    }
+
+    function textToHtml(text) {
+        return text.split('\n')
+            .map(function (line) { return line.trim(); })
+            .filter(function (line) { return line.length > 0; })
+            .map(function (line) { return '<p>' + escapeHtml(line) + '</p>'; })
+            .join('');
+    }
+
     async function importBookFromDirectory(dirHandle) {
         try {
             let config = null;
@@ -34,9 +54,9 @@
                 const file = await introHandle.getFile();
                 const text = await file.text();
                 if (file.name.endsWith('.txt')) {
-                    introHtml = text.split('\n').map(p => p.trim()).filter(p => p.length > 0).map(p => `<p>${p}</p>`).join('');
+                    introHtml = textToHtml(text);
                 } else {
-                    introHtml = text;
+                    introHtml = sanitizeHtml(text);
                 }
             } catch (e) {
                 console.warn("Intro file not found");
@@ -51,11 +71,9 @@
                     let html = text;
 
                     if (entry.name.endsWith('.txt')) {
-                        html = text.split('\n')
-                            .map(p => p.trim())
-                            .filter(p => p.length > 0)
-                            .map(p => `<p>${p}</p>`)
-                            .join('');
+                        html = textToHtml(text);
+                    } else {
+                        html = sanitizeHtml(text);
                     }
 
                     let title = entry.name.replace(/\.[^/.]+$/, "");

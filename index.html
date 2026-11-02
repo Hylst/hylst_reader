@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hylst Books &amp; Reader</title>
 
     <!-- Meta/SEO -->
@@ -39,26 +39,28 @@
         rel="stylesheet">
 
     <!-- CSS Design System -->
-    <link rel="stylesheet" href="css/variables.css?v=1.2.0">
-    <link rel="stylesheet" href="css/base.css?v=1.2.0">
-    <link rel="stylesheet" href="css/layout.css?v=1.2.0">
-    <link rel="stylesheet" href="css/components.css?v=1.2.0">
-    <link rel="stylesheet" href="css/modals.css?v=1.2.0">
-    <link rel="stylesheet" href="css/music.css?v=1.2.0">
-    <link rel="stylesheet" href="css/reader.css?v=1.2.0">
-    <link rel="stylesheet" href="css/responsive.css?v=1.2.0">
+    <link rel="stylesheet" href="css/variables.css?v=1.2.1">
+    <link rel="stylesheet" href="css/base.css?v=1.2.1">
+    <link rel="stylesheet" href="css/layout.css?v=1.2.1">
+    <link rel="stylesheet" href="css/components.css?v=1.2.1">
+    <link rel="stylesheet" href="css/modals.css?v=1.2.1">
+    <link rel="stylesheet" href="css/music.css?v=1.2.1">
+    <link rel="stylesheet" href="css/reader.css?v=1.2.1">
+    <link rel="stylesheet" href="css/responsive.css?v=1.2.1">
 
-    <!-- External Dependencies via CDN (No Build Tool) -->
+    <!-- Dépendances auto-hébergées (vendor/), pas de CDN au runtime -->
     <!-- React & ReactDOM (UMD) -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="vendor/react.production.min.js"></script>
+    <script src="vendor/react-dom.production.min.js"></script>
     <!-- Babel for in-browser JSX transpilation -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="vendor/babel.min.js"></script>
     <!-- idb-keyval for IndexedDB storage (UMD → window.idbKeyval) -->
-    <script src="https://cdn.jsdelivr.net/npm/idb-keyval@6/dist/umd.js"></script>
+    <script src="vendor/idb-keyval.js"></script>
     <!-- JSZip & epub.js for EPUB import -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+    <script src="vendor/jszip.min.js"></script>
+    <script src="vendor/epub.min.js"></script>
+    <!-- DOMPurify : assainissement des contenus importés -->
+    <script src="vendor/purify.min.js"></script>
 
     <link rel="manifest" href="manifest.json">
 </head>
@@ -79,28 +81,31 @@
     -->
 
     <!-- 1. Données -->
-    <script src="js/music_data.js?v=1.2.0"></script>
+    <script src="js/music_data.js?v=1.2.1"></script>
 
-    <!-- 2. Utilitaires & DB (plain JS, pas de JSX) -->
-    <script src="js/db.js?v=1.2.0"></script>
-    <script src="js/importAPI.js?v=1.2.0"></script>
+    <!-- 2. Sécurité des contenus importés -->
+    <script src="js/sanitize.js?v=1.2.1"></script>
 
-    <!-- 3. Composants de base (sans dépendances inter-composants) -->
-    <script type="text/babel" src="js/components/Icon.jsx?v=1.2.0"></script>
-    <script type="text/babel" src="js/components/Ambience.jsx?v=1.2.0"></script>
+    <!-- 4. Utilitaires & DB (plain JS, pas de JSX) -->
+    <script src="js/db.js?v=1.2.1"></script>
+    <script src="js/importAPI.js?v=1.2.1"></script>
 
-    <!-- 4. Composants modaux (dépendent de Icon & Ambience) -->
-    <script type="text/babel" src="js/components/AboutModal.jsx?v=1.2.0"></script>
-    <script type="text/babel" src="js/components/GlobalSettingsModal.jsx?v=1.2.0"></script>
-    <script type="text/babel" src="js/components/MusicPlayerModal.jsx?v=1.2.0"></script>
+    <!-- 5. Composants de base (sans dépendances inter-composants) -->
+    <script type="text/babel" src="js/components/Icon.jsx?v=1.2.1"></script>
+    <script type="text/babel" src="js/components/Ambience.jsx?v=1.2.1"></script>
 
-    <!-- 5. Vues (dépendent de Icon, Ambience, HylstDB) -->
-    <script type="text/babel" src="js/components/BookHomeView.jsx?v=1.2.0"></script>
-    <script type="text/babel" src="js/components/LibraryView.jsx?v=1.2.0"></script>
-    <script type="text/babel" src="js/components/ReaderView.jsx?v=1.2.0"></script>
+    <!-- 6. Composants modaux (dépendent de Icon & Ambience) -->
+    <script type="text/babel" src="js/components/AboutModal.jsx?v=1.2.1"></script>
+    <script type="text/babel" src="js/components/GlobalSettingsModal.jsx?v=1.2.1"></script>
+    <script type="text/babel" src="js/components/MusicPlayerModal.jsx?v=1.2.1"></script>
 
-    <!-- 6. App principale (orchestre tout) -->
-    <script type="text/babel" src="js/app.jsx?v=1.2.0"></script>
+    <!-- 7. Vues (dépendent de Icon, Ambience, HylstDB) -->
+    <script type="text/babel" src="js/components/BookHomeView.jsx?v=1.2.1"></script>
+    <script type="text/babel" src="js/components/LibraryView.jsx?v=1.2.1"></script>
+    <script type="text/babel" src="js/components/ReaderView.jsx?v=1.2.1"></script>
+
+    <!-- 8. App principale (orchestre tout) -->
+    <script type="text/babel" src="js/app.jsx?v=1.2.1"></script>
 
     <!-- PWA Service Worker Registration -->
     <script>

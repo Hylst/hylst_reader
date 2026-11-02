@@ -47,6 +47,41 @@ Cependant, il existe une étape de **compilation des livres** si vous modifiez o
 
 ## 🚀 3. Déploiement VPS Hostinger via Coolify (Container Nginx statique)
 
+### 3.0 Déploiement réel sur la plateforme Hylst
+
+Le déploiement actuel ne se fait pas via un service Coolify dédié au lecteur, mais dans le **dépôt de la plateforme Hylst** :
+
+| Élément | Valeur |
+|---|---|
+| Dossier de production | `D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader` |
+| Dépôt plateforme | `Hylst/cours_info` (privé, branche `main`) |
+| Racine du dépôt | `D:\0CODE\AntiGravity\Cours_Memos\Docker` |
+| Conteneur | Nginx statique, app Coolify `hylst-cours` |
+| URL | `https://hylst.fr/books_reader/` |
+| Build | Aucun build : copie statique, pas de Dockerfile dédié |
+
+Procédure recommandée :
+
+```powershell
+# 1. Tester la source
+python -m http.server 8000
+
+# 2. Synchroniser vers le miroir de production
+powershell -ExecutionPolicy Bypass -File .\scripts\sync-to-platform.ps1
+
+# 3. Vérifier, puis committer (option -Commit), et pousser manuellement
+git -C D:\0CODE\AntiGravity\Cours_Memos\Docker status --short -- books_reader
+git -C D:\0CODE\AntiGravity\Cours_Memos\Docker push origin main
+```
+
+Points critiques :
+- **Ne pas écraser `books_reader/index.html`** avec l'index source : celui de production contient le patch plateforme (`vendor/`, `/assets/fonts/fonts.css`, `canonical`). Le script le préserve et vérifie ses marqueurs.
+- **Ne pas copier `.env`** ni `livres_pour_import/` dans le miroir. Le script supprime le `.env` local du miroir et ne copie que les fichiers runtime.
+- **Musique** : `Docker/hml/` (~2,9 Go) est exclu de l'image Docker et servi par le bind mount Coolify `/var/www/mp3` → `/app/mp3` via `location ^~ /hml/`. Une mise à jour musicale doit aussi être copiée dans `/var/www/mp3/hml` sur le VPS.
+- **Après push** : attendre `Finished` dans Coolify, puis lancer `bash scripts/verifier-prod.sh --full books_reader` et tester en navigation privée.
+
+Les sections 3.1 à 3.4 ci-dessous décrivent la configuration Coolify générique ; elles restent utiles pour comprendre le fonctionnement du conteneur Nginx.
+
 Pour héberger l'application sur votre VPS Hostinger configuré avec Coolify sous l'URL `https://hylst.fr/books_reader/`, suivez ces étapes détaillées.
 
 ### Étape 3.1 : Création du Service sur Coolify

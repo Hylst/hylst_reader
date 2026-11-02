@@ -2,6 +2,7 @@
 // Orchestrateur principal — utilise les globals window.* exposés par chaque composant
 
 const { useState, useEffect, useMemo, useRef, useCallback } = React;
+const Sanitize = window.HylstSanitize;
 
 const THEME_KEYS = ['sepia', 'light', 'dark'];
 const DEFAULT_BACKGROUND_ANIMATIONS = { sepia: true, light: true, dark: true };
@@ -237,10 +238,13 @@ function App() {
         if (settings.theme !== 'sepia') return;
         if (activeBook?.design?.variables) {
             for (const [k, v] of Object.entries(activeBook.design.variables)) {
+                // N'accepter que les variables de livre et jamais de url() importée.
+                if (!/^--book-[a-z0-9-]+$/i.test(k)) continue;
+                if (typeof v !== 'string' || /url\s*\(/i.test(v)) continue;
                 document.documentElement.style.setProperty(k, v);
             }
             const gf = activeBook.design?.fonts?.googleFonts;
-            if (gf) {
+            if (gf && /^[A-Za-z0-9&=+:,;._%@-]+$/.test(gf)) {
                 const id = 'book-google-fonts';
                 let el = document.getElementById(id);
                 if (!el) { el = document.createElement('link'); el.id = id; el.rel = 'stylesheet'; document.head.appendChild(el); }
@@ -260,7 +264,7 @@ function App() {
             const trimmed = line.trim();
             if (!trimmed) { html += '<br/>'; return; }
 
-            let content = trimmed;
+            let content = Sanitize.escapeHtml(trimmed);
             let className = 'chapter-paragraph';
 
             if (firstPara && trimmed.length > 50) {
@@ -283,6 +287,11 @@ function App() {
     };
 
     const handleImport = async () => {
+        if (!Sanitize) {
+            alert("Module de sécurité indisponible : import bloqué.");
+            return;
+        }
+
         const input = document.createElement('input');
         input.type = 'file';
         input.accept = '.json,.txt,.md,.epub';
@@ -322,6 +331,7 @@ function App() {
                                 const body = doc.querySelector("body");
                                 let html = body ? body.innerHTML : "";
                                 html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+                                html = Sanitize.sanitizeHtml(html);
 
                                 chapters.push({
                                     id: item.idref,
@@ -341,7 +351,7 @@ function App() {
                             year: new Date().getFullYear(),
                             isImported: true,
                             design: { variables: { "--book-font-size": "1.05rem", "--book-line-height": "1.7" } },
-                            introHtml: `<h1>${metadata.title || file.name}</h1><p class="dropcap">EPUB importé : ${file.name}</p>`,
+                            introHtml: `<h1>${Sanitize.escapeHtml(metadata.title || file.name)}</h1><p class="dropcap">EPUB importé : ${Sanitize.escapeHtml(file.name)}</p>`,
                             chapters: chapters.length > 0 ? chapters : [{
                                 id: 'ch-error',
                                 title: 'Erreur',
@@ -362,7 +372,7 @@ function App() {
                         year: new Date().getFullYear(),
                         isImported: true,
                         design: { variables: { "--book-font-size": "1.05rem", "--book-line-height": "1.8" } },
-                        introHtml: `<h1>${title}</h1><p class="dropcap">Fichier importé : ${file.name}</p>`,
+                        introHtml: `<h1>${Sanitize.escapeHtml(title)}</h1><p class="dropcap">Fichier importé : ${Sanitize.escapeHtml(file.name)}</p>`,
                         chapters: [{
                             id: 'ch-1',
                             title: 'Texte complet',
@@ -372,6 +382,7 @@ function App() {
                 }
 
                 if (book) {
+                    book = Sanitize.sanitizeBook(book);
                     await saveBook(book);
                     setBooks(prev => {
                         const idx = prev.findIndex(b => b.id === book.id);
@@ -392,13 +403,18 @@ function App() {
     };
 
     const handleImportDirectory = async () => {
+        if (!Sanitize) {
+            alert("Module de sécurité indisponible : import bloqué.");
+            return;
+        }
         if (!window.showDirectoryPicker) {
             alert("L'API File System Access n'est pas supportée par ce navigateur.");
             return;
         }
         try {
             const dirHandle = await window.showDirectoryPicker();
-            const book = await importBookFromDirectory(dirHandle);
+            const imported = await importBookFromDirectory(dirHandle);
+            const book = Sanitize.sanitizeBook(imported);
             await saveBook(book);
             setBooks(prev => {
                 const idx = prev.findIndex(b => b.id === book.id);

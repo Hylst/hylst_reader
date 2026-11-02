@@ -82,7 +82,7 @@
     async function removeSignet(bookId, signetId) {
         const all = (await idb.get(STORE_KEYS.SIGNETS)) || {};
         if (all[bookId]) {
-            all[bookId] = all[bookId].filter(s => s.id !== signetId);
+            all[bookId] = all[bookId].filter(s => s.chapterIdx !== signetId);
             await idb.set(STORE_KEYS.SIGNETS, all);
         }
     }

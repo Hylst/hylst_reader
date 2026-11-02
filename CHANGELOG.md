@@ -1,6 +1,25 @@
 # Changelog
 Toutes les modifications notables apportées au projet **Hylst Books & Reader** sont documentées dans ce fichier.
 
+## [1.2.1] - 2026-11-02
+### Sécurité
+- **Dépendances auto-hébergées** : React 18.3.1, ReactDOM 18.3.1, Babel 8.0.9, idb-keyval 6.3.0, epub.js 0.3.93, JSZip 3.10.2 et DOMPurify 3.4.17 dans `vendor/`. Plus aucun CDN JavaScript au runtime.
+- **Assainissement des imports** : DOMPurify filtre les EPUB, dossiers HML et JSON importés (scripts, iframes, gestionnaires d'événements, URL `javascript:`). Les textes TXT/MD sont échappés avant conversion HTML.
+- **Défense en profondeur** : `BookHomeView` et `ReaderView` re-filtrent les livres importés déjà présents dans IndexedDB.
+- **Liens externes** : `rel="noopener noreferrer"` sur les liens `target="_blank"` du modal À propos.
+- **CVE** : vérification OSV du 2026-11-02, aucune vulnérabilité connue pour les versions retenues. JSZip passe de 3.10.1 à 3.10.2.
+
+### Ajouté
+- `js/sanitize.js` : helper `HylstSanitize` (`sanitizeHtml`, `sanitizeBook`, `escapeHtml`).
+- `vendor/LICENSES.md` : versions, licences et empreintes SHA-256 des dépendances.
+- `scripts/sync-to-platform.ps1` : synchronisation sûre vers `Cours_Memos/Docker/books_reader`, cache-busting par empreinte de build, vérifications, suppression du `.env` du miroir, commit local optionnel sans push.
+
+### Corrigé
+- `gen_music_data.py` produit désormais `const MUSIC_LIBRARY` + `window.MUSIC_LIBRARY` (au lieu d'un `export` incompatible avec le chargement par balise `<script>`).
+- Piste **Dreamlike Embrace** : référence corrigée en `dreamlike_embrace.mp3/.webp` (l'ancien nom `dreamlike_embracemp3` n'existait pas dans `/hml/`).
+- **Signets** : `removeSignet` filtre désormais sur `chapterIdx` au lieu d'un `id` inexistant, ce qui supprimait tous les signets du livre.
+- Cache Service Worker bumpé : `hylst-reader-v43` en source, empreinte de build en production.
+
 ## [1.2.0] - 2026-05-30
 ### Ajouté
 - **Chapitre 5 Intégré** : Intégration officielle du chapitre 5 *« De Spectateur à Architecte »* de l'essai **L'Odyssée de l'IA** (`chapitre-5.html` dans `public/books` et dans `livres_pour_import`).

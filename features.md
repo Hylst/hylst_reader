@@ -39,10 +39,11 @@ L'application fonctionne à 100% sans serveur de base de données en s'appuyant 
 - **Importation multiple** :
   - **Fichier unique** : Glissez-déposez un fichier `.EPUB`, `.TXT`, `.MD` ou `.JSON` pour l'ouvrir instantanément.
   - **Dossier HML local** : Grâce à l'API File System Access, glissez un dossier complet d'ouvrage structuré pour en recréer le sommaire et le graphisme personnalisé.
+  - **Assainissement** : chaque contenu importé passe par DOMPurify avant stockage et avant rendu (scripts, iframes, gestionnaires d'événements et URL `javascript:` neutralisés).
 
 ---
 
 ## 📱 5. Technologie PWA Installable
 Compatible avec tous vos appareils (ordinateurs de bureau sous Windows/Mac/Linux, tablettes, smartphones Android et iOS) :
-- **Service Worker intelligent** : Met en cache non seulement les styles et scripts locaux, mais également les dépendances CDN externes (React, Babel, idb-keyval), rendant l'application parfaitement autonome hors-ligne après le premier chargement.
+- **Service Worker intelligent** : Met en cache les styles et scripts locaux, ainsi que les bibliothèques vendorisées (React, Babel, idb-keyval, JSZip, epub.js, DOMPurify), rendant l'application autonome hors-ligne après le premier chargement.
 - **Installation native** : S'intègre comme une application de bureau ou de téléphone grâce au fichier `manifest.json`.

@@ -1317,7 +1317,7 @@ const MUSIC_LIBRARY = [
     "cover": "https://hylst.fr/hml/distorsion_spatiale_temporelle.webp"
   },
   {
-    "id": "dreamlike_embracemp3",
+    "id": "dreamlike_embrace",
     "title": "Dreamlike Embrace",
     "artist": "Hylst using AI",
     "genre": "dreampop",
@@ -1334,8 +1334,8 @@ const MUSIC_LIBRARY = [
     "bpm": "",
     "duration": "2:44",
     "usage": "",
-    "src": "https://hylst.fr/hml/dreamlike_embracemp3.mp3",
-    "cover": "https://hylst.fr/hml/dreamlike_embracemp3.webp"
+    "src": "https://hylst.fr/hml/dreamlike_embrace.mp3",
+    "cover": "https://hylst.fr/hml/dreamlike_embrace.webp"
   },
   {
     "id": "dreams_of_prowess",

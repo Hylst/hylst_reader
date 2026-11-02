@@ -29,6 +29,12 @@ function BookHomeView({ book, onBack, onStartReading }) {
         }
     }, [book.id, book.introHtml, book.introPath]);
 
+    const safeIntroHtml = book.isImported
+        ? (window.HylstSanitize
+            ? window.HylstSanitize.sanitizeHtml(introHtml)
+            : '<p>Contenu importé bloqué : le module de sécurité HylstSanitize est indisponible.</p>')
+        : introHtml;
+
     return (
         <div className="book-home view-enter">
             <div className="book-home-header">
@@ -44,7 +50,7 @@ function BookHomeView({ book, onBack, onStartReading }) {
                     <button className="btn btn-primary" style={{ padding: '0.85rem 2rem', fontSize: '1rem', marginBottom: '2rem' }} onClick={onStartReading}>
                         Commencer la lecture <Icon.ArrowRight />
                     </button>
-                    <div className="book-home-intro reader-article" dangerouslySetInnerHTML={{ __html: introHtml }} />
+                    <div className="book-home-intro reader-article" dangerouslySetInnerHTML={{ __html: safeIntroHtml }} />
                 </div>
             </div>
         </div>

@@ -24,6 +24,14 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
     const uiTimeoutRef = useRefReader(null);
     const chapter = book.chapters?.[currentChapterIdx];
 
+    const sanitizeForBook = useCallbackReader((html) => {
+        if (!book.isImported) return html;
+        if (!window.HylstSanitize) {
+            return '<p>Contenu importé bloqué : le module de sécurité HylstSanitize est indisponible.</p>';
+        }
+        return window.HylstSanitize.sanitizeHtml(html);
+    }, [book.isImported]);
+
     const transformChapterHTML = useCallbackReader((html) => {
         if (!html) return html;
         let out = html;
@@ -60,12 +68,12 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
     useEffectReader(() => {
         if (!chapter) return;
         if (chapter.html) {
-            setChapterHtml(transformChapterHTML(chapter.html));
+            setChapterHtml(transformChapterHTML(sanitizeForBook(chapter.html)));
         } else if (chapter.path) {
             setChapterHtml('');
             window.fetch(`public/${chapter.path}?t=${Date.now()}`)
                 .then(r => r.text())
-                .then(html => setChapterHtml(transformChapterHTML(html)))
+                .then(html => setChapterHtml(transformChapterHTML(sanitizeForBook(html))))
                 .catch(() => setChapterHtml('<p>Erreur lors du chargement.</p>'));
         }
         if (containerRef.current) containerRef.current.scrollTop = 0;
@@ -80,7 +88,7 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
             }
         }, 200);
         return () => clearTimeout(timer);
-    }, [chapter, transformChapterHTML]);
+    }, [chapter, sanitizeForBook, transformChapterHTML]);
 
     useEffectReader(() => {
         setShowUI(true);

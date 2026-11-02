@@ -231,6 +231,40 @@
     margin-bottom: 1.5rem;
 }
 
+/* Théâtre : didascalies bleues et répliques */
+.scene-description {
+    color: #1f4e9c;
+    font-style: italic;
+    text-align: left;
+    margin: 1.4rem 0 1.8rem;
+    padding: 0.15rem 0 0.15rem 1rem;
+    border-left: 2px solid rgba(31, 78, 156, 0.35);
+}
+
+.scene-description-inline {
+    color: #1f4e9c;
+    font-style: italic;
+}
+
+.chapter-paragraph.dialogue {
+    text-align: left;
+    text-justify: none;
+    hyphens: none;
+    padding-left: 0.15rem;
+}
+
+[data-theme="light"] .scene-description,
+[data-theme="light"] .scene-description-inline {
+    color: #1f4e9c;
+    border-left-color: rgba(31, 78, 156, 0.3);
+}
+
+[data-theme="dark"] .scene-description,
+[data-theme="dark"] .scene-description-inline {
+    color: #8ab4f8;
+    border-left-color: rgba(138, 180, 248, 0.4);
+}
+
 /* Dropcap */
 .dropcap:first-letter {
     float: left;
@@ -281,6 +315,18 @@
     font-style: italic;
     opacity: 0.8;
     margin-top: 2rem;
+}
+
+.chapter-byline {
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.78rem;
+    font-style: normal;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--book-accent-dark);
+    opacity: 0.75;
+    margin-bottom: 1.2rem;
 }
 
 /* Sidebar / TOC */

@@ -1,6 +1,20 @@
 # Changelog
 Toutes les modifications notables apportées au projet **Hylst Books & Reader** sont documentées dans ce fichier.
 
+## [1.3.0] - 2026-11-03
+### Ajouté
+- **Les Ficelles du bonheur** : nouvelle pièce de théâtre pour Halloween (29 octobre 2025), intégrée en 7 chapitres (six tableaux et un épilogue). Le texte est conforme au manuscrit DOCX, sans correction ni réécriture.
+- **Didascalies bleues** : les passages en bleu du Word sont conservés et stylés via `.scene-description` / `.scene-description-inline`, avec une couleur adaptée aux thèmes Sépia, Clair et Sombre.
+- **Mise en page théâtre** : les répliques sont alignées à gauche (`.chapter-paragraph.dialogue`), les didascalies ont un filet bleu discret.
+- **Lien direct** : `?book=les-ficelles-du-bonheur` ouvre directement la fiche du livre.
+- **Couverture typographique de secours** pour les livres sans image, avec badge `Nouveau`.
+- CSS : styles de didascalies, répliques et ligne de crédit (`chapter-byline`).
+
+### Modifié
+- `public/books.json` : trois livres intégrés (IA, Énergie, Ficelles du bonheur).
+- `LibraryView` et `BookHomeView` : fallback de couverture et badge.
+- Version 1.3.0, cache Service Worker `hylst-reader-v44`.
+
 ## [1.2.1] - 2026-11-02
 ### Sécurité
 - **Dépendances auto-hébergées** : React 18.3.1, ReactDOM 18.3.1, Babel 8.0.9, idb-keyval 6.3.0, epub.js 0.3.93, JSZip 3.10.2 et DOMPurify 3.4.17 dans `vendor/`. Plus aucun CDN JavaScript au runtime.

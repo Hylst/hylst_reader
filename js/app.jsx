@@ -3,6 +3,7 @@
 
 const { useState, useEffect, useMemo, useRef, useCallback } = React;
 const Sanitize = window.HylstSanitize;
+const DEEP_LINK_BOOK_ID = new URLSearchParams(window.location.search).get('book');
 
 const THEME_KEYS = ['sepia', 'light', 'dark'];
 const DEFAULT_BACKGROUND_ANIMATIONS = { sepia: true, light: true, dark: true };
@@ -184,6 +185,11 @@ function App() {
             } catch (e) { console.error('Could not fetch public/books.json', e); }
 
             setBooks(localBooks);
+
+            if (DEEP_LINK_BOOK_ID && localBooks.some(b => b.id === DEEP_LINK_BOOK_ID)) {
+                setActiveBookId(DEEP_LINK_BOOK_ID);
+                setCurrentView('bookHome');
+            }
 
             const allSignets = await getSignetsAll();
             let latest = null;

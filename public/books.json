@@ -163,5 +163,80 @@
         "available": false
       }
     ]
+  },
+  {
+    "id": "les-ficelles-du-bonheur",
+    "title": "Les Ficelles du bonheur",
+    "subtitle": "Une pièce pour Halloween",
+    "author": "Hylst (Geoffroy Streit)",
+    "year": 2025,
+    "badge": "Nouveau",
+    "design": {
+      "fonts": {
+        "heading": "Cormorant Garamond",
+        "body": "Libre Baskerville",
+        "googleFonts": "family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400"
+      },
+      "colors": {
+        "background": "#f7f0e4",
+        "text": "#241c18",
+        "primary": "#a63d1f",
+        "secondary": "#d9c3a4",
+        "accent": "#c2410c"
+      },
+      "variables": {
+        "--book-bg": "#f7f0e4",
+        "--book-text": "#241c18",
+        "--book-accent": "#c2410c",
+        "--book-accent-dark": "#a63d1f",
+        "--book-surface": "#efe2cf",
+        "--book-border": "rgba(166, 61, 31, 0.18)",
+        "--book-font-body": "'Libre Baskerville', Georgia, serif",
+        "--book-font-heading": "'Cormorant Garamond', Georgia, serif",
+        "--book-font-title": "'Cormorant Garamond', Georgia, serif",
+        "--book-font-size": "1.05rem",
+        "--book-line-height": "1.8",
+        "--book-max-width": "720px",
+        "--book-dropcap-size": "4.2em"
+      }
+    },
+    "introPath": "books/les-ficelles-du-bonheur/intro.html",
+    "chapters": [
+      {
+        "id": "01-le-carton.html",
+        "title": "I. Le carton",
+        "path": "books/les-ficelles-du-bonheur/01-le-carton.html"
+      },
+      {
+        "id": "02-la-premiere-nuit.html",
+        "title": "II. La première nuit",
+        "path": "books/les-ficelles-du-bonheur/02-la-premiere-nuit.html"
+      },
+      {
+        "id": "03-les-petites-corrections.html",
+        "title": "III. Les petites corrections",
+        "path": "books/les-ficelles-du-bonheur/03-les-petites-corrections.html"
+      },
+      {
+        "id": "04-la-repetition-generale.html",
+        "title": "IV. La répétition générale",
+        "path": "books/les-ficelles-du-bonheur/04-la-repetition-generale.html"
+      },
+      {
+        "id": "05-halloween.html",
+        "title": "V. Halloween",
+        "path": "books/les-ficelles-du-bonheur/05-halloween.html"
+      },
+      {
+        "id": "06-la-fausse-note.html",
+        "title": "VI. La fausse note",
+        "path": "books/les-ficelles-du-bonheur/06-la-fausse-note.html"
+      },
+      {
+        "id": "07-epilogue.html",
+        "title": "Épilogue. Pour couple fatigué",
+        "path": "books/les-ficelles-du-bonheur/07-epilogue.html"
+      }
+    ]
   }
 ]

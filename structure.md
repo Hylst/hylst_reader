@@ -41,7 +41,8 @@ Hylst_Reader/
 │   │   │   ├── ...
 │   │   │   ├── chapitre-5-cover.webp # Couverture du chapitre 5 générée
 │   │   │   └── chapitre-5.html       # Chapitre final nettoyé
-│   │   └── l-odyss-e-de-l-nergie/    # Ouvrage Énergie (chapitres 2-8 verrouillés)
+│   │   ├── l-odyss-e-de-l-nergie/    # Ouvrage Énergie (chapitres 2-8 verrouillés)
+│   │   └── les-ficelles-du-bonheur/  # Pièce de théâtre Halloween (2025)
 │   ├── covers/              # Emplacement des couvertures de livres
 │   ├── books.json           # Index général et descriptifs des livres
 │   └── social-share.png     # Image de partage Open Graph

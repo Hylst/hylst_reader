@@ -91,8 +91,13 @@ function BookCard({ book, onClick, delay = 0 }) {
             <div className="book-cover-container">
                 {coverUrl
                     ? <img src={coverUrl} alt={book.title} loading="lazy" className="book-cover" />
-                    : <span style={{ opacity: 0.4, fontSize: '0.8rem' }}>Pas de couverture</span>
+                    : <div className="book-cover-fallback">
+                        <span className="book-cover-fallback-title">{book.title}</span>
+                        {book.subtitle && <span className="book-cover-fallback-subtitle">{book.subtitle}</span>}
+                        <span className="book-cover-fallback-author">{book.author}</span>
+                    </div>
                 }
+                {book.badge && <span className="book-badge">{book.badge}</span>}
             </div>
             <div className="book-info">
                 <div className="book-title">{book.title}</div>

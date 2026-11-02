@@ -12,6 +12,7 @@ Conçu comme un livre physique de grande qualité, la liseuse adapte et peaufine
   - **Mode Clair** : Lumineux et sobre, avec des contrastes équilibrés.
   - **Mode Sombre** : Un gris très doux à l'œil pour limiter la lumière bleue en pleine nuit.
 - **Dropcaps automatiques** : Lettrine agrandie au premier paragraphe de chaque chapitre.
+- **Mise en page théâtre** : didascalies bleues, répliques alignées à gauche et conservation des retours de ligne du manuscrit.
 - **Réglages du texte** : Choix de la largeur de colonne (Étroit, Moyen, Large), alignement (Gauche ou Justifié), et taille du texte (de 70% à 170% de la taille de base).
 - **Mode Focus Absolu** : Un double-clic ou double-tap masque instantanément toutes les interfaces pour ne laisser que le texte pur et l'ambiance.
 

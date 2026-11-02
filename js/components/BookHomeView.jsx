@@ -42,7 +42,13 @@ function BookHomeView({ book, onBack, onStartReading }) {
             </div>
             <div className="book-home-content">
                 <div className="book-home-cover">
-                    {coverUrl && <img src={coverUrl} alt={`Couverture – ${book.title}`} />}
+                    {coverUrl
+                        ? <img src={coverUrl} alt={`Couverture – ${book.title}`} />
+                        : <div className="book-cover-fallback book-cover-fallback-home">
+                            <span className="book-cover-fallback-title">{book.title}</span>
+                            {book.subtitle && <span className="book-cover-fallback-subtitle">{book.subtitle}</span>}
+                            <span className="book-cover-fallback-author">{book.author}</span>
+                        </div>}
                 </div>
                 <div className="book-home-meta">
                     <h1 className="book-home-title">{book.title}</h1>

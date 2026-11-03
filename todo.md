@@ -6,6 +6,7 @@
 - [ ] **Preset Lecture Longue** : Ajouter une option pour réduire automatiquement toutes les animations après 20 minutes de lecture.
 
 ## ✅ Terminé (Récemment)
+- [x] **Bibliothèque (1.6.3)** : sommaire de *L'Odyssée de l'IA* corrigé (`Préface` au lieu de `Preface`), en complément du garde-fou anti-doublon de la 1.6.2.
 - [x] **Bibliothèque (1.6.2)** : suppression de la carte fantôme de *L'Odyssée de l'énergie* dans « À venir », garde-fou anti-doublon entre œuvres intégrées et contenus en préparation, coquilles visibles corrigées (`Bientôt`, `Œuvres`, `frustrations`, `clairvoyances`).
 - [x] **L'Odyssée de l'énergie (1.6.1)** : 10 chapitres disponibles, relecture complète des accents et coquilles, correction des ligatures `œuvre`/`cœur`/`nœuds`, données AIE 2026, titres de chapitres, mention de transparence IA, accès sans slash final.
 - [x] **Navigation lecteur (1.4.0)** : bloc « Fin de la partie » dans le flux, pastille `1 / 7 · Suivant` quand les commandes sont masquées, bloc « Fin du livre ».

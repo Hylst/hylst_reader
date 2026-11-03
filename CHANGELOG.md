@@ -1,6 +1,11 @@
 # Changelog
 Toutes les modifications notables apportées au projet **Hylst Books & Reader** sont documentées dans ce fichier.
 
+## [1.6.3] - 2026-11-03
+### Corrigé
+- **Sommaire de *L'Odyssée de l'IA*** : `Preface` → `Préface`, aligné sur le titre réel du chapitre (`Préface de l'Auteur`).
+- Version 1.6.3, cache Service Worker source `hylst-reader-v51`.
+
 ## [1.6.2] - 2026-11-03
 ### Corrigé
 - **Carte fantôme dans « À venir »** : *L'Odyssée de l'énergie* n'apparaît plus une seconde fois dans les contenus en préparation. L'entrée codée en dur a été retirée de `LibraryView.jsx`.

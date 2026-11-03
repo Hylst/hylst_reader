@@ -11,7 +11,7 @@ Cette application est l'écrin officiel des récits littéraires et musicaux de 
 - **Expérience Premium** : Design typographique soigné (*Cormorant Garamond*, *Libre Baskerville*).
 - **Musique Intégrée** : Accès à plus de 280 compositions originales de Geoffroy Streit directement dans l'app, filtrables par mood/BPM.
 - **Partie V Intégrée** : Intégration du chapitre final *« De Spectateur à Architecte »* de l'essai **L'Odyssée de l'IA** (version nettoyée de ses tics typographiques d'IA).
-- **Nouvelle Halloween** : *« Les Ficelles du bonheur »*, pièce de théâtre en six tableaux et un épilogue, avec didascalies bleues et répliques mises en page comme au théâtre.
+- **Nouvelle Halloween** : *« Les Ficelles du bonheur »*, pièce de théâtre en six tableaux et un épilogue, avec didascalies bleues, répliques mises en page comme au théâtre et couverture illustrée générée localement.
 - **Zéro Backend** : Tout tourne dans votre navigateur. Vos données (livres, progression, signets) restent chez vous dans IndexedDB.
 - **Sécurité des imports** : les EPUB, dossiers HML et JSON importés passent par DOMPurify avant stockage et avant rendu.
 - **Import Flexible** : Importez vos propres textes (EPUB, TXT, MD, JSON) ou dossiers HML complets, lus confortablement dans le Reader.

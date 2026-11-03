@@ -1,6 +1,13 @@
 # Changelog
 Toutes les modifications notables apportées au projet **Hylst Books & Reader** sont documentées dans ce fichier.
 
+## [1.3.1] - 2026-11-03
+### Modifié
+- **Corrections de coquilles** dans *Les Ficelles du bonheur*, sélectionnées par l'auteur : « une promesse en quelques années » → « une promesse quelques années », « Imaginez-vous », « pêle-mêle », « dit-on », « nous regarde, Auguste », guillemets fermants, « N'est-ce pas », « ainsi, ne pense-t-elle pas », « compte-t-elle. », « un peu... », « jusqu'au menton, lui faisant », « depuis cette année-là qu'on », « toujours fait... », « aux lèvres », « Je le sais, Odette. », « un hoquet », « moult postillons », « le carton », « suit du regard », « j'ai l'impression que », « touchant chez eux. »
+- **Couverture illustrée** : génération locale avec Qwen-Image-2.1 (`qwen-image-21-uc-sdcpp`), format 5:6, sans texte. Elle remplace la couverture typographique de secours pour ce livre.
+- L'intro précise désormais « Texte intégral, avec corrections de coquilles. »
+- Version 1.3.1, cache Service Worker `hylst-reader-v45`.
+
 ## [1.3.0] - 2026-11-03
 ### Ajouté
 - **Les Ficelles du bonheur** : nouvelle pièce de théâtre pour Halloween (29 octobre 2025), intégrée en 7 chapitres (six tableaux et un épilogue). Le texte est conforme au manuscrit DOCX, sans correction ni réécriture.

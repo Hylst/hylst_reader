@@ -200,6 +200,7 @@
         "--book-dropcap-size": "4.2em"
       }
     },
+    "coverPath": "covers/les-ficelles-du-bonheur.webp",
     "introPath": "books/les-ficelles-du-bonheur/intro.html",
     "chapters": [
       {

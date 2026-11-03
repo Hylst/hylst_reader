@@ -4,7 +4,6 @@
 const { useState: useStateLib, useEffect: useEffectLib, useMemo: useMemoLib } = React;
 
 const FUTURE_BOOKS = [
-    { id: 'f1', title: "L'Odyssée de l'Énergie", subtitle: "Le Carburant Invisible de l'IA", genre: 'Essai SF', cover: 'covers/cover_odyssee_energie.webp' },
     { id: 'f2', title: "Les Chroniques d'Étheria", subtitle: "Roman d'Heroic Fantasy", genre: 'Fantasy', cover: 'covers/cover_etheria.webp' },
     { id: 'f3', title: 'Scénarios et campagnes pour Nightprowler', subtitle: 'JDR MédFan', genre: 'JDR', cover: 'covers/cover_nightprowler.webp' },
     { id: 'f4', title: 'Recueils de proses et poésies fantasques', subtitle: 'Littérature', genre: 'Poésie', cover: 'covers/cover_proses_poesies.webp' },
@@ -45,16 +44,26 @@ function AnimatedAppTitle({ className = "", style = {} }) {
     );
 }
 
+function normalizeBookTitle(title) {
+    return (title || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[’‘]/g, "'")
+        .toLocaleLowerCase('fr')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
 function FutureBookCard({ book, delay = 0 }) {
     const Icon = window.Icon;
     return (
-        <div className="book-card future-card" style={{ animationDelay: `${delay}ms` }} title="Bientot disponible" role="img">
+        <div className="book-card future-card" style={{ animationDelay: `${delay}ms` }} title="Bientôt disponible" role="img">
             <div className="book-cover-container">
                 {book.cover
                     ? <img src={`public/${book.cover}`} alt={book.title} loading="lazy" className="book-cover" />
                     : <div className="future-cover-placeholder"><Icon.Lock /><span>{book.genre}</span></div>
                 }
-                <div className="future-badge">Bientot</div>
+                <div className="future-badge">Bientôt</div>
             </div>
             <div className="book-info">
                 <div className="book-title">{book.title}</div>
@@ -116,6 +125,8 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
     const Icon = window.Icon;
     const hylstBooks = books.filter(b => !b.isImported);
     const userBooks = books.filter(b => b.isImported);
+    const integratedTitles = new Set(hylstBooks.map(b => normalizeBookTitle(b.title)));
+    const futureBooks = FUTURE_BOOKS.filter(fb => !integratedTitles.has(normalizeBookTitle(fb.title)));
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: 0 }} className="view-enter">
@@ -197,7 +208,7 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
 
                 <div className="library-section-label">Bibliothèque de Hylst</div>
                 <p className="library-section-desc">
-                    Oeuvres intégrées &mdash; romans, nouvelles, essais, JDR et poésie de Geoffroy Streit (alias Hylst).
+                    Œuvres intégrées &mdash; romans, nouvelles, essais, JDR et poésie de Geoffroy Streit (alias Hylst).
                 </p>
                 {hylstBooks.length === 0 ? (
                     <div className="empty-state" style={{ padding: '2rem' }}>
@@ -216,14 +227,14 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                 </div>
                 <div className="future-intro">
                     <div className="future-block">
-                        <p>De mes anciens blogs et sites webs, des tiroirs numériques encombrés qui n'ont reçu d'autres visites que les miennes, j'aurai matière à réunir bon nombre de mes écrits passés en ce lieu, parfois inachevés ou à revoir, rangés dans cette bibliothèque numérique que je travaille à concevoir pour y présenter, ouverts à la consultation libre, mes anciennes nouvelles, récits d'aventures HF et SF, livres dont vous êtes le héros, scénarios et campagnes de jeux de rôles, histoires fantasques, réflexions existentielles, recueils de proses et poésies, analyses pseudo-scientifiques ou plus sérieuses, recherche de sens et vérité, guides pédagogiques, frustrastions &amp; passions, divagations &amp; claivoyances, ... issus des méandres de mon cerveau bancal et de mes idées vagabondes au fil des années.</p>
+                        <p>De mes anciens blogs et sites webs, des tiroirs numériques encombrés qui n'ont reçu d'autres visites que les miennes, j'aurai matière à réunir bon nombre de mes écrits passés en ce lieu, parfois inachevés ou à revoir, rangés dans cette bibliothèque numérique que je travaille à concevoir pour y présenter, ouverts à la consultation libre, mes anciennes nouvelles, récits d'aventures HF et SF, livres dont vous êtes le héros, scénarios et campagnes de jeux de rôles, histoires fantasques, réflexions existentielles, recueils de proses et poésies, analyses pseudo-scientifiques ou plus sérieuses, recherche de sens et vérité, guides pédagogiques, frustrations &amp; passions, divagations &amp; clairvoyances, ... issus des méandres de mon cerveau bancal et de mes idées vagabondes au fil des années.</p>
                     </div>
                     <div className="future-block">
                         <p>Avec le recul &amp; l'expérience, j'aimerais reprendre bon nombre d'entre eux pour les améliorer, corriger ou compléter avant de les partager, mais en aurais-je la motivation continue ? En prendrai-je le temps ? Ne finirais-je pas encore une fois par les laisser choir au fond de mes disques dans l'obscurité, si imparfaits soient-ils ?</p>
                     </div>
                 </div>
                 <div className="library-grid">
-                    {FUTURE_BOOKS.map((fb, i) => (
+                    {futureBooks.map((fb, i) => (
                         <FutureBookCard key={fb.id} book={fb} delay={i * 40} />
                     ))}
                 </div>

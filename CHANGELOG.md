@@ -1,6 +1,13 @@
 # Changelog
 Toutes les modifications notables apportées au projet **Hylst Books & Reader** sont documentées dans ce fichier.
 
+## [1.6.2] - 2026-11-03
+### Corrigé
+- **Carte fantôme dans « À venir »** : *L'Odyssée de l'énergie* n'apparaît plus une seconde fois dans les contenus en préparation. L'entrée codée en dur a été retirée de `LibraryView.jsx`.
+- **Garde-fou anti-doublon** : une œuvre déjà intégrée ne peut plus réapparaître dans « À venir », même si son titre est saisi avec une casse, des accents ou des apostrophes différents.
+- **Coquilles visibles de la bibliothèque** : `Bientot` → `Bientôt`, `Oeuvres` → `Œuvres`, `frustrastions` → `frustrations`, `claivoyances` → `clairvoyances`.
+- Version 1.6.2, cache Service Worker source `hylst-reader-v50`.
+
 ## [1.6.1] - 2026-11-03
 ### Corrigé
 - Coquilles résiduelles dans *L'Odyssée de l'énergie* : `Meta n't pas` → `Meta n'a pas`, `une installateur` → `un installateur`, `devenu son uniforme` → `devenue son uniforme`, `peu de perte mécanique` → `peu de pertes mécaniques`, `modeler la production` → `modéliser la production`, `demande correlated` → `demande corrélée`, `satellites atteint` → `satellites atteints`.

@@ -2,7 +2,9 @@
   "platform": "Wattpad",
   "profile": "https://www.wattpad.com/user/GeoffroyStreit",
   "importedAt": "2026-11-03",
-  "note": "Métadonnées de provenance. Les textes originaux restent la propriété de l'auteur.",
+  "authorship": "human",
+  "aiAssisted": false,
+  "note": "Métadonnées de provenance. Les textes sont intégralement écrits par l'auteur, sans assistance d'intelligence artificielle.",
   "volumes": [
     {
       "id": "recueils-proses-poesies-t1-saisons-nature",

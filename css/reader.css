@@ -323,7 +323,8 @@
 }
 
 /* Mention de transparence sur l'assistance IA, en bas de la dernière de couverture. */
-.book-intro-generated p.ai-disclosure {
+.book-intro-generated p.ai-disclosure,
+.book-intro-generated p.provenance-note {
     max-width: 560px;
     margin: 2rem auto 0;
     padding-top: 1rem;
@@ -355,6 +356,15 @@
     text-justify: none;
     hyphens: none;
     line-height: 1.9;
+}
+
+/* Ligne de titre d'origine conservée telle quelle dans le corps du texte. */
+.chapter-paragraph.chapter-original-title {
+    text-align: center;
+    font-style: italic;
+    font-size: 1.08em;
+    opacity: 0.82;
+    margin: 0 auto 2rem;
 }
 
 /* Note de provenance en fin de texte. */

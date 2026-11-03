@@ -1,6 +1,14 @@
 # Changelog
 Toutes les modifications notables apportées au projet **Hylst Books & Reader** sont documentées dans ce fichier.
 
+## [1.7.1] - 2026-11-03
+### Corrigé
+- **Tirets cadratins et demi-cadratins supprimés** dans les 29 textes importés, y compris les dialogues et la ligne « à suivre ». Ils sont remplacés par des traits d'union, sans toucher aux mots.
+- **Intégrité des textes restaurée** : les deux lignes de titre qui avaient été retirées (`Instants d'Automne`, `Elle ne lui répond...`) sont de nouveau présentes, sous forme d'épigraphe. Le contrôle mot à mot donne désormais 0 écart avec les versions Wattpad.
+- **Mention de provenance corrigée** : les textes sont intégralement écrits par Geoffroy Streit (Hylst), sans assistance d'intelligence artificielle. Seule la conversion technique et la mise en page ont été outillées.
+- **Métadonnées explicites** : `authorship: human` et `aiAssisted: false` pour les trois recueils et pour *Les Ficelles du bonheur*.
+- Version 1.7.1, cache Service Worker source `hylst-reader-v53`.
+
 ## [1.7.0] - 2026-11-03
 ### Ajouté
 - **Trois recueils Wattpad** : 29 textes publiés entre mars 2021 et février 2024, réunis en trois volumes :

@@ -38,6 +38,8 @@ Les textes ont été convertis en HTML avec les classes de la liseuse :
 
 Les titres décoratifs ont été normalisés pour le sommaire, mais le titre d'origine reste conservé dans `originalTitle`. Le corps des textes n'a pas été réécrit : seuls la conversion, la mise en page et les corrections typographiques évidentes des titres ont été appliquées.
 
+Les textes sont intégralement écrits par Geoffroy Streit (Hylst), sans assistance d'intelligence artificielle. La conversion au format de la liseuse, la mise en page et les ajustements typographiques ont été réalisés avec des outils techniques.
+
 ## Droits
 
 Les textes restent la propriété de leur auteur, Geoffroy Streit (Hylst). Les fichiers de couvertures Wattpad d'origine ne sont pas redistribués séparément dans le dépôt ; les couvertures des recueils sont des compositions réalisées pour cette édition à partir de ces illustrations.

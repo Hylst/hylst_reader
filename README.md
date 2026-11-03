@@ -13,7 +13,7 @@ Cette application est l'écrin officiel des récits littéraires et musicaux de 
 - **Partie V Intégrée** : Intégration du chapitre final *« De Spectateur à Architecte »* de l'essai **L'Odyssée de l'IA** (version nettoyée de ses tics typographiques d'IA).
 - **Nouvelle Halloween** : *« Les Ficelles du bonheur »*, pièce de théâtre en six tableaux et un épilogue, avec didascalies bleues, répliques mises en page comme au théâtre et couverture illustrée générée localement.
 - **L'Odyssée de l'énergie actualisée** : les 10 chapitres sont disponibles, avec données AIE 2026, typographie sans tirets cadratins ni ornements, et mention de transparence sur l'assistance IA en dernière de couverture.
-- **Trois recueils Wattpad** : 29 textes de 2021 à 2024 réunis en *Saisons, nature & contemplations*, *Fantasque & merveilleux* et *Cœurs, chaos & quotidien*, avec provenance, dates de publication et couvertures composées à partir des illustrations de l'auteur.
+- **Trois recueils Wattpad** : 29 textes de 2021 à 2024 réunis en *Saisons, nature & contemplations*, *Fantasque & merveilleux* et *Cœurs, chaos & quotidien*, avec provenance, dates de publication et couvertures composées à partir des illustrations de l'auteur. Textes 100 % écrits par l'auteur, sans assistance d'IA.
 - **Zéro Backend** : Tout tourne dans votre navigateur. Vos données (livres, progression, signets) restent chez vous dans IndexedDB.
 - **Sécurité des imports** : les EPUB, dossiers HML et JSON importés passent par DOMPurify avant stockage et avant rendu.
 - **Import Flexible** : Importez vos propres textes (EPUB, TXT, MD, JSON) ou dossiers HML complets, lus confortablement dans le Reader.

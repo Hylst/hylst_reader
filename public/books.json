@@ -241,7 +241,9 @@
         "title": "Épilogue. Pour couple fatigué",
         "path": "books/les-ficelles-du-bonheur/07-epilogue.html"
       }
-    ]
+    ],
+    "authorship": "human",
+    "aiAssisted": false
   },
   {
     "id": "recueils-proses-poesies-t1-saisons-nature",
@@ -249,6 +251,8 @@
     "subtitle": "Recueils de proses et poésies fantasques · Tome I",
     "author": "Hylst (Geoffroy Streit)",
     "year": 2026,
+    "authorship": "human",
+    "aiAssisted": false,
     "design": {
       "fonts": {
         "heading": "Cormorant Garamond",
@@ -393,6 +397,8 @@
     "subtitle": "Recueils de proses et poésies fantasques · Tome II",
     "author": "Hylst (Geoffroy Streit)",
     "year": 2026,
+    "authorship": "human",
+    "aiAssisted": false,
     "design": {
       "fonts": {
         "heading": "Cormorant Garamond",
@@ -510,6 +516,8 @@
     "subtitle": "Recueils de proses et poésies fantasques · Tome III",
     "author": "Hylst (Geoffroy Streit)",
     "year": 2026,
+    "authorship": "human",
+    "aiAssisted": false,
     "design": {
       "fonts": {
         "heading": "Cormorant Garamond",

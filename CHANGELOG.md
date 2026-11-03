@@ -1,6 +1,20 @@
 # Changelog
 Toutes les modifications notables apportées au projet **Hylst Books & Reader** sont documentées dans ce fichier.
 
+## [1.5.0] - 2026-11-03
+### Ajouté
+- **Accès sans slash final** : `https://hylst.fr/books_reader` fonctionne désormais comme `https://hylst.fr/books_reader/`, grâce à une base d'URL explicite dans l'index de production. Le redirect 301 canonique reste recommandé côté Nginx.
+- **Transparence IA** : *L'Odyssée de l'énergie* affiche en bas de sa dernière de couverture une mention discrète précisant l'usage d'outils d'intelligence artificielle comme assistants de recherche, de documentation, de vérification des sources, de brainstorming et de rédaction.
+
+### Modifié
+- **L'Odyssée de l'énergie** : actualisation des données structurantes (AIE avril 2026 : 485 TWh en 2025, ~950 TWh en 2030 ; Irlande 22 % de son électricité en 2024 ; parc nucléaire français 57 réacteurs / 63 GW, âge moyen ~39 ans ; CATL ~39 % ; 39 réacteurs chinois en construction).
+- **Typographie** : suppression de tous les tirets cadratins et demi-cadratins ainsi que des ornements `✦` dans les textes de *L'Odyssée de l'énergie*.
+- **Chapitres** : titres et tableaux corrigés (cohérence 57 réacteurs / 63 GW, 39 ans), note de méthode datée au 3 novembre 2026.
+- Version 1.5.0, cache Service Worker source `hylst-reader-v47`.
+
+### Corrigé
+- `.../books_reader` sans slash ne chargeait plus l'application (CSS et vendor résolus à la racine).
+
 ## [1.4.0] - 2026-11-03
 ### Ajouté
 - **Navigation de fin de partie** : un bloc « Fin de la partie » avec le titre de la partie suivante est désormais intégré au flux de lecture, sous le dernier paragraphe. Il est visible même quand la barre d'outils est masquée.

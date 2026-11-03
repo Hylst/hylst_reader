@@ -14,6 +14,7 @@ Conçu comme un livre physique de grande qualité, la liseuse adapte et peaufine
 - **Dropcaps automatiques** : Lettrine agrandie au premier paragraphe de chaque chapitre.
 - **Mise en page théâtre** : didascalies bleues, répliques alignées à gauche et conservation des retours de ligne du manuscrit.
 - **Navigation de fin de partie** : un bloc « Fin de la partie » avec la partie suivante est toujours visible sous le dernier paragraphe, même barre masquée. Une pastille `1 / 7 · Suivant` reste accessible en lecture immersive.
+- **Accès direct** : `https://hylst.fr/books_reader` et `https://hylst.fr/books_reader/` chargent la même application ; le canonical reste `https://hylst.fr/books_reader/`.
 - **Réglages du texte** : Choix de la largeur de colonne (Étroit, Moyen, Large), alignement (Gauche ou Justifié), et taille du texte (de 70% à 170% de la taille de base).
 - **Mode Focus Absolu** : Un double-clic ou double-tap masque instantanément toutes les interfaces pour ne laisser que le texte pur et l'ambiance.
 

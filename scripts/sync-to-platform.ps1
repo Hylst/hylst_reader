@@ -137,6 +137,7 @@ foreach ($marker in $sourceMarkers) {
 }
 
 $targetMarkers = @(
+    '<base href="/books_reader/">',
     'href="/assets/fonts/fonts.css"',
     'src="vendor/react.production.min.js"',
     'src="vendor/react-dom.production.min.js"',

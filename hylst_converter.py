@@ -6,7 +6,7 @@ from datetime import datetime
 
 def parse_text_to_html(content):
     """
-    Parses a .txt or .md content into semantic HTML compatible with Hylst Reader.
+    Parses a .txt or .md content into semantic HTML compatible with La Bibliothèque de Hylst.
     Ported and adapted from build_books.py logic.
     """
     lines = content.splitlines()
@@ -123,7 +123,7 @@ def convert_file(input_path, output_path=None, title=None, author=None, year=Non
     print(f"✅ Conversion réussie : {output_path}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Convertit un fichier TXT/MD au format JSON compatible Hylst Reader.")
+    parser = argparse.ArgumentParser(description="Convertit un fichier TXT/MD au format JSON compatible La Bibliothèque de Hylst.")
     parser.add_argument("input", help="Fichier source (.txt ou .md)")
     parser.add_argument("--output", help="Nom du fichier de sortie (.json)")
     parser.add_argument("--title", help="Titre du livre")

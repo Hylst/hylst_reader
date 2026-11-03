@@ -1,6 +1,12 @@
 # Changelog
 Toutes les modifications notables apportées au projet **Hylst Books & Reader** sont documentées dans ce fichier.
 
+## [1.6.1] - 2026-11-03
+### Corrigé
+- Coquilles résiduelles dans *L'Odyssée de l'énergie* : `Meta n't pas` → `Meta n'a pas`, `une installateur` → `un installateur`, `devenu son uniforme` → `devenue son uniforme`, `peu de perte mécanique` → `peu de pertes mécaniques`, `modeler la production` → `modéliser la production`, `demande correlated` → `demande corrélée`, `satellites atteint` → `satellites atteints`.
+- Ligatures typographiques : `main-d'oeuvre` → `main-d'œuvre`, `coeur` → `cœur`, `noeuds` → `nœuds`, `container maritime` → `conteneur maritime`.
+- Version 1.6.1, cache Service Worker source `hylst-reader-v49`.
+
 ## [1.6.0] - 2026-11-03
 ### Ajouté
 - **Les 10 chapitres de *L'Odyssée de l'énergie* sont disponibles** : préambule, introduction, chapitres 1 à 8. La navigation de fin de partie et la pastille `n / 10` fonctionnent sur l'ensemble du livre.

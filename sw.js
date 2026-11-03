@@ -1,7 +1,7 @@
-// sw.js - Service Worker Hylst Reader v1.6.0
+// sw.js - Service Worker Hylst Reader v1.6.1
 // Stratégie: Network-First avec fallback cache pour le local, et Cache-First pour les CDNs.
 
-const CACHE_NAME = 'hylst-reader-v48';
+const CACHE_NAME = 'hylst-reader-v49';
 
 self.addEventListener('install', (event) => {
     self.skipWaiting();

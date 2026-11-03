@@ -1,6 +1,21 @@
 # Changelog
 Toutes les modifications notables apportées au projet **Hylst Books & Reader** sont documentées dans ce fichier.
 
+## [1.6.0] - 2026-11-03
+### Ajouté
+- **Les 10 chapitres de *L'Odyssée de l'énergie* sont disponibles** : préambule, introduction, chapitres 1 à 8. La navigation de fin de partie et la pastille `n / 10` fonctionnent sur l'ensemble du livre.
+- **Relecture orthographique et grammaticale complète** : accents rétablis, coquilles et accords corrigés, tirets cadratins et demi-cadratins supprimés, ornements `✦` retirés.
+
+### Modifié
+- **Données actualisées** : AIE 485 TWh en 2025 et environ 950 TWh en 2030, Irlande 22 % de son électricité en 2024, parc nucléaire français 57 réacteurs et 63 GW pour un âge moyen d'environ 39 ans, CATL environ 39 %, 39 réacteurs chinois en construction, coûts du solaire en baisse d'environ 90 % depuis 2010.
+- **Titres de chapitres** : les entrées du sommaire reprennent les titres réels (`I. La faim électrique`, `II. L'inflation des besoins`, etc.).
+- **Mention de transparence IA** : encart discret en bas de la dernière de couverture.
+- Version 1.6.0, cache Service Worker source `hylst-reader-v48`.
+
+### Corrigé
+- Accents manquants dans les chapitres 5 à 8, notamment les passés composés, les prépositions `à` et les adjectifs.
+- Coquilles et accords signalés par la relecture : `publie` → `publiées`, `considerabel` → `considérable`, `neglege` → `négligé`, `environmentales` → `environnementales`, `dedicees` → `dédiées`, `incrementales` → `incrémentales`, `confinée` → `confinées`, entre autres.
+
 ## [1.5.0] - 2026-11-03
 ### Ajouté
 - **Accès sans slash final** : `https://hylst.fr/books_reader` fonctionne désormais comme `https://hylst.fr/books_reader/`, grâce à une base d'URL explicite dans l'index de production. Le redirect 301 canonique reste recommandé côté Nginx.

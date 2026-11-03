@@ -108,59 +108,62 @@
       {
         "id": "0-preambule.html",
         "title": "Préambule",
-        "path": "books/l-odyss-e-de-l-nergie/0-preambule.html"
+        "path": "books/l-odyss-e-de-l-nergie/0-preambule.html",
+        "available": true
       },
       {
         "id": "introduction.html",
         "title": "Introduction",
-        "path": "books/l-odyss-e-de-l-nergie/introduction.html"
+        "path": "books/l-odyss-e-de-l-nergie/introduction.html",
+        "available": true
       },
       {
         "id": "chapitre-1.html",
-        "title": "Chapitre 1",
-        "path": "books/l-odyss-e-de-l-nergie/chapitre-1.html"
+        "title": "I. La faim électrique",
+        "path": "books/l-odyss-e-de-l-nergie/chapitre-1.html",
+        "available": true
       },
       {
         "id": "chapitre-2.html",
-        "title": "Chapitre 2",
+        "title": "II. L’inflation des besoins",
         "path": "books/l-odyss-e-de-l-nergie/chapitre-2.html",
-        "available": false
+        "available": true
       },
       {
         "id": "chapitre-3.html",
-        "title": "Chapitre 3",
+        "title": "III. Les goulots d’étranglement",
         "path": "books/l-odyss-e-de-l-nergie/chapitre-3.html",
-        "available": false
+        "available": true
       },
       {
         "id": "chapitre-4.html",
-        "title": "Chapitre 4",
+        "title": "IV. Les réponses technologiques",
         "path": "books/l-odyss-e-de-l-nergie/chapitre-4.html",
-        "available": false
+        "available": true
       },
       {
         "id": "chapitre-5.html",
-        "title": "Chapitre 5",
+        "title": "V. Les stratégies des géants",
         "path": "books/l-odyss-e-de-l-nergie/chapitre-5.html",
-        "available": false
+        "available": true
       },
       {
         "id": "chapitre-6.html",
-        "title": "Chapitre 6",
+        "title": "VI. L’impact environnemental",
         "path": "books/l-odyss-e-de-l-nergie/chapitre-6.html",
-        "available": false
+        "available": true
       },
       {
         "id": "chapitre-7.html",
-        "title": "Chapitre 7",
+        "title": "VII. La France et l’Europe",
         "path": "books/l-odyss-e-de-l-nergie/chapitre-7.html",
-        "available": false
+        "available": true
       },
       {
         "id": "chapitre-8.html",
-        "title": "Chapitre 8",
+        "title": "VIII. Le manifeste énergétique",
         "path": "books/l-odyss-e-de-l-nergie/chapitre-8.html",
-        "available": false
+        "available": true
       }
     ]
   },

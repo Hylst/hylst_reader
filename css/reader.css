@@ -132,6 +132,11 @@
     opacity: 0.85;
     text-align: center;
     flex: 1;
+    min-width: 0;
+    padding: 0 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .reader-toolbar-actions {
@@ -342,6 +347,26 @@
     color: var(--book-accent-dark);
     opacity: 0.75;
     margin-bottom: 1.2rem;
+}
+
+/* Poésie : strophes compactes, alignées à gauche, sans justification. */
+.chapter-paragraph.poem-stanza {
+    text-align: left;
+    text-justify: none;
+    hyphens: none;
+    line-height: 1.9;
+}
+
+/* Note de provenance en fin de texte. */
+.chapter-source-note {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--book-border);
+    text-align: center;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.75rem;
+    line-height: 1.6;
+    opacity: 0.65;
 }
 
 /* Sidebar / TOC */

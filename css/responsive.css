@@ -111,6 +111,12 @@
         padding: 0 0.75rem;
     }
 
+    /* Le titre du chapitre est déjà affiché en grand dans le contenu.
+       Sur un écran étroit, il ne reste pas assez de place entre les icônes. */
+    .reader-toolbar-center {
+        display: none;
+    }
+
     .header-actions {
         gap: 0.2rem;
     }

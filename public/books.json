@@ -242,5 +242,401 @@
         "path": "books/les-ficelles-du-bonheur/07-epilogue.html"
       }
     ]
+  },
+  {
+    "id": "recueils-proses-poesies-t1-saisons-nature",
+    "title": "Saisons, nature & contemplations",
+    "subtitle": "Recueils de proses et poésies fantasques · Tome I",
+    "author": "Hylst (Geoffroy Streit)",
+    "year": 2026,
+    "design": {
+      "fonts": {
+        "heading": "Cormorant Garamond",
+        "body": "Libre Baskerville",
+        "googleFonts": "family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400"
+      },
+      "colors": {
+        "background": "#f5f2e9",
+        "text": "#24301f",
+        "primary": "#4f6f3a",
+        "secondary": "#d8cfb8",
+        "accent": "#b98a2e"
+      },
+      "variables": {
+        "--book-bg": "#f5f2e9",
+        "--book-text": "#24301f",
+        "--book-accent": "#b98a2e",
+        "--book-accent-dark": "#4f6f3a",
+        "--book-surface": "#e9e2d0",
+        "--book-border": "rgba(79, 111, 58, 0.18)",
+        "--book-font-body": "'Libre Baskerville', Georgia, serif",
+        "--book-font-heading": "'Cormorant Garamond', Georgia, serif",
+        "--book-font-title": "'Cormorant Garamond', Georgia, serif",
+        "--book-font-size": "1.05rem",
+        "--book-line-height": "1.85",
+        "--book-max-width": "700px",
+        "--book-dropcap-size": "4.5em"
+      }
+    },
+    "coverPath": "covers/recueils-proses-poesies-t1-saisons-nature.webp",
+    "introPath": "books/recueils-proses-poesies-t1-saisons-nature/intro.html",
+    "source": {
+      "platform": "Wattpad",
+      "profile": "https://www.wattpad.com/user/GeoffroyStreit",
+      "importedAt": "2026-11-03"
+    },
+    "chapters": [
+      {
+        "id": "01-escapade-boisee.html",
+        "title": "Escapade boisée",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/01-escapade-boisee.html",
+        "available": true,
+        "originalTitle": "Escapade boisée",
+        "originalDate": "2021-03-24",
+        "sourceUrl": "https://www.wattpad.com/story/263469168"
+      },
+      {
+        "id": "02-encourageantes-perspectives-printanieres.html",
+        "title": "Encourageantes perspectives printanières",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/02-encourageantes-perspectives-printanieres.html",
+        "available": true,
+        "originalTitle": "Encourageantes perspectives printanières",
+        "originalDate": "2021-03-26",
+        "sourceUrl": "https://www.wattpad.com/story/263713100"
+      },
+      {
+        "id": "03-fleuve-de-la-vie.html",
+        "title": "Fleuve de la vie",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/03-fleuve-de-la-vie.html",
+        "available": true,
+        "originalTitle": "Fleuve de la vie",
+        "originalDate": "2021-03-27",
+        "sourceUrl": "https://www.wattpad.com/story/263838015"
+      },
+      {
+        "id": "04-la-princesse-des-champs.html",
+        "title": "La princesse des champs",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/04-la-princesse-des-champs.html",
+        "available": true,
+        "originalTitle": "La princesse des champs",
+        "originalDate": "2021-03-29",
+        "sourceUrl": "https://www.wattpad.com/story/264070208"
+      },
+      {
+        "id": "05-la-vie-a-parfois-des-airs-de-trampoline.html",
+        "title": "La vie a parfois des airs de trampoline...",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/05-la-vie-a-parfois-des-airs-de-trampoline.html",
+        "available": true,
+        "originalTitle": "La vie a parfois des airs de trampoline...",
+        "originalDate": "2021-04-08",
+        "sourceUrl": "https://www.wattpad.com/story/265363305"
+      },
+      {
+        "id": "06-songes-desertiques.html",
+        "title": "Songes désertiques",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/06-songes-desertiques.html",
+        "available": true,
+        "originalTitle": "Songes désertiques",
+        "originalDate": "2021-04-09",
+        "sourceUrl": "https://www.wattpad.com/story/265480719"
+      },
+      {
+        "id": "07-grenouille-et-nenuphar.html",
+        "title": "Grenouille et Nénuphar",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/07-grenouille-et-nenuphar.html",
+        "available": true,
+        "originalTitle": "Grenouille et Nénuphar",
+        "originalDate": "2021-04-10",
+        "sourceUrl": "https://www.wattpad.com/story/265594087"
+      },
+      {
+        "id": "08-l-automne-toque-a-la-porte-des-saisons.html",
+        "title": "L'Automne toque à la porte des saisons",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/08-l-automne-toque-a-la-porte-des-saisons.html",
+        "available": true,
+        "originalTitle": "L' Automne toque à la porte des saisons",
+        "originalDate": "2021-04-11",
+        "sourceUrl": "https://www.wattpad.com/story/265707734"
+      },
+      {
+        "id": "09-enjouement-printanier-d-une-cueillette-hivernale.html",
+        "title": "Enjouement printanier d'une cueillette hivernale",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/09-enjouement-printanier-d-une-cueillette-hivernale.html",
+        "available": true,
+        "originalTitle": "єภﻮ๏ยє๓єภt קгเภtคภเєг ๔'ยภє ςยєเllєttє ђเשєгภคlє",
+        "originalDate": "2021-09-16",
+        "sourceUrl": "https://www.wattpad.com/story/285315482"
+      },
+      {
+        "id": "10-instants-d-automne.html",
+        "title": "Instants d'Automne...",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/10-instants-d-automne.html",
+        "available": true,
+        "originalTitle": "Instants d'Automne...",
+        "originalDate": "2021-10-21",
+        "sourceUrl": "https://www.wattpad.com/story/289026553"
+      },
+      {
+        "id": "11-aspiration-naturelle.html",
+        "title": "Aspiration Naturelle",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/11-aspiration-naturelle.html",
+        "available": true,
+        "originalTitle": "Aspiration Naturelle",
+        "originalDate": "2024-02-28",
+        "sourceUrl": "https://www.wattpad.com/story/363996989"
+      }
+    ]
+  },
+  {
+    "id": "recueils-proses-poesies-t2-fantasque-merveilleux",
+    "title": "Fantasque & merveilleux",
+    "subtitle": "Recueils de proses et poésies fantasques · Tome II",
+    "author": "Hylst (Geoffroy Streit)",
+    "year": 2026,
+    "design": {
+      "fonts": {
+        "heading": "Cormorant Garamond",
+        "body": "Libre Baskerville",
+        "googleFonts": "family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400"
+      },
+      "colors": {
+        "background": "#f3eff8",
+        "text": "#241b33",
+        "primary": "#5b3a8e",
+        "secondary": "#d9cdea",
+        "accent": "#c08a3e"
+      },
+      "variables": {
+        "--book-bg": "#f3eff8",
+        "--book-text": "#241b33",
+        "--book-accent": "#c08a3e",
+        "--book-accent-dark": "#5b3a8e",
+        "--book-surface": "#e7dff1",
+        "--book-border": "rgba(91, 58, 142, 0.18)",
+        "--book-font-body": "'Libre Baskerville', Georgia, serif",
+        "--book-font-heading": "'Cormorant Garamond', Georgia, serif",
+        "--book-font-title": "'Cormorant Garamond', Georgia, serif",
+        "--book-font-size": "1.05rem",
+        "--book-line-height": "1.85",
+        "--book-max-width": "700px",
+        "--book-dropcap-size": "4.5em"
+      }
+    },
+    "coverPath": "covers/recueils-proses-poesies-t2-fantasque-merveilleux.webp",
+    "introPath": "books/recueils-proses-poesies-t2-fantasque-merveilleux/intro.html",
+    "source": {
+      "platform": "Wattpad",
+      "profile": "https://www.wattpad.com/user/GeoffroyStreit",
+      "importedAt": "2026-11-03"
+    },
+    "chapters": [
+      {
+        "id": "01-le-reve-etrange-d-un-gaijin-profane.html",
+        "title": "Le rêve étrange d'un gaijin profane",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/01-le-reve-etrange-d-un-gaijin-profane.html",
+        "available": true,
+        "originalTitle": "Le rêve étrange d'un gaijin profane",
+        "originalDate": "2021-03-30",
+        "sourceUrl": "https://www.wattpad.com/story/264205771"
+      },
+      {
+        "id": "02-frequence-fantasque.html",
+        "title": "Fréquence fantasque",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/02-frequence-fantasque.html",
+        "available": true,
+        "originalTitle": "Fréquence fantasque",
+        "originalDate": "2021-04-02",
+        "sourceUrl": "https://www.wattpad.com/story/264586384"
+      },
+      {
+        "id": "03-degrades-de-gris-ou-couleurs-fantasques.html",
+        "title": "Dégradés de gris ou couleurs fantasques",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/03-degrades-de-gris-ou-couleurs-fantasques.html",
+        "available": true,
+        "originalTitle": "Dégradés de gris ou couleurs fantasques",
+        "originalDate": "2021-04-12",
+        "sourceUrl": "https://www.wattpad.com/story/265843893"
+      },
+      {
+        "id": "04-le-precieux-pantin-de-bois.html",
+        "title": "Le précieux pantin de bois",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/04-le-precieux-pantin-de-bois.html",
+        "available": true,
+        "originalTitle": "Le précieux pantin de bois",
+        "originalDate": "2021-04-13",
+        "sourceUrl": "https://www.wattpad.com/story/265975184"
+      },
+      {
+        "id": "05-ondes-positives.html",
+        "title": "Ondes positives",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/05-ondes-positives.html",
+        "available": true,
+        "originalTitle": "Ondes positives",
+        "originalDate": "2024-01-29",
+        "sourceUrl": "https://www.wattpad.com/story/361625826"
+      },
+      {
+        "id": "06-intermede-feerique.html",
+        "title": "Intermède féerique",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/06-intermede-feerique.html",
+        "available": true,
+        "originalTitle": "Intermède féérique",
+        "originalDate": "2024-01-29",
+        "sourceUrl": "https://www.wattpad.com/story/361622900"
+      },
+      {
+        "id": "07-dangaord.html",
+        "title": "Dangaord",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/07-dangaord.html",
+        "available": true,
+        "originalTitle": "Dangaord",
+        "originalDate": "2024-02-28",
+        "sourceUrl": "https://www.wattpad.com/story/363995434"
+      },
+      {
+        "id": "08-metro-fantasque.html",
+        "title": "Métro Fantasque",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/08-metro-fantasque.html",
+        "available": true,
+        "originalTitle": "Métro Fantasque",
+        "originalDate": "2024-02-28",
+        "sourceUrl": "https://www.wattpad.com/story/363995181"
+      }
+    ]
+  },
+  {
+    "id": "recueils-proses-poesies-t3-coeurs-chaos-quotidien",
+    "title": "Cœurs, chaos & quotidien",
+    "subtitle": "Recueils de proses et poésies fantasques · Tome III",
+    "author": "Hylst (Geoffroy Streit)",
+    "year": 2026,
+    "design": {
+      "fonts": {
+        "heading": "Cormorant Garamond",
+        "body": "Libre Baskerville",
+        "googleFonts": "family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400"
+      },
+      "colors": {
+        "background": "#f8f1ee",
+        "text": "#2b1e22",
+        "primary": "#8e3b46",
+        "secondary": "#e3cbc4",
+        "accent": "#c98a5e"
+      },
+      "variables": {
+        "--book-bg": "#f8f1ee",
+        "--book-text": "#2b1e22",
+        "--book-accent": "#c98a5e",
+        "--book-accent-dark": "#8e3b46",
+        "--book-surface": "#efe0da",
+        "--book-border": "rgba(142, 59, 70, 0.18)",
+        "--book-font-body": "'Libre Baskerville', Georgia, serif",
+        "--book-font-heading": "'Cormorant Garamond', Georgia, serif",
+        "--book-font-title": "'Cormorant Garamond', Georgia, serif",
+        "--book-font-size": "1.05rem",
+        "--book-line-height": "1.85",
+        "--book-max-width": "700px",
+        "--book-dropcap-size": "4.5em"
+      }
+    },
+    "coverPath": "covers/recueils-proses-poesies-t3-coeurs-chaos-quotidien.webp",
+    "introPath": "books/recueils-proses-poesies-t3-coeurs-chaos-quotidien/intro.html",
+    "source": {
+      "platform": "Wattpad",
+      "profile": "https://www.wattpad.com/user/GeoffroyStreit",
+      "importedAt": "2026-11-03"
+    },
+    "chapters": [
+      {
+        "id": "01-effet-papillon.html",
+        "title": "Effet papillon",
+        "path": "books/recueils-proses-poesies-t3-coeurs-chaos-quotidien/01-effet-papillon.html",
+        "available": true,
+        "originalTitle": "Effet papillon",
+        "originalDate": "2021-03-25",
+        "sourceUrl": "https://www.wattpad.com/story/263588408"
+      },
+      {
+        "id": "02-ariane.html",
+        "title": "Ariane",
+        "path": "books/recueils-proses-poesies-t3-coeurs-chaos-quotidien/02-ariane.html",
+        "available": true,
+        "originalTitle": "Ariane",
+        "originalDate": "2021-03-28",
+        "sourceUrl": "https://www.wattpad.com/story/263946496"
+      },
+      {
+        "id": "03-des-mots-a-partager.html",
+        "title": "Des mots à partager",
+        "path": "books/recueils-proses-poesies-t3-coeurs-chaos-quotidien/03-des-mots-a-partager.html",
+        "available": true,
+        "originalTitle": "Des mots à partager",
+        "originalDate": "2021-03-31",
+        "sourceUrl": "https://www.wattpad.com/story/264347871"
+      },
+      {
+        "id": "04-divagations-d-un-triste-agelaste.html",
+        "title": "Divagations d'un triste agelaste",
+        "path": "books/recueils-proses-poesies-t3-coeurs-chaos-quotidien/04-divagations-d-un-triste-agelaste.html",
+        "available": true,
+        "originalTitle": "Divagations d'un triste agelaste",
+        "originalDate": "2021-04-01",
+        "sourceUrl": "https://www.wattpad.com/story/264454487"
+      },
+      {
+        "id": "05-hubert-et-la-demoiselle-sur-un-banc.html",
+        "title": "Hubert et la demoiselle sur un banc",
+        "path": "books/recueils-proses-poesies-t3-coeurs-chaos-quotidien/05-hubert-et-la-demoiselle-sur-un-banc.html",
+        "available": true,
+        "originalTitle": "Hubert et la demoiselle sur un banc",
+        "originalDate": "2021-04-04",
+        "sourceUrl": "https://www.wattpad.com/story/264824868"
+      },
+      {
+        "id": "06-escapade-crepusculaire-melancolique.html",
+        "title": "Escapade crépusculaire mélancolique",
+        "path": "books/recueils-proses-poesies-t3-coeurs-chaos-quotidien/06-escapade-crepusculaire-melancolique.html",
+        "available": true,
+        "originalTitle": "Escapade crépusculaire mélancolique",
+        "originalDate": "2021-04-06",
+        "sourceUrl": "https://www.wattpad.com/story/265059258"
+      },
+      {
+        "id": "07-chaos-sentimental-et-metaphysique.html",
+        "title": "Chaos sentimental et métaphysique",
+        "path": "books/recueils-proses-poesies-t3-coeurs-chaos-quotidien/07-chaos-sentimental-et-metaphysique.html",
+        "available": true,
+        "originalTitle": "Chaos sentimental et métaphysique",
+        "originalDate": "2021-04-07",
+        "sourceUrl": "https://www.wattpad.com/story/265229001"
+      },
+      {
+        "id": "08-elle-ne-lui-repond.html",
+        "title": "Elle ne lui répond...",
+        "path": "books/recueils-proses-poesies-t3-coeurs-chaos-quotidien/08-elle-ne-lui-repond.html",
+        "available": true,
+        "originalTitle": "Elle ne lui répond...",
+        "originalDate": "2021-04-07",
+        "sourceUrl": "https://www.wattpad.com/story/265230924"
+      },
+      {
+        "id": "09-a-la-campagne.html",
+        "title": "À la campagne",
+        "path": "books/recueils-proses-poesies-t3-coeurs-chaos-quotidien/09-a-la-campagne.html",
+        "available": true,
+        "originalTitle": "A la campagne",
+        "originalDate": "2021-05-24",
+        "sourceUrl": "https://www.wattpad.com/story/271012567"
+      },
+      {
+        "id": "10-le-silence-n-est-pas-une-promesse-musicale-remplie.html",
+        "title": "Le silence n'est pas une promesse musicale remplie",
+        "path": "books/recueils-proses-poesies-t3-coeurs-chaos-quotidien/10-le-silence-n-est-pas-une-promesse-musicale-remplie.html",
+        "available": true,
+        "originalTitle": "Le silence n'est pas une promesse musicale remplie",
+        "originalDate": "2021-09-24",
+        "sourceUrl": "https://www.wattpad.com/story/286226896"
+      }
+    ]
   }
 ]

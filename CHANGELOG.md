@@ -1,6 +1,25 @@
 # Changelog
 Toutes les modifications notables apportées au projet **Hylst Books & Reader** sont documentées dans ce fichier.
 
+## [1.7.0] - 2026-11-03
+### Ajouté
+- **Trois recueils Wattpad** : 29 textes publiés entre mars 2021 et février 2024, réunis en trois volumes :
+  - *Saisons, nature & contemplations* (11 textes) ;
+  - *Fantasque & merveilleux* (8 textes) ;
+  - *Cœurs, chaos & quotidien* (10 textes).
+- **Provenance conservée** : chaque chapitre indique sa date de publication et renvoie à sa version originale sur Wattpad. Le dossier `sources/wattpad/manifest.json` conserve les identifiants, dates et URL des 29 histoires.
+- **Couvertures composées** à partir des illustrations Wattpad de l'auteur, avec une identité graphique propre à chaque tome.
+- **Mise en page poésie** : strophes compactes, alignées à gauche et non justifiées, avec conservation des retours de ligne.
+- **Note de source** discrète en fin de chaque texte.
+
+### Modifié
+- Retrait de la carte « Recueils de proses et poésies fantasques » de la section « À venir », désormais remplacée par les trois volumes intégrés.
+- Version 1.7.0, cache Service Worker source `hylst-reader-v52`.
+
+### Vérifié
+- 6 livres actifs, 19 cartes « À venir », 0 doublon.
+- 11/11, 8/8 et 10/10 chapitres parcourus, `FIN DU LIVRE` sur chaque tome, 0 erreur console.
+
 ## [1.6.3] - 2026-11-03
 ### Corrigé
 - **Sommaire de *L'Odyssée de l'IA*** : `Preface` → `Préface`, aligné sur le titre réel du chapitre (`Préface de l'Auteur`).

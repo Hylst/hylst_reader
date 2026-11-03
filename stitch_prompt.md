@@ -1,4 +1,4 @@
-# Stitch Prompt: Hylst Books & Reader (UI/UX Refinement)
+# Stitch Prompt: La Bibliothèque de Hylst (UI/UX Refinement)
 
 A premium, literary-focused PWA for reading digital books and listening to curated atmosphere music, featuring a sophisticated "Editorial Classic" aesthetic with rich typography and glassmorphism.
 
@@ -28,7 +28,7 @@ A premium, literary-focused PWA for reading digital books and listening to curat
 **PAGE STRUCTURE & SCREEN TEMPLATES:**
 
 1. **Integrated Workspace (Main Library):**
-    - **Header:** Sticky, glassmorphic navigation bar. Includes "Hylst Books & Reader" in elegant serif, quick-access icons (About, Settings, Search), and a primary "Importer" button (#8b5a2b).
+    - **Header:** Sticky, glassmorphic navigation bar. Includes "La Bibliothèque de Hylst" in elegant serif, quick-access icons (About, Settings, Search), and a primary "Importer" button (#8b5a2b).
     - **Library Grid:** Vertical list with clear sectional labels: "BIBLIOTHÈQUE DE HYLST" and "VOS AUTRES LECTURES".
     - **Book Cards:** Card grid layout with 2:3 aspect ratio covers. Each card shows title, author, and a subtle reading progress bar.
     - **Constraint:** Ensure book cards are NOT narrow; they should feel like physical book covers with legible, elegant typography.

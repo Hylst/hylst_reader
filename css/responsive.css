@@ -111,6 +111,11 @@
         padding: 0 0.75rem;
     }
 
+    /* Le titre complet reste lisible, mais doit cohabiter avec les icônes. */
+    .animated-title {
+        font-size: 0.95rem;
+    }
+
     /* Le titre du chapitre est déjà affiché en grand dans le contenu.
        Sur un écran étroit, il ne reste pas assez de place entre les icônes. */
     .reader-toolbar-center {
@@ -134,6 +139,15 @@
 
 /* ≤ 480px (portrait smartphone) : masquer les éléments non critiques */
 @media (max-width: 480px) {
+    /* Le nom complet est long : on libère la place des icônes. */
+    .btn-new-label {
+        display: none;
+    }
+
+    .animated-title {
+        font-size: 0.9rem;
+    }
+
     .music-mini-bar {
         display: none;
     }

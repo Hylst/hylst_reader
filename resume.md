@@ -1,7 +1,7 @@
-# Résumé du Projet : Hylst Books & Reader
+# Résumé du Projet : La Bibliothèque de Hylst
 
 ## 📖 Contexte du Projet
-**Hylst Books & Reader** est une application web progressive (PWA) de lecture de livres numériques (EPUB/HML). L'application mise sur une esthétique premium, une expérience utilisateur fluide et des fonctionnalités avancées pour les lecteurs. Le projet intègre une bibliothèque musicale pour accompagner la lecture.
+**La Bibliothèque de Hylst** est une application web progressive (PWA) de lecture de livres numériques (EPUB/HML). L'application mise sur une esthétique premium, une expérience utilisateur fluide et des fonctionnalités avancées pour les lecteurs. Le projet intègre une bibliothèque musicale pour accompagner la lecture.
 
 ## 👤 Votre Rôle (USER) : Geoffroy Streit
 Vous êtes le **créateur et producteur musical** ainsi que le **donneur d'ordre technique**. Vous fournissez :

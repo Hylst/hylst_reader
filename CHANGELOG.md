@@ -1,5 +1,18 @@
 # Changelog
-Toutes les modifications notables apportées au projet **Hylst Books & Reader** sont documentées dans ce fichier.
+Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
+
+## [1.8.0] - 2026-11-04
+### Ajouté
+- **Nouveau nom** : l'application devient **La Bibliothèque de Hylst**, avec le nom court PWA **Biblio Hylst** et la signature « Livres, proses, poésies et récits de Geoffroy Streit ». Le titre, le header, le footer, la modale À propos, le manifeste, les icônes PWA, les métadonnées sociales et la documentation sont alignés.
+- **Alias `/bibliotheque/`** : la nouvelle URL courte redirige en 301 vers `/books_reader/`, query string conservée. L'URL existante reste canonique pour ne casser ni les favoris, ni le référencement.
+- **Quinte ou Les Harmoniques de l'âme** : nouvelle en sept parties dans sa version remaniée par l'auteur, avec introduction, provenance et métadonnées `authorship: human`, `aiAssisted: false`.
+- **Illustrations des 29 textes** : récupération des couvertures Wattpad d'origine, affichées en tête de chapitre et en miniature dans le sommaire.
+- **Badge Nouveau** sur *L'Odyssée de l'énergie* et sur *Quinte*.
+
+### Corrigé
+- **Voile sur le header et la bibliothèque** : l'ambiance visuelle passait au-dessus du contenu et délavait le titre, les libellés de section et le haut des cartes, surtout en thème clair. Elle est désormais peinte derrière le contenu, avec un voile clair atténué et un header plus opaque.
+- **Tirets cadratins de l'interface** remplacés par des points médians dans les libellés de la bibliothèque et de la modale À propos.
+- Version 1.8.0, cache Service Worker source `hylst-reader-v54`.
 
 ## [1.7.1] - 2026-11-03
 ### Corrigé

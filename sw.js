@@ -1,7 +1,7 @@
-// sw.js - Service Worker Hylst Reader v1.7.1
+// sw.js - Service Worker La Bibliothèque de Hylst v1.8.0
 // Stratégie: Network-First avec fallback cache pour le local, et Cache-First pour les CDNs.
 
-const CACHE_NAME = 'hylst-reader-v53';
+const CACHE_NAME = 'hylst-reader-v54';
 
 self.addEventListener('install', (event) => {
     self.skipWaiting();

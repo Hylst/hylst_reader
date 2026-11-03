@@ -1,6 +1,6 @@
-# Fonctionnalités — Hylst Books & Reader
+# Fonctionnalités — La Bibliothèque de Hylst
 
-L'application **Hylst Books & Reader** propose une suite complète de fonctionnalités pour offrir une expérience de lecture immersive de premier plan.
+L'application **La Bibliothèque de Hylst** propose une suite complète de fonctionnalités pour offrir une expérience de lecture immersive de premier plan.
 
 ---
 
@@ -16,7 +16,9 @@ Conçu comme un livre physique de grande qualité, la liseuse adapte et peaufine
 - **Navigation de fin de partie** : un bloc « Fin de la partie » avec la partie suivante est toujours visible sous le dernier paragraphe, même barre masquée. Une pastille `1 / 7 · Suivant` reste accessible en lecture immersive.
 - **Accès direct** : `https://hylst.fr/books_reader` et `https://hylst.fr/books_reader/` chargent la même application ; le canonical reste `https://hylst.fr/books_reader/`.
 - **L'Odyssée de l'énergie** : les 10 chapitres sont disponibles, avec relecture orthographique complète, données actualisées et mention de transparence sur l'assistance IA en dernière de couverture.
-- **Recueils Wattpad** : 29 textes répartis en trois volumes, avec mise en page prose/poésie, dates de publication, lien vers la version originale et couvertures composées à partir des illustrations de l'auteur. Création littéraire 100 % humaine, sans assistance d'IA.
+- **Recueils Wattpad** : 29 textes répartis en trois volumes, avec mise en page prose/poésie, dates de publication, lien vers la version originale et illustrations d'origine affichées en tête de chapitre et dans le sommaire. Création littéraire 100 % humaine, sans assistance d'IA.
+- **Quinte ou Les Harmoniques de l'âme** : nouvelle en sept parties, version remaniée par l'auteur, avec introduction et note de provenance.
+- **Deux URL** : `/books_reader/` reste l'URL canonique, `/bibliotheque/` y redirige en 301 avec conservation de la query string.
 - **Réglages du texte** : Choix de la largeur de colonne (Étroit, Moyen, Large), alignement (Gauche ou Justifié), et taille du texte (de 70% à 170% de la taille de base).
 - **Mode Focus Absolu** : Un double-clic ou double-tap masque instantanément toutes les interfaces pour ne laisser que le texte pur et l'ambiance.
 

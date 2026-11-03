@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
-    background: rgba(244, 241, 235, 0.85);
+    background: rgba(244, 241, 235, 0.94);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--app-card-border);
@@ -17,11 +17,11 @@
 }
 
 [data-theme='dark'] .app-header {
-    background: rgba(15, 14, 12, 0.88);
+    background: rgba(15, 14, 12, 0.94);
 }
 
 [data-theme='light'] .app-header {
-    background: rgba(250, 250, 248, 0.88);
+    background: rgba(250, 250, 248, 0.95);
 }
 
 /* Base title style (shared) */
@@ -54,7 +54,8 @@
 .animated-title {
     display: inline-flex;
     background: none !important;
-    font-size: 1.5rem;
+    font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+    white-space: nowrap;
 }
 
 /* Individual letters with their own gradient context */
@@ -111,7 +112,15 @@
 .footer-brand {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+}
+
+.footer-signature {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.8rem;
+    color: var(--app-muted);
 }
 
 .footer-creator {

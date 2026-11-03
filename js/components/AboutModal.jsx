@@ -22,8 +22,8 @@ function AboutModal({ onClose }) {
                         <div className="about-header-title">
                             <div className="about-logo">H</div>
                             <div>
-                                <h3>Hylst Books &amp; Reader</h3>
-                                <span className="about-version">Version 1.7.1 &middot; 2026</span>
+                                <h3>La Bibliothèque de Hylst</h3>
+                                <span className="about-version">Version 1.8.0 &middot; 2026</span>
                             </div>
                         </div>
                         <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
@@ -47,7 +47,7 @@ function AboutModal({ onClose }) {
                     {activeTab === 'about' && (
                         <div className="about-tab-content animate-fade-in">
                             <p className="about-hero-text">
-                                <strong>Hylst Books &amp; Reader</strong> est plus qu'une simple liseuse, c'est un petit havre numérique intimiste pensé pour l'immersion littéraire, graphique et sonore. Un cocon personnalisé façonné avec soin pour s'évader du bruit du web.
+                                <strong>La Bibliothèque de Hylst</strong> réunit les livres, proses, poésies et récits de Geoffroy Streit. Ce n'est pas un lecteur universel avant tout : c'est un havre numérique intimiste, pensé pour l'immersion littéraire, graphique et sonore, où l'on peut aussi importer ses propres lectures.
                             </p>
                             <div className="about-grid">
                                 <div className="about-card">
@@ -157,7 +157,7 @@ function AboutModal({ onClose }) {
                                         <Icon.Youtube /> <span>Vidéos &amp; Clips (sans IA sauf mention) (YouTube)</span>
                                     </a>
                                     <a href="https://demozoo.org/sceners/2341/" target="_blank" rel="noopener noreferrer" className="creator-link-btn" title="Demozoo">
-                                        <Icon.Cpu /> <span>Contributions Demoscene &mdash; code, musique, gfx (Demozoo)</span>
+                                        <Icon.Cpu /> <span>Contributions Demoscene &middot; code, musique, gfx (Demozoo)</span>
                                     </a>
                                     <a href="mailto:geoffroy.streit@gmail.com" className="creator-link-btn" title="Email">
                                         <Icon.Mail /> <span>Me contacter</span>
@@ -199,7 +199,7 @@ function AboutModal({ onClose }) {
                 </div>
 
                 <div className="modal-footer about-footer">
-                    <p>Hylst &mdash; Lire, Écouter, Ressentir.</p>
+                    <p>La Bibliothèque de Hylst &middot; Livres, proses, poésies et récits de Geoffroy Streit.</p>
                     <button className="btn btn-primary" onClick={onClose}>Commencer la lecture</button>
                 </div>
             </div>

@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hylst Books &amp; Reader</title>
+    <title>La Bibliothèque de Hylst</title>
 
     <!-- Meta/SEO -->
     <meta name="description"
-        content="Bibliothèque numérique de Geoffroy Streit et liseuse web hors-ligne (PWA). Lisez vos EPUB, TXT, JSON librement dans une interface personnalisée.">
+        content="La Bibliothèque de Hylst : livres, proses, poésies et récits de Geoffroy Streit. Liseuse web hors-ligne (PWA) pour EPUB, TXT et JSON.">
     <meta name="author" content="Geoffroy Streit (geoffroy.streit@gmail.com)">
     <meta name="keywords"
-        content="liseuse, ebook, epub, hors-ligne, pwa, Hylst, Geoffroy Streit, lecture, web reader, offline, livre audio">
+        content="bibliothèque, livres, proses, poésies, récits, Hylst, Geoffroy Streit, liseuse, epub, hors-ligne, pwa, lecture">
 
     <!-- Open Graph / Social -->
-    <meta property="og:title" content="Hylst Books &amp; Reader">
+    <meta property="og:title" content="La Bibliothèque de Hylst">
     <meta property="og:description"
-        content="Bibliothèque numérique de Geoffroy Streit et liseuse web élégante offline-first.">
+        content="Livres, proses, poésies et récits de Geoffroy Streit, dans une liseuse web élégante hors-ligne.">
     <meta property="og:image" content="./public/social-share.png">
     <meta property="og:type" content="website">
 
@@ -25,11 +25,11 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Hylst Reader">
+    <meta name="apple-mobile-web-app-title" content="Biblio Hylst">
     <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%236366f1'/%3E%3Ctext x='50' y='60' font-family='sans-serif' font-size='40' fill='white' text-anchor='middle'%3EHR%3C/text%3E%3C/svg%3E">
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%238b5a2b'/%3E%3Ctext x='50' y='60' font-family='sans-serif' font-size='40' fill='white' text-anchor='middle'%3EBH%3C/text%3E%3C/svg%3E">
     <link rel="apple-touch-icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%236366f1'/%3E%3Ctext x='50' y='60' font-family='sans-serif' font-size='40' fill='white' text-anchor='middle'%3EHR%3C/text%3E%3C/svg%3E">
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%238b5a2b'/%3E%3Ctext x='50' y='60' font-family='sans-serif' font-size='40' fill='white' text-anchor='middle'%3EBH%3C/text%3E%3C/svg%3E">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,14 +39,14 @@
         rel="stylesheet">
 
     <!-- CSS Design System -->
-    <link rel="stylesheet" href="css/variables.css?v=1.7.1">
-    <link rel="stylesheet" href="css/base.css?v=1.7.1">
-    <link rel="stylesheet" href="css/layout.css?v=1.7.1">
-    <link rel="stylesheet" href="css/components.css?v=1.7.1">
-    <link rel="stylesheet" href="css/modals.css?v=1.7.1">
-    <link rel="stylesheet" href="css/music.css?v=1.7.1">
-    <link rel="stylesheet" href="css/reader.css?v=1.7.1">
-    <link rel="stylesheet" href="css/responsive.css?v=1.7.1">
+    <link rel="stylesheet" href="css/variables.css?v=1.8.0">
+    <link rel="stylesheet" href="css/base.css?v=1.8.0">
+    <link rel="stylesheet" href="css/layout.css?v=1.8.0">
+    <link rel="stylesheet" href="css/components.css?v=1.8.0">
+    <link rel="stylesheet" href="css/modals.css?v=1.8.0">
+    <link rel="stylesheet" href="css/music.css?v=1.8.0">
+    <link rel="stylesheet" href="css/reader.css?v=1.8.0">
+    <link rel="stylesheet" href="css/responsive.css?v=1.8.0">
 
     <!-- Dépendances auto-hébergées (vendor/), pas de CDN au runtime -->
     <!-- React & ReactDOM (UMD) -->
@@ -81,31 +81,31 @@
     -->
 
     <!-- 1. Données -->
-    <script src="js/music_data.js?v=1.7.1"></script>
+    <script src="js/music_data.js?v=1.8.0"></script>
 
     <!-- 2. Sécurité des contenus importés -->
-    <script src="js/sanitize.js?v=1.7.1"></script>
+    <script src="js/sanitize.js?v=1.8.0"></script>
 
     <!-- 4. Utilitaires & DB (plain JS, pas de JSX) -->
-    <script src="js/db.js?v=1.7.1"></script>
-    <script src="js/importAPI.js?v=1.7.1"></script>
+    <script src="js/db.js?v=1.8.0"></script>
+    <script src="js/importAPI.js?v=1.8.0"></script>
 
     <!-- 5. Composants de base (sans dépendances inter-composants) -->
-    <script type="text/babel" src="js/components/Icon.jsx?v=1.7.1"></script>
-    <script type="text/babel" src="js/components/Ambience.jsx?v=1.7.1"></script>
+    <script type="text/babel" src="js/components/Icon.jsx?v=1.8.0"></script>
+    <script type="text/babel" src="js/components/Ambience.jsx?v=1.8.0"></script>
 
     <!-- 6. Composants modaux (dépendent de Icon & Ambience) -->
-    <script type="text/babel" src="js/components/AboutModal.jsx?v=1.7.1"></script>
-    <script type="text/babel" src="js/components/GlobalSettingsModal.jsx?v=1.7.1"></script>
-    <script type="text/babel" src="js/components/MusicPlayerModal.jsx?v=1.7.1"></script>
+    <script type="text/babel" src="js/components/AboutModal.jsx?v=1.8.0"></script>
+    <script type="text/babel" src="js/components/GlobalSettingsModal.jsx?v=1.8.0"></script>
+    <script type="text/babel" src="js/components/MusicPlayerModal.jsx?v=1.8.0"></script>
 
     <!-- 7. Vues (dépendent de Icon, Ambience, HylstDB) -->
-    <script type="text/babel" src="js/components/BookHomeView.jsx?v=1.7.1"></script>
-    <script type="text/babel" src="js/components/LibraryView.jsx?v=1.7.1"></script>
-    <script type="text/babel" src="js/components/ReaderView.jsx?v=1.7.1"></script>
+    <script type="text/babel" src="js/components/BookHomeView.jsx?v=1.8.0"></script>
+    <script type="text/babel" src="js/components/LibraryView.jsx?v=1.8.0"></script>
+    <script type="text/babel" src="js/components/ReaderView.jsx?v=1.8.0"></script>
 
     <!-- 8. App principale (orchestre tout) -->
-    <script type="text/babel" src="js/app.jsx?v=1.7.1"></script>
+    <script type="text/babel" src="js/app.jsx?v=1.8.0"></script>
 
     <!-- PWA Service Worker Registration -->
     <script>

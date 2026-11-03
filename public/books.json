@@ -165,7 +165,8 @@
         "path": "books/l-odyss-e-de-l-nergie/chapitre-8.html",
         "available": true
       }
-    ]
+    ],
+    "badge": "Nouveau"
   },
   {
     "id": "les-ficelles-du-bonheur",
@@ -246,6 +247,84 @@
     "aiAssisted": false
   },
   {
+    "id": "quinte-ou-les-harmoniques-de-l-ame",
+    "title": "Quinte ou Les Harmoniques de l'âme",
+    "subtitle": "Histoire pour Musiciens déments et physiciens avertis",
+    "author": "Hylst (Geoffroy Streit)",
+    "year": 2021,
+    "badge": "Nouveau",
+    "design": {
+      "fonts": {
+        "heading": "Cormorant Garamond",
+        "body": "Libre Baskerville",
+        "googleFonts": "family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400"
+      },
+      "colors": {
+        "background": "#f7f1e6",
+        "text": "#1f1c19",
+        "primary": "#1f6b6b",
+        "secondary": "#e8d5b0",
+        "accent": "#b8741f"
+      },
+      "variables": {
+        "--book-bg": "#f7f1e6",
+        "--book-text": "#1f1c19",
+        "--book-accent": "#1f6b6b",
+        "--book-accent-dark": "#174f4f",
+        "--book-surface": "#efe6d5",
+        "--book-border": "rgba(31, 107, 107, 0.18)",
+        "--book-font-body": "'Libre Baskerville', Georgia, serif",
+        "--book-font-heading": "'Cormorant Garamond', Georgia, serif",
+        "--book-font-title": "'Cormorant Garamond', Georgia, serif",
+        "--book-font-size": "1.05rem",
+        "--book-line-height": "1.8",
+        "--book-max-width": "720px",
+        "--book-dropcap-size": "4.2em"
+      }
+    },
+    "coverPath": "covers/cover_quinte.webp",
+    "introPath": "books/quinte-ou-les-harmoniques-de-l-ame/intro.html",
+    "chapters": [
+      {
+        "id": "01-le-monde-ondulatoire.html",
+        "title": "Le Monde Ondulatoire",
+        "path": "books/quinte-ou-les-harmoniques-de-l-ame/01-le-monde-ondulatoire.html"
+      },
+      {
+        "id": "02-les-interactions-sociales.html",
+        "title": "Les Interactions Sociales",
+        "path": "books/quinte-ou-les-harmoniques-de-l-ame/02-les-interactions-sociales.html"
+      },
+      {
+        "id": "03-quinte-et-l-appel-du-gouffre.html",
+        "title": "Quinte et l'Appel du Gouffre",
+        "path": "books/quinte-ou-les-harmoniques-de-l-ame/03-quinte-et-l-appel-du-gouffre.html"
+      },
+      {
+        "id": "04-partie-4.html",
+        "title": "Partie 4",
+        "path": "books/quinte-ou-les-harmoniques-de-l-ame/04-partie-4.html"
+      },
+      {
+        "id": "05-partie-5.html",
+        "title": "Partie 5",
+        "path": "books/quinte-ou-les-harmoniques-de-l-ame/05-partie-5.html"
+      },
+      {
+        "id": "06-partie-6.html",
+        "title": "Partie 6",
+        "path": "books/quinte-ou-les-harmoniques-de-l-ame/06-partie-6.html"
+      },
+      {
+        "id": "07-partie-7-surprise.html",
+        "title": "Partie 7 (Surprise)",
+        "path": "books/quinte-ou-les-harmoniques-de-l-ame/07-partie-7-surprise.html"
+      }
+    ],
+    "authorship": "human",
+    "aiAssisted": false
+  },
+  {
     "id": "recueils-proses-poesies-t1-saisons-nature",
     "title": "Saisons, nature & contemplations",
     "subtitle": "Recueils de proses et poésies fantasques · Tome I",
@@ -297,7 +376,8 @@
         "available": true,
         "originalTitle": "Escapade boisée",
         "originalDate": "2021-03-24",
-        "sourceUrl": "https://www.wattpad.com/story/263469168"
+        "sourceUrl": "https://www.wattpad.com/story/263469168",
+        "cover": "covers/stories/263469168.webp"
       },
       {
         "id": "02-encourageantes-perspectives-printanieres.html",
@@ -306,7 +386,8 @@
         "available": true,
         "originalTitle": "Encourageantes perspectives printanières",
         "originalDate": "2021-03-26",
-        "sourceUrl": "https://www.wattpad.com/story/263713100"
+        "sourceUrl": "https://www.wattpad.com/story/263713100",
+        "cover": "covers/stories/263713100.webp"
       },
       {
         "id": "03-fleuve-de-la-vie.html",
@@ -315,7 +396,8 @@
         "available": true,
         "originalTitle": "Fleuve de la vie",
         "originalDate": "2021-03-27",
-        "sourceUrl": "https://www.wattpad.com/story/263838015"
+        "sourceUrl": "https://www.wattpad.com/story/263838015",
+        "cover": "covers/stories/263838015.webp"
       },
       {
         "id": "04-la-princesse-des-champs.html",
@@ -324,7 +406,8 @@
         "available": true,
         "originalTitle": "La princesse des champs",
         "originalDate": "2021-03-29",
-        "sourceUrl": "https://www.wattpad.com/story/264070208"
+        "sourceUrl": "https://www.wattpad.com/story/264070208",
+        "cover": "covers/stories/264070208.webp"
       },
       {
         "id": "05-la-vie-a-parfois-des-airs-de-trampoline.html",
@@ -333,7 +416,8 @@
         "available": true,
         "originalTitle": "La vie a parfois des airs de trampoline...",
         "originalDate": "2021-04-08",
-        "sourceUrl": "https://www.wattpad.com/story/265363305"
+        "sourceUrl": "https://www.wattpad.com/story/265363305",
+        "cover": "covers/stories/265363305.webp"
       },
       {
         "id": "06-songes-desertiques.html",
@@ -342,7 +426,8 @@
         "available": true,
         "originalTitle": "Songes désertiques",
         "originalDate": "2021-04-09",
-        "sourceUrl": "https://www.wattpad.com/story/265480719"
+        "sourceUrl": "https://www.wattpad.com/story/265480719",
+        "cover": "covers/stories/265480719.webp"
       },
       {
         "id": "07-grenouille-et-nenuphar.html",
@@ -351,7 +436,8 @@
         "available": true,
         "originalTitle": "Grenouille et Nénuphar",
         "originalDate": "2021-04-10",
-        "sourceUrl": "https://www.wattpad.com/story/265594087"
+        "sourceUrl": "https://www.wattpad.com/story/265594087",
+        "cover": "covers/stories/265594087.webp"
       },
       {
         "id": "08-l-automne-toque-a-la-porte-des-saisons.html",
@@ -360,7 +446,8 @@
         "available": true,
         "originalTitle": "L' Automne toque à la porte des saisons",
         "originalDate": "2021-04-11",
-        "sourceUrl": "https://www.wattpad.com/story/265707734"
+        "sourceUrl": "https://www.wattpad.com/story/265707734",
+        "cover": "covers/stories/265707734.webp"
       },
       {
         "id": "09-enjouement-printanier-d-une-cueillette-hivernale.html",
@@ -369,7 +456,8 @@
         "available": true,
         "originalTitle": "єภﻮ๏ยє๓єภt קгเภtคภเєг ๔'ยภє ςยєเllєttє ђเשєгภคlє",
         "originalDate": "2021-09-16",
-        "sourceUrl": "https://www.wattpad.com/story/285315482"
+        "sourceUrl": "https://www.wattpad.com/story/285315482",
+        "cover": "covers/stories/285315482.webp"
       },
       {
         "id": "10-instants-d-automne.html",
@@ -378,7 +466,8 @@
         "available": true,
         "originalTitle": "Instants d'Automne...",
         "originalDate": "2021-10-21",
-        "sourceUrl": "https://www.wattpad.com/story/289026553"
+        "sourceUrl": "https://www.wattpad.com/story/289026553",
+        "cover": "covers/stories/289026553.webp"
       },
       {
         "id": "11-aspiration-naturelle.html",
@@ -387,7 +476,8 @@
         "available": true,
         "originalTitle": "Aspiration Naturelle",
         "originalDate": "2024-02-28",
-        "sourceUrl": "https://www.wattpad.com/story/363996989"
+        "sourceUrl": "https://www.wattpad.com/story/363996989",
+        "cover": "covers/stories/363996989.webp"
       }
     ]
   },
@@ -443,7 +533,8 @@
         "available": true,
         "originalTitle": "Le rêve étrange d'un gaijin profane",
         "originalDate": "2021-03-30",
-        "sourceUrl": "https://www.wattpad.com/story/264205771"
+        "sourceUrl": "https://www.wattpad.com/story/264205771",
+        "cover": "covers/stories/264205771.webp"
       },
       {
         "id": "02-frequence-fantasque.html",
@@ -452,7 +543,8 @@
         "available": true,
         "originalTitle": "Fréquence fantasque",
         "originalDate": "2021-04-02",
-        "sourceUrl": "https://www.wattpad.com/story/264586384"
+        "sourceUrl": "https://www.wattpad.com/story/264586384",
+        "cover": "covers/stories/264586384.webp"
       },
       {
         "id": "03-degrades-de-gris-ou-couleurs-fantasques.html",
@@ -461,7 +553,8 @@
         "available": true,
         "originalTitle": "Dégradés de gris ou couleurs fantasques",
         "originalDate": "2021-04-12",
-        "sourceUrl": "https://www.wattpad.com/story/265843893"
+        "sourceUrl": "https://www.wattpad.com/story/265843893",
+        "cover": "covers/stories/265843893.webp"
       },
       {
         "id": "04-le-precieux-pantin-de-bois.html",
@@ -470,7 +563,8 @@
         "available": true,
         "originalTitle": "Le précieux pantin de bois",
         "originalDate": "2021-04-13",
-        "sourceUrl": "https://www.wattpad.com/story/265975184"
+        "sourceUrl": "https://www.wattpad.com/story/265975184",
+        "cover": "covers/stories/265975184.webp"
       },
       {
         "id": "05-ondes-positives.html",
@@ -479,7 +573,8 @@
         "available": true,
         "originalTitle": "Ondes positives",
         "originalDate": "2024-01-29",
-        "sourceUrl": "https://www.wattpad.com/story/361625826"
+        "sourceUrl": "https://www.wattpad.com/story/361625826",
+        "cover": "covers/stories/361625826.webp"
       },
       {
         "id": "06-intermede-feerique.html",
@@ -488,7 +583,8 @@
         "available": true,
         "originalTitle": "Intermède féérique",
         "originalDate": "2024-01-29",
-        "sourceUrl": "https://www.wattpad.com/story/361622900"
+        "sourceUrl": "https://www.wattpad.com/story/361622900",
+        "cover": "covers/stories/361622900.webp"
       },
       {
         "id": "07-dangaord.html",
@@ -497,7 +593,8 @@
         "available": true,
         "originalTitle": "Dangaord",
         "originalDate": "2024-02-28",
-        "sourceUrl": "https://www.wattpad.com/story/363995434"
+        "sourceUrl": "https://www.wattpad.com/story/363995434",
+        "cover": "covers/stories/363995434.webp"
       },
       {
         "id": "08-metro-fantasque.html",
@@ -506,7 +603,8 @@
         "available": true,
         "originalTitle": "Métro Fantasque",
         "originalDate": "2024-02-28",
-        "sourceUrl": "https://www.wattpad.com/story/363995181"
+        "sourceUrl": "https://www.wattpad.com/story/363995181",
+        "cover": "covers/stories/363995181.webp"
       }
     ]
   },
@@ -562,7 +660,8 @@
         "available": true,
         "originalTitle": "Effet papillon",
         "originalDate": "2021-03-25",
-        "sourceUrl": "https://www.wattpad.com/story/263588408"
+        "sourceUrl": "https://www.wattpad.com/story/263588408",
+        "cover": "covers/stories/263588408.webp"
       },
       {
         "id": "02-ariane.html",
@@ -571,7 +670,8 @@
         "available": true,
         "originalTitle": "Ariane",
         "originalDate": "2021-03-28",
-        "sourceUrl": "https://www.wattpad.com/story/263946496"
+        "sourceUrl": "https://www.wattpad.com/story/263946496",
+        "cover": "covers/stories/263946496.webp"
       },
       {
         "id": "03-des-mots-a-partager.html",
@@ -580,7 +680,8 @@
         "available": true,
         "originalTitle": "Des mots à partager",
         "originalDate": "2021-03-31",
-        "sourceUrl": "https://www.wattpad.com/story/264347871"
+        "sourceUrl": "https://www.wattpad.com/story/264347871",
+        "cover": "covers/stories/264347871.webp"
       },
       {
         "id": "04-divagations-d-un-triste-agelaste.html",
@@ -589,7 +690,8 @@
         "available": true,
         "originalTitle": "Divagations d'un triste agelaste",
         "originalDate": "2021-04-01",
-        "sourceUrl": "https://www.wattpad.com/story/264454487"
+        "sourceUrl": "https://www.wattpad.com/story/264454487",
+        "cover": "covers/stories/264454487.webp"
       },
       {
         "id": "05-hubert-et-la-demoiselle-sur-un-banc.html",
@@ -598,7 +700,8 @@
         "available": true,
         "originalTitle": "Hubert et la demoiselle sur un banc",
         "originalDate": "2021-04-04",
-        "sourceUrl": "https://www.wattpad.com/story/264824868"
+        "sourceUrl": "https://www.wattpad.com/story/264824868",
+        "cover": "covers/stories/264824868.webp"
       },
       {
         "id": "06-escapade-crepusculaire-melancolique.html",
@@ -607,7 +710,8 @@
         "available": true,
         "originalTitle": "Escapade crépusculaire mélancolique",
         "originalDate": "2021-04-06",
-        "sourceUrl": "https://www.wattpad.com/story/265059258"
+        "sourceUrl": "https://www.wattpad.com/story/265059258",
+        "cover": "covers/stories/265059258.webp"
       },
       {
         "id": "07-chaos-sentimental-et-metaphysique.html",
@@ -616,7 +720,8 @@
         "available": true,
         "originalTitle": "Chaos sentimental et métaphysique",
         "originalDate": "2021-04-07",
-        "sourceUrl": "https://www.wattpad.com/story/265229001"
+        "sourceUrl": "https://www.wattpad.com/story/265229001",
+        "cover": "covers/stories/265229001.webp"
       },
       {
         "id": "08-elle-ne-lui-repond.html",
@@ -625,7 +730,8 @@
         "available": true,
         "originalTitle": "Elle ne lui répond...",
         "originalDate": "2021-04-07",
-        "sourceUrl": "https://www.wattpad.com/story/265230924"
+        "sourceUrl": "https://www.wattpad.com/story/265230924",
+        "cover": "covers/stories/265230924.webp"
       },
       {
         "id": "09-a-la-campagne.html",
@@ -634,7 +740,8 @@
         "available": true,
         "originalTitle": "A la campagne",
         "originalDate": "2021-05-24",
-        "sourceUrl": "https://www.wattpad.com/story/271012567"
+        "sourceUrl": "https://www.wattpad.com/story/271012567",
+        "cover": "covers/stories/271012567.webp"
       },
       {
         "id": "10-le-silence-n-est-pas-une-promesse-musicale-remplie.html",
@@ -643,7 +750,8 @@
         "available": true,
         "originalTitle": "Le silence n'est pas une promesse musicale remplie",
         "originalDate": "2021-09-24",
-        "sourceUrl": "https://www.wattpad.com/story/286226896"
+        "sourceUrl": "https://www.wattpad.com/story/286226896",
+        "cover": "covers/stories/286226896.webp"
       }
     ]
   }

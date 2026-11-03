@@ -1,8 +1,12 @@
-# Hylst Books & Reader
+# La Bibliothèque de Hylst
 
-**Hylst Books & Reader** est une application web de lecture (PWA) conçue avec une architecture *Offline-First* et *Pure Frontend*. Elle offre une expérience de lecture premium, une gestion de bibliothèque locale souveraine, et une intégration musicale unique pour accompagner vos moments de lecture.
+**La Bibliothèque de Hylst** est l'écrin numérique des livres, proses, poésies et récits de **Geoffroy Streit (alias Hylst)**. C'est une application web (PWA) *Offline-First* et *Pure Frontend*, qui reste aussi une liseuse capable d'accueillir vos propres lectures.
 
-Cette application est l'écrin officiel des récits littéraires et musicaux de **Geoffroy Streit (alias Hylst)**.
+- Nom long : **La Bibliothèque de Hylst**
+- Nom court (PWA) : **Biblio Hylst**
+- Signature : **Livres, proses, poésies et récits de Geoffroy Streit**
+- URL : `https://hylst.fr/books_reader/` (alias `https://hylst.fr/bibliotheque/`)
+
 
 ---
 
@@ -14,6 +18,8 @@ Cette application est l'écrin officiel des récits littéraires et musicaux de 
 - **Nouvelle Halloween** : *« Les Ficelles du bonheur »*, pièce de théâtre en six tableaux et un épilogue, avec didascalies bleues, répliques mises en page comme au théâtre et couverture illustrée générée localement.
 - **L'Odyssée de l'énergie actualisée** : les 10 chapitres sont disponibles, avec données AIE 2026, typographie sans tirets cadratins ni ornements, et mention de transparence sur l'assistance IA en dernière de couverture.
 - **Trois recueils Wattpad** : 29 textes de 2021 à 2024 réunis en *Saisons, nature & contemplations*, *Fantasque & merveilleux* et *Cœurs, chaos & quotidien*, avec provenance, dates de publication et couvertures composées à partir des illustrations de l'auteur. Textes 100 % écrits par l'auteur, sans assistance d'IA.
+- **Illustrations d'origine** : chaque texte des recueils retrouve sa couverture Wattpad, affichée en tête de chapitre et en miniature dans le sommaire.
+- **Quinte ou Les Harmoniques de l'âme** : nouvelle en sept parties, version remaniée par l'auteur, avec une écriture 100 % humaine.
 - **Zéro Backend** : Tout tourne dans votre navigateur. Vos données (livres, progression, signets) restent chez vous dans IndexedDB.
 - **Sécurité des imports** : les EPUB, dossiers HML et JSON importés passent par DOMPurify avant stockage et avant rendu.
 - **Import Flexible** : Importez vos propres textes (EPUB, TXT, MD, JSON) ou dossiers HML complets, lus confortablement dans le Reader.

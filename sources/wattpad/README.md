@@ -40,6 +40,10 @@ Les titres décoratifs ont été normalisés pour le sommaire, mais le titre d'o
 
 Les textes sont intégralement écrits par Geoffroy Streit (Hylst), sans assistance d'intelligence artificielle. La conversion au format de la liseuse, la mise en page et les ajustements typographiques ont été réalisés avec des outils techniques.
 
+## Couvertures des histoires
+
+Chaque histoire conserve son illustration Wattpad d'origine, récupérée depuis `coverUrl` et enregistrée en WebP dans `public/covers/stories/<story-id>.webp`. Elle est affichée en tête de chapitre (`chapter-story-cover`) et en miniature dans le sommaire (`toc-thumb`).
+
 ## Droits
 
-Les textes restent la propriété de leur auteur, Geoffroy Streit (Hylst). Les fichiers de couvertures Wattpad d'origine ne sont pas redistribués séparément dans le dépôt ; les couvertures des recueils sont des compositions réalisées pour cette édition à partir de ces illustrations.
+Les textes et les illustrations restent la propriété de leur auteur, Geoffroy Streit (Hylst). Les couvertures composées des recueils sont des compositions réalisées pour cette édition à partir de ces illustrations.

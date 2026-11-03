@@ -1,6 +1,6 @@
-# Structure du Projet — Hylst Books & Reader
+# Structure du Projet — La Bibliothèque de Hylst
 
-Ce document décrit l'organisation physique et logique des répertoires et des fichiers du projet **Hylst Books & Reader**.
+Ce document décrit l'organisation physique et logique des répertoires et des fichiers du projet **La Bibliothèque de Hylst**.
 
 ## 📁 Arborescence des Répertoires
 

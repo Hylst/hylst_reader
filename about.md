@@ -1,8 +1,13 @@
-# À Propos de Hylst Books & Reader
+# À Propos de La Bibliothèque de Hylst
 
-**Hylst Books & Reader** est plus qu'une simple liseuse, c'est un sanctuaire numérique dédié à la lecture et à l'immersion sonore. 
+**La Bibliothèque de Hylst** réunit les livres, proses, poésies et récits de Geoffroy Streit (Hylst). Ce n'est pas d'abord un lecteur universel : c'est un sanctuaire numérique intimiste, dédié à la lecture et à l'immersion sonore.
 
-L'application a été conçue pour offrir un cadre noble et apaisant aux œuvres de Geoffroy Streit (Hylst), tout en permettant aux lecteurs d'importer leurs propres contenus dans un environnement respectueux de leur vie privée.
+L'application a été conçue pour offrir un cadre noble et apaisant aux œuvres de l'auteur, tout en permettant aux lecteurs d'importer leurs propres contenus dans un environnement respectueux de leur vie privée.
+
+- Nom long : **La Bibliothèque de Hylst**
+- Nom court : **Biblio Hylst**
+- Signature : **Livres, proses, poésies et récits de Geoffroy Streit**
+- URL : `https://hylst.fr/books_reader/`, alias `https://hylst.fr/bibliotheque/`
 
 ---
 
@@ -11,6 +16,8 @@ L'application a été conçue pour offrir un cadre noble et apaisant aux œuvres
 - **Thèmes Adaptatifs** : Modes Sépia, Clair et Sombre personnalisables avec des animations d'ambiance et des nuages de particules spécifiques.
 - **Accompagnement Musical** : Un lecteur audio premium intégré avec accès à plus de **280 compositions originales** de Hylst (tags, moods, recherche par ambiance).
 - **Ouverture et Liberté** : Importez vos propres livres (EPUB, TXT, Markdown, JSON, dossiers HML complexes) pour en profiter dans cet écrin de lecture.
+- **Illustrations d'origine** : les 29 textes des recueils affichent leur couverture Wattpad en tête de chapitre et en miniature dans le sommaire.
+- **Quinte ou Les Harmoniques de l'âme** : nouvelle en sept parties, dans la version remaniée par l'auteur.
 - **Souveraineté des Données** : Pas de cloud imposé, pas de pistage. Vos livres et votre progression restent stockés physiquement dans votre navigateur au sein d'IndexedDB.
 - **Intelligence de Lecture** : Calcul dynamique du temps restant par chapitre et indicateurs de progression contextuels.
 
@@ -29,4 +36,4 @@ L'application utilise une stack moderne "Pure Frontend" optimisée pour la modul
 **Geoffroy Streit** (Hylst) est au cœur de ce projet. Écrivain occasionnel, dessinateur demoscene, passionné d'informatique et compositeur alsacien, il a imaginé cet outil pour offrir à ses lecteurs un cadre à la hauteur de ses récits. La musique intégrée à l'application fait partie intégrante de son univers artistique, conçue pour accompagner et décupler le rythme des émotions nées des mots.
 
 ---
-*Hylst — Lire, Écouter, Ressentir.*
+*La Bibliothèque de Hylst · Livres, proses, poésies et récits de Geoffroy Streit.*

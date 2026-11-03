@@ -26,7 +26,7 @@ const FUTURE_BOOKS = [
 ];
 
 function AnimatedAppTitle({ className = "", style = {} }) {
-    const text = "Hylst Books & Reader";
+    const text = "La Bibliothèque de Hylst";
     return (
         <span className={`app-title animated-title ${className}`.trim()} style={style} aria-label={text} title={text}>
             {text.split('').map((char, index) => (
@@ -205,9 +205,9 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                     </div>
                 )}
 
-                <div className="library-section-label">Bibliothèque de Hylst</div>
+                <div className="library-section-label">Œuvres intégrées</div>
                 <p className="library-section-desc">
-                    Œuvres intégrées &mdash; romans, nouvelles, essais, JDR et poésie de Geoffroy Streit (alias Hylst).
+                    Livres, proses, poésies et récits de Geoffroy Streit (alias Hylst).
                 </p>
                 {hylstBooks.length === 0 ? (
                     <div className="empty-state" style={{ padding: '2rem' }}>
@@ -222,7 +222,7 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                 )}
 
                 <div className="library-section-label future-label">
-                    À venir &mdash; Contenus en préparation <span className="wip-badge">En cours</span>
+                    À venir &middot; Contenus en préparation <span className="wip-badge">En cours</span>
                 </div>
                 <div className="future-intro">
                     <div className="future-block">
@@ -250,7 +250,7 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                     </div>
                 </div>
                 <p className="library-section-desc">
-                    Contenus que vous avez importés &mdash; stockés localement sur votre appareil.
+                    Contenus que vous avez importés &middot; stockés localement sur votre appareil.
                 </p>
                 {userBooks.length === 0 ? (
                     <div className="import-zone-container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
@@ -277,7 +277,8 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
             <footer className="app-footer">
                 <div className="footer-content">
                     <div className="footer-brand">
-                        <span className="app-title" style={{ fontSize: '1.1rem' }}>Hylst Books &amp; Reader</span>
+                        <span className="app-title" style={{ fontSize: '1.1rem' }}>La Bibliothèque de Hylst</span>
+                        <span className="footer-signature">Livres, proses, poésies et récits de Geoffroy Streit</span>
                         <span className="footer-wip">En cours de développement</span>
                     </div>
                     <div className="footer-creator">

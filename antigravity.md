@@ -1,4 +1,4 @@
-# Hylst Reader - Project & Context Memory
+# La Bibliothèque de Hylst - Project & Context Memory
 
 ## Technical Stack & Constraints
 - **Core**: HTML, JavaScript (React components inside `js/`), custom CSS (`css/reader.css`).

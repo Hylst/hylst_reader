@@ -1,4 +1,4 @@
-# Hylst Books & Reader - TODO
+# La Bibliothèque de Hylst - TODO
 
 ## 🎯 Priorités Actuelles
 - [ ] **Refactorisation CSS** : Diviser `css/base.css` et autres styles en modules encore plus fins ou harmoniser le chargement.
@@ -6,6 +6,7 @@
 - [ ] **Preset Lecture Longue** : Ajouter une option pour réduire automatiquement toutes les animations après 20 minutes de lecture.
 
 ## ✅ Terminé (Récemment)
+- [x] **La Bibliothèque de Hylst (1.8.0)** : renommage complet, nom court PWA *Biblio Hylst*, signature, alias `/bibliotheque/` en 301, badge Nouveau sur *L'Odyssée de l'énergie*, correction du voile d'ambiance, illustrations d'origine des 29 textes et intégration de *Quinte*.
 - [x] **Recueils Wattpad (1.7.1)** : suppression de tous les tirets cadratins/demi-cadratins, restauration intégrale des deux lignes de titre, mention « 100 % humain » et métadonnées d'auteur corrigées.
 - [x] **Recueils Wattpad (1.7.0)** : 29 textes de 2021-2024 répartis en trois recueils (11, 8 et 10 chapitres), conversion prose/poésie, provenance Wattpad, couvertures composées et tests de navigation complets.
 - [x] **Bibliothèque (1.6.3)** : sommaire de *L'Odyssée de l'IA* corrigé (`Préface` au lieu de `Preface`), en complément du garde-fou anti-doublon de la 1.6.2.

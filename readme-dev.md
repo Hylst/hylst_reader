@@ -1,6 +1,6 @@
-# Conception Technique — Hylst Books & Reader
+# Conception Technique — La Bibliothèque de Hylst
 
-Ce guide technique explique les choix d'architecture et de conception pour les développeurs souhaitant comprendre ou modifier l'application **Hylst Books & Reader**.
+Ce guide technique explique les choix d'architecture et de conception pour les développeurs souhaitant comprendre ou modifier l'application **La Bibliothèque de Hylst**.
 
 ---
 

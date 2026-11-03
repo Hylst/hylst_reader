@@ -37,7 +37,7 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
         let out = html;
         const basePath = `public/books/${book.id}/`;
         out = out.replace(/<img\s+src="([^"]+)"/g, (match, src) => {
-            if (src.startsWith('http') || src.startsWith('/') || src.startsWith('data:')) return match;
+            if (src.startsWith('http') || src.startsWith('/') || src.startsWith('data:') || src.startsWith('public/')) return match;
             return `<img src="${basePath}${src}"`;
         });
         out = out.replace(/<p>\s*PARTIE\s*II\s*<\/p>/i, '<h1>Partie 1 :</h1>');
@@ -245,6 +245,7 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                                 style={!isAvailable ? { opacity: 0.5, cursor: 'not-allowed', display: 'flex', alignItems: 'center', justifyContent: 'space-between' } : {}}
                             >
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                    {ch.cover && <img className="toc-thumb" src={`public/${ch.cover}`} alt="" loading="lazy" />}
                                     <span className="toc-num">{i + 1}</span>
                                     <span>{ch.title}</span>
                                 </div>

@@ -442,6 +442,147 @@
     color: white;
 }
 
+/* Fin de partie : navigation toujours visible dans le flux */
+.chapter-end-nav {
+    margin: 3.5rem auto 1rem;
+    max-width: 620px;
+    padding: 1.75rem 1.25rem 1.25rem;
+    border-top: 1px solid var(--book-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    text-align: center;
+}
+
+.chapter-end-label {
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--book-accent-dark);
+    opacity: 0.7;
+}
+
+.chapter-end-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    max-width: 100%;
+    padding: 0.8rem 1.15rem;
+    border: 1px solid var(--book-border);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--book-surface) 75%, transparent);
+    color: var(--book-text);
+    font-family: var(--book-font-body);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+}
+
+.chapter-end-btn:hover {
+    border-color: var(--book-accent);
+    background: color-mix(in srgb, var(--book-accent) 10%, var(--book-surface));
+    transform: translateY(-1px);
+}
+
+.chapter-end-btn strong {
+    font-family: var(--book-font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.chapter-end-next-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.65;
+    white-space: nowrap;
+}
+
+/* Pastille de secours quand la barre est masquée */
+.reader-chapter-pill {
+    position: fixed;
+    bottom: 1.1rem;
+    left: 1.5rem;
+    right: auto;
+    transform: none;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--book-surface) 92%, transparent);
+    border: 1px solid var(--book-border);
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(10px);
+    z-index: 150;
+    opacity: 0.92;
+}
+
+.reader-chapter-pill button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 0;
+    background: transparent;
+    color: var(--book-text);
+    cursor: pointer;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.78rem;
+    padding: 0.35rem 0.55rem;
+    border-radius: 999px;
+}
+
+.reader-chapter-pill button:hover {
+    background: color-mix(in srgb, var(--book-accent) 12%, transparent);
+}
+
+.reader-chapter-pill .pill-next {
+    border-left: 1px solid var(--book-border);
+    border-radius: 0 999px 999px 0;
+}
+
+.reader-chapter-pill .pill-next:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.reader-chapter-pill .pill-count {
+    font-variant-numeric: tabular-nums;
+}
+
+.reader-chapter-pill .pill-next-label {
+    font-size: 0.72rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+    .reader-chapter-pill {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        bottom: 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .reader-chapter-pill .pill-next-label {
+        display: none;
+    }
+
+    .chapter-end-nav {
+        margin-top: 2.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .chapter-end-btn {
+        flex-wrap: wrap;
+        row-gap: 0.35rem;
+    }
+}
+
 /* Section Headings */
 .section-heading {
     font-family: var(--book-font-heading);

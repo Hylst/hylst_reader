@@ -6,6 +6,7 @@
 - [ ] **Preset Lecture Longue** : Ajouter une option pour réduire automatiquement toutes les animations après 20 minutes de lecture.
 
 ## ✅ Terminé (Récemment)
+- [x] **Navigation lecteur (1.4.0)** : bloc « Fin de la partie » dans le flux, pastille `1 / 7 · Suivant` quand les commandes sont masquées, bloc « Fin du livre ».
 - [x] **Les Ficelles du bonheur (1.3.1)** : corrections de coquilles sélectionnées, couverture illustrée Qwen-Image-2.1 local, version 1.3.1, cache SW v45.
 - [x] **Les Ficelles du bonheur (1.3.0)** : intégration de la pièce Halloween en 7 chapitres, didascalies bleues, lien direct `?book=les-ficelles-du-bonheur`, couverture typographique de secours.
 - [x] **Sécurité 1.2.1** : dépendances auto-hébergées, DOMPurify sur les imports, audit OSV sans CVE connue, `rel="noopener noreferrer"`, script `scripts/sync-to-platform.ps1`.

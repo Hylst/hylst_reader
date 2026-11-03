@@ -1,6 +1,16 @@
 # Changelog
 Toutes les modifications notables apportées au projet **Hylst Books & Reader** sont documentées dans ce fichier.
 
+## [1.4.0] - 2026-11-03
+### Ajouté
+- **Navigation de fin de partie** : un bloc « Fin de la partie » avec le titre de la partie suivante est désormais intégré au flux de lecture, sous le dernier paragraphe. Il est visible même quand la barre d'outils est masquée.
+- **Pastille de secours** : en lecture immersive ou plein écran, quand les commandes sont masquées, une pastille discrète `1 / 7 · Suivant` reste visible en bas de l'écran. Elle permet d'afficher les commandes ou de passer directement à la partie suivante.
+- **Fin du livre** : dernier chapitre avec bloc « Fin du livre » et retour à la fiche.
+
+### Modifié
+- Intro des *Ficelles du bonheur* : byline `2025/26`, mention « Texte intégral ».
+- Version 1.4.0, cache Service Worker source `hylst-reader-v46`.
+
 ## [1.3.1] - 2026-11-03
 ### Modifié
 - **Corrections de coquilles** dans *Les Ficelles du bonheur*, sélectionnées par l'auteur : « une promesse en quelques années » → « une promesse quelques années », « Imaginez-vous », « pêle-mêle », « dit-on », « nous regarde, Auguste », guillemets fermants, « N'est-ce pas », « ainsi, ne pense-t-elle pas », « compte-t-elle. », « un peu... », « jusqu'au menton, lui faisant », « depuis cette année-là qu'on », « toujours fait... », « aux lèvres », « Je le sais, Odette. », « un hoquet », « moult postillons », « le carton », « suit du regard », « j'ai l'impression que », « touchant chez eux. »

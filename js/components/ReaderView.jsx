@@ -416,6 +416,29 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                             <div className="spinner" style={{ margin: '0 auto' }} />
                         </div>
                     }
+
+                    {chapterHtml && (
+                        <div className="chapter-end-nav">
+                            {hasNextChapter ? (
+                                <>
+                                    <span className="chapter-end-label">Fin de la partie</span>
+                                    <button className="chapter-end-btn" onClick={e => { e.stopPropagation(); nextChapter(); }}>
+                                        <span className="chapter-end-next-label">Partie suivante</span>
+                                        <strong>{book.chapters[currentChapterIdx + 1]?.title}</strong>
+                                        <Icon.ArrowRight />
+                                    </button>
+                                </>
+                            ) : (
+                                <>
+                                    <span className="chapter-end-label">Fin du livre</span>
+                                    <button className="chapter-end-btn" onClick={e => { e.stopPropagation(); onBack(); }}>
+                                        <Icon.ArrowLeft />
+                                        <span>Retour à la fiche du livre</span>
+                                    </button>
+                                </>
+                            )}
+                        </div>
+                    )}
                 </article>
 
                 <div className="chapter-nav">
@@ -448,6 +471,20 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                     </div>
                 </div>
             </div>
+
+            {!settings.focusMode && !showUI && scrollProgress > 0.82 && (
+                <div className="reader-chapter-pill" role="navigation" aria-label="Navigation entre les parties">
+                    <button className="pill-main" onClick={() => setShowUI(true)} title="Afficher les commandes de lecture">
+                        <Icon.List />
+                        <span className="pill-count">{currentChapterIdx + 1} / {book.chapters.length}</span>
+                    </button>
+                    <button className="pill-next" onClick={nextChapter} disabled={!hasNextChapter}
+                        title={hasNextChapter ? `Partie suivante : ${book.chapters[currentChapterIdx + 1]?.title}` : 'Fin du livre'}>
+                        <span className="pill-next-label">{hasNextChapter ? 'Suivant' : 'Fin'}</span>
+                        <Icon.ArrowRight />
+                    </button>
+                </div>
+            )}
         </div>
     );
 }

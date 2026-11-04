@@ -21,7 +21,7 @@ L'objectif principal actuel est d'affiner l'expérience de lecture et la perform
 - [x] **Bibliothèque** : Séparation natif/importé, correction de bugs d'IndexedDB.
 - [x] **Animations d'Ambiance** : Implémentation complète des effets visuels pour tous les thèmes avec gestion avancée du z-index.
 - [x] **Temps de Lecture Intelligent** : Calcul dynamique et affichage contextuel intégré à la navigation.
-- [x] **Optimisation Performance** : Cache-busting vers v1.1.12 et service worker actualisé pour garantir les mises à jour.
+- [x] **Optimisation Performance** : Cache-busting par empreinte de build et Service Worker versionné pour garantir les mises à jour.
 
 ## 🛠️ Stack Technique
 - **Frontend** : React 18, JSX précompilé au build, JSZip, ePub.js et dépendances auto-hébergées dans `vendor/`. Service Worker avec précache de l'app shell et des livres pour le hors ligne.

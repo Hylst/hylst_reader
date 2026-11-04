@@ -6,7 +6,7 @@
 - [ ] **Preset Lecture Longue** : Ajouter une option pour réduire automatiquement toutes les animations après 20 minutes de lecture.
 
 ## ✅ Terminé (Récemment)
-- [x] **La Bibliothèque de Hylst (1.8.6)** : JSX précompilé vers `js/dist/`, Babel retiré du runtime (-2,35 Mo au premier chargement), précache hors ligne de l'app shell et des 66 contenus, CSP meta avec scripts inline externalisés, `aria-live` sur la citation, polices et musique locales, 301 des fiches livres préparé dans la configuration Nginx de référence.
+- [x] **La Bibliothèque de Hylst (1.8.6)** : JSX précompilé vers `js/dist/`, Babel retiré du runtime (-2,35 Mo au premier chargement), précache hors ligne de l'app shell et des 66 contenus, CSP meta avec scripts inline externalisés, `aria-live` sur la citation, polices et musique locales, 301 des 7 fiches livres actif (base Coolify et conteneur, sauvegarde `/root/hylst-nginx-backup-20261104-booksreader301/`, `nginx -t` OK, query conservée).
 - [x] **La Bibliothèque de Hylst (1.8.1)** : règle zéro tiret sur toute la bibliothèque, scanner `check_dashes.py`, patch Quinte (doublon, Âme, badge En chantier, tags), images 512×800 Wattpad, grille `minmax(260px, 1fr)`, visionneuse plein écran `ImageLightbox.jsx`, Direction A « Cabinet de curiosités » et carnet de bord de l'auteur.
 - [x] **La Bibliothèque de Hylst (1.8.0)** : renommage complet, nom court PWA *Biblio Hylst*, signature, alias `/bibliotheque/` en 301, badge Nouveau sur *L'Odyssée de l'énergie*, correction du voile d'ambiance, illustrations d'origine des 29 textes et intégration de *Quinte*.
 - [x] **Recueils Wattpad (1.7.1)** : suppression de tous les tirets cadratins/demi-cadratins, restauration intégrale des deux lignes de titre, mention « 100 % humain » et métadonnées d'auteur corrigées.
@@ -20,7 +20,7 @@
 - [x] **Sécurité 1.2.1** : dépendances auto-hébergées, DOMPurify sur les imports, audit OSV sans CVE connue, `rel="noopener noreferrer"`, script `scripts/sync-to-platform.ps1`.
 - [x] **Intégration du Chapitre 5** : Nettoyage littéraire des tics d'IA (tirets cadratins, `✦` et « Dualis-IA ») et création de la couverture `chapitre-5-cover.webp` (v1.2.0).
 - [x] **Modularisation de l'Application** : Découpe de `js/app.jsx` (2000 lignes) en composants React ES6 réutilisables au sein de `js/components/` (v1.2.0).
-- [x] **Mise en cache PWA Robuste** : sw.js optimisé pour la mise en cache offline-first des CDN externes (unpkg, jsdelivr), garantissant le fonctionnement hors-ligne (v1.2.0).
+- [x] **Mise en cache PWA robuste (1.2.0)** : première version du cache hors-ligne, remplacée depuis par le précache de l'app shell et des livres en 1.8.6.
 - [x] **Documentation Complète** : Rédaction des fichiers `structure.md`, `features.md`, `readme-dev.md` et du guide débutant `test_build_deploy.md` (v1.2.0).
 - [x] **Système de Musique** : Intégration complète et mini-player flottant persistant (v1.1).
 - [x] **Signets & Lecture** : Calcul du temps restant de lecture et mémorisation automatique de la progression IndexedDB.
@@ -29,3 +29,5 @@
 - **Audio Sync** : Synchroniser finement le défilement du chapitre avec la lecture audio ou des ambiances musicales changeant de manière contextuelle.
 - **Signets enrichis** : Pouvoir ajouter des notes et commentaires personnels sur les chapitres d'un livre.
 - **Recherche Plein Texte** : Ajouter un outil d'indexation locale pour chercher un mot dans tout le contenu des chapitres d'un livre.
+- **CSP en en-tête Nginx** : remplacer la balise meta par un en-tête avec nonce ou hash pour supprimer `style-src 'unsafe-inline'`.
+- **Hors ligne sans slash** : normaliser `/livres/<id>` vers `/livres/<id>/` dans le Service Worker pour le cas hors ligne.

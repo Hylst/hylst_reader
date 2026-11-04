@@ -1,48 +1,36 @@
-# La Bibliothèque de Hylst - Project & Context Memory
+# La Bibliothèque de Hylst - Mémoire projet et consignes agents
 
-## Technical Stack & Constraints
-- **Core**: HTML, JavaScript (React components inside `js/`), custom CSS (`css/reader.css`).
-- **Offline & Storage**: PWA active using `vite-plugin-pwa` with local offline state management (`Dexie`/`localForage`).
-- **Development Server**: Python HTTP server running on port `8000`.
+## Stack réelle (04/11/2026)
 
----
+- **Frontend** : HTML, CSS Vanilla, React 18.3.1 et ReactDOM 18.3.1 servis depuis `vendor/`. Les sources JSX de `js/` sont précompilées vers `js/dist/` par `scripts/build_jsx.js` avec le runtime React classique.
+- **Babel** : outil de build uniquement, dans `scripts/vendor/babel.min.js`. Il n'est ni chargé par `index.html`, ni copié dans le miroir de production.
+- **Hors ligne** : Service Worker maison `sw.js`, précache de l'app shell, de `public/books.json`, des 66 introductions et chapitres, des 7 couvertures actives et des 7 fiches statiques. Stockage local via `idb-keyval` et IndexedDB. Pas de Vite, pas de Dexie, pas de localForage.
+- **Polices** : `/assets/fonts/fonts.css` sur la plateforme. **Musique** : `/hml/` en chemins relatifs.
+- **Test local** : compiler, synchroniser, puis servir `D:\0CODE\AntiGravity\Cours_Memos\Docker` sur `http://127.0.0.1:8765/books_reader/`.
 
-## ⚠️ CRITICAL RULES & INSTRUCTIONS FOR AGENTS
+## Règles critiques
 
-### 1. Source of Truth for Books
-- **L'Odyssée de l'IA**: The absolute source of truth is the `.html` files located in `public/books/l-odyss-e-de-l-ia-2-futurs-un-choix/`.
-- **NO AUTOMATIC REGENERATION**: Under no circumstances should these HTML files be overwritten by automated scripts, conversion tools, or external sources (like PDF or Docx). 
-- **MANUAL EDITS ONLY**: All additions, styling corrections, hook replacements, and cover inclusions must be edited **manually** file-by-file, matching the user's design choices (dropcaps, italic paragraphs, title layouts, custom styles).
+1. **Sources des livres** : les fichiers HTML de `public/books/l-odyss-e-de-l-ia-2-futurs-un-choix/` sont la source de vérité. Ne jamais les régénérer automatiquement. Les corrections se font manuellement, fichier par fichier.
+2. **Zéro tiret long** : aucun tiret cadratin ou demi-cadratin dans les contenus servis. Contrôle obligatoire avec `python scripts/check_dashes.py --root .`.
+3. **Aucun CDN au runtime** : React, JSZip, epub.js, DOMPurify et idb-keyval sont locaux. Les polices et la musique sont servies par la plateforme, en same-origin.
+4. **CSP** : `script-src 'self'`. Ne jamais ajouter de script inline dans `index.html`, `droits.html` ou les fiches. Externaliser dans `js/` et déclarer le fichier dans `sw.js`.
+5. **Service Worker** : ne supprimer que les caches préfixés `hylst-reader-`. Le stockage `caches` est partagé par toute l'origine `hylst.fr`.
+6. **Miroir de production** : `scripts/sync-to-platform.ps1` préserve l'`index.html` de production et régénère `js/dist`. Ne jamais écraser l'index de production avec l'index source.
+7. **Build JSX** : `node scripts/build_jsx.js` puis `node scripts/build_jsx.js --check`. Le sync exécute les deux et refuse une sortie périmée.
+8. **301** : `/books_reader/livres/<id>` redirige vers `/books_reader/livres/<id>/` avec query conservée. Configuration dans `Cours_Memos/Docker/nginx-coolify-reference.conf`, base Coolify et conteneur `hylst-cours`.
+9. **Documentation** : après chaque version, mettre à jour `CHANGELOG.md`, `todo.md`, ce fichier, et côté plateforme `changelog.md`, `securite.md`, `todo.md` et `hylst_IT_platform_content.md`.
 
-### 2. General Workspace Guidelines
-- **Non-Interactive First**: Always use non-interactive flags (`-y`, `--yes`, etc.) for any terminal initializations.
-- **Workspace Cleanliness**: Keep the root clean. If temporary folders are needed, clean them up.
+## État actuel
 
----
+- Version **1.8.6**, build `f24c89706fb0`, SW `hylst-reader-f24c89706fb0`.
+- Premier chargement production : **1 330 388 octets**, 57 requêtes, zéro requête externe, zéro erreur console.
+- axe sans violation sur 9 états en production. 9/9 URL du sitemap en 200. 7/7 fiches avec CSP et icônes. Hors ligne vérifié sur la bibliothèque, une fiche et une page statique.
+- 301 des 7 fiches actif, query conservée, persistance confirmée après redéploiement.
 
-## CURRENT STATUS & RECENT CHANGES
+## Prochaines étapes possibles
 
-### ✅ L'Odyssée de l'IA (IA Odyssey)
-- **Hooks & Cover Illustrations**:
-  - **Chapitre 1**: Added cover `chapitre-1-cover.webp` at the very beginning. Restored original title structures (`<h1>Partie I</h1>`, `<h2>Le grand point d'inflexion</h2>`).
-  - **Chapitre 2**: Replaced the bullet points with the Hook `« Imaginez… Un avenir à mon sens très probable… »`. Placed cover `chapitre-2-cover.webp` underneath. Restored original titles (`<h1>Partie II</h1>`, `<h2>La Capitulation Silencieuse</h2>`, `<h2><em>La Dystopie High-Tech (2034)</em></h2>`).
-  - **Chapitre 3**: Cover `chapitre-3-cover.webp` and Hook `« L'IA ne nous remplace pas. Elle nous rend à nous-mêmes. »` aligned.
-  - **Chapitre 4**: Cover `chapitre-4-cover.webp` and Hook `« Ce n'est pas l'IA qui choisira. Ce sont nos actes d'aujourd'hui. »` aligned.
-  - **Chapitre 5**: Cover `chapitre-5-cover.webp` and Hook `« Chaque génération a sa fenêtre. La nôtre s'appelle 2026. »` aligned.
-- **Archives**: `livre-complet.html` et `livre-imprimable.html` sont déplacés dans `sources/odyssee_ia/` et ne sont plus servis.
-
-### ✅ L'Odyssée de l'Énergie (Energy Odyssey)
-- Imported and styled all 8 chapters in `public/books/l-odyss-e-de-l-energie/` using custom layout classes:
-  - `.chapter-pullquote` for highlighted citation blocks.
-  - `.chapter-divider` for elegant gradients instead of the raw `✦ ✦ ✦` dividers.
-  - `.chapter-stats-table` for beautifully styled tables representing raw statistical data.
-  - `.chapter-section-title` for inner section boundaries.
-- **Cover Images**:
-  - Chapters 1, 2, 3, 4, 6: Have their unique custom-generated Solarpunk illustration covers.
-  - Chapters 5, 7, 8: Temporarily reuse existing covers due to generation quotas. To be updated once image generation quotas reset.
-
----
-
-## NEXT STEPS
-1. Double-check all manual file structures to verify no styling details are broken.
-2. Update the cover illustrations for Chapters 5, 7, and 8 of the Energy Odyssey when the image generation quota is reset (around June 6th, 2026).
+- Refactorisation CSS et allègement de `base.css`.
+- Export `.json` de la bibliothèque importée.
+- Preset de lecture longue avec réduction automatique des animations.
+- CSP en en-tête Nginx avec nonce ou hash pour supprimer `style-src 'unsafe-inline'`.
+- Normalisation hors ligne de `/livres/<id>` vers `/livres/<id>/` dans le Service Worker.

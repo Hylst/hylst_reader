@@ -32,10 +32,10 @@ Babel reste un outil de build dans `scripts/vendor/babel.min.js`. Il n'est ni co
 
 ## 📂 3. Modularisation React par Composants Réels
 
-L'application est structurée de manière modulaire au sein de `js/components/`. 
-Chaque fichier est un module ES6 qui exporte ses fonctions et composants :
+L'application est structurée de manière modulaire au sein de `js/components/`. Chaque fichier est un script classique, encapsulé dans une IIFE par `scripts/build_jsx.js`. Il n'utilise pas `import`/`export` ES6 : il expose ses fonctions via `window.*`, et l'ordre de chargement reste explicite dans `index.html`.
 - **`js/components/Icon.jsx`** : Fournit le set complet des icônes SVG.
 - **`js/components/Ambience.jsx`** : Gère l'arrière-plan interactif et les particules.
+- **`js/components/LibraryView.jsx`, `BookHomeView.jsx`, `ReaderView.jsx`** : Bibliothèque, fiche de livre et liseuse.
 - **`js/app.jsx`** : Sert de chef d'orchestre global, gérant la machine à états de l'application (vue active, livre en cours, progression) et la lecture audio persistante.
 
 ---
@@ -88,4 +88,6 @@ D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader
 
 Il appartient au dépôt `Hylst/cours_info`, déployé par Coolify (`hylst-cours`) sur `https://hylst.fr/books_reader/`.
 
-Utiliser `scripts/sync-to-platform.ps1` : il copie uniquement les fichiers runtime, préserve l'`index.html` de production (vendor, polices de la plateforme, canonical), calcule une empreinte de build, met à jour `sw.js` et les `?v=`, puis vérifie les empreintes. `-Commit` crée un commit local ; le script ne pousse jamais.
+Utiliser `scripts/sync-to-platform.ps1` : il compile le JSX, génère les fiches statiques, copie uniquement les fichiers runtime, préserve l'`index.html` de production (vendor, polices de la plateforme, canonical), calcule une empreinte de build, met à jour `sw.js` et les `?v=`, puis vérifie les empreintes. Les sources `.jsx` et Babel ne sont pas copiés. `-Commit` crée un commit local ; le script ne pousse jamais.
+
+Le 301 `/books_reader/livres/<id>` vers `/books_reader/livres/<id>/` est décrit dans `Cours_Memos/Docker/nginx-coolify-reference.conf` et appliqué dans Coolify.

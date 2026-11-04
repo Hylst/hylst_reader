@@ -6,6 +6,7 @@
 - Nom court (PWA) : **Biblio Hylst**
 - Signature : **Livres, proses, poésies et récits de Geoffroy Streit**
 - URL : `https://hylst.fr/books_reader/` (alias `https://hylst.fr/bibliotheque/`)
+- Version : **1.8.6** (voir [CHANGELOG](CHANGELOG.md))
 
 
 ---
@@ -46,6 +47,8 @@ Pour comprendre en profondeur le fonctionnement de l'application, consultez nos 
 2. 🛠️ **[Fonctionnalités Détaillées](features.md)** : Descriptif des outils de la liseuse.
 3. 🧠 **[Conception Technique](readme-dev.md)** : Explications sur React, la précompilation JSX, le Service Worker et IndexedDB.
 4. 🚀 **[Guide de Test et Déploiement](test_build_deploy.md)** : Guide Windows local + déploiement réel dans `Cours_Memos/Docker/books_reader` (dépôt `Hylst/cours_info`, Coolify `hylst-cours`) et script `scripts/sync-to-platform.ps1`.
+5. 📝 **[Journal des versions](CHANGELOG.md)** : Historique détaillé et notes de release.
+6. 🤖 **[Mémoire projet et consignes agents](antigravity.md)** : Stack réelle, règles critiques et état de production.
 
 ---
 

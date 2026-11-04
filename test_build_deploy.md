@@ -6,43 +6,42 @@ Ce guide explique pas-à-pas comment tester l'application **La Bibliothèque de 
 
 ## 💻 1. Tester en local sous Windows
 
-L'application étant « Pure Frontend » (sans compilation Node.js requise pour s'exécuter), un simple serveur HTTP statique suffit pour faire tourner le site en local.
+L'application est statique, mais le JSX doit être précompilé et les polices viennent de la plateforme. Le test fiable se fait donc sur le miroir de production, pas sur la racine du dépôt source.
+
+### Méthode A : miroir local (recommandée)
+1. Compiler et synchroniser depuis le dépôt source :
+   ```powershell
+   cd D:\0CODE\AntiGravity\Hylst_Reader
+   node scripts/build_jsx.js
+   node scripts/build_jsx.js --check
+   powershell -ExecutionPolicy Bypass -File .\scripts\sync-to-platform.ps1
+   ```
+2. Servir la racine de la plateforme :
+   ```powershell
+   cd D:\0CODE\AntiGravity\Cours_Memos\Docker
+   python -m http.server 8765 --bind 127.0.0.1
+   ```
+3. Ouvrir [http://127.0.0.1:8765/books_reader/](http://127.0.0.1:8765/books_reader/).
+
+Le miroir fournit `/assets/fonts/fonts.css`, `js/dist` et l'index de production. Tester avec et sans slash, puis en navigation privée pour le Service Worker.
+
+### Méthode B : avec Node.js
+Après le sync, lancer `npx serve` depuis `Cours_Memos/Docker` et ouvrir `/books_reader/`.
 
 > [!CAUTION]
-> **Pourquoi ne pas ouvrir directement `index.html` en double-cliquant dessus ?**
-> Les navigateurs bloquent les requêtes locales (protocole `file:///`) par mesure de sécurité CORS. Les modules JavaScript, le Service Worker et la récupération de fichiers (comme `books.json` ou les chapitres HTML) ne fonctionneront pas sans un serveur web local (protocole `http://localhost`).
-
-### Méthode A : Avec Python (Intégré et rapide)
-Si vous possédez Python installé sur Windows :
-1. Ouvrez votre terminal (PowerShell ou CMD) dans le dossier du projet : `d:\0CODE\AntiGravity\Hylst_Reader`.
-2. Lancez la commande suivante :
-   ```powershell
-   python -m http.server 8000
-   ```
-3. Ouvrez votre navigateur et accédez à : [http://localhost:8000](http://localhost:8000).
-
-### Méthode B : Avec Node.js (`npx`)
-Si vous préférez utiliser l'écosystème Node :
-1. Dans votre dossier de projet, lancez :
-   ```powershell
-   npx serve
-   ```
-2. Accédez à l'URL affichée dans le terminal (généralement `http://localhost:3000` ou `5000`).
+> Ne pas servir la racine du dépôt source pour valider une version : `index.html` référence `js/dist` et `/assets/fonts`, qui ne sont pas à la racine source.
 
 ---
 
 ## 🏗️ 2. Build JSX et compilation des livres
 
-L'application n'a pas de bundler généraliste, mais deux étapes de build sont nécessaires avant un déploiement :
+Deux étapes de build sont nécessaires avant un déploiement :
 
 1. **Précompiler le JSX** : `node scripts/build_jsx.js` régénère `js/dist/`. Le mode `--check` échoue si la sortie est périmée. `scripts/sync-to-platform.ps1` exécute les deux automatiquement.
-2. **Compiler les livres** si vous modifiez ou ajoutez des écrits bruts dans le dossier de source :
-1. Assurez-vous d'avoir placé vos textes originaux dans le dossier `livres_pour_import/2 futurs un choix/`.
-2. Exécutez le script de build Python à la racine du projet :
-   ```powershell
-   python build_books.py
-   ```
-3. Ce script va analyser les chapitres, appliquer la structure sémantique premium (dropcaps, styles de titres), copier les images de couverture et actualiser le catalogue officiel dans `public/books.json`.
+2. **Compiler les livres** si vous modifiez ou ajoutez des écrits bruts :
+   - Placez vos textes originaux dans `livres_pour_import/2 futurs un choix/`.
+   - Exécutez `python build_books.py`.
+   - Le script analyse les chapitres, applique la structure HTML sémantique (dropcaps, styles de titres), copie les couvertures et actualise `public/books.json`.
 
 ---
 
@@ -82,7 +81,7 @@ Points critiques :
 - **Musique** : `Docker/hml/` (~2,9 Go) est exclu de l'image Docker et servi par le bind mount Coolify `/var/www/mp3` → `/app/mp3` via `location ^~ /hml/`. Une mise à jour musicale doit aussi être copiée dans `/var/www/mp3/hml` sur le VPS.
 - **Après push** : attendre `Finished` dans Coolify, puis lancer `bash scripts/verifier-prod.sh --full books_reader` et tester en navigation privée.
 
-Les sections 3.1 à 3.4 ci-dessous décrivent la configuration Coolify générique ; elles restent utiles pour comprendre le fonctionnement du conteneur Nginx.
+Les sections 3.1 à 3.4 ci-dessous décrivent la configuration Coolify générique ; la section 3.5 documente le 301 réellement appliqué à Books Reader.
 
 Pour héberger l'application sur votre VPS Hostinger configuré avec Coolify sous l'URL `https://hylst.fr/books_reader/`, suivez ces étapes détaillées.
 
@@ -124,7 +123,7 @@ server {
     }
 }
 ```
-*(Dans la plupart des cas de sites Pure Statiques simples, la configuration par défaut de Coolify sans Nginx complexe fonctionne directement).*
+*(Exemple générique. La configuration réellement utilisée par hylst.fr est `Cours_Memos/Docker/nginx-coolify-reference.conf`, appliquée dans le panel Coolify ; ne pas utiliser ce bloc seul pour remplacer la configuration existante).*
 
 ### Étape 3.5 : Redirection des fiches livres sans slash
 

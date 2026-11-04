@@ -14,7 +14,7 @@ Conçu comme un livre physique de grande qualité, la liseuse adapte et peaufine
 - **Dropcaps automatiques** : Lettrine agrandie au premier paragraphe de chaque chapitre.
 - **Mise en page théâtre** : didascalies bleues, répliques alignées à gauche et conservation des retours de ligne du manuscrit.
 - **Navigation de fin de partie** : un bloc « Fin de la partie » avec la partie suivante est toujours visible sous le dernier paragraphe, même barre masquée. Une pastille `1 / 7 · Suivant` reste accessible en lecture immersive.
-- **Accès direct** : `https://hylst.fr/books_reader` et `https://hylst.fr/books_reader/` chargent la même application ; le canonical reste `https://hylst.fr/books_reader/`.
+- **Accès direct** : `https://hylst.fr/books_reader` redirige en 301 vers `https://hylst.fr/books_reader/`, qui reste l'URL canonique.
 - **L'Odyssée de l'énergie** : les 10 chapitres sont disponibles, avec relecture orthographique complète, données actualisées et mention de transparence sur l'assistance IA en dernière de couverture.
 - **Recueils Wattpad** : 29 textes répartis en trois volumes, avec mise en page prose/poésie, dates de publication, lien vers la version originale et illustrations d'origine affichées en tête de chapitre et dans le sommaire. Création littéraire 100 % humaine, sans assistance d'IA.
 - **Quinte ou Les Harmoniques de l'Âme** : nouvelle en sept parties, version remaniée par l'auteur, avec introduction et note de provenance.
@@ -44,8 +44,8 @@ Pour donner vie à l'écran, un calque dynamique se superpose subtilement sous l
 L'application fonctionne à 100% sans serveur de base de données en s'appuyant sur les capacités de votre navigateur :
 - **IndexedDB (`idb-keyval`)** : Stocke physiquement vos livres importés et garde en mémoire votre progression de lecture exacte et vos signets.
 - **Importation multiple** :
-  - **Fichier unique** : Glissez-déposez un fichier `.EPUB`, `.TXT`, `.MD` ou `.JSON` pour l'ouvrir instantanément.
-  - **Dossier HML local** : Grâce à l'API File System Access, glissez un dossier complet d'ouvrage structuré pour en recréer le sommaire et le graphisme personnalisé.
+  - **Fichier unique** : Sélectionnez un fichier `.EPUB`, `.TXT`, `.MD` ou `.JSON` pour l'ouvrir instantanément.
+  - **Dossier HML local** : Grâce à l'API File System Access, sélectionnez un dossier complet d'ouvrage structuré pour en recréer le sommaire et le graphisme personnalisé.
   - **Assainissement** : chaque contenu importé passe par DOMPurify avant stockage et avant rendu (scripts, iframes, gestionnaires d'événements et URL `javascript:` neutralisés).
 
 ---

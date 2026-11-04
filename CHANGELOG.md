@@ -13,6 +13,8 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 
 ### Corrigé
 - **Fiches statiques sans slash final** : les liens internes sont désormais absolus (`/books_reader/...`) et fonctionnent avec ou sans slash, au lieu de pointer vers la racine du domaine.
+- **Livres importés** : plus de mention de droits ni de bouton de citation attribués à Geoffroy Streit ; le titre du livre reste affiché dans l'onglet, le canonical reste la bibliothèque et l'URL ne change pas.
+- **Dimensions des couvertures** : les fiches statiques déclarent la largeur et la hauteur réelles de chaque image.
 - **Empreinte de build** : `sw.js` entre dans le calcul de l'empreinte. Une modification du Service Worker renouvelle donc le cache, même sans autre changement.
 - **Mention 1.8.3 du cache source** : corrigée, le cache source était resté `hylst-reader-v56`.
 - Version 1.8.4, cache Service Worker source `hylst-reader-v58`.

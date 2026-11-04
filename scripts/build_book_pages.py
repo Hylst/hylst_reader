@@ -237,8 +237,7 @@ def build_book(book: dict) -> str:
         ],
     }
 
-    alternative = f" · {html.escape(subtitle)}" if subtitle else ""
-    page_title = f"{title}{alternative} · {SITE}"
+    page_title = f"{title} · {SITE}"
 
     return f"""<!DOCTYPE html>
 <html lang="fr" data-theme="dark">

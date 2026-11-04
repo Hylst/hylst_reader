@@ -23,7 +23,7 @@ function AboutModal({ onClose }) {
                             <div className="about-logo">H</div>
                             <div>
                                 <h3>La Bibliothèque de Hylst</h3>
-                                <span className="about-version">Version 1.8.1 &middot; 2026</span>
+                                <span className="about-version">Version 1.8.2 &middot; 2026</span>
                             </div>
                         </div>
                         <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>

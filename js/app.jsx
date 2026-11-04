@@ -176,7 +176,7 @@ function App() {
             const merged = {
                 ...DEFAULT_SETTINGS,
                 ...savedSettings,
-                theme: THEME_KEYS.includes(savedSettings?.theme) ? savedSettings.theme : 'sepia',
+                theme: THEME_KEYS.includes(savedSettings?.theme) ? savedSettings.theme : DEFAULT_SETTINGS.theme,
                 backgroundAnimations: normalizeBackgroundAnimations(savedSettings?.backgroundAnimations)
             };
             setSettingsState(merged);
@@ -231,7 +231,7 @@ function App() {
         const normalized = {
             ...DEFAULT_SETTINGS,
             ...newSettings,
-            theme: THEME_KEYS.includes(newSettings?.theme) ? newSettings.theme : 'sepia',
+            theme: THEME_KEYS.includes(newSettings?.theme) ? newSettings.theme : DEFAULT_SETTINGS.theme,
             backgroundAnimations: normalizeBackgroundAnimations(newSettings?.backgroundAnimations)
         };
         setSettingsState(normalized);
@@ -246,6 +246,11 @@ function App() {
         document.documentElement.style.setProperty('--book-content-max', widthMap[settings.contentWidth] || widthMap.medium);
         if (settings.theme !== 'sepia') {
             BOOK_VAR_KEYS.forEach(k => document.documentElement.style.removeProperty(k));
+        }
+        const themeColorMeta = document.getElementById('theme-color-meta');
+        if (themeColorMeta) {
+            const themeColors = { sepia: '#faf4e8', light: '#fafaf8', dark: '#0f0e0c' };
+            themeColorMeta.setAttribute('content', themeColors[settings.theme] || themeColors.dark);
         }
     }, [settings]);
 

@@ -10,7 +10,7 @@ Conçu comme un livre physique de grande qualité, la liseuse adapte et peaufine
 - **Thèmes graphiques immersifs** : 
   - **Mode Sépia** : Une lumière ambrée traditionnelle rappelant le papier bouffant.
   - **Mode Clair** : Lumineux et sobre, avec des contrastes équilibrés.
-  - **Mode Sombre** : Un gris très doux à l'œil pour limiter la lumière bleue en pleine nuit.
+  - **Mode Sombre** : Un gris très doux à l'œil pour limiter la lumière bleue en pleine nuit. C'est le thème proposé par défaut au premier lancement, sans éclair clair au chargement.
 - **Dropcaps automatiques** : Lettrine agrandie au premier paragraphe de chaque chapitre.
 - **Mise en page théâtre** : didascalies bleues, répliques alignées à gauche et conservation des retours de ligne du manuscrit.
 - **Navigation de fin de partie** : un bloc « Fin de la partie » avec la partie suivante est toujours visible sous le dernier paragraphe, même barre masquée. Une pastille `1 / 7 · Suivant` reste accessible en lecture immersive.

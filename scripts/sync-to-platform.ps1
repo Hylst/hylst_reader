@@ -157,7 +157,9 @@ $targetMarkers = @(
     'src="vendor/epub.min.js"',
     'src="vendor/purify.min.js"',
     'src="js/sanitize.js',
-    'rel="canonical" href="https://hylst.fr/books_reader/"'
+    'rel="canonical" href="https://hylst.fr/books_reader/"',
+    'data-theme="dark"',
+    'id="theme-color-meta"'
 )
 foreach ($marker in $targetMarkers) {
     if ($targetIndex -notmatch [regex]::Escape($marker)) {

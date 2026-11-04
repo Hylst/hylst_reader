@@ -13,7 +13,7 @@ L'application a été conçue pour offrir un cadre noble et apaisant aux œuvres
 
 ## 🌟 Expérience de lecture premium
 - **Typographie Noble** : Design soigné utilisant des polices classiques (*Cormorant Garamond*, *Libre Baskerville*).
-- **Thèmes Adaptatifs** : Modes Sépia, Clair et Sombre personnalisables avec des animations d'ambiance et des nuages de particules spécifiques.
+- **Thèmes Adaptatifs** : Modes Sépia, Clair et Sombre personnalisables avec des animations d'ambiance et des nuages de particules spécifiques. Le mode **Sombre** est celui proposé par défaut au premier lancement ; le choix de chacun est ensuite mémorisé et réappliqué avant le premier rendu.
 - **Accompagnement Musical** : Un lecteur audio premium intégré avec accès à plus de **280 compositions originales** de Hylst (tags, moods, recherche par ambiance).
 - **Ouverture et Liberté** : Importez vos propres livres (EPUB, TXT, Markdown, JSON, dossiers HML complexes) pour en profiter dans cet écrin de lecture.
 - **Illustrations d'origine** : les 29 textes des recueils affichent leur couverture Wattpad en tête de chapitre et en miniature dans le sommaire.

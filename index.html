@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -21,7 +21,27 @@
     <meta property="og:type" content="website">
 
     <!-- Theme &amp; PWA Settings -->
-    <meta name="theme-color" content="#faf4e8" id="theme-color-meta">
+    <meta name="theme-color" content="#0f0e0c" id="theme-color-meta">
+
+    <!-- Thème appliqué avant le premier rendu : sombre par défaut, choix mémorisé respecté. -->
+    <script>
+        (function () {
+            var THEME_COLORS = { sepia: '#faf4e8', light: '#fafaf8', dark: '#0f0e0c' };
+            var theme = 'dark';
+            try {
+                var saved = JSON.parse(localStorage.getItem('hylst_settings') || 'null');
+                if (saved && Object.prototype.hasOwnProperty.call(THEME_COLORS, saved.theme)) {
+                    theme = saved.theme;
+                }
+            } catch (e) {
+                /* Stockage indisponible : on garde le mode sombre. */
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+            var meta = document.getElementById('theme-color-meta');
+            if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
+        })();
+    </script>
+
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -39,14 +59,14 @@
         rel="stylesheet">
 
     <!-- CSS Design System -->
-    <link rel="stylesheet" href="css/variables.css?v=1.8.1">
-    <link rel="stylesheet" href="css/base.css?v=1.8.1">
-    <link rel="stylesheet" href="css/layout.css?v=1.8.1">
-    <link rel="stylesheet" href="css/components.css?v=1.8.1">
-    <link rel="stylesheet" href="css/modals.css?v=1.8.1">
-    <link rel="stylesheet" href="css/music.css?v=1.8.1">
-    <link rel="stylesheet" href="css/reader.css?v=1.8.1">
-    <link rel="stylesheet" href="css/responsive.css?v=1.8.1">
+    <link rel="stylesheet" href="css/variables.css?v=1.8.2">
+    <link rel="stylesheet" href="css/base.css?v=1.8.2">
+    <link rel="stylesheet" href="css/layout.css?v=1.8.2">
+    <link rel="stylesheet" href="css/components.css?v=1.8.2">
+    <link rel="stylesheet" href="css/modals.css?v=1.8.2">
+    <link rel="stylesheet" href="css/music.css?v=1.8.2">
+    <link rel="stylesheet" href="css/reader.css?v=1.8.2">
+    <link rel="stylesheet" href="css/responsive.css?v=1.8.2">
 
     <!-- Dépendances auto-hébergées (vendor/), pas de CDN au runtime -->
     <!-- React & ReactDOM (UMD) -->
@@ -81,32 +101,32 @@
     -->
 
     <!-- 1. Données -->
-    <script src="js/music_data.js?v=1.8.1"></script>
+    <script src="js/music_data.js?v=1.8.2"></script>
 
     <!-- 2. Sécurité des contenus importés -->
-    <script src="js/sanitize.js?v=1.8.1"></script>
+    <script src="js/sanitize.js?v=1.8.2"></script>
 
     <!-- 4. Utilitaires & DB (plain JS, pas de JSX) -->
-    <script src="js/db.js?v=1.8.1"></script>
-    <script src="js/importAPI.js?v=1.8.1"></script>
+    <script src="js/db.js?v=1.8.2"></script>
+    <script src="js/importAPI.js?v=1.8.2"></script>
 
     <!-- 5. Composants de base (sans dépendances inter-composants) -->
-    <script type="text/babel" src="js/components/Icon.jsx?v=1.8.1"></script>
-    <script type="text/babel" src="js/components/Ambience.jsx?v=1.8.1"></script>
+    <script type="text/babel" src="js/components/Icon.jsx?v=1.8.2"></script>
+    <script type="text/babel" src="js/components/Ambience.jsx?v=1.8.2"></script>
 
     <!-- 6. Composants modaux (dépendent de Icon & Ambience) -->
-    <script type="text/babel" src="js/components/AboutModal.jsx?v=1.8.1"></script>
-    <script type="text/babel" src="js/components/GlobalSettingsModal.jsx?v=1.8.1"></script>
-    <script type="text/babel" src="js/components/MusicPlayerModal.jsx?v=1.8.1"></script>
-    <script type="text/babel" src="js/components/ImageLightbox.jsx?v=1.8.1"></script>
+    <script type="text/babel" src="js/components/AboutModal.jsx?v=1.8.2"></script>
+    <script type="text/babel" src="js/components/GlobalSettingsModal.jsx?v=1.8.2"></script>
+    <script type="text/babel" src="js/components/MusicPlayerModal.jsx?v=1.8.2"></script>
+    <script type="text/babel" src="js/components/ImageLightbox.jsx?v=1.8.2"></script>
 
     <!-- 7. Vues (dépendent de Icon, Ambience, HylstDB) -->
-    <script type="text/babel" src="js/components/BookHomeView.jsx?v=1.8.1"></script>
-    <script type="text/babel" src="js/components/LibraryView.jsx?v=1.8.1"></script>
-    <script type="text/babel" src="js/components/ReaderView.jsx?v=1.8.1"></script>
+    <script type="text/babel" src="js/components/BookHomeView.jsx?v=1.8.2"></script>
+    <script type="text/babel" src="js/components/LibraryView.jsx?v=1.8.2"></script>
+    <script type="text/babel" src="js/components/ReaderView.jsx?v=1.8.2"></script>
 
     <!-- 8. App principale (orchestre tout) -->
-    <script type="text/babel" src="js/app.jsx?v=1.8.1"></script>
+    <script type="text/babel" src="js/app.jsx?v=1.8.2"></script>
 
     <!-- PWA Service Worker Registration -->
     <script>

@@ -1,6 +1,14 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.2] - 2026-11-04
+### Modifié
+- **Mode sombre par défaut** : la bibliothèque s'ouvre désormais en thème *Sombre*. Le thème est appliqué sur `<html>` (`data-theme="dark"`) et par un script d'amorçage en tête de document, avant le premier rendu, pour supprimer tout éclair sépia au chargement.
+- **Choix mémorisé respecté** : un thème enregistré (Sépia, Clair ou Sombre) est réappliqué avant peinture ; seuls les visiteurs sans préférence voient le mode sombre.
+- **Couleur de la barre navigateur** : `theme-color` suit le thème actif (`#0f0e0c` en sombre, `#faf4e8` en sépia, `#fafaf8` en clair), y compris lors d'un changement de thème en cours de session.
+- **Cohérence des replis** : les thèmes invalides retombent sur le mode sombre (`DEFAULT_SETTINGS.theme`) au lieu de Sépia.
+- Version 1.8.2, cache Service Worker source `hylst-reader-v56`.
+
 ## [1.8.1] - 2026-11-04
 ### Ajouté
 - **Direction A « Cabinet de curiosités »** : ambiance visuelle atelier d'écriture et reliure, tranches de livres avec ombre de reliure, badges cachet de cire rouge (« Nouveau ») et ambre technique (« En chantier »), cartes À venir style dossier d'atelier avec trombone décoratif, étiquettes de catalogue en laiton.

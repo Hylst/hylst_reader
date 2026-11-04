@@ -472,10 +472,12 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                                         <Icon.ArrowLeft />
                                         <span>Retour à la fiche du livre</span>
                                     </button>
-                                    <p className="chapter-rights">
-                                        Texte de <strong>{book.author}</strong> &middot; &copy; Tous droits réservés &middot;
-                                        {' '}<a href="droits.html">Droits &amp; IA</a>
-                                    </p>
+                                    {!book.isImported && (
+                                        <p className="chapter-rights">
+                                            Texte de <strong>{book.author}</strong> &middot; &copy; Tous droits réservés &middot;
+                                            {' '}<a href="droits.html">Droits &amp; IA</a>
+                                        </p>
+                                    )}
                                 </>
                             )}
                         </div>

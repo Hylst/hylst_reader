@@ -289,7 +289,7 @@ def build_book(book: dict) -> str:
         <main>
             <div class="hero">
                 <div class="cover">
-                    <img src="{SITE_PATH}public/{html.escape(book['coverPath'])}" alt="Couverture de {html.escape(title)}" width="512" height="800">
+                    <img src="{SITE_PATH}public/{html.escape(book['coverPath'])}" alt="Couverture de {html.escape(title)}" width="{og_w}" height="{og_h}">
                 </div>
                 <div>
 {badge}                    <p class="kicker">La Bibliothèque de Hylst</p>

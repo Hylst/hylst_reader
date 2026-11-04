@@ -276,17 +276,14 @@ function App() {
     useEffect(() => {
         const baseTitle = 'La Bibliothèque de Hylst · Livres, proses et poésies de Geoffroy Streit';
         const shortTitle = 'La Bibliothèque de Hylst';
-        const isBookView = activeBook && currentView !== 'library' && !activeBook.isImported;
-        if (isBookView) {
-            document.title = `${activeBook.title} · ${shortTitle}`;
-        } else {
-            document.title = baseTitle;
-        }
-        // Canonical cohérent avec la vue : une fiche de livre ne se déclare pas
-        // comme la page d'accueil de la bibliothèque.
+        const isBookView = !!(activeBook && currentView !== 'library');
+        const isPublicBookView = isBookView && !activeBook.isImported;
+        document.title = isBookView ? `${activeBook.title} · ${shortTitle}` : baseTitle;
+        // Canonical cohérent avec la vue : une fiche publique ne se déclare pas
+        // comme la page d'accueil. Un livre importé reste local et n'a pas d'URL publique.
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) {
-            canonical.setAttribute('href', isBookView
+            canonical.setAttribute('href', isPublicBookView
                 ? new URL(`livres/${encodeURIComponent(activeBook.id)}/`, document.baseURI).href
                 : 'https://hylst.fr/books_reader/');
         }
@@ -513,9 +510,12 @@ function App() {
                     onUpdateSettings={setSettings}
                     lastSession={lastReadSession}
                     onResume={(session) => {
+                        const resumed = books.find(b => b.id === session.bookId);
                         setActiveBookId(session.bookId);
                         setCurrentView('reader');
-                        window.history.pushState({ hylstBook: session.bookId }, '', `?book=${encodeURIComponent(session.bookId)}`);
+                        if (resumed && !resumed.isImported) {
+                            window.history.pushState({ hylstBook: session.bookId }, '', `?book=${encodeURIComponent(session.bookId)}`);
+                        }
                     }}
                     onShowAbout={() => setShowAbout(true)}
                     onShowMusic={() => setShowMusic(true)}

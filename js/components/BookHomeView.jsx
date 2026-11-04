@@ -106,15 +106,17 @@ function BookHomeView({ book, onBack, onStartReading }) {
                 <div className="book-home-meta">
                     <h1 className="book-home-title">{book.title}</h1>
                     <p className="book-home-author">{book.author} {book.year ? `· ${book.year}` : ''}</p>
-                    <div className="book-rights-row">
-                        <p className="book-rights-line">
-                            Texte de <strong>Geoffroy Streit</strong> &middot; &copy; Tous droits réservés &middot;
-                            {' '}<a href="droits.html">Citation &amp; IA</a>
-                        </p>
-                        <button type="button" className="btn btn-ghost book-cite-btn" onClick={copyCitation} title="Copier la référence de cette œuvre">
-                            <Icon.Copy /> {citationCopied ? 'Citation copiée' : 'Citer'}
-                        </button>
-                    </div>
+                    {!book.isImported && (
+                        <div className="book-rights-row">
+                            <p className="book-rights-line">
+                                Texte de <strong>Geoffroy Streit</strong> &middot; &copy; Tous droits réservés &middot;
+                                {' '}<a href="droits.html">Citation &amp; IA</a>
+                            </p>
+                            <button type="button" className="btn btn-ghost book-cite-btn" onClick={copyCitation} title="Copier la référence de cette œuvre">
+                                <Icon.Copy /> {citationCopied ? 'Citation copiée' : 'Citer'}
+                            </button>
+                        </div>
+                    )}
                     <button className="btn btn-primary" style={{ padding: '0.85rem 2rem', fontSize: '1rem', marginBottom: '2rem' }} onClick={onStartReading}>
                         Commencer la lecture <Icon.ArrowRight />
                     </button>

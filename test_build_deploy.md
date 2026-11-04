@@ -1,4 +1,4 @@
-# Guide de Test, de Build et de Déploiement — La Bibliothèque de Hylst
+# Guide de Test, de Build et de Déploiement · La Bibliothèque de Hylst
 
 Ce guide explique pas-à-pas comment tester l'application **La Bibliothèque de Hylst** sur votre ordinateur sous Windows, comment générer la version statique et comment la déployer de façon premium sur votre VPS Hostinger géré par **Coolify** au sein d'un container Nginx, spécifiquement dans un sous-dossier `/books_reader/` pour l'URL : `https://hylst.fr/books_reader/`.
 

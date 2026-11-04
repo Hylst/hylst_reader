@@ -6,6 +6,7 @@
 - [ ] **Preset Lecture Longue** : Ajouter une option pour réduire automatiquement toutes les animations après 20 minutes de lecture.
 
 ## ✅ Terminé (Récemment)
+- [x] **La Bibliothèque de Hylst (1.8.1)** : règle zéro tiret sur toute la bibliothèque, scanner `check_dashes.py`, patch Quinte (doublon, Âme, badge En chantier, tags), images 512×800 Wattpad, grille `minmax(260px, 1fr)`, visionneuse plein écran `ImageLightbox.jsx`, Direction A « Cabinet de curiosités » et carnet de bord de l'auteur.
 - [x] **La Bibliothèque de Hylst (1.8.0)** : renommage complet, nom court PWA *Biblio Hylst*, signature, alias `/bibliotheque/` en 301, badge Nouveau sur *L'Odyssée de l'énergie*, correction du voile d'ambiance, illustrations d'origine des 29 textes et intégration de *Quinte*.
 - [x] **Recueils Wattpad (1.7.1)** : suppression de tous les tirets cadratins/demi-cadratins, restauration intégrale des deux lignes de titre, mention « 100 % humain » et métadonnées d'auteur corrigées.
 - [x] **Recueils Wattpad (1.7.0)** : 29 textes de 2021-2024 répartis en trois recueils (11, 8 et 10 chapitres), conversion prose/poésie, provenance Wattpad, couvertures composées et tests de navigation complets.
@@ -16,7 +17,7 @@
 - [x] **Les Ficelles du bonheur (1.3.1)** : corrections de coquilles sélectionnées, couverture illustrée Qwen-Image-2.1 local, version 1.3.1, cache SW v45.
 - [x] **Les Ficelles du bonheur (1.3.0)** : intégration de la pièce Halloween en 7 chapitres, didascalies bleues, lien direct `?book=les-ficelles-du-bonheur`, couverture typographique de secours.
 - [x] **Sécurité 1.2.1** : dépendances auto-hébergées, DOMPurify sur les imports, audit OSV sans CVE connue, `rel="noopener noreferrer"`, script `scripts/sync-to-platform.ps1`.
-- [x] **Intégration du Chapitre 5** : Nettoyage littéraire des tics d'IA (caractères `—`, `✦` et « Dualis-IA ») et création de la couverture `chapitre-5-cover.webp` (v1.2.0).
+- [x] **Intégration du Chapitre 5** : Nettoyage littéraire des tics d'IA (tirets cadratins, `✦` et « Dualis-IA ») et création de la couverture `chapitre-5-cover.webp` (v1.2.0).
 - [x] **Modularisation de l'Application** : Découpe de `js/app.jsx` (2000 lignes) en composants React ES6 réutilisables au sein de `js/components/` (v1.2.0).
 - [x] **Mise en cache PWA Robuste** : sw.js optimisé pour la mise en cache offline-first des CDN externes (unpkg, jsdelivr), garantissant le fonctionnement hors-ligne (v1.2.0).
 - [x] **Documentation Complète** : Rédaction des fichiers `structure.md`, `features.md`, `readme-dev.md` et du guide débutant `test_build_deploy.md` (v1.2.0).

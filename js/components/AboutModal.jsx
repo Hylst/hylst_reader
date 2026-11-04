@@ -23,7 +23,7 @@ function AboutModal({ onClose }) {
                             <div className="about-logo">H</div>
                             <div>
                                 <h3>La Bibliothèque de Hylst</h3>
-                                <span className="about-version">Version 1.8.0 &middot; 2026</span>
+                                <span className="about-version">Version 1.8.1 &middot; 2026</span>
                             </div>
                         </div>
                         <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
@@ -49,6 +49,18 @@ function AboutModal({ onClose }) {
                             <p className="about-hero-text">
                                 <strong>La Bibliothèque de Hylst</strong> réunit les livres, proses, poésies et récits de Geoffroy Streit. Ce n'est pas un lecteur universel avant tout : c'est un havre numérique intimiste, pensé pour l'immersion littéraire, graphique et sonore, où l'on peut aussi importer ses propres lectures.
                             </p>
+                            <div className="about-author-dispatch">
+                                <div className="author-note-header-line">
+                                    <span className="author-wax-seal-mini">GS</span>
+                                    <span className="author-note-kicker">Mot de l'auteur &middot; Geoffroy Streit</span>
+                                </div>
+                                <p style={{ fontStyle: 'italic', marginBottom: '0.75rem', lineHeight: 1.75 }}>
+                                    &laquo; De mes anciens blogs et sites web, ces tiroirs numériques encombrés qui n'ont jamais reçu d'autre visite que la mienne (et encore, les jours de courage), j'aurai de quoi remplir ce lieu : mes écrits d'hier, parfois inachevés, souvent à revoir, sagement alignés dans cette bibliothèque numérique que je m'acharne à bâtir pour les offrir, libres de consultation, à qui voudra bien s'y perdre... &raquo;
+                                </p>
+                                <p style={{ fontStyle: 'italic', color: 'var(--app-primary)', fontSize: '0.9rem', textAlign: 'right', margin: 0 }}>
+                                    En attendant, la porte est ouverte : entrez, et pardonnez la poussière.
+                                </p>
+                            </div>
                             <div className="about-grid">
                                 <div className="about-card">
                                     <Icon.Book />

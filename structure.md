@@ -1,4 +1,4 @@
-# Structure du Projet — La Bibliothèque de Hylst
+# Structure du Projet · La Bibliothèque de Hylst
 
 Ce document décrit l'organisation physique et logique des répertoires et des fichiers du projet **La Bibliothèque de Hylst**.
 

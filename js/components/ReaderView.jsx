@@ -245,7 +245,26 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                                 style={!isAvailable ? { opacity: 0.5, cursor: 'not-allowed', display: 'flex', alignItems: 'center', justifyContent: 'space-between' } : {}}
                             >
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                    {ch.cover && <img className="toc-thumb" src={`public/${ch.cover}`} alt="" loading="lazy" />}
+                                    {ch.cover && (
+                                        <img
+                                            className="toc-thumb zoomable"
+                                            src={`public/${ch.cover}`}
+                                            alt=""
+                                            loading="lazy"
+                                            title="Cliquer pour agrandir l'illustration"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                if (typeof window.openLightbox === 'function') {
+                                                    window.openLightbox({
+                                                        src: `public/${ch.cover}`,
+                                                        alt: ch.title,
+                                                        title: ch.title,
+                                                        subtitle: book.title
+                                                    });
+                                                }
+                                            }}
+                                        />
+                                    )}
                                     <span className="toc-num">{i + 1}</span>
                                     <span>{ch.title}</span>
                                 </div>
@@ -412,7 +431,24 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
 
                 <article className="reader-content">
                     {chapterHtml
-                        ? <div className="reader-article" dangerouslySetInnerHTML={{ __html: chapterHtml }} />
+                        ? (
+                            <div
+                                className="reader-article"
+                                dangerouslySetInnerHTML={{ __html: chapterHtml }}
+                                onClick={(e) => {
+                                    const img = e.target.closest('img');
+                                    if (img && typeof window.openLightbox === 'function') {
+                                        e.stopPropagation();
+                                        window.openLightbox({
+                                            src: img.getAttribute('src'),
+                                            alt: img.getAttribute('alt') || chapter?.title || '',
+                                            title: chapter?.title || book.title,
+                                            subtitle: book.title
+                                        });
+                                    }
+                                }}
+                            />
+                        )
                         : <div style={{ textAlign: 'center', padding: '4rem 0', opacity: 0.4 }}>
                             <div className="spinner" style={{ margin: '0 auto' }} />
                         </div>

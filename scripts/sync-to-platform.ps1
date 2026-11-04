@@ -108,6 +108,16 @@ if (-not (Test-Path -LiteralPath $TargetSitemapPath)) { Fail "sitemap.xml cible 
 Info "Source : $Source"
 Info "Cible  : $Target"
 
+# Contrôle typographique : aucun tiret cadratin ou demi-cadratin dans le contenu servi.
+$dashScript = Join-Path $Source 'scripts\check_dashes.py'
+if (-not (Test-Path -LiteralPath $dashScript)) {
+    Fail "scripts/check_dashes.py manquant : contrôle typographique impossible."
+}
+& python $dashScript --root $Source
+if ($LASTEXITCODE -ne 0) {
+    Fail "Tirets cadratins ou demi-cadratins détectés dans la source."
+}
+
 # ---------------------------------------------------------------------------
 # 1. Vérifications préalables (approche pessimiste)
 # ---------------------------------------------------------------------------
@@ -237,6 +247,13 @@ foreach ($file in $runtimeFiles) {
         Info "DryRun : copie de $file"
     } else {
         Copy-Item -LiteralPath $srcFile -Destination $dstFile -Force
+    }
+}
+
+if (-not $DryRun) {
+    & python $dashScript --root $Target
+    if ($LASTEXITCODE -ne 0) {
+        Fail "Tirets cadratins ou demi-cadratins détectés dans la cible."
     }
 }
 

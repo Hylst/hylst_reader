@@ -35,15 +35,40 @@ function BookHomeView({ book, onBack, onStartReading }) {
             : '<p>Contenu importé bloqué : le module de sécurité HylstSanitize est indisponible.</p>')
         : introHtml;
 
+    const handleZoom = () => {
+        if (coverUrl && typeof window.openLightbox === 'function') {
+            window.openLightbox({
+                src: coverUrl,
+                alt: book.title,
+                title: book.title,
+                subtitle: `${book.author || ''}${book.year ? ` · ${book.year}` : ''}`
+            });
+        }
+    };
+
     return (
         <div className="book-home view-enter">
             <div className="book-home-header">
                 <button className="btn btn-ghost" onClick={onBack}><Icon.ArrowLeft /> Bibliothèque</button>
             </div>
             <div className="book-home-content">
-                <div className="book-home-cover">
+                <div
+                    className={`book-home-cover${coverUrl ? ' zoomable' : ''}`}
+                    onClick={coverUrl ? handleZoom : undefined}
+                    title={coverUrl ? "Cliquer pour agrandir la couverture" : undefined}
+                    role={coverUrl ? "button" : undefined}
+                    tabIndex={coverUrl ? 0 : undefined}
+                    onKeyDown={coverUrl ? (e) => e.key === 'Enter' && handleZoom() : undefined}
+                >
                     {coverUrl
-                        ? <img src={coverUrl} alt={`Couverture – ${book.title}`} />
+                        ? (
+                            <>
+                                <img src={coverUrl} alt={`Couverture de ${book.title}`} />
+                                <span className="book-home-cover-zoom-hint">
+                                    <Icon.ZoomIn /> Agrandir
+                                </span>
+                            </>
+                        )
                         : <div className="book-cover-fallback book-cover-fallback-home">
                             <span className="book-cover-fallback-title">{book.title}</span>
                             {book.subtitle && <span className="book-cover-fallback-subtitle">{book.subtitle}</span>}

@@ -64,9 +64,9 @@ intro_path = os.path.join(SOURCE_DIR, 'intro.html')
 intro_html = """<div class="book-intro-generated">
   <h2>Dernière de couverture</h2>
   <hr class="ornament">
-  <p class="dropcap">Voici un plan complet et structuré pour ce second volume. Je le conçois comme un livre complémentaire à part entière &mdash; avec sa propre identité, son propre souffle &mdash; mais conçu pour dialoguer intimement avec <em>L'Odyssée de l'IA</em>.</p>
+  <p class="dropcap">Voici un plan complet et structuré pour ce second volume. Je le conçois comme un livre complémentaire à part entière &middot; avec sa propre identité, son propre souffle &middot; mais conçu pour dialoguer intimement avec <em>L'Odyssée de l'IA</em>.</p>
   <p class="chapter-paragraph"><strong>La thèse centrale :</strong> L'intelligence artificielle n'est pas une entité immatérielle qui existe dans le "cloud". Elle est profondément, irréductiblement <em>physique</em>. Elle consomme de l'électricité, de l'eau, des métaux rares, des puces en silicium, des câbles en cuivre. Et la collision entre sa croissance exponentielle et les contraintes physiques de la planète est l'une des questions les plus urgentes et les moins débattues de notre époque.</p>
-  <p class="chapter-paragraph"><strong>Format :</strong> Livre complémentaire &mdash; même style littéraire, même dualité dystopie/renaissance, même ancrage en 2026.<br/>
+  <p class="chapter-paragraph"><strong>Format :</strong> Livre complémentaire &middot; même style littéraire, même dualité dystopie/renaissance, même ancrage en 2026.<br/>
   <strong>Ton :</strong> Scientifique mais accessible, narratif, incarné dans des exemples concrets, honnête sur les incertitudes.</p>
   <p class="chapter-continuation" style="font-style: italic; text-align: center; margin-top: 1.5rem;">Quand la révolution numérique rencontre les limites physiques du monde réel. Bonne lecture.</p>
 </div>
@@ -135,7 +135,7 @@ for ch_idx in range(1, 9):
     else:
         # Chapitres 2 à 8
         title = paras[0] # "Chapitre X"
-        subtitle = paras[1] + " — " + paras[2] # "Titre — Sous-titre"
+        subtitle = paras[1] + " · " + paras[2] # "Titre · Sous-titre"
         quote = paras[3].strip('"').strip('«').strip('»').strip()
         content_paras = paras[4:]
         
@@ -151,10 +151,10 @@ for ch_idx in range(1, 9):
     
     for para in content_paras:
         # Remplacer les tirets cadratins doubles et simples par des tirets d'incise propres
-        para = para.replace(' — ', ' &mdash; ').replace(' - ', ' &mdash; ')
+        para = para.replace(' · ', ' &middot; ').replace(' - ', ' &middot; ')
         
-        # Détecter les sous-sections comme "1.1 — ..." ou "1.1 - ..."
-        sub_match = re.match(r'^(<strong>)?(\d+\.\d+)\s+&mdash;\s+(.+)(</strong>)?$', para)
+        # Détecter les sous-sections comme "1.1 · ..." ou "1.1 - ..."
+        sub_match = re.match(r'^(<strong>)?(\d+\.\d+)\s+&middot;\s+(.+)(</strong>)?$', para)
         if not sub_match:
             sub_match = re.match(r'^(<strong>)?(\d+\.\d+)\s*:\s*(.+)(</strong>)?$', para)
         if not sub_match:

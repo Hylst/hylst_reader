@@ -1,11 +1,26 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.1] - 2026-11-04
+### Ajouté
+- **Direction A « Cabinet de curiosités »** : ambiance visuelle atelier d'écriture et reliure, tranches de livres avec ombre de reliure, badges cachet de cire rouge (« Nouveau ») et ambre technique (« En chantier »), cartes À venir style dossier d'atelier avec trombone décoratif, étiquettes de catalogue en laiton.
+- **Carnet de bord de l'auteur** : intégration du texte lyrique avec autodérision en tête de section « À venir », et citation dans la modale À propos.
+- **Visionneuse plein écran (`ImageLightbox.jsx`)** : agrandissement au clic de toutes les couvertures de la bibliothèque, fiches de livre, illustrations d'articles et miniatures du sommaire, avec gestion accessible (piège de focus, touche Échap en phase de capture).
+- **Couvertures d'histoires en 512×800** : récupération des 29 couvertures Wattpad d'origine en haute résolution WebP (2,5 Mo pour l'ensemble).
+- **Grille élargie** : taille des cartes portée à `minmax(260px, 1fr)`, colonne de couverture de fiche livre élargie et illustrations de chapitres portées à 360 px.
+- **Quinte ou Les Harmoniques de l'Âme** : titre officiel avec accent circonflexe sur Âme, badge *En chantier*, chronologie 2021-2024, épigraphe avec graphie stylisée, tags techniques, suppression du paragraphe dupliqué en tête de partie 4 et enrichissement acoustique/modal.
+- **Scanner typographique (`scripts/check_dashes.py`)** : outil de contrôle et garde-fou intégré dans `scripts/sync-to-platform.ps1` interdisant tout tiret cadratin ou demi-cadratin dans les contenus servis et les interfaces.
+
+### Corrigé
+- **Règle zéro tiret étendue à toute la bibliothèque** : suppression des 21 tirets cadratins/demi-cadratins résiduels dans les chapitres 1, 3, 4 et 5 de *L'Odyssée de l'IA*, correction du texte alternatif de couverture dans `BookHomeView.jsx`.
+- **Archivage des versions complète et imprimable** de *L'Odyssée de l'IA* dans `sources/odyssee_ia/` pour garantir que 100 % des contenus servis sont contrôlés et à jour.
+- Version 1.8.1, cache Service Worker source `hylst-reader-v55`.
+
 ## [1.8.0] - 2026-11-04
 ### Ajouté
 - **Nouveau nom** : l'application devient **La Bibliothèque de Hylst**, avec le nom court PWA **Biblio Hylst** et la signature « Livres, proses, poésies et récits de Geoffroy Streit ». Le titre, le header, le footer, la modale À propos, le manifeste, les icônes PWA, les métadonnées sociales et la documentation sont alignés.
 - **Alias `/bibliotheque/`** : la nouvelle URL courte redirige en 301 vers `/books_reader/`, query string conservée. L'URL existante reste canonique pour ne casser ni les favoris, ni le référencement.
-- **Quinte ou Les Harmoniques de l'âme** : nouvelle en sept parties dans sa version remaniée par l'auteur, avec introduction, provenance et métadonnées `authorship: human`, `aiAssisted: false`.
+- **Quinte ou Les Harmoniques de l'Âme** : nouvelle en sept parties dans sa version remaniée par l'auteur, avec introduction, provenance et métadonnées `authorship: human`, `aiAssisted: false`.
 - **Illustrations des 29 textes** : récupération des couvertures Wattpad d'origine, affichées en tête de chapitre et en miniature dans le sommaire.
 - **Badge Nouveau** sur *L'Odyssée de l'énergie* et sur *Quinte*.
 
@@ -142,7 +157,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 ## [1.2.0] - 2026-05-30
 ### Ajouté
 - **Chapitre 5 Intégré** : Intégration officielle du chapitre 5 *« De Spectateur à Architecte »* de l'essai **L'Odyssée de l'IA** (`chapitre-5.html` dans `public/books` et dans `livres_pour_import`).
-- **Nettoyage Littéraire** : Réécriture complète des tirets cadratins `—` et retrait des ornements `✦` qui font trop « généré par IA » pour un rendu plus naturel et fluide.
+- **Nettoyage Littéraire** : Réécriture complète des tirets cadratins et retrait des ornements `✦` qui font trop « généré par IA » pour un rendu plus naturel et fluide.
 - **Remplacement de « Dualis-IA »** par la dénomination officielle de l'essai : *« L'odyssée de l'IA : 2 futurs, un choix »* (ou tournures de phrases adaptées comme « ce projet », « ce livre »).
 - **Couverture Chapitre 5** : Génération de l'illustration manquante `chapitre-5-cover.webp` en WebP dans un style artistique premium sépia/or homogène avec les 4 précédents chapitres.
 - **Documentation Technique Complète** : Création de `structure.md` (arborescence), `features.md` (fonctions), `readme-dev.md` (architecture) et `test_build_deploy.md` (guide pas-à-pas pour Windows local et déploiement VPS Hostinger + Coolify + Nginx statique dans `/books_reader/`).

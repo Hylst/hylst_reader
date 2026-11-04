@@ -248,11 +248,11 @@
   },
   {
     "id": "quinte-ou-les-harmoniques-de-l-ame",
-    "title": "Quinte ou Les Harmoniques de l'âme",
+    "title": "Quinte ou Les Harmoniques de l'Âme",
     "subtitle": "Histoire pour Musiciens déments et physiciens avertis",
     "author": "Hylst (Geoffroy Streit)",
-    "year": 2021,
-    "badge": "Nouveau",
+    "year": "2021-2024",
+    "badge": "En chantier",
     "design": {
       "fonts": {
         "heading": "Cormorant Garamond",
@@ -322,7 +322,18 @@
       }
     ],
     "authorship": "human",
-    "aiAssisted": false
+    "aiAssisted": false,
+    "tags": [
+      "frequence",
+      "textefantasque",
+      "physique",
+      "musique",
+      "sf",
+      "theorie",
+      "complexe",
+      "theoriemusicaleappliquee",
+      "inspirationphysique"
+    ]
   },
   {
     "id": "recueils-proses-poesies-t1-saisons-nature",

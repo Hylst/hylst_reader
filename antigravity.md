@@ -29,7 +29,7 @@
   - **Chapitre 3**: Cover `chapitre-3-cover.webp` and Hook `« L'IA ne nous remplace pas. Elle nous rend à nous-mêmes. »` aligned.
   - **Chapitre 4**: Cover `chapitre-4-cover.webp` and Hook `« Ce n'est pas l'IA qui choisira. Ce sont nos actes d'aujourd'hui. »` aligned.
   - **Chapitre 5**: Cover `chapitre-5-cover.webp` and Hook `« Chaque génération a sa fenêtre. La nôtre s'appelle 2026. »` aligned.
-- **Sync Files**: Updated `livre-complet.html` and `livre-imprimable.html` to reflect the updated Partie II hook.
+- **Archives**: `livre-complet.html` et `livre-imprimable.html` sont déplacés dans `sources/odyssee_ia/` et ne sont plus servis.
 
 ### ✅ L'Odyssée de l'Énergie (Energy Odyssey)
 - Imported and styled all 8 chapters in `public/books/l-odyss-e-de-l-energie/` using custom layout classes:

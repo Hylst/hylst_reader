@@ -7,7 +7,7 @@ const FUTURE_BOOKS = [
     { id: 'f2', title: "Les Chroniques d'Étheria", subtitle: "Roman d'Heroic Fantasy", genre: 'Fantasy', cover: 'covers/cover_etheria.webp' },
     { id: 'f3', title: 'Scénarios et campagnes pour Nightprowler', subtitle: 'JDR MédFan', genre: 'JDR', cover: 'covers/cover_nightprowler.webp' },
     { id: 'f5', title: 'Considérations existentielles', subtitle: 'Réflexions philosophiques', genre: 'Philosophie', cover: 'covers/cover_existentiel.webp' },
-    { id: 'f6', title: "Quinte ou Les Harmoniques de l'âme", subtitle: 'Roman', genre: 'Roman', cover: 'covers/cover_quinte.webp' },
+    { id: 'f6', title: "Quinte ou Les Harmoniques de l'Âme", subtitle: 'Roman', genre: 'Roman', cover: 'covers/cover_quinte.webp' },
     { id: 'f7', title: "L'Autre en moi", subtitle: 'Thriller psychologique', genre: 'Thriller', cover: 'covers/cover_autre_en_moi.webp' },
     { id: 'f8', title: "L'Élu d'Astrakan", subtitle: "Livre dont vous êtes le héros · Fantasy", genre: 'LDVELH', cover: 'covers/cover_astrakan.webp' },
     { id: 'f9', title: '12 Scénarios soirées enquêtes & murder', subtitle: 'Jeu de rôle soirée', genre: 'Jeu', cover: 'covers/cover_murder.webp' },
@@ -55,6 +55,18 @@ function normalizeBookTitle(title) {
 
 function FutureBookCard({ book, delay = 0 }) {
     const Icon = window.Icon;
+    const handleZoom = (e) => {
+        e.stopPropagation();
+        if (book.cover && typeof window.openLightbox === 'function') {
+            window.openLightbox({
+                src: `public/${book.cover}`,
+                alt: book.title,
+                title: book.title,
+                subtitle: `${book.subtitle || ''} · ${book.genre || ''}`
+            });
+        }
+    };
+
     return (
         <div className="book-card future-card" style={{ animationDelay: `${delay}ms` }} title="Bientôt disponible" role="img">
             <div className="book-cover-container">
@@ -62,6 +74,17 @@ function FutureBookCard({ book, delay = 0 }) {
                     ? <img src={`public/${book.cover}`} alt={book.title} loading="lazy" className="book-cover" />
                     : <div className="future-cover-placeholder"><Icon.Lock /><span>{book.genre}</span></div>
                 }
+                {book.cover && (
+                    <button
+                        type="button"
+                        className="book-cover-zoom-btn"
+                        title="Agrandir la couverture"
+                        onClick={handleZoom}
+                        aria-label={`Agrandir la couverture de ${book.title}`}
+                    >
+                        <Icon.ZoomIn />
+                    </button>
+                )}
                 <div className="future-badge">Bientôt</div>
             </div>
             <div className="book-info">
@@ -93,6 +116,18 @@ function BookCard({ book, onClick, delay = 0 }) {
         getProgress(book.id).then(p => { if (p) setProgress(p.scrollRatio || 0); });
     }, [book.id]);
 
+    const handleZoom = (e) => {
+        e.stopPropagation();
+        if (coverUrl && typeof window.openLightbox === 'function') {
+            window.openLightbox({
+                src: coverUrl,
+                alt: book.title,
+                title: book.title,
+                subtitle: `${book.author || ''}${book.year ? ` · ${book.year}` : ''}`
+            });
+        }
+    };
+
     return (
         <div className="book-card" style={{ animationDelay: `${delay}ms` }} onClick={onClick} role="button" tabIndex={0}
             onKeyDown={e => e.key === 'Enter' && onClick()}>
@@ -105,7 +140,22 @@ function BookCard({ book, onClick, delay = 0 }) {
                         <span className="book-cover-fallback-author">{book.author}</span>
                     </div>
                 }
-                {book.badge && <span className="book-badge">{book.badge}</span>}
+                {coverUrl && (
+                    <button
+                        type="button"
+                        className="book-cover-zoom-btn"
+                        title="Agrandir la couverture"
+                        onClick={handleZoom}
+                        aria-label={`Agrandir la couverture de ${book.title}`}
+                    >
+                        <Icon.ZoomIn />
+                    </button>
+                )}
+                {book.badge && (
+                    <span className={`book-badge${book.badge.toLowerCase().includes('chantier') ? ' badge-wip' : ''}`}>
+                        {book.badge}
+                    </span>
+                )}
             </div>
             <div className="book-info">
                 <div className="book-title">{book.title}</div>
@@ -224,12 +274,24 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                 <div className="library-section-label future-label">
                     À venir &middot; Contenus en préparation <span className="wip-badge">En cours</span>
                 </div>
-                <div className="future-intro">
-                    <div className="future-block">
-                        <p>De mes anciens blogs et sites webs, des tiroirs numériques encombrés qui n'ont reçu d'autres visites que les miennes, j'aurai matière à réunir bon nombre de mes écrits passés en ce lieu, parfois inachevés ou à revoir, rangés dans cette bibliothèque numérique que je travaille à concevoir pour y présenter, ouverts à la consultation libre, mes anciennes nouvelles, récits d'aventures HF et SF, livres dont vous êtes le héros, scénarios et campagnes de jeux de rôles, histoires fantasques, réflexions existentielles, recueils de proses et poésies, analyses pseudo-scientifiques ou plus sérieuses, recherche de sens et vérité, guides pédagogiques, frustrations &amp; passions, divagations &amp; clairvoyances, ... issus des méandres de mon cerveau bancal et de mes idées vagabondes au fil des années.</p>
-                    </div>
-                    <div className="future-block">
-                        <p>Avec le recul &amp; l'expérience, j'aimerais reprendre bon nombre d'entre eux pour les améliorer, corriger ou compléter avant de les partager, mais en aurais-je la motivation continue ? En prendrai-je le temps ? Ne finirais-je pas encore une fois par les laisser choir au fond de mes disques dans l'obscurité, si imparfaits soient-ils ?</p>
+                <div className="future-intro author-note-dispatch">
+                    <div className="future-block author-note-parchment">
+                        <div className="author-note-header-line">
+                            <span className="author-wax-seal-mini">GS</span>
+                            <span className="author-note-kicker">Carnet de bord de l'auteur &middot; Geoffroy Streit</span>
+                        </div>
+                        <p className="author-note-lead">
+                            De mes anciens blogs et sites web, ces tiroirs numériques encombrés qui n'ont jamais reçu d'autre visite que la mienne (et encore, les jours de courage), j'aurai de quoi remplir ce lieu : mes écrits d'hier, parfois inachevés, souvent à revoir, sagement alignés dans cette bibliothèque numérique que je m'acharne à bâtir pour les offrir, libres de consultation, à qui voudra bien s'y perdre. Nouvelles anciennes, récits d'aventures HF et SF, livres dont vous êtes le héros, scénarios et campagnes de jeux de rôle, histoires fantasques, réflexions existentielles, recueils de proses et poésies, analyses pseudo-scientifiques ou plus sérieuses, quêtes de sens et de vérité, guides pédagogiques, frustrations et passions, divagations et clairvoyances... tout ce qui s'échappe des méandres de mon cerveau bancal et de mes idées vagabondes au fil des années.
+                        </p>
+                        <p>
+                            Avec le recul et l'expérience, j'aimerais reprendre bon nombre de ces textes pour les améliorer, les corriger ou les compléter avant de les partager. Mais en aurai-je la motivation continue ? En prendrai-je le temps ? Ne finirai-je pas, encore une fois, par les laisser choir au fond de mes disques, dans l'obscurité, si imparfaits soient-ils ?
+                        </p>
+                        <p className="author-note-closing">
+                            <em>En attendant, la porte est ouverte : entrez, et pardonnez la poussière.</em>
+                        </p>
+                        <div className="author-signature-inline">
+                            <span>Geoffroy Streit (alias Hylst)</span>
+                        </div>
                     </div>
                 </div>
                 <div className="library-grid">

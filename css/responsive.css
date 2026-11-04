@@ -80,6 +80,18 @@
         font-size: 1.8rem;
     }
 
+    .chapter-story-cover {
+        max-width: 260px;
+        margin: 1.5rem auto 2rem;
+    }
+
+    .lightbox-close-btn {
+        top: -42px;
+        right: 4px;
+        width: 36px;
+        height: 36px;
+    }
+
     .reader-toolbar {
         padding: 0.5rem 1rem;
     }

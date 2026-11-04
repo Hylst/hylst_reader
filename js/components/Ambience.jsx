@@ -1,5 +1,5 @@
 // js/components/Ambience.jsx
-// Effets de fond animés — exposé via window.Ambience / window.normalizeBackgroundAnimations
+// Effets de fond animés · exposé via window.Ambience / window.normalizeBackgroundAnimations
 
 const { useMemo } = React;
 

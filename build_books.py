@@ -50,7 +50,7 @@ def parse_chapter_txt(content):
             continue
 
         # --- "Prochaine partie" block ---
-        if line.startswith('Prochaine partie') or (line.startswith('II —') and len(line) < 80):
+        if line.startswith('Prochaine partie') or (line.startswith('II \u2014') and len(line) < 80):
             html_parts.append(f'<p class="chapter-next-part">{line}</p>')
             i += 1
             continue
@@ -91,7 +91,7 @@ def parse_chapter_txt(content):
             continue
 
         # --- Period subtitle ---
-        if re.search(r'\(\d{4}[–—-]\d{4}\)', line) and len(line) < 100:
+        if re.search(r'\(\d{4}[\u2013\u2014-]\d{4}\)', line) and len(line) < 100:
             html_parts.append(f'<p class="period-subtitle">{line}</p>')
             i += 1
             continue
@@ -204,7 +204,7 @@ if os.path.exists(SOURCE_DIR):
   <hr class="ornament">
   <p class="dropcap">Cet ouvrage, intitulé <strong>{title}</strong>, a été traité pour l'intégration dans La Bibliothèque de Hylst à partir de fichiers textes.</p>
   <p class="chapter-paragraph">L'interface s'adapte dynamiquement aux couleurs et à la typographie choisies pour ce livre afin d'offrir une immersion optimale lors de votre lecture.</p>
-  <p class="chapter-continuation">Bonne lecture — {author}</p>
+  <p class="chapter-continuation">Bonne lecture · {author}</p>
 </div>"""
             with open(os.path.join(book_out_dir, 'intro.html'), 'w', encoding='utf-8') as f:
                 f.write(intro_html)

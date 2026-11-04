@@ -53,7 +53,7 @@ A premium, literary-focused PWA for reading digital books and listening to curat
 - Avoid generic colors; use the earth/sepia palette provided.
 - Ensure generous whitespace and "literary" breathing room.
 - Use Lucide-style icons (refined, thin strokes).
-- Focus on the "Premium Reader" feel—nothing should look like a standard dashboard.
+- Focus on the "Premium Reader" feel : nothing should look like a standard dashboard.
 
 ---
 💡 **Tip:** This prompt is optimized for high-fidelity generation in Stitch. Use it to propose a cohesive, stunning design system that honors the project's literary roots.

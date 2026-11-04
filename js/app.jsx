@@ -1,5 +1,5 @@
 // js/app.jsx
-// Orchestrateur principal — utilise les globals window.* exposés par chaque composant
+// Orchestrateur principal · utilise les globals window.* exposés par chaque composant
 
 const { useState, useEffect, useMemo, useRef, useCallback } = React;
 const Sanitize = window.HylstSanitize;
@@ -42,10 +42,21 @@ function App() {
     const LibraryView = window.LibraryView;
     const BookHomeView = window.BookHomeView;
     const ReaderView = window.ReaderView;
+    const ImageLightbox = window.ImageLightbox;
 
     const [books, setBooks] = useState([]);
     const [currentView, setCurrentView] = useState('library');
     const [activeBookId, setActiveBookId] = useState(null);
+    const [lightboxData, setLightboxData] = useState(null);
+
+    useEffect(() => {
+        window.openLightbox = (data) => setLightboxData(data);
+        window.closeLightbox = () => setLightboxData(null);
+        return () => {
+            delete window.openLightbox;
+            delete window.closeLightbox;
+        };
+    }, []);
     const [settings, setSettingsState] = useState(() => {
         try {
             const saved = localStorage.getItem('hylst_settings');
@@ -517,6 +528,12 @@ function App() {
                 onTogglePlay={togglePlay}
                 onToggleLoop={toggleLoop}
             />
+            {lightboxData && (
+                <ImageLightbox
+                    data={lightboxData}
+                    onClose={() => setLightboxData(null)}
+                />
+            )}
         </div>
     );
 }

@@ -1,4 +1,4 @@
-# Conception Technique — La Bibliothèque de Hylst
+# Conception Technique · La Bibliothèque de Hylst
 
 Ce guide technique explique les choix d'architecture et de conception pour les développeurs souhaitant comprendre ou modifier l'application **La Bibliothèque de Hylst**.
 

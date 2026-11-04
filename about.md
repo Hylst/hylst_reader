@@ -17,7 +17,7 @@ L'application a été conçue pour offrir un cadre noble et apaisant aux œuvres
 - **Accompagnement Musical** : Un lecteur audio premium intégré avec accès à plus de **280 compositions originales** de Hylst (tags, moods, recherche par ambiance).
 - **Ouverture et Liberté** : Importez vos propres livres (EPUB, TXT, Markdown, JSON, dossiers HML complexes) pour en profiter dans cet écrin de lecture.
 - **Illustrations d'origine** : les 29 textes des recueils affichent leur couverture Wattpad en tête de chapitre et en miniature dans le sommaire.
-- **Quinte ou Les Harmoniques de l'âme** : nouvelle en sept parties, dans la version remaniée par l'auteur.
+- **Quinte ou Les Harmoniques de l'Âme** : nouvelle en sept parties, dans la version remaniée par l'auteur.
 - **Souveraineté des Données** : Pas de cloud imposé, pas de pistage. Vos livres et votre progression restent stockés physiquement dans votre navigateur au sein d'IndexedDB.
 - **Intelligence de Lecture** : Calcul dynamique du temps restant par chapitre et indicateurs de progression contextuels.
 

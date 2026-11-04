@@ -19,7 +19,7 @@
 - **L'Odyssée de l'énergie actualisée** : les 10 chapitres sont disponibles, avec données AIE 2026, typographie sans tirets cadratins ni ornements, et mention de transparence sur l'assistance IA en dernière de couverture.
 - **Trois recueils Wattpad** : 29 textes de 2021 à 2024 réunis en *Saisons, nature & contemplations*, *Fantasque & merveilleux* et *Cœurs, chaos & quotidien*, avec provenance, dates de publication et couvertures composées à partir des illustrations de l'auteur. Textes 100 % écrits par l'auteur, sans assistance d'IA.
 - **Illustrations d'origine** : chaque texte des recueils retrouve sa couverture Wattpad, affichée en tête de chapitre et en miniature dans le sommaire.
-- **Quinte ou Les Harmoniques de l'âme** : nouvelle en sept parties, version remaniée par l'auteur, avec une écriture 100 % humaine.
+- **Quinte ou Les Harmoniques de l'Âme** : nouvelle en sept parties, version remaniée par l'auteur, avec une écriture 100 % humaine.
 - **Zéro Backend** : Tout tourne dans votre navigateur. Vos données (livres, progression, signets) restent chez vous dans IndexedDB.
 - **Sécurité des imports** : les EPUB, dossiers HML et JSON importés passent par DOMPurify avant stockage et avant rendu.
 - **Import Flexible** : Importez vos propres textes (EPUB, TXT, MD, JSON) ou dossiers HML complets, lus confortablement dans le Reader.

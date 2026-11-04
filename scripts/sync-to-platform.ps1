@@ -4,8 +4,8 @@
     Synchronise Hylst_Reader vers le miroir de production de la plateforme Hylst.
 
 .DESCRIPTION
-    Copie uniquement les fichiers runtime (css, js, public, vendor, manifest.json, sw.js,
-    droits.html) dans D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader.
+    Copie uniquement les fichiers runtime (css, js, public, vendor, livres, manifest.json,
+    sw.js, droits.html) dans D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader.
 
     L'index.html de production est PRÉSERVÉ : il contient le patch plateforme
     (vendor/, /assets/fonts/fonts.css, canonical). Le script vérifie que ce patch
@@ -143,7 +143,9 @@ $sourceMarkers = @(
     'vendor/jszip.min.js',
     'vendor/epub.min.js',
     'vendor/purify.min.js',
-    'js/sanitize.js'
+    'js/sanitize.js',
+    'js/modalA11y.js',
+    'css/book-fonts.css'
 )
 foreach ($marker in $sourceMarkers) {
     if ($sourceIndex -notmatch [regex]::Escape($marker)) {
@@ -162,6 +164,8 @@ $targetMarkers = @(
     'src="vendor/epub.min.js"',
     'src="vendor/purify.min.js"',
     'src="js/sanitize.js',
+    'src="js/modalA11y.js',
+    'css/book-fonts.css',
     'rel="canonical" href="https://hylst.fr/books_reader/"',
     'SEO-RIGHTS:START',
     'SEO-RIGHTS:END',
@@ -260,11 +264,22 @@ foreach ($file in $forbiddenFiles) {
     }
 }
 
+# Fiches statiques des livres : generees avant l'empreinte pour rester alignees
+# sur public/books.json et les introductions.
+$bookPagesScript = Join-Path $Source 'scripts/build_book_pages.py'
+if (-not (Test-Path -LiteralPath $bookPagesScript)) {
+    Fail "scripts/build_book_pages.py manquant : fiches statiques impossibles."
+}
+& python $bookPagesScript
+if ($LASTEXITCODE -ne 0) {
+    Fail "Generation des fiches statiques en echec."
+}
+
 # ---------------------------------------------------------------------------
 # 2. Calcul de l'empreinte de build
 # ---------------------------------------------------------------------------
 
-$runtimeDirs = @('css', 'js', 'public', 'vendor')
+$runtimeDirs = @('css', 'js', 'public', 'vendor', 'livres')
 $runtimeFiles = @('manifest.json', 'sw.js', 'droits.html')
 
 $hashFiles = New-Object System.Collections.Generic.List[System.IO.FileInfo]

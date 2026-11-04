@@ -1,12 +1,15 @@
 // js/components/MusicPlayerModal.jsx
 // Dépend de : window.Icon, window.MUSIC_LIBRARY
 
-const { useState: useStateMusicModal, useMemo: useMemoMusicModal } = React;
+const { useState: useStateMusicModal, useMemo: useMemoMusicModal, useRef: useRefMusicModal } = React;
 
 function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isLoop, onPlayTrack, onTogglePlay, onToggleLoop }) {
     const Icon = window.Icon;
     const MUSIC_LIBRARY = window.MUSIC_LIBRARY;
     const [searchTerm, setSearchTerm] = useStateMusicModal('');
+    const modalRef = useRefMusicModal(null);
+
+    window.useModalA11y(onClose, modalRef, isOpen);
 
     const filteredTracks = useMemoMusicModal(() => {
         if (!searchTerm) return MUSIC_LIBRARY;
@@ -22,7 +25,7 @@ function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isLoop, on
 
     return (
         <div className="modal-backdrop" onClick={e => e.target === e.currentTarget && onClose()}>
-            <div className="modal-content music-modal" onClick={e => e.stopPropagation()}>
+            <div className="modal-content music-modal" ref={modalRef} role="dialog" aria-modal="true" aria-label="Bibliothèque musicale" onClick={e => e.stopPropagation()}>
                 <div className="music-modal-glass-header">
                     <div className="music-modal-topbar">
                         <div className="music-modal-brand">

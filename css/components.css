@@ -661,11 +661,32 @@
     margin-bottom: 1.25rem;
 }
 
+.book-rights-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    flex-wrap: wrap;
+    margin: -0.9rem 0 1.5rem;
+}
+
 .book-rights-line {
     font-size: 0.78rem;
     letter-spacing: 0.02em;
     color: var(--app-muted);
-    margin: -0.9rem 0 1.5rem;
+    margin: 0;
+}
+
+.book-cite-btn {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.65rem;
+    gap: 0.35rem;
+    border: 1px solid var(--app-card-border);
+    white-space: nowrap;
+}
+
+.book-cite-btn svg {
+    width: 14px;
+    height: 14px;
 }
 
 .book-rights-line a {

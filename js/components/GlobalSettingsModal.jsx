@@ -6,10 +6,13 @@ const THEME_KEYS_SETTINGS = ['sepia', 'light', 'dark'];
 function GlobalSettingsModal({ settings, onUpdateSettings, onClose }) {
     const Icon = window.Icon;
     const normalizeBackgroundAnimations = window.normalizeBackgroundAnimations;
+    const modalRef = React.useRef(null);
+
+    window.useModalA11y(onClose, modalRef);
 
     return (
         <div className="modal-backdrop" onClick={e => e.target === e.currentTarget && onClose()}>
-            <div className="modal-content settings-modal">
+            <div className="modal-content settings-modal" ref={modalRef} role="dialog" aria-modal="true" aria-label="Paramètres de lecture">
                 <div className="modal-header">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <Icon.Settings />

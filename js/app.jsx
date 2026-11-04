@@ -254,6 +254,22 @@ function App() {
         }
     }, [settings]);
 
+    // Navigation navigateur : un retour arriere ferme la fiche ouverte.
+    useEffect(() => {
+        const onPopState = () => {
+            const id = new URLSearchParams(window.location.search).get('book');
+            if (id && books.some(b => b.id === id)) {
+                setActiveBookId(id);
+                setCurrentView('bookHome');
+            } else {
+                setActiveBookId(null);
+                setCurrentView('library');
+            }
+        };
+        window.addEventListener('popstate', onPopState);
+        return () => window.removeEventListener('popstate', onPopState);
+    }, [books]);
+
     const activeBook = useMemo(() => books.find(b => b.id === activeBookId), [books, activeBookId]);
 
     // Titre d'onglet contextualisé : utile au référencement et à l'historique du navigateur.
@@ -271,7 +287,7 @@ function App() {
         const canonical = document.querySelector('link[rel="canonical"]');
         if (canonical) {
             canonical.setAttribute('href', isBookView
-                ? `https://hylst.fr/books_reader/?book=${encodeURIComponent(activeBook.id)}`
+                ? new URL(`livres/${encodeURIComponent(activeBook.id)}/`, document.baseURI).href
                 : 'https://hylst.fr/books_reader/');
         }
     }, [activeBook, currentView]);
@@ -284,13 +300,6 @@ function App() {
                 if (!/^--book-[a-z0-9-]+$/i.test(k)) continue;
                 if (typeof v !== 'string' || /url\s*\(/i.test(v)) continue;
                 document.documentElement.style.setProperty(k, v);
-            }
-            const gf = activeBook.design?.fonts?.googleFonts;
-            if (gf && /^[A-Za-z0-9&=+:,;._%@-]+$/.test(gf)) {
-                const id = 'book-google-fonts';
-                let el = document.getElementById(id);
-                if (!el) { el = document.createElement('link'); el.id = id; el.rel = 'stylesheet'; document.head.appendChild(el); }
-                el.href = `https://fonts.googleapis.com/css2?${gf}&display=swap`;
             }
         } else {
             BOOK_VAR_KEYS.forEach(k => document.documentElement.style.removeProperty(k));
@@ -468,13 +477,29 @@ function App() {
         }
     };
 
-    const openBook = (id) => { setActiveBookId(id); setCurrentView('bookHome'); };
+    const openBook = (id) => {
+        const target = books.find(b => b.id === id);
+        setActiveBookId(id);
+        setCurrentView('bookHome');
+        if (target && !target.isImported) {
+            window.history.pushState({ hylstBook: id }, '', `?book=${encodeURIComponent(id)}`);
+        }
+    };
     const startReading = () => {
         window.HylstDB.saveProgress(activeBookId, 0, 0).then(() => {
             setCurrentView('reader');
         });
     };
-    const goBack = (to = 'library') => setCurrentView(to);
+    const goBack = (to = 'library') => {
+        if (to === 'library' && window.history.state && window.history.state.hylstBook) {
+            window.history.back();
+            return;
+        }
+        setCurrentView(to);
+        if (to === 'library') {
+            window.history.pushState({}, '', window.location.pathname);
+        }
+    };
 
     const renderView = () => {
         if (currentView === 'library') {
@@ -490,6 +515,7 @@ function App() {
                     onResume={(session) => {
                         setActiveBookId(session.bookId);
                         setCurrentView('reader');
+                        window.history.pushState({ hylstBook: session.bookId }, '', `?book=${encodeURIComponent(session.bookId)}`);
                     }}
                     onShowAbout={() => setShowAbout(true)}
                     onShowMusic={() => setShowMusic(true)}

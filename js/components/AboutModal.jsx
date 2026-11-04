@@ -1,11 +1,14 @@
 // js/components/AboutModal.jsx
 // Dépend de : window.Icon
 
-const { useState: useStateAbout } = React;
+const { useState: useStateAbout, useRef: useRefAbout } = React;
 
 function AboutModal({ onClose }) {
     const [activeTab, setActiveTab] = useStateAbout('about');
     const Icon = window.Icon;
+    const modalRef = useRefAbout(null);
+
+    window.useModalA11y(onClose, modalRef);
 
     const tabs = [
         { id: 'about', label: 'À propos', icon: <Icon.Info /> },
@@ -17,14 +20,14 @@ function AboutModal({ onClose }) {
 
     return (
         <div className="modal-backdrop" onClick={e => e.target === e.currentTarget && onClose()}>
-            <div className="modal-content about-modal-v2">
+            <div className="modal-content about-modal-v2" ref={modalRef} role="dialog" aria-modal="true" aria-label="À propos de La Bibliothèque de Hylst">
                 <div className="about-modal-glass-header">
                     <div className="about-modal-topbar">
                         <div className="about-header-title">
                             <div className="about-logo">H</div>
                             <div>
                                 <h3>La Bibliothèque de Hylst</h3>
-                                <span className="about-version">Version 1.8.3 &middot; 2026</span>
+                                <span className="about-version">Version 1.8.4 &middot; 2026</span>
                             </div>
                         </div>
                         <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>

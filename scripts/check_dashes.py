@@ -50,6 +50,7 @@ DEFAULT_FILES = [
 
 DEFAULT_GLOBS = [
     "public/books/**/*.html",
+    "livres/**/*.html",
     "js/components/*.jsx",
     "js/app.jsx",
 ]

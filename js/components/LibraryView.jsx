@@ -130,7 +130,7 @@ function BookCard({ book, onClick, delay = 0 }) {
 
     return (
         <a className="book-card" style={{ animationDelay: `${delay}ms` }}
-            href={book.isImported ? undefined : `?book=${encodeURIComponent(book.id)}`}
+            href={book.isImported ? undefined : `livres/${encodeURIComponent(book.id)}/`}
             onClick={e => { if (!book.isImported) e.preventDefault(); onClick(); }}
             role={book.isImported ? 'button' : undefined}
             tabIndex={book.isImported ? 0 : undefined}

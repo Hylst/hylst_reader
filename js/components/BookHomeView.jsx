@@ -7,6 +7,7 @@ function BookHomeView({ book, onBack, onStartReading }) {
     const Icon = window.Icon;
     const [coverUrl, setCoverUrl] = useStateBookHome(null);
     const [introHtml, setIntroHtml] = useStateBookHome('');
+    const [citationCopied, setCitationCopied] = useStateBookHome(false);
 
     useEffectBookHome(() => {
         if (book.coverBlob) {
@@ -34,6 +35,33 @@ function BookHomeView({ book, onBack, onStartReading }) {
             ? window.HylstSanitize.sanitizeHtml(introHtml)
             : '<p>Contenu importé bloqué : le module de sécurité HylstSanitize est indisponible.</p>')
         : introHtml;
+
+    const citationUrl = book.isImported
+        ? window.location.href
+        : new URL(`livres/${book.id}/`, document.baseURI).href;
+    const citationText = `Geoffroy Streit (Hylst), « ${book.title}${book.subtitle ? ` · ${book.subtitle}` : ''} », ${book.year || 's. d.'}. La Bibliothèque de Hylst. ${citationUrl}`;
+
+    const copyCitation = async () => {
+        try {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(citationText);
+            } else {
+                const area = document.createElement('textarea');
+                area.value = citationText;
+                area.setAttribute('readonly', '');
+                area.style.position = 'fixed';
+                area.style.opacity = '0';
+                document.body.appendChild(area);
+                area.select();
+                document.execCommand('copy');
+                document.body.removeChild(area);
+            }
+            setCitationCopied(true);
+            window.setTimeout(() => setCitationCopied(false), 2200);
+        } catch (e) {
+            window.prompt('Copier la citation :', citationText);
+        }
+    };
 
     const handleZoom = () => {
         if (coverUrl && typeof window.openLightbox === 'function') {
@@ -78,10 +106,15 @@ function BookHomeView({ book, onBack, onStartReading }) {
                 <div className="book-home-meta">
                     <h1 className="book-home-title">{book.title}</h1>
                     <p className="book-home-author">{book.author} {book.year ? `· ${book.year}` : ''}</p>
-                    <p className="book-rights-line">
-                        Texte de <strong>Geoffroy Streit</strong> &middot; &copy; Tous droits réservés &middot;
-                        {' '}<a href="droits.html">Citation &amp; IA</a>
-                    </p>
+                    <div className="book-rights-row">
+                        <p className="book-rights-line">
+                            Texte de <strong>Geoffroy Streit</strong> &middot; &copy; Tous droits réservés &middot;
+                            {' '}<a href="droits.html">Citation &amp; IA</a>
+                        </p>
+                        <button type="button" className="btn btn-ghost book-cite-btn" onClick={copyCitation} title="Copier la référence de cette œuvre">
+                            <Icon.Copy /> {citationCopied ? 'Citation copiée' : 'Citer'}
+                        </button>
+                    </div>
                     <button className="btn btn-primary" style={{ padding: '0.85rem 2rem', fontSize: '1rem', marginBottom: '2rem' }} onClick={onStartReading}>
                         Commencer la lecture <Icon.ArrowRight />
                     </button>

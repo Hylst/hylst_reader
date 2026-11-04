@@ -47,9 +47,14 @@ Hylst_Reader/
 │   ├── books.json           # Index général et descriptifs des livres
 │   └── social-share.png     # Image de partage Open Graph
 │
-├── vendor/                  # Dépendances JS auto-hébergées (React, Babel, JSZip, epub.js, DOMPurify)
+├── js/dist/                 # Sortie compilée des JSX (générée, servie au runtime)
+├── vendor/                  # Dépendances JS auto-hébergées (React, JSZip, epub.js, DOMPurify)
 │   └── LICENSES.md          # Versions, licences et empreintes SHA-256
 ├── scripts/
+│   ├── build_jsx.js         # Précompilation des JSX vers js/dist
+│   ├── build_book_pages.py  # Génération des 7 fiches statiques indexables
+│   ├── check_dashes.py      # Contrôle zéro tiret cadratin ou demi-cadratin
+│   ├── vendor/babel.min.js  # Babel, outil de build uniquement (non servi)
 │   └── sync-to-platform.ps1 # Synchronisation sûre vers Cours_Memos/Docker/books_reader
 ├── livres_pour_import/      # [Ignoré par Git] Sources des livres en local
 │   └── 2 futurs un choix/   # Fichiers originaux non-compilés
@@ -69,7 +74,7 @@ Hylst_Reader/
 ## 🛠️ Rôle des Outils & Scripts Spécifiques
 
 - **`build_books.py`** : Script Python qui scanne le dossier `livres_pour_import/`, convertit les fichiers textuels bruts en structures HTML sémantiques compatibles avec notre liseuse, copie les couvertures et génère l'index global dans `public/books.json`.
-- **`sw.js`** : Service Worker implémentant une stratégie de cache hybride (Network-First pour les fichiers locaux et Cache-First pour les CDN externes) garantissant l'accès complet hors-ligne.
-- **`index.html`** : Point d'entrée unique. Il charge les styles CSS Vanilla et transpile à la volée le code JSX en JavaScript compréhensible par le navigateur grâce à Babel Standalone (auto-hébergé dans `vendor/`).
-- **`vendor/`** : Bibliothèques JS servies localement, sans CDN au runtime.
+- **`sw.js`** : Service Worker qui précache l'app shell, `public/books.json`, les 66 contenus de livres, les 7 couvertures et les 7 fiches statiques, puis sert le local en Network-First avec repli cache.
+- **`index.html`** : Point d'entrée unique. Il charge les styles CSS Vanilla, le thème avant premier rendu et les fichiers `js/dist/*.js` déjà compilés. Babel n'est plus chargé par le navigateur.
+- **`vendor/`** : Bibliothèques JS servies localement, sans CDN au runtime. Babel est déplacé dans `scripts/vendor/` et reste un outil de build.
 - **`scripts/sync-to-platform.ps1`** : Miroir de production vers `D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader` (dépôt `Hylst/cours_info`, Coolify `hylst-cours`). Le script préserve l'`index.html` de production, calcule une empreinte de build et la propage dans `sw.js` et les `?v=`.

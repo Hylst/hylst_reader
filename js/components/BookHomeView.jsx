@@ -120,6 +120,9 @@ function BookHomeView({ book, onBack, onStartReading }) {
                             <button type="button" className="btn btn-ghost book-cite-btn" onClick={copyCitation} title="Copier la référence de cette œuvre">
                                 <Icon.Copy /> {citationCopied ? 'Citation copiée' : 'Citer'}
                             </button>
+                            <span className="sr-only" role="status" aria-live="polite">
+                                {citationCopied ? 'Citation copiée dans le presse-papiers.' : ''}
+                            </span>
                         </div>
                     )}
                     <button className="btn btn-primary" style={{ padding: '0.85rem 2rem', fontSize: '1rem', marginBottom: '2rem' }} onClick={onStartReading}>

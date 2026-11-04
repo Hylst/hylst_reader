@@ -1,7 +1,28 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
-## [1.8.5] - 2026-11-04
+## [1.8.6] - 2026-11-04
+### Modifié
+- **JSX précompilé, Babel retiré du runtime** : `scripts/build_jsx.js` compile les 10 fichiers JSX vers `js/dist/*.js` avec le runtime React classique. Chaque sortie est encapsulée dans une IIFE pour préserver l'isolation des portées. Babel est déplacé dans `scripts/vendor/babel.min.js`, reste un outil de build et n'est plus copié dans le miroir. `sync-to-platform.ps1` régénère la sortie et refuse un `--check` désynchronisé.
+- **Premier chargement nettement allégé** : 1,64 à 2,09 Mo et 49 à 57 requêtes selon les polices effectivement chargées, contre 4 435 554 octets et 56 requêtes en 1.8.5. Les 2 345 370 octets de Babel (53 % du chargement précédent) disparaissent du réseau. LCP local mesuré entre 472 et 892 ms selon les runs, contre 1 468 ms.
+- **Précache hors ligne complet** : le Service Worker précache l'app shell, `public/books.json`, les 66 introductions et chapitres, les 7 couvertures actives et les 7 fiches statiques, soit 122 entrées. Une navigation sans correspondance retombe sur l'app shell précaché. Les caches voisins de l'origine `hylst.fr` restent préservés.
+- **CSP en balise meta** : politique `default-src 'self'`, `script-src 'self'`, `object-src 'none'`, `base-uri 'self'`, images et médias limités au même domaine, aux données et aux blobs. Les scripts de thème et d'enregistrement du Service Worker sont externalisés dans `js/theme-boot.js` et `js/sw-register.js`. Les styles inline restent autorisés pour les pages statiques et les attributs React.
+- **Polices et musique locales** : l'index source utilise `/assets/fonts/fonts.css` comme la production, et les 282 pistes de `js/music_data.js` pointent vers `/hml/` au lieu de l'URL absolue. Aucune requête externe au premier chargement.
+- **Retour de citation annoncé** : la confirmation « Citation copiée dans le presse-papiers » est exposée dans une région `role="status" aria-live="polite"`, avec la classe `.sr-only`.
+- **Redirection 301 préparée** : le bloc Nginx `/books_reader/livres/<id>` vers `/books_reader/livres/<id>/` est ajouté à `nginx-coolify-reference.conf`. Il reste à le coller dans le panel Coolify pour l'activer en production.
+- Version 1.8.6, cache Service Worker source `hylst-reader-v60`.
+
+### Vérifié
+- Build local final `f24c89706fb0` : 105 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin, 205 fichiers runtime vérifiés, aucun dossier de travail dans le miroir.
+- axe sans violation sur la bibliothèque (sombre, sépia, clair), la fiche livre, la liseuse, les paramètres, la modale À propos et la bibliothèque musicale. Zéro violation CSP et zéro erreur console sur tous les états testés.
+- Hors ligne en profil vierge : bibliothèque, fiche livre, lecture de la préface, fiche statique de *Quinte* et changement de chapitre fonctionnent sans réseau. Cache final : 122 entrées, 66 contenus, 7 couvertures, 7 fiches.
+- Imports TXT, JSON et EPUB testés après CSP : aucun blocage, aucun message d'erreur.
+- Musique : lecture d'une piste depuis `/hml/`, bouton Pause actif, zéro violation CSP.
+- Thème : bascule sombre, sépia et clair, mémorisation après rechargement, couleur d'interface mise à jour.
+- Manifeste et icônes : 5 icônes PNG en 200, manifeste en 200. `.env`, `sources/`, `livres_pour_import/` et `scripts/` restent inaccessibles.
+- Aucune requête externe, aucune requête échouée et aucune réponse HTTP en erreur au premier chargement.
+
+
 ### Ajouté
 - **Section « Citer ce livre »** sur les sept fiches statiques (`livres/<id>/`) : modèle de référence avec auteur, titre, année et URL, rappel de la courte citation avec mention, et lien vers la page de droits. Les fiches ne reproduisent jamais le texte intégral.
 - **Section « Vos données »** sur `droits.html` : absence de cookie de mesure d'audience et de traceur publicitaire, stockage local des préférences et des livres importés, nature des journaux serveur, lien vers les mentions légales.

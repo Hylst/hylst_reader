@@ -4,40 +4,29 @@ Ce guide technique explique les choix d'architecture et de conception pour les d
 
 ---
 
-## 🏗️ 1. Architecture Globale : "Zero Build / Pure Frontend"
+## 🏗️ 1. Architecture globale : statique, avec précompilation JSX
 
-Contrairement à la majorité des applications React modernes qui nécessitent un processus de build complexe (`Vite`, `Webpack`, `Babel-CLI`, `Node.js`), ce projet est conçu pour être **directement lisible par un navigateur standard sans étape intermédiaire**.
+L'application se sert comme un site statique : aucun serveur applicatif, aucun framework côté serveur. Les sources JSX sont compilées **avant le déploiement** par `scripts/build_jsx.js`, puis le navigateur ne charge que du JavaScript classique depuis `js/dist/`.
 
 ### 🌟 Avantages de cette stack :
-1. **Zéro configuration** : Aucun besoin d'installer de dépendances npm complexes ou de gérer des incompatibilités de versions locales.
-2. **Maintenance infinie** : Les fichiers sources sont de simples fichiers statiques. Il n'y aura aucun problème d'outils de compilation obsolètes dans 5 ans.
-3. **Lancement instantané** : Modifiez le code dans votre éditeur, rafraîchissez votre navigateur, le changement est immédiat !
+1. **Runtime léger** : plus de Babel ni de transpilation dans le navigateur, donc environ 2,3 Mo et 53 % du premier chargement en moins.
+2. **Déploiement simple** : le miroir ne contient que des fichiers statiques. La compilation est une étape de build, pas une dépendance de production.
+3. **Contrôle** : `node scripts/build_jsx.js --check` échoue si `js/dist/` n'est pas à jour, et `sync-to-platform.ps1` l'exécute avant de calculer l'empreinte.
 
 ---
 
-## 📦 2. Chargement des Dépendances & Transpilation à la volée
+## 📦 2. Précompilation JSX et dépendances locales
 
-Toutes les dépendances critiques sont chargées via des CDN (Content Delivery Network) hautement optimisés dans `index.html` :
+Les dépendances critiques sont servies localement depuis `vendor/` : React 18.3.1, ReactDOM 18.3.1, idb-keyval 6.3.0, JSZip 3.10.2, epub.js 0.3.93 et DOMPurify 3.4.17. Aucun CDN n'est appelé au runtime.
 
-```html
-<!-- React & ReactDOM (Version Production de React 18) -->
-<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+Les sources JSX de `js/` et `js/components/` sont compilées avec le runtime React classique (`React.createElement`) vers `js/dist/` :
 
-<!-- Babel Standalone (Transpileur JSX à la volée dans le navigateur) -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-<!-- idb-keyval (Gestion simplifiée d'IndexedDB pour la persistance) -->
-<script src="https://cdn.jsdelivr.net/npm/idb-keyval@6/dist/umd.js"></script>
+```powershell
+node scripts/build_jsx.js           # régénère js/dist/
+node scripts/build_jsx.js --check   # vérifie que js/dist/ est à jour
 ```
 
-### 🧠 Comment le JSX est-il interprété ?
-Grâce à la déclaration suivante dans `index.html` :
-```html
-<script type="text/babel" data-type="module" src="js/app.jsx"></script>
-```
-Babel Standalone intercepte le fichier `js/app.jsx` (et ses composants dépendants importés), détecte les blocs JSX, et les compile en JavaScript ES5 à la volée directement dans le navigateur du lecteur. 
-De plus, `data-type="module"` indique à Babel de supporter et de transpirer les instructions `import` / `export` ES6, ce qui permet la modularisation du code.
+Babel reste un outil de build dans `scripts/vendor/babel.min.js`. Il n'est ni copié dans le miroir, ni chargé par `index.html`. Chaque fichier compilé est encapsulé dans une IIFE pour éviter les collisions de portée globale, et expose son API via `window.*`. L'ordre de chargement des scripts reste donc important : composants d'abord, `js/dist/app.js` en dernier.
 
 ---
 
@@ -60,17 +49,19 @@ Pour persister les données de progression sans serveur backend, nous utilisons 
 
 ---
 
-## 🌐 5. Cache PWA Offline complet (`sw.js`)
+## 🌐 5. Cache PWA offline complet (`sw.js`)
 
-Le Service Worker implémente deux types de stratégies de cache distinctes :
-1. **Network-First** pour les fichiers du dépôt local (HTML, CSS, images, JS locaux). Cela assure que si vous êtes connecté, vous obtenez toujours la version la plus à jour, avec une bascule immédiate sur le cache si le réseau tombe.
-2. **Cache-First** pour les bibliothèques CDN et Google Fonts. Comme ces librairies externes ne changent jamais, elles sont stockées de façon permanente en cache au premier chargement, évitant ainsi des appels réseau inutiles et bloquants en mode hors-ligne.
+À l'installation, le Service Worker précache :
+1. **L'app shell** : `index.html`, CSS, JS compilés, vendors, manifeste, icônes et `droits.html`.
+2. **Les contenus** : `public/books.json`, les 66 introductions et chapitres, les 7 couvertures actives et les 7 fiches statiques `livres/<id>/`.
+
+La stratégie réseau reste Network-First pour les fichiers locaux, avec repli sur le cache hors ligne. Une navigation sans correspondance retombe sur l'app shell déjà précaché. L'activation ne supprime que les caches préfixés `hylst-reader-` : les caches des autres applications de l'origine `hylst.fr` sont préservés.
 
 ---
 
 ## 🔒 6. Dépendances auto-hébergées (`vendor/`)
 
-Les bibliothèques critiques sont servies localement : React 18.3.1, ReactDOM 18.3.1, Babel Standalone 8.0.9, idb-keyval 6.3.0, JSZip 3.10.2, epub.js 0.3.93 et DOMPurify 3.4.17. Les versions, licences et empreintes SHA-256 sont documentées dans `vendor/LICENSES.md`.
+Les bibliothèques servies au runtime sont React 18.3.1, ReactDOM 18.3.1, idb-keyval 6.3.0, JSZip 3.10.2, epub.js 0.3.93 et DOMPurify 3.4.17. Les versions, licences et empreintes SHA-256 sont documentées dans `vendor/LICENSES.md`. Babel 8.0.9 figure à part, dans `scripts/vendor/`, comme outil de build non servi.
 
 Le chargement via CDN a été supprimé de `index.html` pour éviter les dépendances runtime externes et les risques de supply chain.
 

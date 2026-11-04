@@ -3,7 +3,7 @@
 
 import csv, json, re, os
 
-BASE_URL = "https://hylst.fr/hml/"
+BASE_URL = "/hml/"
 CSV_PATH = "mp3_online.csv"
 TXT_PATH = "mp3_online.txt"
 OUT_PATH = os.path.join("js", "music_data.js")

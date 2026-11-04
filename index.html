@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' blob: data:; media-src 'self' blob: data:; frame-src 'self' blob: data:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'">
     <title>La Bibliothèque de Hylst · Livres, proses et poésies de Geoffroy Streit</title>
     <noscript>
         <style>.initial-loader{display:none!important}</style>
@@ -263,23 +264,7 @@
     <meta name="theme-color" content="#0f0e0c" id="theme-color-meta">
 
     <!-- Thème appliqué avant le premier rendu : sombre par défaut, choix mémorisé respecté. -->
-    <script>
-        (function () {
-            var THEME_COLORS = { sepia: '#faf4e8', light: '#fafaf8', dark: '#0f0e0c' };
-            var theme = 'dark';
-            try {
-                var saved = JSON.parse(localStorage.getItem('hylst_settings') || 'null');
-                if (saved && Object.prototype.hasOwnProperty.call(THEME_COLORS, saved.theme)) {
-                    theme = saved.theme;
-                }
-            } catch (e) {
-                /* Stockage indisponible : on garde le mode sombre. */
-            }
-            document.documentElement.setAttribute('data-theme', theme);
-            var meta = document.getElementById('theme-color-meta');
-            if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
-        })();
-    </script>
+    <script src="js/theme-boot.js?v=1.8.6"></script>
 
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -290,30 +275,24 @@
     <link rel="icon" type="image/png" sizes="32x32" href="public/icons/icon-32.png">
     <link rel="apple-touch-icon" href="public/icons/apple-touch-icon.png">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Georgia&display=swap"
-        rel="stylesheet">
+    <!-- Polices auto-hébergées de la plateforme -->
+    <link rel="stylesheet" href="/assets/fonts/fonts.css">
 
     <!-- CSS Design System -->
-    <link rel="stylesheet" href="css/book-fonts.css?v=1.8.5">
-    <link rel="stylesheet" href="css/variables.css?v=1.8.5">
-    <link rel="stylesheet" href="css/base.css?v=1.8.5">
-    <link rel="stylesheet" href="css/layout.css?v=1.8.5">
-    <link rel="stylesheet" href="css/components.css?v=1.8.5">
-    <link rel="stylesheet" href="css/modals.css?v=1.8.5">
-    <link rel="stylesheet" href="css/music.css?v=1.8.5">
-    <link rel="stylesheet" href="css/reader.css?v=1.8.5">
-    <link rel="stylesheet" href="css/responsive.css?v=1.8.5">
+    <link rel="stylesheet" href="css/book-fonts.css?v=1.8.6">
+    <link rel="stylesheet" href="css/variables.css?v=1.8.6">
+    <link rel="stylesheet" href="css/base.css?v=1.8.6">
+    <link rel="stylesheet" href="css/layout.css?v=1.8.6">
+    <link rel="stylesheet" href="css/components.css?v=1.8.6">
+    <link rel="stylesheet" href="css/modals.css?v=1.8.6">
+    <link rel="stylesheet" href="css/music.css?v=1.8.6">
+    <link rel="stylesheet" href="css/reader.css?v=1.8.6">
+    <link rel="stylesheet" href="css/responsive.css?v=1.8.6">
 
     <!-- Dépendances auto-hébergées (vendor/), pas de CDN au runtime -->
     <!-- React & ReactDOM (UMD) -->
     <script src="vendor/react.production.min.js"></script>
     <script src="vendor/react-dom.production.min.js"></script>
-    <!-- Babel for in-browser JSX transpilation -->
-    <script src="vendor/babel.min.js"></script>
     <!-- idb-keyval for IndexedDB storage (UMD → window.idbKeyval) -->
     <script src="vendor/idb-keyval.js"></script>
     <!-- JSZip & epub.js for EPUB import -->
@@ -352,53 +331,43 @@
     </noscript>
 
     <!--
-        IMPORTANT : Babel standalone ne supporte PAS les imports ES6 inter-fichiers.
-        Chaque fichier JSX doit être chargé individuellement, SANS data-type="module".
-        L'ordre de chargement est critique : les dépendances d'abord, l'app en dernier.
-        Chaque fichier expose son contenu sur window.* pour être accessible globalement.
+        Les fichiers JSX sont précompilés par scripts/build_jsx.js vers js/dist/.
+        Le runtime ne charge plus Babel. L'ordre de chargement reste critique :
+        les dépendances d'abord, l'app en dernier. Chaque fichier expose son
+        contenu sur window.* pour être accessible globalement.
     -->
 
     <!-- 1. Données -->
-    <script src="js/music_data.js?v=1.8.5"></script>
+    <script src="js/music_data.js?v=1.8.6"></script>
 
     <!-- 2. Sécurité des contenus importés -->
-    <script src="js/sanitize.js?v=1.8.5"></script>
+    <script src="js/sanitize.js?v=1.8.6"></script>
 
     <!-- 4. Utilitaires & DB (plain JS, pas de JSX) -->
-    <script src="js/db.js?v=1.8.5"></script>
-    <script src="js/importAPI.js?v=1.8.5"></script>
-    <script src="js/modalA11y.js?v=1.8.5"></script>
+    <script src="js/db.js?v=1.8.6"></script>
+    <script src="js/importAPI.js?v=1.8.6"></script>
+    <script src="js/modalA11y.js?v=1.8.6"></script>
 
     <!-- 5. Composants de base (sans dépendances inter-composants) -->
-    <script type="text/babel" src="js/components/Icon.jsx?v=1.8.5"></script>
-    <script type="text/babel" src="js/components/Ambience.jsx?v=1.8.5"></script>
+    <script src="js/dist/components/Icon.js?v=1.8.6"></script>
+    <script src="js/dist/components/Ambience.js?v=1.8.6"></script>
 
     <!-- 6. Composants modaux (dépendent de Icon & Ambience) -->
-    <script type="text/babel" src="js/components/AboutModal.jsx?v=1.8.5"></script>
-    <script type="text/babel" src="js/components/GlobalSettingsModal.jsx?v=1.8.5"></script>
-    <script type="text/babel" src="js/components/MusicPlayerModal.jsx?v=1.8.5"></script>
-    <script type="text/babel" src="js/components/ImageLightbox.jsx?v=1.8.5"></script>
+    <script src="js/dist/components/AboutModal.js?v=1.8.6"></script>
+    <script src="js/dist/components/GlobalSettingsModal.js?v=1.8.6"></script>
+    <script src="js/dist/components/MusicPlayerModal.js?v=1.8.6"></script>
+    <script src="js/dist/components/ImageLightbox.js?v=1.8.6"></script>
 
     <!-- 7. Vues (dépendent de Icon, Ambience, HylstDB) -->
-    <script type="text/babel" src="js/components/BookHomeView.jsx?v=1.8.5"></script>
-    <script type="text/babel" src="js/components/LibraryView.jsx?v=1.8.5"></script>
-    <script type="text/babel" src="js/components/ReaderView.jsx?v=1.8.5"></script>
+    <script src="js/dist/components/BookHomeView.js?v=1.8.6"></script>
+    <script src="js/dist/components/LibraryView.js?v=1.8.6"></script>
+    <script src="js/dist/components/ReaderView.js?v=1.8.6"></script>
 
     <!-- 8. App principale (orchestre tout) -->
-    <script type="text/babel" src="js/app.jsx?v=1.8.5"></script>
+    <script src="js/dist/app.js?v=1.8.6"></script>
 
     <!-- PWA Service Worker Registration -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js').then(reg => {
-                    console.log('ServiceWorker registration successful', reg.scope);
-                }).catch(err => {
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
-    </script>
+    <script src="js/sw-register.js?v=1.8.6"></script>
 </body>
 
 </html>

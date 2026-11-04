@@ -6,6 +6,7 @@
 - [ ] **Preset Lecture Longue** : Ajouter une option pour réduire automatiquement toutes les animations après 20 minutes de lecture.
 
 ## ✅ Terminé (Récemment)
+- [x] **La Bibliothèque de Hylst (1.8.6)** : JSX précompilé vers `js/dist/`, Babel retiré du runtime (-2,35 Mo au premier chargement), précache hors ligne de l'app shell et des 66 contenus, CSP meta avec scripts inline externalisés, `aria-live` sur la citation, polices et musique locales, 301 des fiches livres préparé dans la configuration Nginx de référence.
 - [x] **La Bibliothèque de Hylst (1.8.1)** : règle zéro tiret sur toute la bibliothèque, scanner `check_dashes.py`, patch Quinte (doublon, Âme, badge En chantier, tags), images 512×800 Wattpad, grille `minmax(260px, 1fr)`, visionneuse plein écran `ImageLightbox.jsx`, Direction A « Cabinet de curiosités » et carnet de bord de l'auteur.
 - [x] **La Bibliothèque de Hylst (1.8.0)** : renommage complet, nom court PWA *Biblio Hylst*, signature, alias `/bibliotheque/` en 301, badge Nouveau sur *L'Odyssée de l'énergie*, correction du voile d'ambiance, illustrations d'origine des 29 textes et intégration de *Quinte*.
 - [x] **Recueils Wattpad (1.7.1)** : suppression de tous les tirets cadratins/demi-cadratins, restauration intégrale des deux lignes de titre, mention « 100 % humain » et métadonnées d'auteur corrigées.

@@ -130,6 +130,16 @@ if ($LASTEXITCODE -ne 0) {
 $sourceIndex = Get-Content -Raw -Encoding UTF8 -LiteralPath $SourceIndexPath
 $targetIndex = Get-Content -Raw -Encoding UTF8 -LiteralPath $TargetIndexPath
 
+# Les index de production anterieurs peuvent encore pointer vers js/dist/*.jsx :
+# le runtime ne charge que des .js precompiles, on normalise l'extension.
+if ($targetIndex -match 'js/dist/[^"'']+\.jsx') {
+    $targetIndex = [regex]::Replace($targetIndex, '(js/dist/[^"'']+)\.jsx', '$1.js')
+    if (-not $DryRun) {
+        Write-Utf8NoBom $TargetIndexPath $targetIndex
+    }
+    Warn "Index production : extensions .jsx normalisees en .js."
+}
+
 $cdnPattern = 'https://unpkg\.com|https://cdn\.jsdelivr\.net|https://cdnjs\.cloudflare\.com'
 if ($sourceIndex -match $cdnPattern) {
     Fail "L'index source utilise encore un CDN. Aligne-le sur vendor/ avant de synchroniser."
@@ -138,7 +148,7 @@ if ($sourceIndex -match $cdnPattern) {
 $sourceMarkers = @(
     'vendor/react.production.min.js',
     'vendor/react-dom.production.min.js',
-    'vendor/babel.min.js',
+    'js/dist/app.js',
     'vendor/idb-keyval.js',
     'vendor/jszip.min.js',
     'vendor/epub.min.js',
@@ -158,7 +168,7 @@ $targetMarkers = @(
     'href="/assets/fonts/fonts.css"',
     'src="vendor/react.production.min.js"',
     'src="vendor/react-dom.production.min.js"',
-    'src="vendor/babel.min.js"',
+    'src="js/dist/app.js',
     'src="vendor/idb-keyval.js"',
     'src="vendor/jszip.min.js"',
     'src="vendor/epub.min.js"',
@@ -275,6 +285,21 @@ if ($LASTEXITCODE -ne 0) {
     Fail "Generation des fiches statiques en echec."
 }
 
+# Compilation JSX : le runtime ne charge plus Babel. Les fichiers servis sont
+# js/dist/*.js, regeneres ici pour ne jamais deployer une version perimee.
+$jsxScript = Join-Path $Source 'scripts\build_jsx.js'
+if (-not (Test-Path -LiteralPath $jsxScript)) {
+    Fail "scripts/build_jsx.js manquant : compilation JSX impossible."
+}
+& node $jsxScript
+if ($LASTEXITCODE -ne 0) {
+    Fail "Compilation JSX en echec."
+}
+& node $jsxScript --check
+if ($LASTEXITCODE -ne 0) {
+    Fail "Les fichiers compiles js/dist ne sont pas a jour."
+}
+
 # ---------------------------------------------------------------------------
 # 2. Calcul de l'empreinte de build
 # ---------------------------------------------------------------------------
@@ -292,7 +317,10 @@ $hashFiles.Add((Get-Item -LiteralPath (Join-Path $Source 'sw.js')))
 foreach ($dir in $runtimeDirs) {
     $srcDir = Join-Path $Source $dir
     if (-not (Test-Path -LiteralPath $srcDir)) { Fail "Dossier source manquant : $srcDir" }
-    Get-ChildItem -LiteralPath $srcDir -Recurse -File -Force | ForEach-Object { $hashFiles.Add($_) }
+    # Les sources .jsx ne sont jamais servies : seuls les .js de js/dist le sont.
+    Get-ChildItem -LiteralPath $srcDir -Recurse -File -Force |
+        Where-Object { $_.Extension -ne '.jsx' } |
+        ForEach-Object { $hashFiles.Add($_) }
 }
 
 $hashLines = $hashFiles |
@@ -324,6 +352,10 @@ foreach ($dir in $runtimeDirs) {
     } else {
         Get-ChildItem -LiteralPath $srcDir -Force | ForEach-Object {
             Copy-Item -LiteralPath $_.FullName -Destination $dstDir -Recurse -Force
+        }
+        if ($dir -eq 'js') {
+            Get-ChildItem -LiteralPath $dstDir -Recurse -File -Filter '*.jsx' -Force |
+                ForEach-Object { Remove-Item -LiteralPath $_.FullName -Force }
         }
     }
 }
@@ -422,6 +454,12 @@ if (-not $DryRun) {
     }
     if ($afterIndex -match $cdnPattern -or $afterIndex -match 'https://fonts\.googleapis\.com') {
         Fail "L'index de production contient encore une dépendance externe."
+    }
+    if ($afterIndex -match 'js/dist/[^"'']+\.jsx|type="text/babel"|vendor/babel\.min\.js') {
+        Fail "L'index de production référence encore Babel ou des sources JSX non compilées."
+    }
+    if (Get-ChildItem -LiteralPath (Join-Path $Target 'js') -Recurse -File -Filter '*.jsx' -Force) {
+        Fail "Le miroir contient encore des sources .jsx non servies."
     }
 
     $afterSw = Get-Content -Raw -Encoding UTF8 -LiteralPath $TargetSwPath

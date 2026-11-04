@@ -31,11 +31,12 @@ Si vous préférez utiliser l'écosystème Node :
 
 ---
 
-## 🏗️ 2. Build et Compilation des Livres
+## 🏗️ 2. Build JSX et compilation des livres
 
-Étant donné que l'application tourne entièrement côté client, l'étape `npm run build` n'existe pas en tant que telle. Il n'y a pas de bundle JS ou CSS à compiler. 
+L'application n'a pas de bundler généraliste, mais deux étapes de build sont nécessaires avant un déploiement :
 
-Cependant, il existe une étape de **compilation des livres** si vous modifiez ou ajoutez des écrits bruts dans le dossier de source :
+1. **Précompiler le JSX** : `node scripts/build_jsx.js` régénère `js/dist/`. Le mode `--check` échoue si la sortie est périmée. `scripts/sync-to-platform.ps1` exécute les deux automatiquement.
+2. **Compiler les livres** si vous modifiez ou ajoutez des écrits bruts dans le dossier de source :
 1. Assurez-vous d'avoir placé vos textes originaux dans le dossier `livres_pour_import/2 futurs un choix/`.
 2. Exécutez le script de build Python à la racine du projet :
    ```powershell
@@ -58,15 +59,16 @@ Le déploiement actuel ne se fait pas via un service Coolify dédié au lecteur,
 | Racine du dépôt | `D:\0CODE\AntiGravity\Cours_Memos\Docker` |
 | Conteneur | Nginx statique, app Coolify `hylst-cours` |
 | URL | `https://hylst.fr/books_reader/` |
-| Build | Aucun build : copie statique, pas de Dockerfile dédié |
+| Build | Précompilation JSX (`scripts/build_jsx.js`) puis copie statique, pas de Dockerfile dédié |
 
 Procédure recommandée :
 
 ```powershell
-# 1. Tester la source
-python -m http.server 8000
+# 1. Précompiler le JSX et vérifier la sortie
+node scripts/build_jsx.js
+node scripts/build_jsx.js --check
 
-# 2. Synchroniser vers le miroir de production
+# 2. Synchroniser vers le miroir de production (relance le build JSX et les fiches)
 powershell -ExecutionPolicy Bypass -File .\scripts\sync-to-platform.ps1
 
 # 3. Vérifier, puis committer (option -Commit), et pousser manuellement
@@ -102,8 +104,8 @@ Coolify va cloner votre projet et le servir au travers d'un container Docker éq
 
 ### Étape 3.3 : Pourquoi les chemins ne se cassent pas en sous-dossier ?
 L'application a été conçue pour utiliser des **chemins relatifs et non absolus** :
-- **Correct (Relatif)** : `css/variables.css` ou `js/app.jsx` (ou `./public/covers/...`).
-- **Incorrect (Absolu)** : `/css/variables.css` ou `/js/app.jsx` (chercherait les fichiers à la racine absolue `https://hylst.fr/` au lieu de `https://hylst.fr/books_reader/`).
+- **Correct (Relatif)** : `css/variables.css`, `js/dist/app.js` (ou `./public/covers/...`).
+- **Absolu volontaire** : `/assets/fonts/fonts.css` et `/hml/...` sont servis à la racine de la plateforme, pas dans `/books_reader/`.
 
 Grâce à cette précaution, le container Nginx statique créé par Coolify servira tous vos fichiers à la perfection au sein de `/books_reader/`.
 
@@ -123,3 +125,15 @@ server {
 }
 ```
 *(Dans la plupart des cas de sites Pure Statiques simples, la configuration par défaut de Coolify sans Nginx complexe fonctionne directement).*
+
+### Étape 3.5 : Redirection des fiches livres sans slash
+
+La configuration de référence `Cours_Memos/Docker/nginx-coolify-reference.conf` contient le bloc à appliquer dans le panel Coolify pour rediriger `/books_reader/livres/<id>` vers `/books_reader/livres/<id>/` en 301, query conservée :
+
+```nginx
+location ~ ^/books_reader/livres/([^/]+)$ {
+    return 301 /books_reader/livres/$1/$is_args$args;
+}
+```
+
+Le bloc regex ne capte ni `/books_reader/livres/` ni les fichiers `.html`. La référence locale ne déploie rien : la modification doit être collée dans la configuration Nginx du service `hylst-cours` dans Coolify.

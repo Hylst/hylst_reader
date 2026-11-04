@@ -24,7 +24,7 @@ L'objectif principal actuel est d'affiner l'expérience de lecture et la perform
 - [x] **Optimisation Performance** : Cache-busting vers v1.1.12 et service worker actualisé pour garantir les mises à jour.
 
 ## 🛠️ Stack Technique
-- **Frontend** : React 18, Babel, JSZip, ePub.js (chargés via CDN, mis en cache dynamiquement pour le offline), Vanilla CSS avec modules.
+- **Frontend** : React 18, JSX précompilé au build, JSZip, ePub.js et dépendances auto-hébergées dans `vendor/`. Service Worker avec précache de l'app shell et des livres pour le hors ligne.
 - **Stockage** : IndexedDB (`idb-keyval`) pour l'offline total avec persistance robuste de l'intégralité des livres.
 - **Animations** : CSS3 avancé avec keyframes, transitions et gestion fine du z-index.
 - **Algorithmes** : Calcul intelligent du temps de lecture basé sur la vitesse et la longueur du contenu.

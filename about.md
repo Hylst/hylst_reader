@@ -23,11 +23,11 @@ L'application a été conçue pour offrir un cadre noble et apaisant aux œuvres
 
 ---
 
-## 🚀 Technologie (Stack v1.2.0)
+## 🚀 Technologie (Stack v1.8.6)
 L'application utilise une stack moderne "Pure Frontend" optimisée pour la modularité et les performances :
-- **React 18 & Babel CDN** : Interface réactive découpée en composants ES6 autonomes transpiles à la volée.
+- **React 18 & JSX précompilé** : Interface réactive découpée en composants ES6 autonomes, compilés au build vers `js/dist/`. Aucun transpileur n'est chargé par le navigateur.
 - **IndexedDB (`idb-keyval`)** : Persistance robuste sans serveur pour les textes, signets et progressions de lecture.
-- **Service Workers (PWA)** : Fonctionnement offline total. Stratégie de cache mixte (Network-First pour les assets du dépôt et Cache-First pour les CDNs externes), assurant la résilience complète hors-ligne.
+- **Service Workers (PWA)** : Précache de l'app shell, des contenus de livres et des couvertures, puis Network-First avec repli cache. La bibliothèque et la lecture fonctionnent hors ligne.
 - **CSS3 Vanilla modulaire** : Design soigné reposant sur des variables et des tokens (grain de papier animés, z-index stables et animations fluides).
 
 ---

@@ -31,10 +31,10 @@
 
 ## 🚀 Architecture & Technos
 
-- **Framework** : React 18 (Babel et dépendances auto-hébergées dans `vendor/`) - sans étape de build obligatoire !
+- **Framework** : React 18, JSX précompilé vers `js/dist/` par `scripts/build_jsx.js`. Babel reste un outil de build, jamais chargé par le navigateur.
 - **Modularité** : Composants React isolés et autonomes au sein de `js/components/`.
 - **Stockage** : `idb-keyval` (IndexedDB) pour la persistance locale totale de vos bibliothèques.
-- **PWA & Offline** : Service Worker (`sw.js`) pour l'installation native et cache-first des CDNs. Le mode hors-ligne est donc pleinement fonctionnel une fois l'application ouverte une première fois.
+- **PWA & Offline** : Service Worker (`sw.js`) qui précache l'app shell, les 66 contenus de livres et les 7 couvertures. La bibliothèque, les fiches et la lecture restent accessibles hors ligne dès la première visite terminée.
 - **Design** : CSS3 Vanilla modulaire.
 
 ---
@@ -44,7 +44,7 @@
 Pour comprendre en profondeur le fonctionnement de l'application, consultez nos guides dédiés :
 1. 📁 **[Structure du Projet](structure.md)** : Cartographie des dossiers et fichiers.
 2. 🛠️ **[Fonctionnalités Détaillées](features.md)** : Descriptif des outils de la liseuse.
-3. 🧠 **[Conception Technique](readme-dev.md)** : Explications sur React CDN, Babel Standalone et IndexedDB.
+3. 🧠 **[Conception Technique](readme-dev.md)** : Explications sur React, la précompilation JSX, le Service Worker et IndexedDB.
 4. 🚀 **[Guide de Test et Déploiement](test_build_deploy.md)** : Guide Windows local + déploiement réel dans `Cours_Memos/Docker/books_reader` (dépôt `Hylst/cours_info`, Coolify `hylst-cours`) et script `scripts/sync-to-platform.ps1`.
 
 ---

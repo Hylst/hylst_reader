@@ -20,6 +20,12 @@
     overflow: hidden;
 }
 
+/* Sans titre sélectionné, la colonne du lecteur n'est pas rendue :
+   on libère toute la largeur pour la grille musicale. */
+.music-player-layout.without-player {
+    grid-template-columns: 1fr;
+}
+
 /* Glass Header */
 .music-modal-glass-header {
     background: linear-gradient(135deg, color-mix(in srgb, var(--app-primary) 12%, var(--app-surface)), color-mix(in srgb, var(--app-surface-hover) 80%, var(--app-surface)));

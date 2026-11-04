@@ -47,7 +47,7 @@ function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isLoop, on
                     </div>
                 </div>
 
-                <div className="music-player-layout">
+                <div className={`music-player-layout${currentTrack ? '' : ' without-player'}`}>
                     <div className="music-list-side">
                         <div className="music-grid">
                             {filteredTracks.map(track => (

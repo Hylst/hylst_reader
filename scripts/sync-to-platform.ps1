@@ -4,16 +4,20 @@
     Synchronise Hylst_Reader vers le miroir de production de la plateforme Hylst.
 
 .DESCRIPTION
-    Copie uniquement les fichiers runtime (css, js, public, vendor, manifest.json, sw.js)
-    dans D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader.
+    Copie uniquement les fichiers runtime (css, js, public, vendor, manifest.json, sw.js,
+    droits.html) dans D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader.
 
     L'index.html de production est PRÉSERVÉ : il contient le patch plateforme
     (vendor/, /assets/fonts/fonts.css, canonical). Le script vérifie que ce patch
-    est toujours présent et refuse de continuer sinon.
+    et le bloc SEO-RIGHTS sont toujours présents et refuse de continuer sinon.
+
+    Les dossiers de travail sources/ et livres_pour_import/ ne doivent jamais être
+    servis : le script les supprime du miroir et échoue s'ils réapparaissent.
 
     Le script :
       - vérifie la source et la cible ;
       - refuse un index source ou cible qui pointerait encore vers un CDN ;
+      - supprime du miroir les dossiers de travail non publics ;
       - calcule une empreinte de build et l'injecte dans sw.js et les ?v= de l'index ;
       - met à jour la date du sitemap ;
       - vérifie les empreintes des fichiers copiés ;
@@ -101,6 +105,7 @@ $TargetSwPath = Join-Path $Target 'sw.js'
 $TargetSitemapPath = Join-Path $Target 'sitemap.xml'
 
 if (-not (Test-Path -LiteralPath $SourceIndexPath)) { Fail "index.html source manquant : $SourceIndexPath" }
+if (-not (Test-Path -LiteralPath (Join-Path $Source 'droits.html'))) { Fail "droits.html source manquant : $Source" }
 if (-not (Test-Path -LiteralPath $TargetIndexPath)) { Fail "index.html cible manquant : $TargetIndexPath" }
 if (-not (Test-Path -LiteralPath (Join-Path $Target 'vendor'))) { Fail "vendor/ cible manquant : $Target" }
 if (-not (Test-Path -LiteralPath $TargetSitemapPath)) { Fail "sitemap.xml cible manquant : $TargetSitemapPath" }
@@ -158,6 +163,10 @@ $targetMarkers = @(
     'src="vendor/purify.min.js"',
     'src="js/sanitize.js',
     'rel="canonical" href="https://hylst.fr/books_reader/"',
+    'SEO-RIGHTS:START',
+    'SEO-RIGHTS:END',
+    'tdm-reservation',
+    'droits.html',
     'data-theme="dark"',
     'id="theme-color-meta"'
 )
@@ -201,16 +210,67 @@ if (Test-Path -LiteralPath $targetEnv) {
     }
 }
 
+# Dossiers de travail qui ne doivent jamais être servis publiquement.
+# Ils contiennent des manuscrits bruts et des archives non contrôlées typographiquement.
+$forbiddenDirs = @('sources', 'livres_pour_import', '__pycache__')
+
+# Documents de développement et scripts de génération : utiles en local,
+# jamais nécessaires au runtime. Ils ne doivent pas être téléchargeables.
+$forbiddenFiles = @(
+    'about.md',
+    'antigravity.md',
+    'build_books.py',
+    'CHANGELOG.md',
+    'convert_energy_docx.py',
+    'features.md',
+    'gen_music_data.py',
+    'hylst_converter.py',
+    'mp3_online.csv',
+    'mp3_online.txt',
+    'README.md',
+    'readme-dev.md',
+    'resume.md',
+    'stitch_prompt.md',
+    'structure.md',
+    'test_build_deploy.md',
+    'todo.md'
+)
+
+foreach ($dir in $forbiddenDirs) {
+    $forbiddenPath = Join-Path $Target $dir
+    if (Test-Path -LiteralPath $forbiddenPath) {
+        if ($DryRun) {
+            Warn "DryRun : le dossier non public serait supprimé du miroir : $dir/"
+        } else {
+            Remove-Item -LiteralPath $forbiddenPath -Recurse -Force
+            Warn "Supprimé du miroir servi : $dir/ (source de travail, jamais publique)."
+        }
+    }
+}
+
+foreach ($file in $forbiddenFiles) {
+    $forbiddenPath = Join-Path $Target $file
+    if (Test-Path -LiteralPath $forbiddenPath) {
+        if ($DryRun) {
+            Warn "DryRun : le fichier de développement serait supprimé du miroir : $file"
+        } else {
+            Remove-Item -LiteralPath $forbiddenPath -Force
+            Warn "Supprimé du miroir servi : $file (document de développement)."
+        }
+    }
+}
+
 # ---------------------------------------------------------------------------
 # 2. Calcul de l'empreinte de build
 # ---------------------------------------------------------------------------
 
 $runtimeDirs = @('css', 'js', 'public', 'vendor')
-$runtimeFiles = @('manifest.json', 'sw.js')
+$runtimeFiles = @('manifest.json', 'sw.js', 'droits.html')
 
 $hashFiles = New-Object System.Collections.Generic.List[System.IO.FileInfo]
 $hashFiles.Add((Get-Item -LiteralPath $SourceIndexPath))
 $hashFiles.Add((Get-Item -LiteralPath (Join-Path $Source 'manifest.json')))
+$hashFiles.Add((Get-Item -LiteralPath (Join-Path $Source 'droits.html')))
 foreach ($dir in $runtimeDirs) {
     $srcDir = Join-Path $Source $dir
     if (-not (Test-Path -LiteralPath $srcDir)) { Fail "Dossier source manquant : $srcDir" }
@@ -275,7 +335,7 @@ if (-not $DryRun) {
         }
     }
 
-    & python $dashScript --root $Target
+    & python $dashScript --root $Target --all
     if ($LASTEXITCODE -ne 0) {
         Fail "Tirets cadratins ou demi-cadratins détectés dans la cible."
     }
@@ -325,6 +385,18 @@ if (-not $DryRun) {
         $checked++
     }
     Ok "$checked fichiers runtime vérifiés (hors index.html et sw.js)."
+
+    foreach ($dir in $forbiddenDirs) {
+        if (Test-Path -LiteralPath (Join-Path $Target $dir)) {
+            Fail "Le dossier $dir/ est présent dans le miroir servi. Il doit rester hors de books_reader/."
+        }
+    }
+    foreach ($file in $forbiddenFiles) {
+        if (Test-Path -LiteralPath (Join-Path $Target $file)) {
+            Fail "Le fichier de développement $file est présent dans le miroir servi."
+        }
+    }
+    Ok "Aucun dossier ni fichier de travail dans le miroir."
 
     $afterIndex = Get-Content -Raw -Encoding UTF8 -LiteralPath $TargetIndexPath
     if ($afterIndex -notmatch [regex]::Escape("?v=$buildHash")) {

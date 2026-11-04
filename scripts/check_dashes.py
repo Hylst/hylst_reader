@@ -42,6 +42,7 @@ TEXT_EXTS = {".html", ".jsx", ".js", ".css", ".json", ".md", ".py", ".txt"}
 
 DEFAULT_FILES = [
     "index.html",
+    "droits.html",
     "manifest.json",
     "sw.js",
     "public/books.json",

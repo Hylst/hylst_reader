@@ -256,6 +256,17 @@ function App() {
 
     const activeBook = useMemo(() => books.find(b => b.id === activeBookId), [books, activeBookId]);
 
+    // Titre d'onglet contextualisé : utile au référencement et à l'historique du navigateur.
+    useEffect(() => {
+        const baseTitle = 'La Bibliothèque de Hylst · Livres, proses et poésies de Geoffroy Streit';
+        const shortTitle = 'La Bibliothèque de Hylst';
+        if (activeBook && currentView !== 'library') {
+            document.title = `${activeBook.title} · ${shortTitle}`;
+        } else {
+            document.title = baseTitle;
+        }
+    }, [activeBook, currentView]);
+
     useEffect(() => {
         if (settings.theme !== 'sepia') return;
         if (activeBook?.design?.variables) {

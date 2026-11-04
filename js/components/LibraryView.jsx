@@ -28,7 +28,7 @@ const FUTURE_BOOKS = [
 function AnimatedAppTitle({ className = "", style = {} }) {
     const text = "La Bibliothèque de Hylst";
     return (
-        <span className={`app-title animated-title ${className}`.trim()} style={style} aria-label={text} title={text}>
+        <h1 className={`app-title animated-title ${className}`.trim()} style={style} aria-label={text} title={text}>
             {text.split('').map((char, index) => (
                 <span
                     key={index}
@@ -39,7 +39,7 @@ function AnimatedAppTitle({ className = "", style = {} }) {
                     {char}
                 </span>
             ))}
-        </span>
+        </h1>
     );
 }
 
@@ -129,8 +129,12 @@ function BookCard({ book, onClick, delay = 0 }) {
     };
 
     return (
-        <div className="book-card" style={{ animationDelay: `${delay}ms` }} onClick={onClick} role="button" tabIndex={0}
-            onKeyDown={e => e.key === 'Enter' && onClick()}>
+        <a className="book-card" style={{ animationDelay: `${delay}ms` }}
+            href={book.isImported ? undefined : `?book=${encodeURIComponent(book.id)}`}
+            onClick={e => { if (!book.isImported) e.preventDefault(); onClick(); }}
+            role={book.isImported ? 'button' : undefined}
+            tabIndex={book.isImported ? 0 : undefined}
+            onKeyDown={book.isImported ? (e => e.key === 'Enter' && onClick()) : undefined}>
             <div className="book-cover-container">
                 {coverUrl
                     ? <img src={coverUrl} alt={book.title} loading="lazy" className="book-cover" />
@@ -166,7 +170,7 @@ function BookCard({ book, onClick, delay = 0 }) {
                     <div className="book-progress-fill" style={{ width: `${progress * 100}%` }} />
                 </div>
             )}
-        </div>
+        </a>
     );
 }
 
@@ -255,7 +259,7 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                     </div>
                 )}
 
-                <div className="library-section-label">Œuvres intégrées</div>
+                <h2 className="library-section-label">Œuvres intégrées</h2>
                 <p className="library-section-desc">
                     Livres, proses, poésies et récits de Geoffroy Streit (alias Hylst).
                 </p>
@@ -271,9 +275,9 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                     </div>
                 )}
 
-                <div className="library-section-label future-label">
+                <h2 className="library-section-label future-label">
                     À venir &middot; Contenus en préparation <span className="wip-badge">En cours</span>
-                </div>
+                </h2>
                 <div className="future-intro author-note-dispatch">
                     <div className="future-block author-note-parchment">
                         <div className="author-note-header-line">
@@ -301,7 +305,7 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                 </div>
 
                 <div className="library-section-label user-library-label">
-                    Vos autres lectures
+                    <h2 className="library-section-heading">Vos autres lectures</h2>
                     <div style={{ display: 'flex', gap: '0.5rem', marginLeft: 'auto' }}>
                         <button className="btn" style={{ fontSize: '0.75rem', padding: '0.25rem 0.6rem' }} onClick={onImport} title="Importer .txt, .md ou .json">
                             <Icon.Plus /> Fichier
@@ -349,6 +353,12 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                         &nbsp;&middot;&nbsp;
                         <a href="mailto:geoffroy.streit@gmail.com" className="footer-mail">
                             <Icon.Mail /> geoffroy.streit@gmail.com
+                        </a>
+                    </div>
+                    <div className="footer-rights">
+                        <span>&copy; 2026 Geoffroy Streit &middot; Tous droits réservés</span>
+                        <a href="droits.html" className="footer-rights-link" title="Droits d'auteur, citation et intelligence artificielle">
+                            <Icon.Shield /> Droits &amp; IA
                         </a>
                     </div>
                 </div>

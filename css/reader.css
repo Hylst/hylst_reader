@@ -533,6 +533,23 @@
     text-align: center;
 }
 
+.chapter-rights {
+    margin: 0.4rem 0 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    color: var(--book-muted, var(--app-muted));
+}
+
+.chapter-rights a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.chapter-rights a:hover {
+    color: var(--book-accent, var(--app-primary));
+}
+
 .chapter-end-label {
     font-family: var(--font-sans, sans-serif);
     font-size: 0.7rem;

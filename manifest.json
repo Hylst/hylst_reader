@@ -5,8 +5,8 @@
     "start_url": "./index.html",
     "scope": ".",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#faf4e8",
+    "background_color": "#0f0e0c",
+    "theme_color": "#0f0e0c",
     "description": "Livres, proses, poésies et récits de Geoffroy Streit. Liseuse web hors-ligne, élégante et personnalisable.",
     "icons": [
         {

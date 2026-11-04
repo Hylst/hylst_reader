@@ -78,6 +78,10 @@ function BookHomeView({ book, onBack, onStartReading }) {
                 <div className="book-home-meta">
                     <h1 className="book-home-title">{book.title}</h1>
                     <p className="book-home-author">{book.author} {book.year ? `· ${book.year}` : ''}</p>
+                    <p className="book-rights-line">
+                        Texte de <strong>Geoffroy Streit</strong> &middot; &copy; Tous droits réservés &middot;
+                        {' '}<a href="droits.html">Citation &amp; IA</a>
+                    </p>
                     <button className="btn btn-primary" style={{ padding: '0.85rem 2rem', fontSize: '1rem', marginBottom: '2rem' }} onClick={onStartReading}>
                         Commencer la lecture <Icon.ArrowRight />
                     </button>

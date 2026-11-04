@@ -31,6 +31,8 @@
     letter-spacing: -0.02em;
     user-select: none;
     display: inline-block;
+    margin: 0;
+    line-height: 1.2;
 }
 
 /* Static title with gradient (header/footer default) */
@@ -144,6 +146,36 @@
 .footer-mail:hover {
     color: var(--app-primary-hover);
     text-decoration: underline;
+}
+
+.footer-rights {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    font-size: 0.76rem;
+    color: var(--app-muted);
+}
+
+.footer-rights-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--app-primary);
+    text-decoration: none;
+    border-bottom: 1px dotted color-mix(in srgb, var(--app-primary) 45%, transparent);
+    padding-bottom: 1px;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.footer-rights-link:hover {
+    color: var(--app-primary-hover);
+    border-bottom-color: var(--app-primary-hover);
+}
+
+.footer-rights-link svg {
+    width: 14px;
+    height: 14px;
 }
 
 .vertical-spacer {

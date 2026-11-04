@@ -18,6 +18,8 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    color: inherit;
+    text-decoration: none;
 }
 
 .book-card:hover {
@@ -356,6 +358,15 @@
     border-radius: 2px;
 }
 
+/* Titre de section inséré dans une barre flex : le style vient du conteneur. */
+.library-section-heading {
+    margin: 0;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    color: inherit;
+}
+
 .library-section-desc {
     font-size: 0.85rem;
     color: var(--app-muted);
@@ -648,6 +659,24 @@
 .book-home-author {
     color: var(--app-muted);
     margin-bottom: 1.25rem;
+}
+
+.book-rights-line {
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--app-muted);
+    margin: -0.9rem 0 1.5rem;
+}
+
+.book-rights-line a {
+    color: var(--app-primary);
+    text-decoration: none;
+    border-bottom: 1px dotted color-mix(in srgb, var(--app-primary) 45%, transparent);
+}
+
+.book-rights-line a:hover {
+    color: var(--app-primary-hover);
+    border-bottom-color: var(--app-primary-hover);
 }
 
 .book-home-intro {

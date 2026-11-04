@@ -12,6 +12,7 @@ function AboutModal({ onClose }) {
         { id: 'features', label: 'Fonctions', icon: <Icon.Zap /> },
         { id: 'creator', label: 'Créateur', icon: <Icon.User /> },
         { id: 'tips', label: 'Astuces', icon: <Icon.Help /> },
+        { id: 'rights', label: 'Droits', icon: <Icon.Shield /> },
     ];
 
     return (
@@ -23,7 +24,7 @@ function AboutModal({ onClose }) {
                             <div className="about-logo">H</div>
                             <div>
                                 <h3>La Bibliothèque de Hylst</h3>
-                                <span className="about-version">Version 1.8.2 &middot; 2026</span>
+                                <span className="about-version">Version 1.8.3 &middot; 2026</span>
                             </div>
                         </div>
                         <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
@@ -206,6 +207,42 @@ function AboutModal({ onClose }) {
                                     <p className="tip-hint">L'application se chargera alors de construire automatiquement l'interface narrative, avec les chapitres ordonnés, la couverture, l'auteur, et le résumé officiel !</p>
                                 </div>
                             </div>
+                        </div>
+                    )}
+                    {activeTab === 'rights' && (
+                        <div className="about-tab-content animate-fade-in">
+                            <p className="about-hero-text" style={{ textAlign: 'left', fontSize: '1rem' }}>
+                                Les textes, illustrations et musiques de cette bibliothèque appartiennent à
+                                <strong> Geoffroy Streit</strong> et sont protégés par le droit d'auteur.
+                                La lecture, la courte citation avec mention du nom et le partage du lien sont
+                                autorisés. La reproduction, la réutilisation commerciale et l'entraînement de
+                                modèles d'intelligence artificielle ne le sont pas.
+                            </p>
+                            <div className="rights-summary-grid">
+                                <div className="rights-summary-card allowed">
+                                    <h5><Icon.Check /> Autorisé</h5>
+                                    <ul>
+                                        <li>Lire, relire, imprimer pour un usage personnel.</li>
+                                        <li>Citer quelques lignes en me nommant.</li>
+                                        <li>Partager le lien d'un livre ou d'un texte.</li>
+                                    </ul>
+                                </div>
+                                <div className="rights-summary-card forbidden">
+                                    <h5><Icon.X /> Interdit sans accord</h5>
+                                    <ul>
+                                        <li>Recopier ou republier un texte, même partiellement.</li>
+                                        <li>Adapter, traduire, revendre, intégrer à une offre payante.</li>
+                                        <li>Alimenter un corpus ou entraîner une IA.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p className="rights-note">
+                                Illustrations : la plupart sont générées ou retouchées avec l'aide d'une IA,
+                                sous ma direction. Les photographies et créations personnelles sont signalées.
+                            </p>
+                            <a className="btn btn-primary rights-page-link" href="droits.html">
+                                <Icon.Shield /> Lire la page complète des droits
+                            </a>
                         </div>
                     )}
                 </div>

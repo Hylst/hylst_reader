@@ -15,15 +15,17 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - **Contrastes** : couleur texte secondaire `--app-muted` assombrie à `#6f6862`, qui atteint le ratio 4,5:1 sur les fonds sépia et clair. Les trois thèmes passent axe sans violation.
 - **Hiérarchie des titres de la modale À propos** : les sous-titres `h5` deviennent des `h4`, conformément à l'ordre des titres.
 - **`droits.html`** : contenu principal dans un landmark `main`, retour à la bibliothèque dans un `nav` nommé.
+- **Icônes des fiches statiques** : chaque fiche déclare le favicon PNG 32 px et l'icône iOS en chemins absolus. Chrome ne demande plus `/favicon.ico` à la racine du domaine, qui renvoyait 404.
 - Version 1.8.5, cache Service Worker source `hylst-reader-v59`.
 
 ### Vérifié
-- Build miroir `9f3a61d09fb4` : 103 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- Build miroir `87ac090303b6` : 103 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
 - axe sans violation sur la bibliothèque (sombre, sépia, clair), la modale À propos (5 onglets), les paramètres globaux, la fiche livre, la liseuse (3 thèmes), la fin de chapitre, la visionneuse, la musique (sombre et sépia), la bibliothèque avec livre importé, `droits.html` et les fiches statiques.
 - Clavier : cartes importées, morceaux de musique, sommaire, paramètres, Échap et restauration du focus, couverture de fiche.
 - Manifeste : icônes PNG servies en 200, aucune erreur d'installabilité hors navigation privée.
-- Caches : ancien cache `hylst-reader-*` supprimé, cache voisin `accessibilite-*` conservé.
-- 7/7 fiches statiques affichent la section de citation.
+- Caches : ancien cache `hylst-reader-*` supprimé, cache voisin non préfixé conservé.
+- 7/7 fiches statiques affichent la section de citation et déclarent leurs icônes.
+- Production `https://hylst.fr/books_reader/` vérifiée le 04/11 : build `87ac090303b6` et SW `hylst-reader-87ac090303b6` actifs, 7 fiches et 9/9 URL du sitemap en 200, icônes 200, citation et canonical présents, axe sans violation sur 11 états, sommaire au clavier avec changement de chapitre et retour du focus, paramètres par Échap, cache voisin préservé, 0 requête externe, 0 erreur console, 0 requête échouée, fumée 10 pages / 129 assets / 0 anomalie, `.env` 403, `sources/` et `livres_pour_import/` 404.
 
 ## [1.8.4] - 2026-11-04
 ### Ajouté

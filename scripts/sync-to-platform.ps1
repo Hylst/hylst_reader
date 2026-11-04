@@ -286,6 +286,9 @@ $hashFiles = New-Object System.Collections.Generic.List[System.IO.FileInfo]
 $hashFiles.Add((Get-Item -LiteralPath $SourceIndexPath))
 $hashFiles.Add((Get-Item -LiteralPath (Join-Path $Source 'manifest.json')))
 $hashFiles.Add((Get-Item -LiteralPath (Join-Path $Source 'droits.html')))
+# Le contenu du Service Worker entre dans l'empreinte : une modification de sw.js
+# doit renouveler le cache, meme si aucun autre fichier ne change.
+$hashFiles.Add((Get-Item -LiteralPath (Join-Path $Source 'sw.js')))
 foreach ($dir in $runtimeDirs) {
     $srcDir = Join-Path $Source $dir
     if (-not (Test-Path -LiteralPath $srcDir)) { Fail "Dossier source manquant : $srcDir" }
@@ -385,7 +388,7 @@ if (-not $DryRun) {
     $checked = 0
     foreach ($file in $hashFiles) {
         $relative = Get-RelativePath $Source $file.FullName
-        if ($relative -eq 'index.html') { continue }
+        if ($relative -eq 'index.html' -or $relative -eq 'sw.js') { continue }
 
         $dstFile = Join-Path $Target $relative
         if (-not (Test-Path -LiteralPath $dstFile)) {

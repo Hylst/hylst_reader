@@ -14,7 +14,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - **Bibliothèque musicale** : la grille réservait en permanence une colonne de 340 px pour le lecteur, même sans piste sélectionnée, ce qui laissait un grand vide à droite en plein écran. La colonne n'est plus réservée que lorsqu'une piste est active (`.music-player-layout.without-player`).
 - **Manifeste PWA** : `background_color` et `theme_color` passés au sombre (`#0f0e0c`) pour éviter un écran de démarrage blanc.
 - **Fuite de contenus de travail** : `sources/`, `livres_pour_import/`, les scripts de génération et la documentation de développement ne sont plus servis depuis le miroir de production. Le script de synchronisation les supprime et refuse de continuer s'ils réapparaissent.
-- Version 1.8.3, cache Service Worker source `hylst-reader-v57`.
+- Version 1.8.3, cache Service Worker source inchangé `hylst-reader-v56` (le miroir de production utilise l'empreinte de build).
 
 ## [1.8.2] - 2026-11-04
 ### Modifié

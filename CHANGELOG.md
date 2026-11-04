@@ -1,6 +1,22 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.4] - 2026-11-04
+### Ajouté
+- **Sept fiches statiques indexables** (`livres/<id>/`) : titre, sous-titre, auteur, année, couverture, présentation issue de l'introduction, sommaire des chapitres, lien vers la liseuse, JSON-LD `Book` avec `hasPart` et `BreadcrumbList`, Open Graph et Twitter Card avec une image JPEG propre à chaque livre.
+- **Citation copiable** sur chaque fiche de livre dans la liseuse : auteur, titre, année et URL de la fiche statique, avec retour visuel « Citation copiée » et repli `execCommand` si l'API Clipboard est indisponible.
+- **Navigation navigateur** : ouverture d'un livre avec `history.pushState`, retour et avance gérés par `popstate`, bouton retour de la fiche qui revient à la bibliothèque sans quitter le site.
+- **Accessibilité des modales** : fermeture par Échap, piège de focus, attributs `role="dialog"` et `aria-modal="true"`, restauration du focus sur l'élément déclencheur (À propos, Paramètres, Bibliothèque musicale).
+- **Polices auto-hébergées** : Outfit et Merriweather dans `public/fonts/`, déclarations dans `css/book-fonts.css`. L'injection de Google Fonts au passage en thème sépia est supprimée, y compris pour les livres qui utilisaient Merriweather.
+- **Manifeste PWA** : `id`, `start_url` et `scope` alignés sur `./`, soit la racine `/books_reader/`.
+- **Sitemap** : les sept livres pointent vers leurs fiches statiques.
+
+### Corrigé
+- **Fiches statiques sans slash final** : les liens internes sont désormais absolus (`/books_reader/...`) et fonctionnent avec ou sans slash, au lieu de pointer vers la racine du domaine.
+- **Empreinte de build** : `sw.js` entre dans le calcul de l'empreinte. Une modification du Service Worker renouvelle donc le cache, même sans autre changement.
+- **Mention 1.8.3 du cache source** : corrigée, le cache source était resté `hylst-reader-v56`.
+- Version 1.8.4, cache Service Worker source `hylst-reader-v58`.
+
 ## [1.8.3] - 2026-11-04
 ### Ajouté
 - **Page « Droits d'auteur & intelligence artificielle »** (`droits.html`) : propriété intellectuelle, usages autorisés (lecture, courte citation avec mention, partage du lien), usages interdits, réserve de fouille de textes et de données (TDM), signalement des usages non autorisés, statut des illustrations générées ou assistées par IA.

@@ -15,6 +15,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "livres"
 BASE = "https://hylst.fr/books_reader/"
+SITE_PATH = "/books_reader/"
 SITE = "La Bibliothèque de Hylst"
 
 
@@ -281,22 +282,22 @@ def build_book(book: dict) -> str:
 <body>
     <div class="wrap">
         <nav class="topbar">
-            <a class="brand" href="../../">La Bibliothèque de Hylst</a>
-            <a href="../../droits.html">Droits &amp; IA</a>
+            <a class="brand" href="{SITE_PATH}">La Bibliothèque de Hylst</a>
+            <a href="{SITE_PATH}droits.html">Droits &amp; IA</a>
         </nav>
 
         <main>
             <div class="hero">
                 <div class="cover">
-                    <img src="../../public/{html.escape(book['coverPath'])}" alt="Couverture de {html.escape(title)}" width="512" height="800">
+                    <img src="{SITE_PATH}public/{html.escape(book['coverPath'])}" alt="Couverture de {html.escape(title)}" width="512" height="800">
                 </div>
                 <div>
 {badge}                    <p class="kicker">La Bibliothèque de Hylst</p>
                     <h1>{html.escape(title)}</h1>
 {subtitle_html}                    <p class="author">{html.escape(author)}</p>
                     <p class="year">{html.escape(year)}</p>
-                    <p class="rights">Texte de <strong>Geoffroy Streit</strong> · © Tous droits réservés · <a href="../../droits.html">Citation &amp; IA</a></p>
-                    <a class="cta" href="../../?book={book_id}">Lire dans la liseuse</a>
+                    <p class="rights">Texte de <strong>Geoffroy Streit</strong> · © Tous droits réservés · <a href="{SITE_PATH}droits.html">Citation &amp; IA</a></p>
+                    <a class="cta" href="{SITE_PATH}?book={book_id}">Lire dans la liseuse</a>
                 </div>
             </div>
 
@@ -316,8 +317,8 @@ def build_book(book: dict) -> str:
         <footer>
             {SITE} · Livres, proses, poésies et récits de Geoffroy Streit.
             <br>
-            <a href="../../">Retour à la bibliothèque</a> ·
-            <a href="../../droits.html">Droits d'auteur &amp; intelligence artificielle</a>
+            <a href="{SITE_PATH}">Retour à la bibliothèque</a> ·
+            <a href="{SITE_PATH}droits.html">Droits d'auteur &amp; intelligence artificielle</a>
         </footer>
     </div>
 </body>

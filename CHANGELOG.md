@@ -9,7 +9,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - **CSP en balise meta** : politique `default-src 'self'`, `script-src 'self'`, `object-src 'none'`, `base-uri 'self'`, images et médias limités au même domaine, aux données et aux blobs. Les scripts de thème et d'enregistrement du Service Worker sont externalisés dans `js/theme-boot.js` et `js/sw-register.js`. Les styles inline restent autorisés pour les pages statiques et les attributs React.
 - **Polices et musique locales** : l'index source utilise `/assets/fonts/fonts.css` comme la production, et les 282 pistes de `js/music_data.js` pointent vers `/hml/` au lieu de l'URL absolue. Aucune requête externe au premier chargement.
 - **Retour de citation annoncé** : la confirmation « Citation copiée dans le presse-papiers » est exposée dans une région `role="status" aria-live="polite"`, avec la classe `.sr-only`.
-- **Redirection 301 préparée** : le bloc Nginx `/books_reader/livres/<id>` vers `/books_reader/livres/<id>/` est ajouté à `nginx-coolify-reference.conf`. Il reste à le coller dans le panel Coolify pour l'activer en production.
+- **Redirection 301 active** : le bloc Nginx `/books_reader/livres/<id>` vers `/books_reader/livres/<id>/` est ajouté à `nginx-coolify-reference.conf`, appliqué dans la base Coolify et dans le conteneur, puis testé en production le 04/11 avec conservation de la query.
 - Version 1.8.6, cache Service Worker source `hylst-reader-v60`.
 
 ### Vérifié
@@ -26,7 +26,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Production, axe sans violation sur 9 états : bibliothèque sombre, sépia et clair, fiche livre, liseuse, paramètres, musique, fiche statique et page de droits.
 - Production, citation annoncée en `aria-live`, sommaire au clavier avec changement de chapitre et retour du focus, thèmes mémorisés.
 - Production, hors ligne en profil vierge : cache `hylst-reader-f24c89706fb0`, bibliothèque, fiche *Les Ficelles du bonheur* et fiche statique de *Quinte* accessibles sans réseau.
-- Le 301 des fiches sans slash reste à activer : `/books_reader/livres/<id>` répond encore 200. Le bloc Nginx est prêt dans `nginx-coolify-reference.conf` et doit être collé dans le panel Coolify.
+- Le 301 des fiches sans slash est actif : les 7 URL `/books_reader/livres/<id>` répondent 301 vers leur version avec slash, query conservée, et les versions avec slash restent en 200. Les autres applications de la plateforme restent en 200.
 
 
 ### Ajouté

@@ -128,7 +128,7 @@ server {
 
 ### Étape 3.5 : Redirection des fiches livres sans slash
 
-La configuration de référence `Cours_Memos/Docker/nginx-coolify-reference.conf` contient le bloc à appliquer dans le panel Coolify pour rediriger `/books_reader/livres/<id>` vers `/books_reader/livres/<id>/` en 301, query conservée :
+La configuration de référence `Cours_Memos/Docker/nginx-coolify-reference.conf` contient le bloc appliqué en production le 04/11/2026 pour rediriger `/books_reader/livres/<id>` vers `/books_reader/livres/<id>/` en 301, query conservée :
 
 ```nginx
 location ~ ^/books_reader/livres/([^/]+)$ {
@@ -136,4 +136,4 @@ location ~ ^/books_reader/livres/([^/]+)$ {
 }
 ```
 
-Le bloc regex ne capte ni `/books_reader/livres/` ni les fichiers `.html`. La référence locale ne déploie rien : la modification doit être collée dans la configuration Nginx du service `hylst-cours` dans Coolify.
+Le bloc regex ne capte ni `/books_reader/livres/` ni les fichiers `.html`. La configuration est enregistrée dans la base Coolify et dans le conteneur `hylst-cours`, avec sauvegarde préalable dans `/root/hylst-nginx-backup-20261104-booksreader301/`.

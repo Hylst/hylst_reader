@@ -260,10 +260,19 @@ function App() {
     useEffect(() => {
         const baseTitle = 'La Bibliothèque de Hylst · Livres, proses et poésies de Geoffroy Streit';
         const shortTitle = 'La Bibliothèque de Hylst';
-        if (activeBook && currentView !== 'library') {
+        const isBookView = activeBook && currentView !== 'library' && !activeBook.isImported;
+        if (isBookView) {
             document.title = `${activeBook.title} · ${shortTitle}`;
         } else {
             document.title = baseTitle;
+        }
+        // Canonical cohérent avec la vue : une fiche de livre ne se déclare pas
+        // comme la page d'accueil de la bibliothèque.
+        const canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) {
+            canonical.setAttribute('href', isBookView
+                ? `https://hylst.fr/books_reader/?book=${encodeURIComponent(activeBook.id)}`
+                : 'https://hylst.fr/books_reader/');
         }
     }, [activeBook, currentView]);
 

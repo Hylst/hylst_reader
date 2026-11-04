@@ -147,8 +147,11 @@
 
 <body>
     <div class="wrap">
-        <a class="back" href="./">&larr; Retour à la bibliothèque</a>
+        <nav aria-label="Retour à la bibliothèque">
+            <a class="back" href="./">&larr; Retour à la bibliothèque</a>
+        </nav>
 
+        <main>
         <p class="kicker">La Bibliothèque de Hylst</p>
         <h1>Droits d'auteur &amp; intelligence artificielle</h1>
         <p class="lead">Ce que vous pouvez faire de ces textes, et ce que je vous demande de ne pas en faire.</p>
@@ -228,9 +231,22 @@
             <a href="mailto:geoffroy.streit@gmail.com?subject=Signalement%20d%27usage%20non%20autoris%C3%A9">geoffroy.streit@gmail.com</a>.
             Un lien et une capture d'écran suffisent.</p>
 
+        <h2>Vos données</h2>
+        <p>Cette bibliothèque ne pose aucun cookie de mesure d'audience et n'utilise aucun traceur
+            publicitaire. Vos préférences de lecture (thème, taille de police, progression) et les livres
+            que vous importez restent dans le stockage local de votre navigateur
+            (<code>localStorage</code> et <code>IndexedDB</code>). Ils ne sont jamais envoyés à un serveur :
+            les effacer, ou changer d'appareil, les supprime.</p>
+        <p>Le serveur qui héberge le site enregistre des journaux techniques (adresse IP, page demandée,
+            date et heure) pour assurer la sécurité et la disponibilité du service. Ces journaux ne servent
+            à aucun profilage publicitaire. L'éditeur, l'hébergeur et les modalités complètes sont décrits
+            dans les <a href="/mentions-legales.html">mentions légales</a>.</p>
+        </main>
+
         <footer>
             Dernière mise à jour : 4 novembre 2026 &middot; Geoffroy Streit (Hylst) &middot;
-            <a href="mailto:geoffroy.streit@gmail.com">geoffroy.streit@gmail.com</a>
+            <a href="mailto:geoffroy.streit@gmail.com">geoffroy.streit@gmail.com</a> &middot;
+            <a href="/mentions-legales.html">Mentions légales</a>
         </footer>
     </div>
 </body>

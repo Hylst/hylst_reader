@@ -33,7 +33,7 @@ function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isLoop, on
                             <h3>Bibliothèque Musicale</h3>
                             <span className="music-track-count">{MUSIC_LIBRARY.length} titres</span>
                         </div>
-                        <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
+                        <button className="btn btn-ghost btn-icon" onClick={onClose} aria-label="Fermer" title="Fermer"><Icon.X /></button>
                     </div>
 
                     <div className="music-search-bar">
@@ -45,20 +45,30 @@ function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isLoop, on
                             onChange={e => setSearchTerm(e.target.value)}
                         />
                         {searchTerm && (
-                            <button className="clear-search-btn" onClick={() => setSearchTerm('')}><Icon.X /></button>
+                            <button className="clear-search-btn" onClick={() => setSearchTerm('')} aria-label="Effacer la recherche" title="Effacer la recherche"><Icon.X /></button>
                         )}
                     </div>
                 </div>
 
                 <div className={`music-player-layout${currentTrack ? '' : ' without-player'}`}>
-                    <div className="music-list-side">
+                    <div className="music-list-side" role="region" aria-label="Liste des morceaux">
                         <div className="music-grid">
                             {filteredTracks.map(track => (
                                 <div key={track.id}
                                     className={`music-item ${currentTrack?.id === track.id ? 'active' : ''}`}
-                                    onClick={() => onPlayTrack(track)}>
+                                    role="button"
+                                    tabIndex={0}
+                                    aria-label={`Lire ${track.title}`}
+                                    onClick={() => onPlayTrack(track)}
+                                    onKeyDown={(e) => {
+                                        if (e.target !== e.currentTarget) return;
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            e.preventDefault();
+                                            onPlayTrack(track);
+                                        }
+                                    }}>
                                     <div className="music-item-cover">
-                                        <img src={track.cover} alt={track.title} loading="lazy" />
+                                        <img src={track.cover} alt="" loading="lazy" />
                                         {currentTrack?.id === track.id && isPlaying && (
                                             <div className="playing-overlay">
                                                 <div className="wave-container">
@@ -118,7 +128,7 @@ function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isLoop, on
                                     <button className={`control-btn ${isLoop ? 'active' : ''}`} onClick={onToggleLoop} title={isLoop ? 'Boucle active' : 'Boucle inactive'}>
                                         {isLoop ? <Icon.Repeat /> : <Icon.RepeatOff />}
                                     </button>
-                                    <button className="control-btn play-btn" onClick={onTogglePlay}>
+                                    <button className="control-btn play-btn" onClick={onTogglePlay} aria-label={isPlaying ? 'Pause' : 'Lecture'} title={isPlaying ? 'Pause' : 'Lecture'}>
                                         {isPlaying ? <Icon.Pause /> : <Icon.Play />}
                                     </button>
                                 </div>

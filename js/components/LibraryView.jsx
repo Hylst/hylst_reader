@@ -68,7 +68,7 @@ function FutureBookCard({ book, delay = 0 }) {
     };
 
     return (
-        <div className="book-card future-card" style={{ animationDelay: `${delay}ms` }} title="Bientôt disponible" role="img">
+        <div className="book-card future-card" style={{ animationDelay: `${delay}ms` }} title="Bientôt disponible">
             <div className="book-cover-container">
                 {book.cover
                     ? <img src={`public/${book.cover}`} alt={book.title} loading="lazy" className="book-cover" />
@@ -116,25 +116,19 @@ function BookCard({ book, onClick, delay = 0 }) {
         getProgress(book.id).then(p => { if (p) setProgress(p.scrollRatio || 0); });
     }, [book.id]);
 
-    const handleZoom = (e) => {
-        e.stopPropagation();
-        if (coverUrl && typeof window.openLightbox === 'function') {
-            window.openLightbox({
-                src: coverUrl,
-                alt: book.title,
-                title: book.title,
-                subtitle: `${book.author || ''}${book.year ? ` · ${book.year}` : ''}`
-            });
-        }
-    };
-
     return (
         <a className="book-card" style={{ animationDelay: `${delay}ms` }}
             href={book.isImported ? undefined : `livres/${encodeURIComponent(book.id)}/`}
             onClick={e => { if (!book.isImported) e.preventDefault(); onClick(); }}
             role={book.isImported ? 'button' : undefined}
             tabIndex={book.isImported ? 0 : undefined}
-            onKeyDown={book.isImported ? (e => e.key === 'Enter' && onClick()) : undefined}>
+            onKeyDown={book.isImported ? (e => {
+                if (e.target !== e.currentTarget) return;
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onClick();
+                }
+            }) : undefined}>
             <div className="book-cover-container">
                 {coverUrl
                     ? <img src={coverUrl} alt={book.title} loading="lazy" className="book-cover" />
@@ -144,17 +138,6 @@ function BookCard({ book, onClick, delay = 0 }) {
                         <span className="book-cover-fallback-author">{book.author}</span>
                     </div>
                 }
-                {coverUrl && (
-                    <button
-                        type="button"
-                        className="book-cover-zoom-btn"
-                        title="Agrandir la couverture"
-                        onClick={handleZoom}
-                        aria-label={`Agrandir la couverture de ${book.title}`}
-                    >
-                        <Icon.ZoomIn />
-                    </button>
-                )}
                 {book.badge && (
                     <span className={`book-badge${book.badge.toLowerCase().includes('chantier') ? ' badge-wip' : ''}`}>
                         {book.badge}
@@ -320,16 +303,16 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                 </p>
                 {userBooks.length === 0 ? (
                     <div className="import-zone-container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                        <div className="import-zone" onClick={onImport}>
+                        <button type="button" className="import-zone" onClick={onImport}>
                             <Icon.Plus />
-                            <p style={{ marginTop: '0.75rem', fontWeight: 500 }}>Importer un fichier</p>
-                            <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.7 }}>JSON, TXT ou Markdown</p>
-                        </div>
-                        <div className="import-zone" onClick={onImportDirectory}>
+                            <span style={{ display: 'block', marginTop: '0.75rem', fontWeight: 500 }}>Importer un fichier</span>
+                            <span style={{ display: 'block', fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.7 }}>JSON, TXT ou Markdown</span>
+                        </button>
+                        <button type="button" className="import-zone" onClick={onImportDirectory}>
                             <Icon.Upload />
-                            <p style={{ marginTop: '0.75rem', fontWeight: 500 }}>Importer un dossier</p>
-                            <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.7 }}>Format HML (dossier complet)</p>
-                        </div>
+                            <span style={{ display: 'block', marginTop: '0.75rem', fontWeight: 500 }}>Importer un dossier</span>
+                            <span style={{ display: 'block', fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.7 }}>Format HML (dossier complet)</span>
+                        </button>
                     </div>
                 ) : (
                     <div className="library-grid">

@@ -75,7 +75,7 @@ function BookHomeView({ book, onBack, onStartReading }) {
     };
 
     return (
-        <div className="book-home view-enter">
+        <main className="book-home view-enter">
             <div className="book-home-header">
                 <button className="btn btn-ghost" onClick={onBack}><Icon.ArrowLeft /> Bibliothèque</button>
             </div>
@@ -86,7 +86,12 @@ function BookHomeView({ book, onBack, onStartReading }) {
                     title={coverUrl ? "Cliquer pour agrandir la couverture" : undefined}
                     role={coverUrl ? "button" : undefined}
                     tabIndex={coverUrl ? 0 : undefined}
-                    onKeyDown={coverUrl ? (e) => e.key === 'Enter' && handleZoom() : undefined}
+                    onKeyDown={coverUrl ? (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleZoom();
+                        }
+                    } : undefined}
                 >
                     {coverUrl
                         ? (
@@ -123,7 +128,7 @@ function BookHomeView({ book, onBack, onStartReading }) {
                     <div className="book-home-intro reader-article" dangerouslySetInnerHTML={{ __html: safeIntroHtml }} />
                 </div>
             </div>
-        </div>
+        </main>
     );
 }
 

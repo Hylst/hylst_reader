@@ -195,6 +195,17 @@ h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; margin: 0 0 0.4rem;
 .intro hr.ornament { width: 70px; margin: 1.2rem auto; border: 0; border-top: 1px solid var(--accent); opacity: 0.6; }
 .intro .chapter-byline, .intro .chapter-continuation { color: var(--muted); font-style: italic; font-size: 0.88rem; }
 .intro a { color: var(--accent); }
+.cite-model {
+    margin: 0 0 1rem; padding: 1.1rem 1.4rem;
+    background: var(--surface); border-left: 3px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+}
+.cite-model p { margin: 0; }
+.cite-model .cite-source {
+    margin: 0.55rem 0 0; color: var(--muted); font-size: 0.86rem;
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+.cite-note { color: var(--muted); font-size: 0.86rem; }
 ol.chapters { margin: 0; padding-left: 1.3rem; color: var(--muted); }
 ol.chapters li { margin-bottom: 0.35rem; }
 footer {
@@ -256,6 +267,21 @@ footer a { color: var(--accent); text-decoration: none; }
                 <li>VI. La fausse note</li>
                 <li>Épilogue. Pour couple fatigué</li>
                 </ol>
+            </section>
+
+            <section class="section" id="citer">
+                <h2>Citer ce livre</h2>
+                <p>Un court extrait peut être cité, dans la limite du droit de courte citation, à condition
+                    de mentionner l'auteur et la source. Recopiez l'extrait entre guillemets, puis ajoutez
+                    cette référence :</p>
+                <div class="cite-model">
+                    <p>Geoffroy Streit, <cite>Les Ficelles du bonheur</cite>, 2025, La Bibliothèque de Hylst,
+                        <a href="https://hylst.fr/books_reader/livres/les-ficelles-du-bonheur/">https://hylst.fr/books_reader/livres/les-ficelles-du-bonheur/</a>.</p>
+                    <p class="cite-source">Citation courte autorisée avec mention. Reproduction intégrale et
+                        entraînement de modèles d'intelligence artificielle interdits sans accord écrit.</p>
+                </div>
+                <p class="cite-note">Les conditions complètes sont sur la page
+                    <a href="/books_reader/droits.html">Droits d'auteur et intelligence artificielle</a>.</p>
             </section>
         </main>
 

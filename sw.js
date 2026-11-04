@@ -1,7 +1,10 @@
-// sw.js - Service Worker La Bibliothèque de Hylst v1.8.4
+// sw.js - Service Worker La Bibliothèque de Hylst v1.8.5
 // Stratégie: Network-First avec fallback cache pour le local, et Cache-First pour les CDNs.
 
-const CACHE_NAME = 'hylst-reader-v58';
+const CACHE_NAME = 'hylst-reader-v59';
+// Le stockage de caches est partage par toute l'origine hylst.fr : ne jamais
+// supprimer les caches des autres applications hebergees sur le meme domaine.
+const CACHE_PREFIX = 'hylst-reader-';
 
 self.addEventListener('install', (event) => {
     self.skipWaiting();
@@ -11,7 +14,7 @@ self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((keys) => Promise.all(
             keys.map((key) => {
-                if (key !== CACHE_NAME) {
+                if (key !== CACHE_NAME && key.startsWith(CACHE_PREFIX)) {
                     console.log('[SW] Suppression de l\'ancien cache:', key);
                     return caches.delete(key);
                 }

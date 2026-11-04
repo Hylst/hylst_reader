@@ -22,6 +22,26 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
     const containerRef = useRefReader(null);
     const touchStartRef = useRefReader(null);
     const uiTimeoutRef = useRefReader(null);
+    const settingsModalRef = useRefReader(null);
+    const sidebarRef = useRefReader(null);
+    const tocButtonRef = useRefReader(null);
+    const sidebarWasOpenRef = useRefReader(false);
+
+    window.useModalA11y(() => setShowSettings(false), settingsModalRef, showSettings);
+
+    // Le sommaire est hors écran quand il est fermé : on gère le focus pour
+    // qu'il reste atteignable au clavier et qu'il ne capture pas la tabulation.
+    useEffectReader(() => {
+        if (showSidebar === sidebarWasOpenRef.current) return;
+        sidebarWasOpenRef.current = showSidebar;
+        if (showSidebar) {
+            const first = sidebarRef.current && sidebarRef.current.querySelector('.toc-item[role="button"]');
+            if (first) first.focus();
+            else if (sidebarRef.current) sidebarRef.current.querySelector('button')?.focus();
+        } else if (tocButtonRef.current) {
+            tocButtonRef.current.focus();
+        }
+    }, [showSidebar]);
     const chapter = book.chapters?.[currentChapterIdx];
 
     const sanitizeForBook = useCallbackReader((html) => {
@@ -220,15 +240,15 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
     const containerClass = `reader-container${showUI ? ' show-ui' : ''}${settings.focusMode ? ' focus-mode' : ''}`;
 
     return (
-        <div className="reader-wrapper view-enter">
+        <main className="reader-wrapper view-enter">
             <Ambience theme={settings.theme} enabledByTheme={settings.backgroundAnimations} inReader />
             <div className="reader-progress-bar" style={{ width: `${scrollProgress * 100}%` }} />
 
             <div className={`sidebar-overlay${showSidebar ? ' open' : ''}`} onClick={() => setShowSidebar(false)} />
-            <aside className={`sidebar${showSidebar ? ' open' : ''}`}>
+            <aside id="reader-toc" ref={sidebarRef} className={`sidebar${showSidebar ? ' open' : ''}`} aria-hidden={!showSidebar}>
                 <div className="sidebar-header">
                     <h3>{book.title}</h3>
-                    <button className="btn btn-ghost btn-icon" onClick={() => setShowSidebar(false)}><Icon.X /></button>
+                    <button className="btn btn-ghost btn-icon" onClick={() => setShowSidebar(false)} aria-label="Fermer la table des matières" title="Fermer" tabIndex={showSidebar ? 0 : -1}><Icon.X /></button>
                 </div>
                 <div className="sidebar-body">
                     <div className="toc-section-label">Chapitres</div>
@@ -236,12 +256,23 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                         const isAvailable = ch.available !== false;
                         return (
                             <div key={ch.id} className={`toc-item${i === currentChapterIdx ? ' active' : ''}${!isAvailable ? ' disabled' : ''}`}
+                                role={isAvailable ? 'button' : undefined}
+                                tabIndex={isAvailable && showSidebar ? 0 : -1}
+                                aria-current={i === currentChapterIdx ? 'true' : undefined}
                                 onClick={() => {
                                     if (isAvailable) {
                                         setCurrentChapterIdx(i);
                                         setShowSidebar(false);
                                     }
                                 }}
+                                onKeyDown={isAvailable ? (e) => {
+                                    if (e.target !== e.currentTarget) return;
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                        e.preventDefault();
+                                        setCurrentChapterIdx(i);
+                                        setShowSidebar(false);
+                                    }
+                                } : undefined}
                                 style={!isAvailable ? { opacity: 0.5, cursor: 'not-allowed', display: 'flex', alignItems: 'center', justifyContent: 'space-between' } : {}}
                             >
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -276,8 +307,16 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                         <>
                             <div className="toc-section-label" style={{ marginTop: '1rem' }}>Signets</div>
                             {signets.map(s => (
-                                <div key={s.chapterIdx} className="toc-item"
-                                    onClick={() => { setCurrentChapterIdx(s.chapterIdx); setShowSidebar(false); }}>
+                                <div key={s.chapterIdx} className="toc-item" role="button" tabIndex={showSidebar ? 0 : -1}
+                                    onClick={() => { setCurrentChapterIdx(s.chapterIdx); setShowSidebar(false); }}
+                                    onKeyDown={(e) => {
+                                        if (e.target !== e.currentTarget) return;
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            e.preventDefault();
+                                            setCurrentChapterIdx(s.chapterIdx);
+                                            setShowSidebar(false);
+                                        }
+                                    }}>
                                     <Icon.BookmarkFilled />
                                     <span>{s.chapterTitle}</span>
                                 </div>
@@ -289,10 +328,10 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
 
             {showSettings && (
                 <div className="modal-backdrop" onClick={e => e.target === e.currentTarget && setShowSettings(false)}>
-                    <div className="modal-content settings-modal">
+                    <div className="modal-content settings-modal" ref={settingsModalRef} role="dialog" aria-modal="true" aria-label="Paramètres de lecture">
                         <div className="modal-header">
                             <h3>Paramètres de lecture</h3>
-                            <button className="btn btn-ghost btn-icon" onClick={() => setShowSettings(false)}><Icon.X /></button>
+                            <button className="btn btn-ghost btn-icon" onClick={() => setShowSettings(false)} aria-label="Fermer" title="Fermer"><Icon.X /></button>
                         </div>
                         <div className="settings-body">
                             <div className="setting-group">
@@ -405,7 +444,7 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                             onClick={e => { e.stopPropagation(); toggleBookmark(); }}>
                             {isBookmarked ? <Icon.BookmarkFilled /> : <Icon.Bookmark />}
                         </button>
-                        <button className="btn btn-icon" title="Table des matières" onClick={e => { e.stopPropagation(); setShowSidebar(true); }}>
+                        <button ref={tocButtonRef} className="btn btn-icon" title="Table des matières" aria-expanded={showSidebar} aria-controls="reader-toc" onClick={e => { e.stopPropagation(); setShowSidebar(true); }}>
                             <Icon.List />
                         </button>
                         <button className="btn btn-icon" title="Paramètres" onClick={e => { e.stopPropagation(); setShowSettings(true); }}>
@@ -528,7 +567,7 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                     </button>
                 </div>
             )}
-        </div>
+        </main>
     );
 }
 

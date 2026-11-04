@@ -1,6 +1,30 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.5] - 2026-11-04
+### Ajouté
+- **Section « Citer ce livre »** sur les sept fiches statiques (`livres/<id>/`) : modèle de référence avec auteur, titre, année et URL, rappel de la courte citation avec mention, et lien vers la page de droits. Les fiches ne reproduisent jamais le texte intégral.
+- **Section « Vos données »** sur `droits.html` : absence de cookie de mesure d'audience et de traceur publicitaire, stockage local des préférences et des livres importés, nature des journaux serveur, lien vers les mentions légales.
+- **Icônes PWA en PNG** : `icon-32.png`, `icon-192.png`, `icon-512.png`, `icon-512-maskable.png` et `apple-touch-icon.png` (180 px), générées par `scripts/generate_pwa_icons.py`. Le manifeste déclare la variante `maskable` et l'index référence le favicon 32 px ainsi que l'icône iOS.
+
+### Corrigé
+- **Isolation des caches du Service Worker** : l'activation ne supprime plus que les caches préfixés `hylst-reader-`. Le stockage `caches` étant partagé par toute l'origine `hylst.fr`, les caches des autres applications (`accessibilite-*`, `ux-ui-*`, etc.) sont désormais préservés.
+- **Accessibilité de la liseuse** : landmark `main`, bouton de fermeture du sommaire nommé, bouton de lecture de la barre musicale nommé. Le sommaire est utilisable au clavier (Entrée et Espace), avec `aria-expanded`, `aria-controls`, `aria-current`, déplacement du focus à l'ouverture et retour au bouton déclencheur à la fermeture. Les paramètres de lecture deviennent une vraie modale (`role="dialog"`, `aria-modal`, piège de focus, Échap, restauration du focus).
+- **Accessibilité de la bibliothèque** : cartes importées activables au clavier (Entrée et Espace), zones d'import converties en boutons, cartes « À venir » sans `role="img"` abusif, suppression du bouton de zoom imbriqué dans les cartes (le zoom reste disponible sur la fiche du livre), couverture de fiche activable avec Entrée et Espace.
+- **Accessibilité de la musique** : liste annoncée comme région, morceaux activables au clavier, bouton lecture nommé, pochettes décoratives sans texte alternatif redondant.
+- **Contrastes** : couleur texte secondaire `--app-muted` assombrie à `#6f6862`, qui atteint le ratio 4,5:1 sur les fonds sépia et clair. Les trois thèmes passent axe sans violation.
+- **Hiérarchie des titres de la modale À propos** : les sous-titres `h5` deviennent des `h4`, conformément à l'ordre des titres.
+- **`droits.html`** : contenu principal dans un landmark `main`, retour à la bibliothèque dans un `nav` nommé.
+- Version 1.8.5, cache Service Worker source `hylst-reader-v59`.
+
+### Vérifié
+- Build miroir `9f3a61d09fb4` : 103 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- axe sans violation sur la bibliothèque (sombre, sépia, clair), la modale À propos (5 onglets), les paramètres globaux, la fiche livre, la liseuse (3 thèmes), la fin de chapitre, la visionneuse, la musique (sombre et sépia), la bibliothèque avec livre importé, `droits.html` et les fiches statiques.
+- Clavier : cartes importées, morceaux de musique, sommaire, paramètres, Échap et restauration du focus, couverture de fiche.
+- Manifeste : icônes PNG servies en 200, aucune erreur d'installabilité hors navigation privée.
+- Caches : ancien cache `hylst-reader-*` supprimé, cache voisin `accessibilite-*` conservé.
+- 7/7 fiches statiques affichent la section de citation.
+
 ## [1.8.4] - 2026-11-04
 ### Ajouté
 - **Sept fiches statiques indexables** (`livres/<id>/`) : titre, sous-titre, auteur, année, couverture, présentation issue de l'introduction, sommaire des chapitres, lien vers la liseuse, JSON-LD `Book` avec `hasPart` et `BreadcrumbList`, Open Graph et Twitter Card avec une image JPEG propre à chaque livre.

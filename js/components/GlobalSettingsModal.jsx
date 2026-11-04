@@ -18,7 +18,7 @@ function GlobalSettingsModal({ settings, onUpdateSettings, onClose }) {
                         <Icon.Settings />
                         <h3>Paramètres</h3>
                     </div>
-                    <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
+                    <button className="btn btn-ghost btn-icon" onClick={onClose} aria-label="Fermer" title="Fermer"><Icon.X /></button>
                 </div>
                 <div className="settings-body">
                     <div className="setting-group">

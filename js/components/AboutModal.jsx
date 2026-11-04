@@ -27,10 +27,10 @@ function AboutModal({ onClose }) {
                             <div className="about-logo">H</div>
                             <div>
                                 <h3>La Bibliothèque de Hylst</h3>
-                                <span className="about-version">Version 1.8.4 &middot; 2026</span>
+                                <span className="about-version">Version 1.8.5 &middot; 2026</span>
                             </div>
                         </div>
-                        <button className="btn btn-ghost btn-icon" onClick={onClose}><Icon.X /></button>
+                        <button className="btn btn-ghost btn-icon" onClick={onClose} aria-label="Fermer" title="Fermer"><Icon.X /></button>
                     </div>
                 </div>
 
@@ -47,7 +47,7 @@ function AboutModal({ onClose }) {
                     ))}
                 </div>
 
-                <div className="about-scroll-content">
+                <div className="about-scroll-content" role="region" aria-label="Contenu de la fenêtre À propos" tabIndex={0}>
                     {activeTab === 'about' && (
                         <div className="about-tab-content animate-fade-in">
                             <p className="about-hero-text">
@@ -187,7 +187,7 @@ function AboutModal({ onClose }) {
                         <div className="about-tab-content animate-fade-in">
                             <div className="tips-grid">
                                 <div className="tip-box">
-                                    <h5><Icon.Zap /> Raccourcis Clavier</h5>
+                                    <h4><Icon.Zap /> Raccourcis Clavier</h4>
                                     <ul>
                                         <li><code>Espace</code> ou <code>Page Down</code> : Défilement fluide vers le bas d'environ 80% de la hauteur de l'écran.</li>
                                         <li><code>Flèche Droite</code> / <code>Gauche</code> : Navigation rapide entre les chapitres d'un livre.</li>
@@ -197,7 +197,7 @@ function AboutModal({ onClose }) {
                                     </ul>
                                 </div>
                                 <div className="tip-box">
-                                    <h5><Icon.Mouse /> Tactile, Stylus &amp; Souris</h5>
+                                    <h4><Icon.Mouse /> Tactile, Stylus &amp; Souris</h4>
                                     <ul>
                                         <li><strong>Geste (Swipe) Latéral</strong> : Sur mobile, glissez vers la gauche ou la droite pour tourner les pages virtuelles.</li>
                                         <li><strong>Double Tap (ou Clic)</strong> n'importe où dans le texte : Fait apparaître ou disparaître toutes les barres d'interfaces (Mode Focus).</li>
@@ -205,7 +205,7 @@ function AboutModal({ onClose }) {
                                     </ul>
                                 </div>
                                 <div className="tip-box full-width">
-                                    <h5><Icon.Settings /> Secret &amp; Astuce d'importation avancée</h5>
+                                    <h4><Icon.Settings /> Secret &amp; Astuce d'importation avancée</h4>
                                     <p>Vous souhaitez intégrer un tome entier avec sa structure originale ? Vous pouvez glisser-déposer tout le dossier d'un livre (s'il suit l'architecture Hylst HTML), mais pour une expérience sur mesure : assurez-vous de concevoir <strong>un fichier <code>config.json</code> racine</strong>.</p>
                                     <p className="tip-hint">L'application se chargera alors de construire automatiquement l'interface narrative, avec les chapitres ordonnés, la couverture, l'auteur, et le résumé officiel !</p>
                                 </div>
@@ -223,7 +223,7 @@ function AboutModal({ onClose }) {
                             </p>
                             <div className="rights-summary-grid">
                                 <div className="rights-summary-card allowed">
-                                    <h5><Icon.Check /> Autorisé</h5>
+                                    <h4><Icon.Check /> Autorisé</h4>
                                     <ul>
                                         <li>Lire, relire, imprimer pour un usage personnel.</li>
                                         <li>Citer quelques lignes en me nommant.</li>
@@ -231,7 +231,7 @@ function AboutModal({ onClose }) {
                                     </ul>
                                 </div>
                                 <div className="rights-summary-card forbidden">
-                                    <h5><Icon.X /> Interdit sans accord</h5>
+                                    <h4><Icon.X /> Interdit sans accord</h4>
                                     <ul>
                                         <li>Recopier ou republier un texte, même partiellement.</li>
                                         <li>Adapter, traduire, revendre, intégrer à une offre payante.</li>

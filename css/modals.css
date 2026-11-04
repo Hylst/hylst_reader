@@ -348,7 +348,7 @@
     background: var(--app-card-bg);
 }
 
-.rights-summary-card h5 {
+.rights-summary-card h4 {
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -358,7 +358,7 @@
     text-transform: uppercase;
 }
 
-.rights-summary-card h5 svg {
+.rights-summary-card h4 svg {
     width: 16px;
     height: 16px;
 }
@@ -367,7 +367,7 @@
     border-color: color-mix(in srgb, #4b7f52 45%, var(--app-card-border));
 }
 
-.rights-summary-card.allowed h5 {
+.rights-summary-card.allowed h4 {
     color: #5c9a66;
 }
 
@@ -375,7 +375,7 @@
     border-color: color-mix(in srgb, #a33a3a 45%, var(--app-card-border));
 }
 
-.rights-summary-card.forbidden h5 {
+.rights-summary-card.forbidden h4 {
     color: #c05a5a;
 }
 
@@ -659,7 +659,7 @@
     background: linear-gradient(135deg, var(--app-surface), color-mix(in srgb, var(--app-surface-hover) 50%, transparent));
 }
 
-.tip-box h5 {
+.tip-box h4 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -669,7 +669,7 @@
     margin: 0;
 }
 
-.tip-box h5 svg {
+.tip-box h4 svg {
     color: var(--app-primary);
     width: 18px;
     height: 18px;

@@ -3,7 +3,7 @@
     /* App palette (UI chrome) */
     --app-bg: #f4f1eb;
     --app-text: #1c1917;
-    --app-muted: #78716c;
+    --app-muted: #6f6862;
     --app-card-bg: #ffffff;
     --app-card-border: rgba(0, 0, 0, 0.07);
     --app-primary: #8b5a2b;
@@ -48,7 +48,7 @@
 [data-theme='sepia'] {
     --app-bg: #f4f1eb;
     --app-text: #1c1917;
-    --app-muted: #78716c;
+    --app-muted: #6f6862;
     --app-card-bg: #ffffff;
     --app-card-border: rgba(0, 0, 0, 0.07);
     --app-surface: #ffffff;
@@ -96,7 +96,7 @@
 [data-theme='light'] {
     --app-bg: #fafaf8;
     --app-text: #1c1917;
-    --app-muted: #78716c;
+    --app-muted: #6f6862;
     --app-card-bg: #ffffff;
     --app-card-border: rgba(0.0, 0, 0.06);
     --app-surface: #ffffff;

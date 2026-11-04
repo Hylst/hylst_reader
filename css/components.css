@@ -218,13 +218,12 @@
     align-items: center;
     padding: 0.15rem 0.55rem;
     background: var(--app-primary-glow);
-    color: var(--app-primary);
+    color: var(--app-text);
     border: 1px solid var(--app-primary);
     border-radius: 20px;
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.05em;
-    animation: wip-pulse 2.5s ease-in-out infinite;
 }
 
 .footer-wip {
@@ -232,23 +231,10 @@
     font-weight: 600;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: var(--app-primary);
+    color: var(--app-text);
     background: var(--app-primary-glow);
     padding: 0.18rem 0.6rem;
     border-radius: 20px;
-    animation: wip-pulse 2.5s ease-in-out infinite;
-}
-
-@keyframes wip-pulse {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.55;
-    }
 }
 
 .resume-banner {
@@ -991,7 +977,7 @@
     grid-column: span 2;
 }
 
-.tip-box h5 {
+.tip-box h4 {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -1103,6 +1089,8 @@
 }
 
 .import-zone {
+    width: 100%;
+    font: inherit;
     padding: 2.5rem 1.5rem;
     border-radius: 18px;
     border: 2px dashed var(--app-card-border);

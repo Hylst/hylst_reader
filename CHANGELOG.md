@@ -1,6 +1,27 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.7] - 2026-11-04
+### Modifié
+- **CSS inline externalisés** : les styles de `droits.html` passent dans `css/droits.css`, ceux des 7 fiches statiques dans `css/book-page.css`, généré par `scripts/build_book_pages.py`. La CSP meta passe de `style-src 'self' 'unsafe-inline'` à `style-src 'self'; style-src-attr 'unsafe-inline'`, ce qui retire l'autorisation globale des blocs `<style>` tout en conservant les attributs `style` de React.
+- **Hors ligne sans slash** : quand la navigation vers `/livres/<id>` échoue hors ligne, le Service Worker tente la fiche précachée `/livres/<id>/` avant de retomber sur l'app shell. Le 301 Nginx reste actif en ligne.
+- **AGENTS.md** : consignes courtes pour les agents, avec renvoi vers `antigravity.md` pour la mémoire complète.
+- **Script de régression** : `scripts/verify-release.ps1` contrôle `js/dist`, la règle zéro tiret, puis en production le build, le Service Worker, les 9 URL du sitemap, le 301 des 7 fiches, la CSP et les fichiers sensibles. Mode `-SkipProd` pour les contrôles locaux.
+- **Précache** : `css/book-page.css` et `css/droits.css` entrent dans l'app shell hors ligne.
+- Version 1.8.7, cache Service Worker source `hylst-reader-v61`.
+
+### Vérifié
+- Build local `354686eb6d46` : 107 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin, 207 fichiers runtime vérifiés.
+- CSP stricte en local : zéro violation, 86 attributs `style` React fonctionnels, `droits.css` et `book-page.css` servis en 200, rendu des pages statiques et de la page de droits intact.
+- Hors ligne en profil vierge : `/livres/quinte-ou-les-harmoniques-de-l-ame` sans slash et avec slash affichent la même fiche, avec 139 entrées en cache après navigation.
+- Production vérifiée sur le build `354686eb6d46` et le SW `hylst-reader-354686eb6d46` : 9/9 URL du sitemap en 200, 301 des 7 fiches avec query conservée, `droits.css` et `book-page.css` en 200, CSP stricte sur l'index, les droits et les 7 fiches.
+- axe sans violation sur 9 états en production : bibliothèque sombre, sépia et clair, fiche livre, liseuse, paramètres, musique, fiche statique et page de droits.
+- Hors ligne en profil vierge sur la production : `/livres/quinte-ou-les-harmoniques-de-l-ame` sans slash affiche la fiche statique, 139 entrées en cache après navigation.
+- `scripts/verify-release.ps1` : tous les contrôles passent, y compris build, sitemap, 301, CSP, `.env` 403 et Babel/JSX en 404.
+- Lighthouse production mobile : performance 91, accessibilité 100, bonnes pratiques 100, SEO 100, LCP 3,3 s, CLS 0, TBT 10 ms.
+- Lighthouse production desktop : performance 97, accessibilité 100, bonnes pratiques 100, SEO 100, LCP 1,3 s, CLS 0,008, TBT 0 ms.
+- En-tête CSP Nginx : bloc de configuration transmis à l'agent plateforme, non appliqué dans cette release.
+
 ## [1.8.6] - 2026-11-04
 ### Modifié
 - **JSX précompilé, Babel retiré du runtime** : `scripts/build_jsx.js` compile les 10 fichiers JSX vers `js/dist/*.js` avec le runtime React classique. Chaque sortie est encapsulée dans une IIFE pour préserver l'isolation des portées. Babel est déplacé dans `scripts/vendor/babel.min.js`, reste un outil de build et n'est plus copié dans le miroir. `sync-to-platform.ps1` régénère la sortie et refuse un `--check` désynchronisé.

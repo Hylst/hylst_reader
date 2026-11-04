@@ -8,7 +8,9 @@ Ce document décrit l'organisation physique et logique des répertoires et des f
 Hylst_Reader/
 ├── css/                     # Feuilles de style modulaires (Vanilla CSS)
 │   ├── base.css             # Raccourcis, fontes de base, réinitialisations
+│   ├── book-page.css        # Styles des fiches statiques (généré)
 │   ├── components.css       # Styles pour cartes livres, modals, boutons
+│   ├── droits.css           # Styles de la page Droits & IA
 │   ├── layout.css           # Grilles globales et agencements généraux
 │   ├── modals.css           # Structures de fenêtres popups
 │   ├── music.css            # Styles dédiés au lecteur de musique et playlists
@@ -61,10 +63,12 @@ Hylst_Reader/
 │   ├── generate_pwa_icons.py # Génération des icônes PWA
 │   ├── make_social_share.py # Composition de l'image Open Graph
 │   ├── sync-to-platform.ps1 # Synchronisation sûre vers Cours_Memos/Docker/books_reader
+│   ├── verify-release.ps1   # Contrôle build, tirets, sitemap, 301, CSP et fichiers sensibles
 │   └── vendor/babel.min.js  # Babel, outil de build uniquement (non servi)
 ├── livres_pour_import/      # [Ignoré par Git] Sources des livres en local
 │
 ├── .gitignore               # Fichiers et dossiers exclus du versioning Git
+├── AGENTS.md                # Consignes agents, pointe vers antigravity.md
 ├── antigravity.md           # Mémoire projet et consignes agents
 ├── CHANGELOG.md             # Journal des versions et des modifications
 ├── README.md                # Guide d'accueil utilisateur et présentation
@@ -86,9 +90,11 @@ Hylst_Reader/
 - **`scripts/build_book_pages.py`** : génère les 7 fiches statiques `livres/<id>/` avec métadonnées, JSON-LD, CSP et icônes.
 - **`scripts/check_dashes.py`** : refuse tout tiret cadratin ou demi-cadratin dans les fichiers servis.
 - **`scripts/sync-to-platform.ps1`** : compile le JSX, génère les fiches, calcule l'empreinte de build, préserve l'index de production et synchronise `Cours_Memos/Docker/books_reader`. Il exclut les sources `.jsx` et `scripts/vendor/babel.min.js` du miroir.
+- **`scripts/verify-release.ps1`** : contrôle localement `js/dist` et la règle zéro tiret, puis en production le build, le SW, les 9 URL du sitemap, le 301 des fiches, la CSP et les fichiers sensibles.
 - **`sw.js`** : précache l'app shell, `public/books.json`, les 66 contenus, les 7 couvertures et les 7 fiches, puis sert le local en Network-First avec repli cache.
 - **`index.html`** : charge les styles, le thème avant premier rendu et les fichiers `js/dist/*.js`. Babel n'est plus chargé par le navigateur.
 - **`vendor/`** : bibliothèques JS servies localement, sans CDN au runtime. Babel est dans `scripts/vendor/` et reste un outil de build.
 - **`js/dist/` et `livres/`** : sorties générées. `js/dist/` est ignoré par Git dans le dépôt source et régénéré avant tout service ou sync. Le miroir de production versionne `js/dist/` pour que Coolify déploie les fichiers compilés.
+- **`AGENTS.md`** : consignes courtes lues par les agents, avec renvoi vers `antigravity.md` pour la mémoire complète.
 - **`antigravity.md`** : mémoire projet et consignes agents (stack, règles, état courant, prochaines étapes).
 - **`gen_music_data.py`** : génère `js/music_data.js` depuis `mp3_online.csv` et `mp3_online.txt`, avec les chemins relatifs `/hml/`.

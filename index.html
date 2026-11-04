@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' blob: data:; media-src 'self' blob: data:; frame-src 'self' blob: data:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' blob: data:; media-src 'self' blob: data:; frame-src 'self' blob: data:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'">
     <title>La Bibliothèque de Hylst · Livres, proses et poésies de Geoffroy Streit</title>
     <noscript>
         <style>.initial-loader{display:none!important}</style>
@@ -264,7 +264,7 @@
     <meta name="theme-color" content="#0f0e0c" id="theme-color-meta">
 
     <!-- Thème appliqué avant le premier rendu : sombre par défaut, choix mémorisé respecté. -->
-    <script src="js/theme-boot.js?v=1.8.6"></script>
+    <script src="js/theme-boot.js?v=1.8.7"></script>
 
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -279,15 +279,15 @@
     <link rel="stylesheet" href="/assets/fonts/fonts.css">
 
     <!-- CSS Design System -->
-    <link rel="stylesheet" href="css/book-fonts.css?v=1.8.6">
-    <link rel="stylesheet" href="css/variables.css?v=1.8.6">
-    <link rel="stylesheet" href="css/base.css?v=1.8.6">
-    <link rel="stylesheet" href="css/layout.css?v=1.8.6">
-    <link rel="stylesheet" href="css/components.css?v=1.8.6">
-    <link rel="stylesheet" href="css/modals.css?v=1.8.6">
-    <link rel="stylesheet" href="css/music.css?v=1.8.6">
-    <link rel="stylesheet" href="css/reader.css?v=1.8.6">
-    <link rel="stylesheet" href="css/responsive.css?v=1.8.6">
+    <link rel="stylesheet" href="css/book-fonts.css?v=1.8.7">
+    <link rel="stylesheet" href="css/variables.css?v=1.8.7">
+    <link rel="stylesheet" href="css/base.css?v=1.8.7">
+    <link rel="stylesheet" href="css/layout.css?v=1.8.7">
+    <link rel="stylesheet" href="css/components.css?v=1.8.7">
+    <link rel="stylesheet" href="css/modals.css?v=1.8.7">
+    <link rel="stylesheet" href="css/music.css?v=1.8.7">
+    <link rel="stylesheet" href="css/reader.css?v=1.8.7">
+    <link rel="stylesheet" href="css/responsive.css?v=1.8.7">
 
     <!-- Dépendances auto-hébergées (vendor/), pas de CDN au runtime -->
     <!-- React & ReactDOM (UMD) -->
@@ -338,36 +338,36 @@
     -->
 
     <!-- 1. Données -->
-    <script src="js/music_data.js?v=1.8.6"></script>
+    <script src="js/music_data.js?v=1.8.7"></script>
 
     <!-- 2. Sécurité des contenus importés -->
-    <script src="js/sanitize.js?v=1.8.6"></script>
+    <script src="js/sanitize.js?v=1.8.7"></script>
 
     <!-- 4. Utilitaires & DB (plain JS, pas de JSX) -->
-    <script src="js/db.js?v=1.8.6"></script>
-    <script src="js/importAPI.js?v=1.8.6"></script>
-    <script src="js/modalA11y.js?v=1.8.6"></script>
+    <script src="js/db.js?v=1.8.7"></script>
+    <script src="js/importAPI.js?v=1.8.7"></script>
+    <script src="js/modalA11y.js?v=1.8.7"></script>
 
     <!-- 5. Composants de base (sans dépendances inter-composants) -->
-    <script src="js/dist/components/Icon.js?v=1.8.6"></script>
-    <script src="js/dist/components/Ambience.js?v=1.8.6"></script>
+    <script src="js/dist/components/Icon.js?v=1.8.7"></script>
+    <script src="js/dist/components/Ambience.js?v=1.8.7"></script>
 
     <!-- 6. Composants modaux (dépendent de Icon & Ambience) -->
-    <script src="js/dist/components/AboutModal.js?v=1.8.6"></script>
-    <script src="js/dist/components/GlobalSettingsModal.js?v=1.8.6"></script>
-    <script src="js/dist/components/MusicPlayerModal.js?v=1.8.6"></script>
-    <script src="js/dist/components/ImageLightbox.js?v=1.8.6"></script>
+    <script src="js/dist/components/AboutModal.js?v=1.8.7"></script>
+    <script src="js/dist/components/GlobalSettingsModal.js?v=1.8.7"></script>
+    <script src="js/dist/components/MusicPlayerModal.js?v=1.8.7"></script>
+    <script src="js/dist/components/ImageLightbox.js?v=1.8.7"></script>
 
     <!-- 7. Vues (dépendent de Icon, Ambience, HylstDB) -->
-    <script src="js/dist/components/BookHomeView.js?v=1.8.6"></script>
-    <script src="js/dist/components/LibraryView.js?v=1.8.6"></script>
-    <script src="js/dist/components/ReaderView.js?v=1.8.6"></script>
+    <script src="js/dist/components/BookHomeView.js?v=1.8.7"></script>
+    <script src="js/dist/components/LibraryView.js?v=1.8.7"></script>
+    <script src="js/dist/components/ReaderView.js?v=1.8.7"></script>
 
     <!-- 8. App principale (orchestre tout) -->
-    <script src="js/dist/app.js?v=1.8.6"></script>
+    <script src="js/dist/app.js?v=1.8.7"></script>
 
     <!-- PWA Service Worker Registration -->
-    <script src="js/sw-register.js?v=1.8.6"></script>
+    <script src="js/sw-register.js?v=1.8.7"></script>
 </body>
 
 </html>

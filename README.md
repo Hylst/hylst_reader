@@ -6,7 +6,7 @@
 - Nom court (PWA) : **Biblio Hylst**
 - Signature : **Livres, proses, poésies et récits de Geoffroy Streit**
 - URL : `https://hylst.fr/books_reader/` (alias `https://hylst.fr/bibliotheque/`)
-- Version : **1.8.6** (voir [CHANGELOG](CHANGELOG.md))
+- Version : **1.8.7** (voir [CHANGELOG](CHANGELOG.md))
 
 
 ---

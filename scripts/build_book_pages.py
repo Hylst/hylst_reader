@@ -14,6 +14,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "livres"
+STYLE_PATH = ROOT / "css" / "book-page.css"
 BASE = "https://hylst.fr/books_reader/"
 SITE_PATH = "/books_reader/"
 SITE = "La Bibliothèque de Hylst"
@@ -257,7 +258,7 @@ def build_book(book: dict) -> str:
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' blob: data:; media-src 'self' blob: data:; frame-src 'self' blob: data:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' blob: data:; media-src 'self' blob: data:; frame-src 'self' blob: data:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'">
     <title>{page_title}</title>
     <meta name="description" content="{html.escape(description)}">
     <meta name="author" content="Geoffroy Streit (Hylst)">
@@ -292,7 +293,7 @@ def build_book(book: dict) -> str:
 {json.dumps(jsonld, ensure_ascii=False, indent=2)}
     </script>
 
-    <style>{STYLE}</style>
+    <link rel="stylesheet" href="{SITE_PATH}css/book-page.css">
 </head>
 <body>
     <div class="wrap">
@@ -358,6 +359,7 @@ def build_book(book: dict) -> str:
 
 def main() -> None:
     books = json.loads((ROOT / "public" / "books.json").read_text(encoding="utf-8"))
+    STYLE_PATH.write_text(STYLE.strip() + "\n", encoding="utf-8", newline="\n")
     OUT_DIR.mkdir(exist_ok=True)
     for book in books:
         dest = OUT_DIR / book["id"] / "index.html"

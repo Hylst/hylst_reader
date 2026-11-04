@@ -22,10 +22,12 @@
 
 ## État actuel
 
-- Version **1.8.6**, build `f24c89706fb0`, SW `hylst-reader-f24c89706fb0`.
-- Premier chargement production : **1 330 388 octets**, 57 requêtes, zéro requête externe, zéro erreur console.
-- axe sans violation sur 9 états en production. 9/9 URL du sitemap en 200. 7/7 fiches avec CSP et icônes. Hors ligne vérifié sur la bibliothèque, une fiche et une page statique.
+- Version **1.8.7**, build `354686eb6d46`, SW `hylst-reader-354686eb6d46`.
+- CSP meta stricte : `style-src 'self'` et `style-src-attr 'unsafe-inline'`. Les CSS des droits et des fiches sont externalisés.
+- axe sans violation sur 9 états en production. 9/9 URL du sitemap en 200. 7/7 fiches avec CSP et icônes.
+- Hors ligne vérifié sur la bibliothèque, une fiche et une page statique, y compris `/livres/<id>` sans slash.
 - 301 des 7 fiches actif, query conservée, persistance confirmée après redéploiement.
+- Lighthouse production : mobile 91/100/100/100, desktop 97/100/100/100.
 
 ## Prochaines étapes possibles
 

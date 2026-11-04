@@ -63,7 +63,7 @@ Hylst_Reader/
 │   ├── generate_pwa_icons.py # Génération des icônes PWA
 │   ├── make_social_share.py # Composition de l'image Open Graph
 │   ├── sync-to-platform.ps1 # Synchronisation sûre vers Cours_Memos/Docker/books_reader
-│   ├── verify-release.ps1   # Contrôle build, tirets, sitemap, 301, CSP et fichiers sensibles
+│   ├── verify-release.ps1   # Contrôle build, tirets, sitemap, 301, CSP meta et en-tête, fichiers sensibles
 │   └── vendor/babel.min.js  # Babel, outil de build uniquement (non servi)
 ├── livres_pour_import/      # [Ignoré par Git] Sources des livres en local
 │
@@ -90,7 +90,7 @@ Hylst_Reader/
 - **`scripts/build_book_pages.py`** : génère les 7 fiches statiques `livres/<id>/` avec métadonnées, JSON-LD, CSP et icônes.
 - **`scripts/check_dashes.py`** : refuse tout tiret cadratin ou demi-cadratin dans les fichiers servis.
 - **`scripts/sync-to-platform.ps1`** : compile le JSX, génère les fiches, calcule l'empreinte de build, préserve l'index de production et synchronise `Cours_Memos/Docker/books_reader`. Il exclut les sources `.jsx` et `scripts/vendor/babel.min.js` du miroir.
-- **`scripts/verify-release.ps1`** : contrôle localement `js/dist` et la règle zéro tiret, puis en production le build, le SW, les 9 URL du sitemap, le 301 des fiches, la CSP et les fichiers sensibles.
+- **`scripts/verify-release.ps1`** : contrôle localement `js/dist` et la règle zéro tiret, puis en production le build, le SW, les 9 URL du sitemap, le 301 des fiches, la CSP meta, l'en-tête CSP Books Reader, l'absence d'en-tête global et les fichiers sensibles.
 - **`sw.js`** : précache l'app shell, `public/books.json`, les 66 contenus, les 7 couvertures et les 7 fiches, puis sert le local en Network-First avec repli cache.
 - **`index.html`** : charge les styles, le thème avant premier rendu et les fichiers `js/dist/*.js`. Babel n'est plus chargé par le navigateur.
 - **`vendor/`** : bibliothèques JS servies localement, sans CDN au runtime. Babel est dans `scripts/vendor/` et reste un outil de build.

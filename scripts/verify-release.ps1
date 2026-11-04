@@ -46,6 +46,17 @@ function Get-HttpCode([string]$url) {
     }
 }
 
+function Get-ResponseHeaders([string]$url) {
+    $headers = @{}
+    $raw = & curl.exe -sS -I --max-time 30 $url 2>$null
+    foreach ($line in $raw) {
+        if ($line -match '^([^:]+):\s*(.*)$') {
+            $headers[$matches[1].Trim().ToLowerInvariant()] = $matches[2].Trim()
+        }
+    }
+    return $headers
+}
+
 try {
     Write-Host "== Contrôles locaux =="
     & node scripts/build_jsx.js --check
@@ -92,6 +103,20 @@ try {
         Ok 'CSP présente sur l''index'
     } else {
         Ko 'CSP absente de l''index'
+    }
+
+    $booksHeaders = Get-ResponseHeaders $BaseUrl
+    $booksCsp = $booksHeaders['content-security-policy']
+    if ($booksCsp -and $booksCsp -match "frame-ancestors 'self'" -and $booksCsp -match "style-src-attr 'unsafe-inline'") {
+        Ok 'en-tête CSP actif sur Books Reader'
+    } else {
+        Ko "en-tête CSP absent ou incomplet sur Books Reader : $booksCsp"
+    }
+    $rootHeaders = Get-ResponseHeaders 'https://hylst.fr/'
+    if (-not $rootHeaders['content-security-policy']) {
+        Ok 'aucun en-tête CSP global sur la racine'
+    } else {
+        Ko "en-tête CSP inattendu sur la racine : $($rootHeaders['content-security-policy'])"
     }
 
     $sitemapUrls = [regex]::Matches($sitemap.Content, '<loc>([^<]+)</loc>') | ForEach-Object { $_.Groups[1].Value }

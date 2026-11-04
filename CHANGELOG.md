@@ -17,10 +17,10 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Production vérifiée sur le build `354686eb6d46` et le SW `hylst-reader-354686eb6d46` : 9/9 URL du sitemap en 200, 301 des 7 fiches avec query conservée, `droits.css` et `book-page.css` en 200, CSP stricte sur l'index, les droits et les 7 fiches.
 - axe sans violation sur 9 états en production : bibliothèque sombre, sépia et clair, fiche livre, liseuse, paramètres, musique, fiche statique et page de droits.
 - Hors ligne en profil vierge sur la production : `/livres/quinte-ou-les-harmoniques-de-l-ame` sans slash affiche la fiche statique, 139 entrées en cache après navigation.
-- `scripts/verify-release.ps1` : tous les contrôles passent, y compris build, sitemap, 301, CSP, `.env` 403 et Babel/JSX en 404.
+- `scripts/verify-release.ps1` : tous les contrôles passent, y compris build, sitemap, 301, CSP meta, en-tête CSP Books Reader, absence d'en-tête global, `.env` 403 et Babel/JSX en 404.
 - Lighthouse production mobile : performance 91, accessibilité 100, bonnes pratiques 100, SEO 100, LCP 3,3 s, CLS 0, TBT 10 ms.
 - Lighthouse production desktop : performance 97, accessibilité 100, bonnes pratiques 100, SEO 100, LCP 1,3 s, CLS 0,008, TBT 0 ms.
-- En-tête CSP Nginx : bloc de configuration transmis à l'agent plateforme, non appliqué dans cette release.
+- En-tête CSP Nginx actif depuis le 04/11 : configuration `28f5c867ffdb657d541daf8b0997a133`, base64 Coolify `375eebfe92a2b0bf80f37641a8f407d6`, sauvegarde `/root/hylst-nginx-backup-20261104-booksreader-csp/`. L'en-tête est limité à `/books_reader/`, absent sur la racine et CogniAI, et les CSP propres de UX-UI et Data Science Explorer restent inchangées. Persistance confirmée après deux redéploiements, conteneur final `zg4880k00soco08c4wkg48ks-20261104T154607`.
 
 ## [1.8.6] - 2026-11-04
 ### Modifié

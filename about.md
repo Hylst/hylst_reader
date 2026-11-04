@@ -28,6 +28,7 @@ L'application utilise une stack moderne "Pure Frontend" optimisée pour la modul
 - **React 18 & JSX précompilé** : Interface réactive découpée en composants ES6 autonomes, compilés au build vers `js/dist/`. Aucun transpileur n'est chargé par le navigateur.
 - **IndexedDB (`idb-keyval`)** : Persistance robuste sans serveur pour les textes, signets et progressions de lecture.
 - **Service Workers (PWA)** : Précache de l'app shell, des contenus de livres et des couvertures, puis Network-First avec repli cache. La bibliothèque et la lecture fonctionnent hors ligne.
+- **Sécurité** : CSP stricte en balise meta et en en-tête Nginx, limitée à `/books_reader/`, avec `frame-ancestors 'self'`.
 - **CSS3 Vanilla modulaire** : Design soigné reposant sur des variables et des tokens (grain de papier animés, z-index stables et animations fluides).
 
 ---

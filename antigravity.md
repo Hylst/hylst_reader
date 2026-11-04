@@ -27,6 +27,7 @@
 - axe sans violation sur 9 états en production. 9/9 URL du sitemap en 200. 7/7 fiches avec CSP et icônes.
 - Hors ligne vérifié sur la bibliothèque, une fiche et une page statique, y compris `/livres/<id>` sans slash.
 - 301 des 7 fiches actif, query conservée, persistance confirmée après redéploiement.
+- En-tête CSP Nginx actif, limité à `/books_reader/` : configuration `28f5c867...`, base64 Coolify `375eebfe...`, sauvegarde `/root/hylst-nginx-backup-20261104-booksreader-csp/`, `nginx -t` OK, persistance après deux redéploiements.
 - Lighthouse production : mobile 91/100/100/100, desktop 97/100/100/100.
 
 ## Prochaines étapes possibles
@@ -34,5 +35,4 @@
 - Refactorisation CSS et allègement de `base.css`.
 - Export `.json` de la bibliothèque importée.
 - Preset de lecture longue avec réduction automatique des animations.
-- CSP en en-tête Nginx avec nonce ou hash pour supprimer `style-src 'unsafe-inline'`.
 - Normalisation hors ligne de `/livres/<id>` vers `/livres/<id>/` dans le Service Worker.

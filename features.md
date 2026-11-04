@@ -47,6 +47,7 @@ L'application fonctionne à 100% sans serveur de base de données en s'appuyant 
   - **Fichier unique** : Sélectionnez un fichier `.EPUB`, `.TXT`, `.MD` ou `.JSON` pour l'ouvrir instantanément.
   - **Dossier HML local** : Grâce à l'API File System Access, sélectionnez un dossier complet d'ouvrage structuré pour en recréer le sommaire et le graphisme personnalisé.
   - **Assainissement** : chaque contenu importé passe par DOMPurify avant stockage et avant rendu (scripts, iframes, gestionnaires d'événements et URL `javascript:` neutralisés).
+- **CSP stricte** : balise meta et en-tête Nginx limités à `/books_reader/`, avec `script-src 'self'`, `style-src 'self'` et `frame-ancestors 'self'`. Les autres applications de la plateforme conservent leurs propres politiques.
 
 ---
 

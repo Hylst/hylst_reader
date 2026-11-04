@@ -164,6 +164,14 @@ foreach ($marker in $targetMarkers) {
         Fail "L'index de production ne contient pas le marqueur attendu : $marker. Corrige-le avant de synchroniser."
     }
 }
+
+# Vérifier que tous les scripts de l'index source sont présents dans l'index cible
+$sourceScripts = [regex]::Matches($sourceIndex, 'src="([^"?]+)') | ForEach-Object { $_.Groups[1].Value } | Where-Object { $_ -like 'js/*' -or $_ -like 'vendor/*' }
+foreach ($script in $sourceScripts) {
+    if ($targetIndex -notmatch [regex]::Escape($script)) {
+        Fail "L'index de production ne référence pas le script '$script' présent dans l'index source."
+    }
+}
 if ($targetIndex -match $cdnPattern) {
     Fail "L'index de production contient encore une référence CDN. Corrige-le avant de synchroniser."
 }
@@ -251,6 +259,20 @@ foreach ($file in $runtimeFiles) {
 }
 
 if (-not $DryRun) {
+    # Nettoyage des fichiers orphelins dans public/books
+    $targetBooksDir = Join-Path $Target 'public\books'
+    $sourceBooksDir = Join-Path $Source 'public\books'
+    if (Test-Path -LiteralPath $targetBooksDir) {
+        Get-ChildItem -LiteralPath $targetBooksDir -Recurse -File | ForEach-Object {
+            $rel = Get-RelativePath $targetBooksDir $_.FullName
+            $srcP = Join-Path $sourceBooksDir $rel
+            if (-not (Test-Path -LiteralPath $srcP)) {
+                Info "Suppression de l'orphelin dans la cible : $rel"
+                Remove-Item -LiteralPath $_.FullName -Force
+            }
+        }
+    }
+
     & python $dashScript --root $Target
     if ($LASTEXITCODE -ne 0) {
         Fail "Tirets cadratins ou demi-cadratins détectés dans la cible."

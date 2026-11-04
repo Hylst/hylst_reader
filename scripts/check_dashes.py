@@ -110,7 +110,8 @@ def main() -> int:
         )
         for path, lineno, name, line in findings:
             rel = path.relative_to(root)
-            print(f"  {rel}:{lineno}: {name}: {line[:160]}")
+            safe_line = line[:160].encode("ascii", errors="replace").decode("ascii")
+            print(f"  {rel}:{lineno}: {name}: {safe_line}")
         return 1
 
     print(

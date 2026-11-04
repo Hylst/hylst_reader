@@ -268,6 +268,8 @@ def build_book(book: dict) -> str:
     <link rel="canonical" href="{url}">
     <link rel="license" href="{BASE}droits.html">
     <meta name="theme-color" content="#0f0e0c">
+    <link rel="icon" type="image/png" sizes="32x32" href="{SITE_PATH}public/icons/icon-32.png">
+    <link rel="apple-touch-icon" href="{SITE_PATH}public/icons/apple-touch-icon.png">
 
     <meta property="og:site_name" content="{SITE}">
     <meta property="og:locale" content="fr_FR">

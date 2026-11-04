@@ -21,6 +21,12 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Thème : bascule sombre, sépia et clair, mémorisation après rechargement, couleur d'interface mise à jour.
 - Manifeste et icônes : 5 icônes PNG en 200, manifeste en 200. `.env`, `sources/`, `livres_pour_import/` et `scripts/` restent inaccessibles.
 - Aucune requête externe, aucune requête échouée et aucune réponse HTTP en erreur au premier chargement.
+- Production `https://hylst.fr/books_reader/` vérifiée après déploiement : build `f24c89706fb0` et SW `hylst-reader-f24c89706fb0` actifs, 9/9 URL du sitemap en 200, 7/7 fiches avec CSP et icônes, Babel et les sources `.jsx` en 404.
+- Production, premier chargement propre : 1 330 388 octets transférés, 57 requêtes, 0 requête externe, 0 requête échouée, 0 erreur console, 0 violation CSP.
+- Production, axe sans violation sur 9 états : bibliothèque sombre, sépia et clair, fiche livre, liseuse, paramètres, musique, fiche statique et page de droits.
+- Production, citation annoncée en `aria-live`, sommaire au clavier avec changement de chapitre et retour du focus, thèmes mémorisés.
+- Production, hors ligne en profil vierge : cache `hylst-reader-f24c89706fb0`, bibliothèque, fiche *Les Ficelles du bonheur* et fiche statique de *Quinte* accessibles sans réseau.
+- Le 301 des fiches sans slash reste à activer : `/books_reader/livres/<id>` répond encore 200. Le bloc Nginx est prêt dans `nginx-coolify-reference.conf` et doit être collé dans le panel Coolify.
 
 
 ### Ajouté

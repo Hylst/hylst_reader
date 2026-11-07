@@ -12,6 +12,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 ### Modifié
 - **Catalogue** : `public/books.json` passe de 74 à 81 chapitres. Le Tome I passe de 11 à 16 textes, le Tome II de 8 à 10. Les deux introductions annoncent les nouveaux textes et les dates d'origine.
 - **Fiches statiques** : les pages des Tomes I et II listent les nouveaux chapitres et les compteurs à jour.
+- **Couvertures** : les couvertures des Tomes I et II sont recomposées par `scripts/update_recueils_covers.py` et annoncent « SEIZE TEXTES · 1995-2024 » et « DIX TEXTES · 1999-2024 » ; les images Open Graph suivent.
 - **Version** : 1.8.12, cache source `hylst-reader-v68`, mention de version de la modale À propos.
 - **Compteurs** : 91 fichiers de contenu (10 introductions et 81 chapitres) dans README, readme-dev, features, structure et antigravity.
 
@@ -20,6 +21,8 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `public/books.json` valide : 10 livres, 81 chapitres.
 - `node scripts/build_jsx.js` et `--check` : 10 fichiers compilés et à jour.
 - `python scripts/build_book_pages.py` : 10 fiches générées, sommaires des Tomes I et II à 16 et 10 entrées.
+- **Synchronisation du miroir** : build `54add590c04d`, cache `hylst-reader-54add590c04d`, 252 fichiers runtime vérifiés, sitemap à 12 URL, 26 placeholders `?v=54add590c04d`.
+- **Déploiement du 07/11** : commit plateforme `49d2f2a2`, production en 1.8.12. `verify-release.ps1` entièrement vert (12 URL, 10 fiches, 301, CSP meta et Nginx, `.env` 403, sources 404) ; `books.json` sert 10 livres et 81 chapitres ; les sept nouveaux chapitres et les deux couvertures répondent en 200.
 
 ## [1.8.11] - 2026-11-07
 ### Ajouté

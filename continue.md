@@ -4,7 +4,7 @@ Point d'étape pour un agent qui reprendrait ce travail. Fichier de travail, non
 
 ## État au 7 novembre 2026
 
-Version **1.8.11** déployée le 07/11, cache Service Worker source `hylst-reader-v67`, build `82df59e049b6`, cache `hylst-reader-82df59e049b6`, commits plateforme `30e645a4` puis `31aead70` (correctif d'index). 245 fichiers runtime, sitemap à 12 URL, 10 livres, 74 chapitres, JSON-LD à 10 entrées `Book`. `verify-release.ps1` entièrement vert.
+Version **1.8.12** déployée le 07/11, cache Service Worker source `hylst-reader-v68`, build `54add590c04d`, cache `hylst-reader-54add590c04d`, commit plateforme `49d2f2a2`. 252 fichiers runtime, sitemap à 12 URL, 10 livres, 81 chapitres, 91 fichiers de contenu, JSON-LD à 10 entrées `Book`. `verify-release.ps1` entièrement vert.
 
 ### Fait
 
@@ -12,17 +12,15 @@ Version **1.8.11** déployée le 07/11, cache Service Worker source `hylst-reade
 - **Tome IV, *Carnets, réflexions & partages*** : quatre textes retrouvés, datés et légèrement réécrits. *Hygiène de vie* (23 novembre 2003), *Imaginez-vous* (19 juin 2007), *Idées cadeaux* (5 septembre 2008), *Marre d'apprendre* (vers 2024). Chaque chapitre porte sa date et une note de source.
 - **Livre *Sciences et technologie*** : préface 2026, quatre parties avec résumé, sommaire d'origine et PDF. Les quatre PDF sont exportés depuis les `.docx` d'origine (A 21 pages, B 17, C 40, D 36), avec images et mise en page conservées. Manifeste `pdf/manifest.json`.
 - **Catalogue** : 10 livres, 81 chapitres, 10 fiches statiques. Deux couvertures composées (600x900). Styles de téléchargement, sommaire et résumé ajoutés à `css/reader.css` et `css/book-page.css`.
-- **Inédits littéraires (1.8.12, en préparation)** : quatre escapades de 1995 (B2, C, D, E) insérées après « Escapade boisée » dans le Tome I, *Un brin d'écrit* (1996) en clôture du Tome I, *Farouches apparitions* (1999) et *La tanière du mage* (2020) dans le Tome II. Réécriture légère, dates d'origine et notes de source. La partie B, « À la campagne », reste au Tome III.
-- **Vérifications** : `check_dashes.py --all` sur 166 fichiers, `books.json` valide, JSX compilé et à jour, 10 fiches générées, 12 URL dans le sitemap, tests HTTP locaux en 200 pour les deux fiches, les neuf chapitres, les quatre PDF et les deux couvertures.
+- **Inédits littéraires (1.8.12, déployée)** : quatre escapades de 1995 (B2, C, D, E) insérées après « Escapade boisée » dans le Tome I, *Un brin d'écrit* (1996) en clôture du Tome I, *Farouches apparitions* (1999) et *La tanière du mage* (2020) dans le Tome II. Réécriture légère, dates d'origine et notes de source. La partie B, « À la campagne », reste au Tome III. Les couvertures des deux tomes annoncent « SEIZE TEXTES · 1995-2024 » et « DIX TEXTES · 1999-2024 », images Open Graph comprises.
+- **Vérifications** : `check_dashes.py --all` sur 173 fichiers, `books.json` valide (10 livres, 81 chapitres), JSX compilé et à jour, 10 fiches générées, 252 fichiers runtime dans le miroir, 12 URL dans le sitemap, tests HTTP locaux et production en 200 pour les sept nouveaux chapitres et les deux couvertures.
 - **Sources** : le dossier `D:\0HYLST\0 HYLST ART 2024\ecrits\textes_a_trier\` est rangé en quatre dossiers et inventorié dans `00_INVENTAIRE.md`. Rien n'a été supprimé.
 
 ### À faire, dans l'ordre
 
-1. **Inédits et Nightprowler** : poursuivre le lot éditorial ci-dessous. La 1.8.11 est déployée et vérifiée (build `82df59e049b6`), l'index annonce dix livres et le JSON-LD en liste dix.
-2. **Inédits littéraires** : publier les Escapades B2 à E, les deux versions de *Un brin d'écrit* (1996 et 1999) et *Wizard's lair* (2020) dans les tomes I et II, après validation des emplacements.
-3. **Nightprowler** : écrire le chapitre VII (figures et prétirés), puis les chapitres VIII à XIII et les annexes. Vérifier le corpus source avant chaque rédaction, ne jamais reproduire les textes de tiers.
-4. **Hors ligne** : coverage Nightprowler et des deux nouveaux livres dans un profil Chromium vierge, y compris `/livres/<id>` sans slash.
-5. **Documents plateforme** : après le déploiement, vérifier que `changelog.md`, `securite.md`, `todo.md` et `hylst_IT_platform_content.md` n'ont pas été écrasés par l'agent de déploiement.
+1. **Nightprowler** : écrire le chapitre VII (figures et prétirés), puis les chapitres VIII à XIII et les annexes. Vérifier le corpus source avant chaque rédaction, ne jamais reproduire les textes de tiers.
+2. **Hors ligne** : coverage Nightprowler et des deux nouveaux livres dans un profil Chromium vierge, y compris `/livres/<id>` sans slash.
+3. **Documents plateforme** : après chaque déploiement, vérifier que `changelog.md`, `securite.md`, `todo.md` et `hylst_IT_platform_content.md` n'ont pas été écrasés par l'agent de déploiement.
 
 ### Repères techniques
 
@@ -146,7 +144,7 @@ Fait au 06/11/2026 :
 - Illustrations : `chapitre-1-cover.webp` a `chapitre-6-cover.webp`, generees sur le GPU local (`D:/0CODE/ClaudeCode/wainsfw/main.py`, modele `z-image-turbo-sdcpp`, 1216x832, 114 a 197 Ko), dans le style de la couverture. Chaque chapitre I a VI ouvre sur son image.
 - Integration : entree `nightprowler-carnets-de-samarande` dans `public/books.json` (8 livres au catalogue), badge En chantier, design Outfit et Merriweather, fiche statique generee, image Open Graph produite, sommaire a six entrees dans `BookHomeView` avec ouverture directe du chapitre choisi, `f3` retiree de `FUTURE_BOOKS`, cache `hylst-reader-v65`, sitemap du miroir complete a 10 URL avec la fiche Nightprowler et completion automatique dans `sync-to-platform.ps1`, 222 fichiers runtime dans le miroir en build `ca5f4163630e`, `CHANGELOG.md`, `todo.md` et `antigravity.md` a jour. Ajout CSS : `.chapter-stats-table.descripteurs td:first-child` aligne les etiquettes a gauche, `.book-home-toc` pour le sommaire.
 
-Non fait : chapitres VII a XIII, annexes, verification hors ligne. Les 1.8.9 et 1.8.10 sont deployees ; les documents plateforme de la 1.8.11 sont ecrits, a reverifier apres le deploiement (l'agent plateforme peut les ecraser).
+Non fait : chapitres VII a XIII, annexes, verification hors ligne. Les 1.8.9 a 1.8.12 sont deployees ; les documents plateforme de la 1.8.12 sont ecrits et pousses (commit `857ac943`), a reverifier apres chaque redeploiement (l'agent plateforme peut les ecraser).
 La suite a proposer : chapitre VII, figures et preretires, avec Albert Degreffion et les cinq personnages de 2011 en tableaux normalises, et une illustration dans le meme style ; puis coverage offline Nightprowler dans un profil Chromium vierge ; rediger un message pour l'agent deployment / suivi des apps sur la plateforme Hylst IT (dossier Docker / container Nginx Statique pour VPS).
 
 Point de methode : le corps d'un chapitre ne s'ouvre dans la liseuse que par un clic, aucun parametre d'URL ne cible un chapitre. Le rendu se controle donc sur une page d'apercu jetable qui charge `css/reader.css` et `css/book-fonts.css`, ou par capture d'ecran Chrome headless. Les extractions de travail vont dans `.extract/`, supprime apres usage.

@@ -25,12 +25,12 @@
 
 ## État actuel
 
-- Version **1.8.11** déployée le 07/11, cache Service Worker source `hylst-reader-v67`, build `82df59e049b6`, SW `hylst-reader-82df59e049b6`, commits plateforme `30e645a4` puis `31aead70` (correctif d'index).
+- Version **1.8.12** déployée le 07/11, cache Service Worker source `hylst-reader-v68`, build `54add590c04d`, SW `hylst-reader-54add590c04d`, commit plateforme `49d2f2a2`.
 - Catalogue à **10 livres et 81 chapitres** : les huit livres existants, le Tome IV *Carnets, réflexions & partages* (4 chapitres, textes de 2003 à 2024) et le livre *Sciences et technologie* (préface 2026 et quatre parties, étude de 2001-2002). Le Tome I passe à 16 textes avec quatre escapades de 1995 et *Un brin d'écrit* (1996) ; le Tome II passe à 10 textes avec *Farouches apparitions* (1999) et *La tanière du mage* (2020).
 - Livre ***Nightprowler, carnets de Samarande*** intégré : 6 chapitres publiés (I à VI), introduction réécrite dans un ton d'hommage avec le lien Grog et les romans de Pierre Pevel, six illustrations de chapitre dans le style de la couverture, sommaire à six entrées sur la page du livre, fiche statique présente, `f3` retiré des contenus en préparation. Référence de reprise : `continue.md`.
 - **Rubrique Sciences et technologie** : format hybride. La liseuse sert une préface de 2026, des résumés et les sommaires d'origine ; les quatre PDF exportés depuis les `.docx` conservent le texte, les images et la mise en page de 2001-2002. Les PDF ne sont pas précachés. Les liens utilisent le chemin absolu `/books_reader/public/books/sciences-et-technologie-jeux-videos/pdf/...` pour fonctionner dans la liseuse et dans les fiches statiques.
 - CSP meta stricte : `style-src 'self'` et `style-src-attr 'unsafe-inline'`. Les CSS des droits et des fiches sont externalisés.
-- Production 1.8.11 : fumée 13 pages / 140 assets / 0 anomalie, sitemap à 12 URL, 10 livres, 74 chapitres et 10 fiches. Les deux nouvelles fiches, les neuf chapitres et leurs introductions, les quatre PDF et les deux couvertures sont en 200.
+- Production 1.8.12 : `verify-release.ps1` entièrement vert, sitemap à 12 URL, 10 livres, 81 chapitres, 252 fichiers runtime et 10 fiches. Les sept nouveaux chapitres et les deux couvertures recomposées répondent en 200 ; les couvertures annoncent « SEIZE TEXTES · 1995-2024 » et « DIX TEXTES · 1999-2024 ».
 - Hors ligne vérifié sur la bibliothèque, une fiche et une page statique, y compris `/livres/<id>` sans slash.
 - 301 des fiches sans slash actif (regex sur `/books_reader/livres/<id>`), query conservée, persistance confirmée après redéploiement.
 - En-tête CSP Nginx actif, limité à `/books_reader/` : configuration `28f5c867...`, base64 Coolify `375eebfe...`, sauvegarde `/root/hylst-nginx-backup-20261104-booksreader-csp/`, `nginx -t` OK, persistance après deux redéploiements.

@@ -4,7 +4,7 @@ Point d'étape pour un agent qui reprendrait ce travail. Fichier de travail, non
 
 ## État au 7 novembre 2026
 
-Version **1.8.11** déployée le 07/11, cache Service Worker source `hylst-reader-v67`, build `1e368c766584`, cache `hylst-reader-1e368c766584`, commit plateforme `30e645a4` (245 fichiers runtime, sitemap à 12 URL, 10 livres, 74 chapitres). `verifier-prod.sh --full books_reader` : 13 pages / 140 assets / 0 anomalie.
+Version **1.8.11** déployée le 07/11, cache Service Worker source `hylst-reader-v67`, build `82df59e049b6`, cache `hylst-reader-82df59e049b6`, commits plateforme `30e645a4` puis `31aead70` (correctif d'index). 245 fichiers runtime, sitemap à 12 URL, 10 livres, 74 chapitres, JSON-LD à 10 entrées `Book`. `verify-release.ps1` entièrement vert.
 
 ### Fait
 
@@ -17,7 +17,7 @@ Version **1.8.11** déployée le 07/11, cache Service Worker source `hylst-reade
 
 ### À faire, dans l'ordre
 
-1. **Déployer la 1.8.11** sur Coolify (service `books_reader`), puis lancer `bash verifier-prod.sh --full books_reader` depuis la plateforme. Vérifier les 10 fiches, les 12 URL du sitemap, les quatre PDF et les deux nouvelles couvertures.
+1. **Inédits et Nightprowler** : poursuivre le lot éditorial ci-dessous. La 1.8.11 est déployée et vérifiée (build `82df59e049b6`), l'index annonce dix livres et le JSON-LD en liste dix.
 2. **Inédits littéraires** : publier les Escapades B2 à E, les deux versions de *Un brin d'écrit* (1996 et 1999) et *Wizard's lair* (2020) dans les tomes I et II, après validation des emplacements.
 3. **Nightprowler** : écrire le chapitre VII (figures et prétirés), puis les chapitres VIII à XIII et les annexes. Vérifier le corpus source avant chaque rédaction, ne jamais reproduire les textes de tiers.
 4. **Hors ligne** : coverage Nightprowler et des deux nouveaux livres dans un profil Chromium vierge, y compris `/livres/<id>` sans slash.

@@ -14,6 +14,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - **Fiches statiques** : 10 fiches générées par `scripts/build_book_pages.py`, dont les deux nouvelles. Les styles du bloc de téléchargement sont désormais intégrés au script de génération, qui réécrit `css/book-page.css`.
 - **Styles de la liseuse** : ajout des blocs de téléchargement PDF, sommaire d'origine, résumé de 2026, contexte de partie et listes dans `css/reader.css`.
 - **Service Worker** : cache source passé de `hylst-reader-v66` à `hylst-reader-v67`. Les PDF ne sont pas précachés.
+- **Index et métadonnées** : l'accueil annonce « Dix livres », son JSON-LD liste 10 entrées `Book` et la liste `<noscript>` 10 liens, Nightprowler, le Tome IV et *Sciences et technologie* compris. Les compteurs des documents (README, readme-dev, features, structure, about) et les placeholders `?v=` passent à 1.8.11.
 - **Sitemap du miroir** : 12 URL, avec les fiches du Tome IV et du livre *Sciences et technologie*.
 
 ### Vérifié
@@ -21,10 +22,10 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `public/books.json` valide : 10 livres, 74 chapitres.
 - `node scripts/build_jsx.js` : 10 fichiers JSX compilés ; `--check` à jour.
 - `python scripts/build_book_pages.py` : 10 fiches générées.
-- Synchronisation du miroir : build `1e368c766584`, cache `hylst-reader-1e368c766584`, 245 fichiers runtime vérifiés, sitemap à 12 URL.
+- Synchronisation du miroir : build `82df59e049b6`, cache `hylst-reader-82df59e049b6`, 245 fichiers runtime vérifiés, sitemap à 12 URL, 26 placeholders `?v=` et JSON-LD à 10 entrées `Book`.
 - Contrôle local sur `http://127.0.0.1:8765/books_reader/` : page d'accueil, deux fiches, cinq chapitres du Tome IV, six fichiers du livre Sciences, quatre PDF et les deux couvertures répondent en 200. Les PDF téléchargés ont exactement les poids du manifeste.
 - Contrôle visuel Chrome headless des deux fiches et de la page livre *Sciences et technologie* : couvertures, sommaire, bloc PDF et citation conformes.
-- Déploiement du 07/11 : build `1e368c766584`, cache `hylst-reader-1e368c766584`, index `?v=1e368c766584`, commit plateforme `30e645a4`. `verifier-prod.sh --full books_reader` : 13 pages / 140 assets / 0 anomalie. Les deux fiches, les neuf chapitres et leurs introductions, les quatre PDF, le manifeste et les deux couvertures répondent en 200 ; `books.json` sert 10 livres et 74 chapitres ; sitemap à 12 URL.
+- Déploiement du 07/11 : build `82df59e049b6`, cache `hylst-reader-82df59e049b6`, index `?v=82df59e049b6`, commits plateforme `30e645a4` puis `31aead70` (correctif d'index). `verify-release.ps1` entièrement vert : 12 URL, 10 fiches, 301, CSP meta et Nginx, `.env` 403, sources 404. Les deux fiches, les neuf chapitres et leurs introductions, les quatre PDF, le manifeste et les deux couvertures répondent en 200 ; `books.json` sert 10 livres et 74 chapitres ; JSON-LD valide à 10 entrées `Book`.
 
 ### Limites
 - Les paginations incertaines des sommaires d'origine (parties C et D) sont signalées dans les pages, jamais corrigées d'office.

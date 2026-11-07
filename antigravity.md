@@ -25,7 +25,7 @@
 
 ## État actuel
 
-- Version **1.8.11** déployée le 07/11, cache Service Worker source `hylst-reader-v67`, build `1e368c766584`, SW `hylst-reader-1e368c766584`, commit plateforme `30e645a4`.
+- Version **1.8.11** déployée le 07/11, cache Service Worker source `hylst-reader-v67`, build `82df59e049b6`, SW `hylst-reader-82df59e049b6`, commits plateforme `30e645a4` puis `31aead70` (correctif d'index).
 - Catalogue à **10 livres et 74 chapitres** : les huit livres existants, le Tome IV *Carnets, réflexions & partages* (4 chapitres, textes de 2003 à 2024) et le livre *Sciences et technologie* (préface 2026 et quatre parties, étude de 2001-2002).
 - Livre ***Nightprowler, carnets de Samarande*** intégré : 6 chapitres publiés (I à VI), introduction réécrite dans un ton d'hommage avec le lien Grog et les romans de Pierre Pevel, six illustrations de chapitre dans le style de la couverture, sommaire à six entrées sur la page du livre, fiche statique présente, `f3` retiré des contenus en préparation. Référence de reprise : `continue.md`.
 - **Rubrique Sciences et technologie** : format hybride. La liseuse sert une préface de 2026, des résumés et les sommaires d'origine ; les quatre PDF exportés depuis les `.docx` conservent le texte, les images et la mise en page de 2001-2002. Les PDF ne sont pas précachés. Les liens utilisent le chemin absolu `/books_reader/public/books/sciences-et-technologie-jeux-videos/pdf/...` pour fonctionner dans la liseuse et dans les fiches statiques.

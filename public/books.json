@@ -927,6 +927,12 @@
         "title": "XII. Pistes inachevées",
         "path": "books/nightprowler-carnets-de-samarande/chapitre-12.html",
         "available": true
+      },
+      {
+        "id": "chapitre-13.html",
+        "title": "XIII. Annexes",
+        "path": "books/nightprowler-carnets-de-samarande/chapitre-13.html",
+        "available": true
       }
     ],
     "tags": [

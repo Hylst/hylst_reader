@@ -1,6 +1,30 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.19] - 2026-11-07
+
+### Ajouté
+- **Nightprowler, chapitre XIII. Annexes** : les annexes de référence pour clore le livre *Nightprowler, carnets de Samarande*. Elles réunissent trois outils indispensables à la table :
+  - Une feuille de personnage vierge complète, normalisée en tableaux HTML (`.chapter-stats-table`) à partir du fichier d'origine `fichpers.htm` : identité, 11 caractéristiques, compétences réparties en cinq registres (voleur, relations humaines, prouesses physiques, combat, recherches et développement) avec caractéristiques associées, cases Expert et Privilégiée, et modificateurs de blessure F/S. Pistes de fatigue et de santé, temps et scores d'action, armes, équipement et histoire.
+  - Un lexique alphabétique de 23 termes attestés dans les textes et scénarios (Arlam, Bailli, Bejofa, Cassar, Cité franche, Couronne, Culte de la Pensée, Ezgir, Féli, Gouri, Guilde, Héloderme, Kalaar, Khaler, Milicien, Monts Ocres, Préfet, Prévôt, Prince, Sahar, Samarande, Sept cités, Soloman, Umélorien).
+  - Une chronologie des repères historiques documentés : avant 59 (origine de Bejofa), 2258 (insurrection de Bejofa), vers 2300 (Grande enceinte), vers 2310 (chute de Kalaar), 2476 (Bejofa devient cité), 2559 (présent de la campagne de 2011).
+  - Une section « Ce que ces annexes ne disent pas » précisant les limites des sources. Aucun texte de tiers n'est reproduit.
+- **Illustration du chapitre XIII** : `chapitre-13-cover.webp` (1216x832), une table de travail d'archiviste à la lueur de deux chandelles, avec feuille de personnage quadrillée, lexique relié de cuir, rouleau de chronologie, plume et encrier, générée sur le GPU local avec `z-image-turbo-sdcpp`.
+
+### Modifié
+- **Catalogue** : `public/books.json` passe de 87 à 88 chapitres ; *Nightprowler, carnets de Samarande* est complet avec 13 chapitres publiés.
+- **Fiche statique** : la page de Nightprowler liste le sommaire complet à treize entrées.
+- **Version** : 1.8.19, cache source `hylst-reader-v75`, modale À propos et en-tête du Service Worker à jour.
+- **Compteurs** : 98 fichiers de contenu (10 introductions et 88 chapitres) dans README, readme-dev, features, structure et antigravity.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 124 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `public/books.json` valide : 10 livres, 88 chapitres.
+- `node scripts/build_jsx.js` et `--check` : 10 fichiers compilés et à jour.
+- `python scripts/build_book_pages.py` : 10 fiches générées, sommaire de Nightprowler à treize entrées.
+- **Synchronisation du miroir** : build `18c6aef2b4f1`, cache `hylst-reader-18c6aef2b4f1`, 268 fichiers runtime vérifiés, sitemap à 12 URL, 26 placeholders `?v=18c6aef2b4f1`.
+- Tests HTTP locaux : accueil, fiche Nightprowler, chapitre XIII, illustration et `books.json` en 200 ; catalogue à 10 livres et 88 chapitres.
+
 ## [1.8.18] - 2026-11-07
 
 ### Ajouté

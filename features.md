@@ -53,5 +53,5 @@ L'application fonctionne à 100% sans serveur de base de données en s'appuyant 
 
 ## 📱 5. Technologie PWA Installable
 Compatible avec tous vos appareils (ordinateurs de bureau sous Windows/Mac/Linux, tablettes, smartphones Android et iOS) :
-- **Service Worker intelligent** : Précache l'app shell, `public/books.json`, les 97 fichiers de contenu (10 introductions et 87 chapitres), les 10 couvertures actives et les 10 fiches statiques. La navigation hors ligne retombe proprement sur l'app shell ou la fiche déjà mise en cache.
+- **Service Worker intelligent** : Précache l'app shell, `public/books.json`, les 98 fichiers de contenu (10 introductions et 88 chapitres), les 10 couvertures actives et les 10 fiches statiques. La navigation hors ligne retombe proprement sur l'app shell ou la fiche déjà mise en cache.
 - **Installation native** : S'intègre comme une application de bureau ou de téléphone grâce au fichier `manifest.json`.

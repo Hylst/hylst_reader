@@ -1,6 +1,26 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.18] - 2026-11-07
+
+### Ajouté
+- **Nightprowler, chapitre XII. Pistes inachevées** : trois titres retrouvés au bas de la page « Mes scénarios », rédigée en 1999, et jamais développés : le camp barbare du prince démon Azefhfkrijiiir, le contrôle d'entrée à choix et les aventures à Kalaar. Ce chapitre ne restitue aucun texte ancien : il propose ce que l'auteur ferait aujourd'hui de ces trois idées, avec le recul et les événements des chapitres VIII à XI. Chaque piste est développée en une page de jeu, avec ses variantes et ses tables.
+- **Illustration du chapitre XII** : `chapitre-12-cover.webp` (1216x832), une carte ancienne sur une table de bois avec les trois chemins, le camp barbare, la porte gardée et la cité souterraine, générée sur le GPU local avec `z-image-turbo-sdcpp`.
+
+### Modifié
+- **Catalogue** : `public/books.json` passe de 86 à 87 chapitres ; Nightprowler passe de 11 à 12 chapitres.
+- **Fiche statique** : la page de Nightprowler liste le chapitre XII et son sommaire à douze entrées.
+- **Version** : 1.8.18, cache source `hylst-reader-v74`, modale À propos et en-tête du Service Worker à jour.
+- **Compteurs** : 97 fichiers de contenu (10 introductions et 87 chapitres) dans README, readme-dev, features, structure et antigravity.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 123 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `public/books.json` valide : 10 livres, 87 chapitres.
+- `node scripts/build_jsx.js` et `--check` : 10 fichiers compilés et à jour.
+- `python scripts/build_book_pages.py` : 10 fiches générées, sommaire de Nightprowler à douze entrées.
+- **Synchronisation du miroir** : build `b4601b6d69b4`, cache `hylst-reader-b4601b6d69b4`, 266 fichiers runtime vérifiés, sitemap à 12 URL, 26 placeholders `?v=b4601b6d69b4`.
+- Tests HTTP locaux : accueil, fiche Nightprowler, chapitre XII, illustration et `books.json` en 200 ; catalogue à 10 livres et 87 chapitres.
+
 ## [1.8.17] - 2026-11-07
 
 ### Ajouté

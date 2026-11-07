@@ -24,3 +24,6 @@ Thumbs.db
 livres_pour_import/
 *.zip
 *.tar.gz
+
+# Dossier de travail des extractions de sources
+.extract/

@@ -32,7 +32,7 @@
 - CSP meta stricte : `style-src 'self'` et `style-src-attr 'unsafe-inline'`. Les CSS des droits et des fiches sont externalisés.
 - Production 1.8.11 : fumée 13 pages / 140 assets / 0 anomalie, sitemap à 12 URL, 10 livres, 74 chapitres et 10 fiches. Les deux nouvelles fiches, les neuf chapitres et leurs introductions, les quatre PDF et les deux couvertures sont en 200.
 - Hors ligne vérifié sur la bibliothèque, une fiche et une page statique, y compris `/livres/<id>` sans slash.
-- 301 des 7 fiches actif, query conservée, persistance confirmée après redéploiement.
+- 301 des fiches sans slash actif (regex sur `/books_reader/livres/<id>`), query conservée, persistance confirmée après redéploiement.
 - En-tête CSP Nginx actif, limité à `/books_reader/` : configuration `28f5c867...`, base64 Coolify `375eebfe...`, sauvegarde `/root/hylst-nginx-backup-20261104-booksreader-csp/`, `nginx -t` OK, persistance après deux redéploiements.
 - Lighthouse production : mobile 91/100/100/100, desktop 97/100/100/100.
 

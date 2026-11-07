@@ -5,7 +5,7 @@
 
 .DESCRIPTION
     Contrôle localement la compilation JSX et la règle zéro tiret, puis vérifie
-    en production le build, le Service Worker, les 9 URL du sitemap, le 301 des
+    en production le build, le Service Worker, les 12 URL du sitemap, le 301 des
     fiches livres, la CSP et les fichiers sensibles.
 
 .EXAMPLE

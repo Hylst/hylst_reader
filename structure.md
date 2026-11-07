@@ -39,14 +39,17 @@ Hylst_Reader/
 │   ├── sw-register.js       # Enregistrement du Service Worker
 │   └── theme-boot.js        # Application du thème avant le premier rendu
 │
-├── livres/                  # 7 fiches statiques indexables (générées)
+├── livres/                  # 10 fiches statiques indexables (générées)
 ├── public/                  # Contenus littéraires statiques et images
 │   ├── books/               # Ouvrages intégrés d'origine
 │   │   ├── l-odyss-e-de-l-ia-2-futurs-un-choix/
 │   │   ├── l-odyss-e-de-l-nergie/        # 10 chapitres disponibles
 │   │   ├── les-ficelles-du-bonheur/
 │   │   ├── quinte-ou-les-harmoniques-de-l-ame/
-│   │   └── recueils-proses-poesies-t1/t2/t3/
+│   │   ├── nightprowler-carnets-de-samarande/
+│   │   ├── recueils-proses-poesies-t1/t2/t3/
+│   │   ├── recueils-proses-poesies-t4-carnets-reflexions-partages/
+│   │   └── sciences-et-technologie-jeux-videos/
 │   ├── covers/              # Couvertures de livres et d'histoires
 │   ├── fonts/               # Polices auto-hébergées
 │   ├── icons/               # Icônes PWA PNG et apple-touch-icon
@@ -57,7 +60,7 @@ Hylst_Reader/
 │   └── LICENSES.md          # Versions, licences et empreintes SHA-256
 ├── scripts/
 │   ├── build_jsx.js         # Précompilation des JSX vers js/dist
-│   ├── build_book_pages.py  # Génération des 7 fiches statiques indexables
+│   ├── build_book_pages.py  # Génération des 10 fiches statiques indexables
 │   ├── check_dashes.py      # Contrôle zéro tiret cadratin ou demi-cadratin
 │   ├── fetch_book_fonts.py  # Récupération des polices de lecture
 │   ├── generate_pwa_icons.py # Génération des icônes PWA
@@ -87,11 +90,11 @@ Hylst_Reader/
 
 - **`build_books.py`** : scanne `livres_pour_import/`, convertit les textes bruts en HTML sémantique, copie les couvertures et actualise `public/books.json`.
 - **`scripts/build_jsx.js`** : compile les 10 fichiers JSX vers `js/dist/*.js` avec Babel en mode build. `--check` échoue si la sortie est périmée. Chaque fichier est encapsulé dans une IIFE.
-- **`scripts/build_book_pages.py`** : génère les 7 fiches statiques `livres/<id>/` avec métadonnées, JSON-LD, CSP et icônes.
+- **`scripts/build_book_pages.py`** : génère les 10 fiches statiques `livres/<id>/` avec métadonnées, JSON-LD, CSP et icônes.
 - **`scripts/check_dashes.py`** : refuse tout tiret cadratin ou demi-cadratin dans les fichiers servis.
 - **`scripts/sync-to-platform.ps1`** : compile le JSX, génère les fiches, calcule l'empreinte de build, préserve l'index de production et synchronise `Cours_Memos/Docker/books_reader`. Il exclut les sources `.jsx` et `scripts/vendor/babel.min.js` du miroir.
-- **`scripts/verify-release.ps1`** : contrôle localement `js/dist` et la règle zéro tiret, puis en production le build, le SW, les 9 URL du sitemap, le 301 des fiches, la CSP meta, l'en-tête CSP Books Reader, l'absence d'en-tête global et les fichiers sensibles.
-- **`sw.js`** : précache l'app shell, `public/books.json`, les 66 contenus, les 7 couvertures et les 7 fiches, puis sert le local en Network-First avec repli cache.
+- **`scripts/verify-release.ps1`** : contrôle localement `js/dist` et la règle zéro tiret, puis en production le build, le SW, les 12 URL du sitemap, le 301 des fiches, la CSP meta, l'en-tête CSP Books Reader, l'absence d'en-tête global et les fichiers sensibles.
+- **`sw.js`** : précache l'app shell, `public/books.json`, les 84 contenus, les 10 couvertures et les 10 fiches, puis sert le local en Network-First avec repli cache.
 - **`index.html`** : charge les styles, le thème avant premier rendu et les fichiers `js/dist/*.js`. Babel n'est plus chargé par le navigateur.
 - **`vendor/`** : bibliothèques JS servies localement, sans CDN au runtime. Babel est dans `scripts/vendor/` et reste un outil de build.
 - **`js/dist/` et `livres/`** : sorties générées. `js/dist/` est ignoré par Git dans le dépôt source et régénéré avant tout service ou sync. Le miroir de production versionne `js/dist/` pour que Coolify déploie les fichiers compilés.

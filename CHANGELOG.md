@@ -1,6 +1,26 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.13] - 2026-11-07
+
+### Ajouté
+- **Nightprowler, chapitre VII. Figures et prétirés** : six fiches normalisées pour la table. Albert Degreffion, dit Sir Albert de Greffion nième du nom et le Noble Dé Chu, agitateur umélorien de 33 ans, puis les cinq prétirés du scénario de la quinzième convention des Alchimistes de 2011 : K'rëtrr le cambrioleur gouri rat, S'rhie la monte-en-l'air gerboise, Elyr Djedorath le contrebandier khaler, Hironne Diêtre l'espionne umélorienne et Krieu'kr le détrousseur sang-mêlé. Noms, valeurs, races, âges et équipements repris des feuilles d'origine ; portraits, commentaires et conseils de jeu réécrits pour cette édition. Aucune fiche tierce n'est reproduite.
+- **Illustration du chapitre VII** : `chapitre-7-cover.webp` (1216x832), six figures réunies autour d'une table à la lanterne, générée sur le GPU local avec `z-image-turbo-sdcpp`, dans le style de la couverture.
+
+### Modifié
+- **Catalogue** : `public/books.json` passe de 81 à 82 chapitres ; Nightprowler passe de 6 à 7 chapitres.
+- **Fiche statique** : la page de Nightprowler liste le chapitre VII et son sommaire à sept entrées.
+- **Version** : 1.8.13, cache source `hylst-reader-v69`, modale À propos et en-tête du Service Worker à jour.
+- **Compteurs** : 92 fichiers de contenu (10 introductions et 82 chapitres) dans README, readme-dev, features, structure et antigravity.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 118 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `public/books.json` valide : 10 livres, 82 chapitres.
+- `node scripts/build_jsx.js` et `--check` : 10 fichiers compilés et à jour.
+- `python scripts/build_book_pages.py` : 10 fiches générées, sommaire de Nightprowler à sept entrées.
+- **Synchronisation du miroir** : build `d94013061769`, cache `hylst-reader-d94013061769`, 254 fichiers runtime vérifiés, sitemap à 12 URL, 26 placeholders `?v=d94013061769`.
+- Tests HTTP locaux : accueil, fiche Nightprowler, chapitre VII, illustration et `books.json` en 200 ; catalogue à 10 livres et 82 chapitres.
+
 ## [1.8.12] - 2026-11-07
 
 ### Ajouté

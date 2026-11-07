@@ -6,7 +6,7 @@
 - Nom court (PWA) : **Biblio Hylst**
 - Signature : **Livres, proses, poésies et récits de Geoffroy Streit**
 - URL : `https://hylst.fr/books_reader/` (alias `https://hylst.fr/bibliotheque/`)
-- Version : **1.8.12** (voir [CHANGELOG](CHANGELOG.md))
+- Version : **1.8.13** (voir [CHANGELOG](CHANGELOG.md))
 
 
 ---
@@ -38,7 +38,7 @@
 - **Framework** : React 18, JSX précompilé vers `js/dist/` par `scripts/build_jsx.js`. Babel reste un outil de build, jamais chargé par le navigateur.
 - **Modularité** : Composants React isolés et autonomes au sein de `js/components/`.
 - **Stockage** : `idb-keyval` (IndexedDB) pour la persistance locale totale de vos bibliothèques.
-- **PWA & Offline** : Service Worker (`sw.js`) qui précache l'app shell, les 91 contenus de livres (10 introductions et 81 chapitres) et les 10 couvertures. La bibliothèque, les fiches et la lecture restent accessibles hors ligne dès la première visite terminée.
+- **PWA & Offline** : Service Worker (`sw.js`) qui précache l'app shell, les 92 contenus de livres (10 introductions et 82 chapitres) et les 10 couvertures. La bibliothèque, les fiches et la lecture restent accessibles hors ligne dès la première visite terminée.
 - **Design** : CSS3 Vanilla modulaire.
 
 ---

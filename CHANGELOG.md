@@ -1,6 +1,27 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.15] - 2026-11-07
+
+### Ajouté
+- **Nightprowler, chapitre IX. Esclavage gouri sans vergogne** : le plus long scénario du recueil, écrit en 1999 ou 2000 et retapé le 2 juillet 2001. Le fichier d'origine est un document de travail avec abréviations et fautes de frappe, dont le plan du camp, décrit par les lettres A à O, n'a pas survécu. La présente version le restructure en cinq actes, de la rafle dans la galerie à l'évasion, redessine le plan, réunit les six issues en tableau et ajoute une section « Mener la table » avec les avertissements de contenu. Les valeurs de Bromi, du rat et des émeraudes viennent du fichier d'origine. Aucun texte de tiers n'est reproduit.
+- **Plan du camp** : `chapitre-9-plan.svg`, plan schématique dessiné pour cette édition, avec les zones A à O, la voie principale, la salle secrète K, l'escalier vers le temple et les deux issues de surface.
+- **Illustration du chapitre IX** : `chapitre-9-cover.webp` (1216x832), un camp de travail souterrain peuplé de gouris rats enchaînés, avec rails, chariots et un contremaître géant, générée sur le GPU local avec `z-image-turbo-sdcpp`.
+
+### Modifié
+- **Catalogue** : `public/books.json` passe de 83 à 84 chapitres ; Nightprowler passe de 8 à 9 chapitres.
+- **Fiche statique** : la page de Nightprowler liste le chapitre IX et son sommaire à neuf entrées.
+- **Version** : 1.8.15, cache source `hylst-reader-v71`, modale À propos et en-tête du Service Worker à jour.
+- **Compteurs** : 94 fichiers de contenu (10 introductions et 84 chapitres) dans README, readme-dev, features, structure et antigravity.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 120 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `public/books.json` valide : 10 livres, 84 chapitres.
+- `node scripts/build_jsx.js` et `--check` : 10 fichiers compilés et à jour.
+- `python scripts/build_book_pages.py` : 10 fiches générées, sommaire de Nightprowler à neuf entrées.
+- **Synchronisation du miroir** : build `52a864e91652`, cache `hylst-reader-52a864e91652`, 259 fichiers runtime vérifiés, sitemap à 12 URL, 26 placeholders `?v=52a864e91652`.
+- Tests HTTP locaux : accueil, fiche Nightprowler, chapitre IX, illustration, plan et `books.json` en 200 ; catalogue à 10 livres et 84 chapitres.
+
 ## [1.8.14] - 2026-11-07
 
 ### Ajouté

@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" width="1200" height="780" role="img" aria-labelledby="titre plan">
+  <title id="titre">Plan du camp d'esclavage gouri</title>
+  <desc id="plan">Plan schématique du camp, de l'entrée O au poste de garde A, aux mines B, D et E, à la taille de pierre C, au stockage F, à l'atelier des castors G, aux poulies H, à la sortie J, à la salle secrète K, aux filons L et M et au four crématoire N.</desc>
+
+  <rect x="0" y="0" width="1200" height="780" fill="#f2ece0"/>
+  <rect x="18" y="18" width="1164" height="744" fill="none" stroke="#4a3323" stroke-width="2" rx="10"/>
+
+  <text x="600" y="58" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#241d17">Le camp, vu de dessus</text>
+  <text x="600" y="84" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="14" fill="#4a3323">Plan schématique, sans échelle. Les lettres renvoient au tableau du chapitre.</text>
+
+  <g stroke="#4a3323" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.55">
+    <path d="M600 690 L600 620"/>
+    <path d="M600 600 L600 500"/>
+    <path d="M600 480 L470 430"/>
+    <path d="M440 415 L380 380"/>
+    <path d="M370 360 L330 320"/>
+    <path d="M400 400 L470 350"/>
+    <path d="M400 405 L470 300"/>
+    <path d="M620 480 L760 440"/>
+    <path d="M800 430 L860 390"/>
+    <path d="M840 415 L980 415"/>
+    <path d="M880 370 L900 290"/>
+    <path d="M920 250 L1000 230"/>
+    <path d="M590 490 L230 520"/>
+    <path d="M190 515 L150 470"/>
+  </g>
+
+  <g font-family="Outfit, Segoe UI, sans-serif" font-size="15" fill="#241d17">
+
+    <g>
+      <rect x="520" y="675" width="160" height="42" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+      <circle cx="500" cy="696" r="17" fill="#9a6b34"/>
+      <text x="500" y="702" text-anchor="middle" font-size="17" font-weight="700" fill="#f2ece0">O</text>
+      <text x="600" y="700" text-anchor="middle">Dépouillement</text>
+    </g>
+
+    <g>
+      <rect x="520" y="600" width="160" height="42" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+      <circle cx="500" cy="621" r="17" fill="#9a6b34"/>
+      <text x="500" y="627" text-anchor="middle" font-size="17" font-weight="700" fill="#f2ece0">A</text>
+      <text x="600" y="625" text-anchor="middle">Poste de garde</text>
+      <text x="600" y="638" text-anchor="middle" font-size="12" fill="#4a3323">huit gouris rats</text>
+    </g>
+
+    <g>
+      <rect x="300" y="400" width="150" height="46" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+      <circle cx="285" cy="423" r="17" fill="#9a6b34"/>
+      <text x="285" y="429" text-anchor="middle" font-size="17" font-weight="700" fill="#f2ece0">B</text>
+      <text x="375" y="420" text-anchor="middle">Mine</text>
+      <text x="375" y="436" text-anchor="middle" font-size="12" fill="#4a3323">dix gouris</text>
+    </g>
+
+    <g>
+      <rect x="235" y="290" width="150" height="46" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+      <circle cx="220" cy="313" r="17" fill="#9a6b34"/>
+      <text x="220" y="319" text-anchor="middle" font-size="17" font-weight="700" fill="#f2ece0">D</text>
+      <text x="310" y="310" text-anchor="middle">Mine</text>
+      <text x="310" y="326" text-anchor="middle" font-size="12" fill="#4a3323">six gouris</text>
+    </g>
+
+    <g>
+      <rect x="330" y="190" width="150" height="46" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+      <circle cx="315" cy="213" r="17" fill="#9a6b34"/>
+      <text x="315" y="219" text-anchor="middle" font-size="17" font-weight="700" fill="#f2ece0">E</text>
+      <text x="405" y="210" text-anchor="middle">Mine</text>
+      <text x="405" y="226" text-anchor="middle" font-size="12" fill="#4a3323">vingt-trois gouris</text>
+    </g>
+
+    <g>
+      <rect x="470" y="255" width="130" height="40" rx="8" fill="#f7f1e4" stroke="#9a6b34" stroke-width="1.5"/>
+      <circle cx="457" cy="275" r="15" fill="#9a6b34"/>
+      <text x="457" y="280" text-anchor="middle" font-size="15" font-weight="700" fill="#f2ece0">L</text>
+      <text x="535" y="280" text-anchor="middle" font-size="13">Filon de ferrite</text>
+    </g>
+
+    <g>
+      <rect x="470" y="330" width="130" height="40" rx="8" fill="#f7f1e4" stroke="#9a6b34" stroke-width="1.5"/>
+      <circle cx="457" cy="350" r="15" fill="#9a6b34"/>
+      <text x="457" y="355" text-anchor="middle" font-size="15" font-weight="700" fill="#f2ece0">M</text>
+      <text x="535" y="355" text-anchor="middle" font-size="13">Filon de cuivre</text>
+    </g>
+
+    <g>
+      <rect x="760" y="400" width="160" height="46" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+      <circle cx="745" cy="423" r="17" fill="#9a6b34"/>
+      <text x="745" y="429" text-anchor="middle" font-size="17" font-weight="700" fill="#f2ece0">C</text>
+      <text x="840" y="420" text-anchor="middle">Taille de pierre</text>
+      <text x="840" y="436" text-anchor="middle" font-size="12" fill="#4a3323">pavés, briques, statues</text>
+    </g>
+
+    <g>
+      <rect x="860" y="335" width="150" height="42" rx="8" fill="#f7f1e4" stroke="#9a6b34" stroke-width="1.5"/>
+      <circle cx="845" cy="356" r="15" fill="#9a6b34"/>
+      <text x="845" y="361" text-anchor="middle" font-size="15" font-weight="700" fill="#f2ece0">F</text>
+      <text x="935" y="360" text-anchor="middle" font-size="13">Stockage</text>
+    </g>
+
+    <g>
+      <rect x="980" y="385" width="150" height="46" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+      <circle cx="965" cy="408" r="17" fill="#9a6b34"/>
+      <text x="965" y="414" text-anchor="middle" font-size="17" font-weight="700" fill="#f2ece0">J</text>
+      <text x="1055" y="405" text-anchor="middle">Sortie des produits</text>
+      <text x="1055" y="421" text-anchor="middle" font-size="12" fill="#4a3323">vers Samarande</text>
+    </g>
+
+    <g>
+      <rect x="780" y="195" width="180" height="46" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+      <circle cx="765" cy="218" r="17" fill="#9a6b34"/>
+      <text x="765" y="224" text-anchor="middle" font-size="17" font-weight="700" fill="#f2ece0">G</text>
+      <text x="870" y="215" text-anchor="middle">Atelier des castors</text>
+      <text x="870" y="231" text-anchor="middle" font-size="12" fill="#4a3323">sculpture et gravure</text>
+    </g>
+
+    <g>
+      <rect x="1000" y="180" width="160" height="46" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+      <circle cx="985" cy="203" r="17" fill="#9a6b34"/>
+      <text x="985" y="209" text-anchor="middle" font-size="17" font-weight="700" fill="#f2ece0">H</text>
+      <text x="1080" y="200" text-anchor="middle">Poulies</text>
+      <text x="1080" y="216" text-anchor="middle" font-size="12" fill="#4a3323">vers la surface</text>
+    </g>
+
+    <g>
+      <rect x="80" y="185" width="170" height="46" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+      <circle cx="65" cy="208" r="17" fill="#9a6b34"/>
+      <text x="65" y="214" text-anchor="middle" font-size="17" font-weight="700" fill="#f2ece0">I</text>
+      <text x="165" y="205" text-anchor="middle">Mine abandonnée</text>
+      <text x="165" y="221" text-anchor="middle" font-size="12" fill="#4a3323">minerai inconnu</text>
+    </g>
+
+    <g>
+      <rect x="60" y="445" width="150" height="46" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+      <circle cx="45" cy="468" r="17" fill="#9a6b34"/>
+      <text x="45" y="474" text-anchor="middle" font-size="17" font-weight="700" fill="#f2ece0">N</text>
+      <text x="135" y="465" text-anchor="middle">Impasse du four</text>
+      <text x="135" y="481" text-anchor="middle" font-size="12" fill="#4a3323">chair et poils brûlés</text>
+    </g>
+
+    <g>
+      <rect x="60" y="355" width="150" height="46" rx="8" fill="#f7f1e4" stroke="#4a3323" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <circle cx="45" cy="378" r="17" fill="#4a3323"/>
+      <text x="45" y="384" text-anchor="middle" font-size="17" font-weight="700" fill="#f2ece0">K</text>
+      <text x="135" y="375" text-anchor="middle">Salle secrète</text>
+      <text x="135" y="391" text-anchor="middle" font-size="12" fill="#4a3323">cinq émeraudes</text>
+    </g>
+
+    <g>
+      <rect x="520" y="455" width="160" height="46" rx="8" fill="#e8dfcd" stroke="#4a3323" stroke-width="2"/>
+      <text x="600" y="475" text-anchor="middle" font-weight="700">Carrefour central</text>
+      <text x="600" y="491" text-anchor="middle" font-size="12" fill="#4a3323">gardes en permanence</text>
+    </g>
+
+  </g>
+
+  <g font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">
+    <path d="M150 330 L150 250" stroke="#4a3323" stroke-width="2" stroke-dasharray="6 5" fill="none"/>
+    <path d="M150 250 l-7 12 l14 0 z" fill="#4a3323"/>
+    <text x="162" y="285">escalier vers le temple</text>
+    <text x="162" y="302">à cinq cents mètres</text>
+
+  </g>
+
+  <g font-family="Outfit, Segoe UI, sans-serif" font-size="13" fill="#241d17">
+    <rect x="60" y="96" width="1080" height="62" rx="8" fill="#f7f1e4" stroke="#9a6b34" stroke-width="1.5"/>
+    <text x="80" y="119" font-weight="700">Légende</text>
+    <text x="80" y="140">Trait plein : galerie praticable. Trait pointillé : passage secret ou issue. Un garde pour trois esclaves.</text>
+  </g>
+
+</svg>

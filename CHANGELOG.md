@@ -1,6 +1,21 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.20] - 2026-11-07
+
+### Modifié
+- **Catalogue & statut** : retrait du badge « En chantier » pour le livre *Nightprowler, carnets de Samarande* dans `public/books.json`. Les treize chapitres et les annexes étant tous publiés, relus et vérifiés en production, l'ouvrage rejoint le statut des livres achevés au catalogue.
+- **Version** : 1.8.20, cache source `hylst-reader-v76`, modale À propos et en-tête du Service Worker à jour.
+- **Suivi projet** : mise à jour complète de `todo.md` (consolidation des versions 1.8.12 à 1.8.19 et réalignement des chantiers futurs).
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 124 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `public/books.json` valide : 10 livres, 88 chapitres, badge de Nightprowler retiré.
+- `node scripts/build_jsx.js` et `--check` : 10 fichiers compilés et à jour.
+- `python scripts/build_book_pages.py` : 10 fiches générées.
+- **Synchronisation du miroir** : build `e1fa1775688a`, cache `hylst-reader-e1fa1775688a`, 268 fichiers runtime vérifiés, sitemap à 12 URL, 26 placeholders `?v=e1fa1775688a`.
+- Tests HTTP locaux : accueil, fiche Nightprowler, chapitre XIII, illustration et `books.json` en 200.
+
 ## [1.8.19] - 2026-11-07
 
 ### Ajouté

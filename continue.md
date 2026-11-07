@@ -4,7 +4,7 @@ Point d'étape pour un agent qui reprendrait ce travail. Fichier de travail, non
 
 ## État au 7 novembre 2026
 
-Version **1.8.19** déployée en production le 07/11, cache Service Worker source `hylst-reader-v75`, build `18c6aef2b4f1`, cache `hylst-reader-18c6aef2b4f1`. 268 fichiers runtime, sitemap à 12 URL, 10 livres, 88 chapitres, 98 fichiers de contenu, JSON-LD à 10 entrées `Book`. Le livre *Nightprowler, carnets de Samarande* est complet avec ses 13 chapitres. `verify-release.ps1` entièrement vert.
+Version **1.8.20** synchronisée le 07/11, cache Service Worker source `hylst-reader-v76`, build `e1fa1775688a`, cache `hylst-reader-e1fa1775688a`, en attente de déploiement Coolify. 268 fichiers runtime, sitemap à 12 URL, 10 livres, 88 chapitres, 98 fichiers de contenu. Badge « En chantier » retiré de Nightprowler (achevé). La 1.8.19 déployée reste la version de production : build `18c6aef2b4f1`, commit plateforme `0e29f9cb`, `verify-release.ps1` entièrement vert.
 
 ### Fait
 

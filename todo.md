@@ -1,7 +1,7 @@
 # La Bibliothèque de Hylst - TODO
 
 ## 🎯 Priorités Actuelles
-- [ ] **Badge Nightprowler (1.8.20)** : Retirer le badge « En chantier » de *Nightprowler, carnets de Samarande* dans `public/books.json` puisque le livre compte désormais l'intégralité de ses 13 chapitres et annexes.
+- [x] **Badge Nightprowler (1.8.20)** : Retrait du badge « En chantier » de *Nightprowler, carnets de Samarande* dans `public/books.json`. Le livre est complet et validé.
 - [ ] **Coverage hors-ligne complet** : Tester dans un profil Chromium vierge (PWA, Service Worker, navigation déconnectée, repli `/livres/<id>` sans slash) sur Nightprowler, Sciences et technologie, et les recueils.
 - [ ] **Textes littéraires restants du corpus** : Explorer et intégrer les inédits isolés des archives (`effet papillon.txt`, `Ariane.txt` / `.pdf`, `japonisant .odt` « Le rêve d'un gaijin profane »).
 - [ ] **Chantier Quinte** : Retirer le badge « En chantier » de *Quinte ou Les Harmoniques de l'Âme* en révisant les chapitres 4 à 7 à partir des documents Word/RTF complets (`Quinte ou Les Harmoniques de l' me...docx`).

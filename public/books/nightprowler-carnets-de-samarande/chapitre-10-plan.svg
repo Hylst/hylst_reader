@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="titre moulin">
+  <title id="titre">Coupe du moulin d'Humbert Aglino</title>
+  <desc id="moulin">Coupe du moulin sur trois niveaux : roue à eau et bief, entrepôt au charbon, cuisine et chambre de Jiniane, atelier d'alchimie avec la machine et la pierre de rosette, chambre de Tramiel sous les toits, escalier piégé et chien de garde.</desc>
+
+  <rect x="0" y="0" width="1200" height="800" fill="#f2ece0"/>
+  <rect x="18" y="18" width="1164" height="764" fill="none" stroke="#4a3323" stroke-width="2" rx="10"/>
+
+  <text x="600" y="58" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#241d17">Le moulin, en coupe</text>
+  <text x="600" y="84" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="14" fill="#4a3323">Plan schématique, sans échelle. Les lettres renvoient au texte du chapitre.</text>
+
+  <g stroke="#4a3323" stroke-width="3" fill="none">
+    <path d="M220 680 L220 300 L600 130 L980 300 L980 680 Z"/>
+    <path d="M220 480 L980 480"/>
+    <path d="M220 300 L980 300"/>
+    <path d="M600 130 L600 300"/>
+    <path d="M220 680 L980 680"/>
+  </g>
+
+  <g fill="#e8dfcd" stroke="#9a6b34" stroke-width="2">
+    <rect x="240" y="500" width="210" height="160" rx="6"/>
+    <rect x="470" y="500" width="220" height="160" rx="6"/>
+    <rect x="710" y="500" width="250" height="160" rx="6"/>
+    <rect x="240" y="320" width="220" height="140" rx="6"/>
+    <rect x="480" y="320" width="230" height="140" rx="6"/>
+    <rect x="730" y="320" width="230" height="140" rx="6"/>
+    <rect x="420" y="160" width="360" height="120" rx="6"/>
+  </g>
+
+  <g font-family="Outfit, Segoe UI, sans-serif" font-size="14" fill="#241d17">
+    <text x="345" y="528" text-anchor="middle" font-weight="700">B. Entrepôt</text>
+    <text x="345" y="548" text-anchor="middle" font-size="12">charbon, farine, poudre</text>
+    <text x="580" y="528" text-anchor="middle" font-weight="700">C. Cuisine</text>
+    <text x="580" y="548" text-anchor="middle" font-size="12">et chambre de Jiniane</text>
+    <text x="835" y="528" text-anchor="middle" font-weight="700">Garde et relais</text>
+    <text x="835" y="548" text-anchor="middle" font-size="12">trois gardes, El Hafir</text>
+    <text x="350" y="348" text-anchor="middle" font-weight="700">D. Atelier</text>
+    <text x="350" y="368" text-anchor="middle" font-size="12">bureau, fioles, registres</text>
+    <text x="595" y="348" text-anchor="middle" font-weight="700">E. La machine</text>
+    <text x="595" y="368" text-anchor="middle" font-size="12">cuves, rouages, cloches</text>
+    <text x="845" y="348" text-anchor="middle" font-weight="700">Réserve de vie</text>
+    <text x="845" y="368" text-anchor="middle" font-size="12">rats, bêtes, Tramiel</text>
+    <text x="600" y="190" text-anchor="middle" font-weight="700">G. Chambre de Tramiel</text>
+    <text x="600" y="210" text-anchor="middle" font-size="12">sous les toits, porte close</text>
+  </g>
+
+  <g stroke="#4a3323" stroke-width="2" fill="none">
+    <circle cx="150" cy="560" r="72"/>
+    <circle cx="150" cy="560" r="12" fill="#9a6b34"/>
+    <path d="M150 488 L150 632"/>
+    <path d="M78 560 L222 560"/>
+    <path d="M99 509 L201 611"/>
+    <path d="M201 509 L99 611"/>
+    <path d="M40 650 L260 650"/>
+    <path d="M40 670 L260 670"/>
+  </g>
+  <text x="150" y="700" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">A. Roue et bief</text>
+  <text x="150" y="718" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="12" fill="#4a3323">l'énergie du moulin</text>
+
+  <g>
+    <rect x="545" y="390" width="100" height="60" rx="6" fill="#f7f1e4" stroke="#9a6b34" stroke-width="2"/>
+    <circle cx="570" cy="420" r="14" fill="none" stroke="#4a3323" stroke-width="2"/>
+    <circle cx="620" cy="420" r="14" fill="none" stroke="#4a3323" stroke-width="2"/>
+    <path d="M584 420 L606 420" stroke="#4a3323" stroke-width="2"/>
+    <path d="M595 390 L595 370" stroke="#4a3323" stroke-width="2"/>
+    <circle cx="595" cy="360" r="9" fill="#9a6b34" stroke="#4a3323" stroke-width="2"/>
+  </g>
+  <path d="M657 385 L610 372" stroke="#4a3323" stroke-width="2" fill="none"/>
+  <circle cx="670" cy="388" r="13" fill="#9a6b34"/>
+  <text x="670" y="393" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#f2ece0">F</text>
+
+  <g stroke="#9a6b34" stroke-width="2" fill="none" stroke-dasharray="6 4">
+    <path d="M345 500 L345 470 L545 470"/>
+    <path d="M645 470 L845 470 L845 500"/>
+  </g>
+  <text x="420" y="488" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">charbon</text>
+  <text x="700" y="488" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">or et argent</text>
+
+  <g stroke="#4a3323" stroke-width="2" fill="none">
+    <path d="M900 500 L900 440 L960 440 L960 500"/>
+    <path d="M920 440 L920 420"/>
+    <path d="M940 440 L940 420"/>
+    <path d="M900 470 L960 470"/>
+  </g>
+  <path d="M960 540 L1000 540" stroke="#4a3323" stroke-width="2" fill="none"/>
+  <text x="1006" y="544" font-family="Outfit, Segoe UI, sans-serif" font-size="12" fill="#4a3323">H. Escalier piégé</text>
+
+  <g>
+    <path d="M760 620 L780 620 L780 600 L800 600 L800 580 L820 580" stroke="#4a3323" stroke-width="2" fill="none"/>
+    <circle cx="835" cy="575" r="9" fill="#9a6b34"/>
+    <text x="850" y="580" font-family="Outfit, Segoe UI, sans-serif" font-size="12" fill="#241d17">I. Strölicke</text>
+  </g>
+
+  <g font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">
+    <path d="M220 660 L120 720" stroke="#4a3323" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+    <text x="40" y="745">arrivée d'eau</text>
+    <path d="M980 660 L1080 720" stroke="#4a3323" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+    <text x="1000" y="745">sortie d'eau</text>
+  </g>
+
+  <g font-family="Outfit, Segoe UI, sans-serif" font-size="13" fill="#241d17">
+    <rect x="60" y="96" width="1080" height="46" rx="8" fill="#f7f1e4" stroke="#9a6b34" stroke-width="1.5"/>
+    <text x="80" y="124">Trois niveaux, une trappe, un escalier piégé. Le bruit de la pierre sur la tôle attire le chien. La machine prend sa vie au plus proche.</text>
+  </g>
+
+</svg>

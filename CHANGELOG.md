@@ -1,6 +1,27 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.16] - 2026-11-07
+
+### Ajouté
+- **Nightprowler, chapitre X. Vapeur et boulons** : le scénario écrit pour la quinzième convention des Alchimistes, en 2011, sur le thème « vapeur et boulons », pour les cinq prétirés du chapitre VII et une soirée de convention. Le fichier d'origine pose les bases et laisse le meneur finir le travail : le plan du moulin manque, la machine n'est décrite qu'en creux, l'artefact n'a pas de nom et le sort de Tramiel hésite entre deux lignes. La présente version le restructure en cinq actes, de la remise en liberté de K'rëtrr à la nuit du moulin, dessine le plan, décrit la machine et la pierre de rosette, tranche le sort de Tramiel et réunit les issues en tableau. Les valeurs des personnages viennent du fichier d'origine. Aucun texte de tiers n'est reproduit.
+- **Plan du moulin** : `chapitre-10-plan.svg`, coupe sur trois niveaux avec la roue et le bief, l'entrepôt, la cuisine et la chambre de Jiniane, l'atelier et la machine, la réserve de vie, la chambre de Tramiel sous les toits, l'escalier piégé et le chien de garde.
+- **Illustration du chapitre X** : `chapitre-10-cover.webp` (1216x832), l'atelier d'alchimie dans un moulin, la machine de cuivre et son cristal rose, l'alchimiste, le charbon et l'or, générée sur le GPU local avec `z-image-turbo-sdcpp`.
+
+### Modifié
+- **Catalogue** : `public/books.json` passe de 84 à 85 chapitres ; Nightprowler passe de 9 à 10 chapitres.
+- **Fiche statique** : la page de Nightprowler liste le chapitre X et son sommaire à dix entrées.
+- **Version** : 1.8.16, cache source `hylst-reader-v72`, modale À propos et en-tête du Service Worker à jour.
+- **Compteurs** : 95 fichiers de contenu (10 introductions et 85 chapitres) dans README, readme-dev, features, structure et antigravity.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 121 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `public/books.json` valide : 10 livres, 85 chapitres.
+- `node scripts/build_jsx.js` et `--check` : 10 fichiers compilés et à jour.
+- `python scripts/build_book_pages.py` : 10 fiches générées, sommaire de Nightprowler à dix entrées.
+- **Synchronisation du miroir** : build `4c356874972d`, cache `hylst-reader-4c356874972d`, 262 fichiers runtime vérifiés, sitemap à 12 URL, 26 placeholders `?v=4c356874972d`.
+- Tests HTTP locaux : accueil, fiche Nightprowler, chapitre X, illustration, plan et `books.json` en 200 ; catalogue à 10 livres et 85 chapitres.
+
 ## [1.8.15] - 2026-11-07
 
 ### Ajouté

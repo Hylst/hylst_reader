@@ -23,7 +23,7 @@ L'application a été conçue pour offrir un cadre noble et apaisant aux œuvres
 
 ---
 
-## 🚀 Technologie (Stack v1.8.15)
+## 🚀 Technologie (Stack v1.8.16)
 L'application utilise une stack moderne "Pure Frontend" optimisée pour la modularité et les performances :
 - **React 18 & JSX précompilé** : Interface réactive découpée en composants ES6 autonomes, compilés au build vers `js/dist/`. Aucun transpileur n'est chargé par le navigateur.
 - **IndexedDB (`idb-keyval`)** : Persistance robuste sans serveur pour les textes, signets et progressions de lecture.

@@ -4,7 +4,7 @@ Point d'étape pour un agent qui reprendrait ce travail. Fichier de travail, non
 
 ## État au 7 novembre 2026
 
-Version **1.8.21** déployée en production le 07/11, cache Service Worker source `hylst-reader-v77`, build `5350a1f1c551`, cache `hylst-reader-5350a1f1c551`. 268 fichiers runtime, sitemap à 12 URL, 10 livres, 88 chapitres, 98 fichiers de contenu. Quinte complétée : phrase d'amorce restaurée en partie 4, parties 4 à 7 titrées, badge « En chantier » retiré. `verify-release.ps1` entièrement vert.
+Version **1.8.22** synchronisée le 07/11, cache Service Worker source `hylst-reader-v78`, build `04d19b84bf10`, cache `hylst-reader-04d19b84bf10`, en attente de déploiement Coolify. 277 fichiers runtime, sitemap à 13 URL, 11 livres, 94 chapitres, 105 fichiers de contenu. Nouveau livre : *Approche de la Neurodiversité* (6 chapitres, essai pessimiste et lucide). La 1.8.21 déployée reste la version de production : build `5350a1f1c551`, commit plateforme `2fc30869`, `verify-release.ps1` entièrement vert.
 
 ### Fait
 

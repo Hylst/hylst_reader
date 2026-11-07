@@ -5,7 +5,7 @@
 - [ ] **Coverage hors-ligne complet** : Tester dans un profil Chromium vierge (PWA, Service Worker, navigation déconnectée, repli `/livres/<id>` sans slash) sur Nightprowler, Sciences et technologie, et les recueils.
 - [ ] **Textes littéraires restants du corpus** : Explorer et intégrer les inédits isolés des archives (`effet papillon.txt`, `Ariane.txt` / `.pdf`, `japonisant .odt` « Le rêve d'un gaijin profane »).
 - [x] **Chantier Quinte (1.8.21)** : Restauration de l'amorce de la partie 4, titrage des parties 4 à 7 (*La Faille Spectrale*, *L'Épreuve du Gouffre Sonore*, *L'Expansion et les Ondes Cosmiques*, *La Grande Réaccordance*) et retrait du badge « En chantier ».
-- [ ] **Chantier Neurodiversité** : Concrétiser la vignette `f10` (*Approche de la Neurodiversité*) à partir des écrits d'expérience (`troubles dys.odt`, `Enfants en difficulté scolaire.doc`).
+- [x] **Chantier Neurodiversité (1.8.22)** : Intégration complète de l'essai *Approche de la Neurodiversité* (6 chapitres et préface) avec approche pessimiste et lucide, couverture `cover_neuro.webp`, fiche statique et sitemap à 13 URL.
 - [ ] **Refactorisation CSS & export** : Diviser `css/base.css` et permettre l'export `.json` de la bibliothèque.
 
 ## ✅ Terminé (Récemment)

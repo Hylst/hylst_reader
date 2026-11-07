@@ -1,6 +1,35 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.22] - 2026-11-07
+
+### Ajouté
+- **Nouveau livre au catalogue : *Approche de la Neurodiversité*** (sous-titre *Vision d'un non-professionnel*) :
+  - Publication complète de l'essai élaboré à partir des textes de réflexion et de terrain de l'auteur (`Idées pour lutter contre les troubles ‘dys’ et autres troubles neurocognitifs`, `Clarifications, réflexions et pistes de solutions pour troubles cognitifs`, `Enfants en difficulté scolaire`).
+  - Choix d'une ligne éditoriale résolument réaliste et pessimiste, rejetant les clichés lénifiants du développement personnel et de la neurodiversité idéalisée : constat brut du handicap invisible, coût énergétique démesuré de la compensation permanente, blessure scolaire précoce, incompréhension sociale et professionnelle, mémoire de travail qui sature, dérives attentionnelles et stratégies pragmatiques de survie (segmentation chirurgicale, modélisation visuelle, béquille informatique, gestion stricte de la fatigue).
+  - Ouvrage structuré en une introduction et six chapitres :
+    - *Introduction : Le décalage invisible*
+    - *I. L'ornière scolaire et la blessure originelle*
+    - *II. La mécanique grippée : langage, geste et espace*
+    - *III. L'attention en miettes et la mémoire qui fuit*
+    - *IV. L'usure adulte et le malentendu permanent*
+    - *V. Béquilles cognitives et stratégies de survie*
+    - *VI. Épilogue : Vivre avec la friction*
+  - Couverture dédiée `covers/cover_neuro.webp` (512×768), fiche statique `/livres/approche-de-la-neurodiversite/` générée avec données structurées Schema.org, et retrait de la vignette d'attente `f10` dans `LibraryView.jsx`.
+
+### Modifié
+- **Catalogue** : passage à **11 livres et 94 chapitres** (105 contenus de lecture avec les onze introductions) dans `public/books.json`.
+- **Sitemap** : passage de 12 à **13 URL** dans le miroir de production avec l'indexation de la nouvelle fiche.
+- **Version** : 1.8.22, cache source `hylst-reader-v78`, modale À propos et en-tête du Service Worker à jour.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 132 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `public/books.json` valide : 11 livres, 94 chapitres.
+- `node scripts/build_jsx.js` et `--check` : 10 fichiers compilés et à jour.
+- `python scripts/build_book_pages.py` : 11 fiches générées.
+- **Synchronisation du miroir** : build `04d19b84bf10`, cache `hylst-reader-04d19b84bf10`, 277 fichiers runtime vérifiés, sitemap à 13 URL, 26 placeholders `?v=04d19b84bf10`.
+- Tests HTTP locaux : accueil, fiche Neurodiversité, chapitres 1 à 6, couverture et `books.json` en 200.
+
 ## [1.8.21] - 2026-11-07
 
 ### Modifié

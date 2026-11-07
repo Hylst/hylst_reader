@@ -1094,5 +1094,91 @@
         "available": true
       }
     ]
+  },
+  {
+    "id": "approche-de-la-neurodiversite",
+    "title": "Approche de la Neurodiversité",
+    "subtitle": "Vision d'un non-professionnel",
+    "author": "Hylst (Geoffroy Streit)",
+    "year": 2026,
+    "badge": "Nouveau",
+    "authorship": "human",
+    "aiAssisted": false,
+    "design": {
+      "fonts": {
+        "heading": "Outfit",
+        "body": "Merriweather",
+        "googleFonts": ""
+      },
+      "colors": {
+        "background": "#f5f6f8",
+        "text": "#1a202c",
+        "primary": "#2b4c6f",
+        "secondary": "#e2e8f0",
+        "accent": "#c05621"
+      },
+      "variables": {
+        "--book-bg": "#f5f6f8",
+        "--book-text": "#1a202c",
+        "--book-accent": "#c05621",
+        "--book-accent-dark": "#2b4c6f",
+        "--book-surface": "#e2e8f0",
+        "--book-border": "rgba(43, 76, 111, 0.18)",
+        "--book-font-body": "'Merriweather', Georgia, serif",
+        "--book-font-heading": "'Outfit', system-ui, sans-serif",
+        "--book-font-title": "'Outfit', system-ui, sans-serif",
+        "--book-font-size": "1.02rem",
+        "--book-line-height": "1.8",
+        "--book-max-width": "720px",
+        "--book-dropcap-size": "4.2em"
+      }
+    },
+    "coverPath": "covers/cover_neuro.webp",
+    "introPath": "books/approche-de-la-neurodiversite/intro.html",
+    "chapters": [
+      {
+        "id": "chapitre-1.html",
+        "title": "I. L'ornière scolaire et la blessure originelle",
+        "path": "books/approche-de-la-neurodiversite/chapitre-1.html",
+        "available": true
+      },
+      {
+        "id": "chapitre-2.html",
+        "title": "II. La mécanique grippée : langage, geste et espace",
+        "path": "books/approche-de-la-neurodiversite/chapitre-2.html",
+        "available": true
+      },
+      {
+        "id": "chapitre-3.html",
+        "title": "III. L'attention en miettes et la mémoire qui fuit",
+        "path": "books/approche-de-la-neurodiversite/chapitre-3.html",
+        "available": true
+      },
+      {
+        "id": "chapitre-4.html",
+        "title": "IV. L'usure adulte et le malentendu permanent",
+        "path": "books/approche-de-la-neurodiversite/chapitre-4.html",
+        "available": true
+      },
+      {
+        "id": "chapitre-5.html",
+        "title": "V. Béquilles cognitives et stratégies de survie",
+        "path": "books/approche-de-la-neurodiversite/chapitre-5.html",
+        "available": true
+      },
+      {
+        "id": "chapitre-6.html",
+        "title": "VI. Épilogue : Vivre avec la friction",
+        "path": "books/approche-de-la-neurodiversite/chapitre-6.html",
+        "available": true
+      }
+    ],
+    "tags": [
+      "neurodiversite",
+      "troubles-dys",
+      "cognition",
+      "essai",
+      "societe"
+    ]
   }
 ]

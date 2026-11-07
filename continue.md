@@ -4,7 +4,7 @@ Point d'étape pour un agent qui reprendrait ce travail. Fichier de travail, non
 
 ## État au 7 novembre 2026
 
-Version **1.8.20** synchronisée le 07/11, cache Service Worker source `hylst-reader-v76`, build `e1fa1775688a`, cache `hylst-reader-e1fa1775688a`, en attente de déploiement Coolify. 268 fichiers runtime, sitemap à 12 URL, 10 livres, 88 chapitres, 98 fichiers de contenu. Badge « En chantier » retiré de Nightprowler (achevé). La 1.8.19 déployée reste la version de production : build `18c6aef2b4f1`, commit plateforme `0e29f9cb`, `verify-release.ps1` entièrement vert.
+Version **1.8.20** déployée en production le 07/11, cache Service Worker source `hylst-reader-v76`, build `e1fa1775688a`, cache `hylst-reader-e1fa1775688a`. 268 fichiers runtime, sitemap à 12 URL, 10 livres, 88 chapitres, 98 fichiers de contenu. Badge « En chantier » retiré de Nightprowler (achevé). `verify-release.ps1` entièrement vert.
 
 ### Fait
 
@@ -151,7 +151,7 @@ Fait au 06/11/2026 :
 - Illustrations : `chapitre-1-cover.webp` a `chapitre-6-cover.webp`, generees sur le GPU local (`D:/0CODE/ClaudeCode/wainsfw/main.py`, modele `z-image-turbo-sdcpp`, 1216x832, 114 a 197 Ko), dans le style de la couverture. Chaque chapitre I a VI ouvre sur son image.
 - Integration : entree `nightprowler-carnets-de-samarande` dans `public/books.json` (8 livres au catalogue), badge En chantier, design Outfit et Merriweather, fiche statique generee, image Open Graph produite, sommaire a six entrees dans `BookHomeView` avec ouverture directe du chapitre choisi, `f3` retiree de `FUTURE_BOOKS`, cache `hylst-reader-v65`, sitemap du miroir complete a 10 URL avec la fiche Nightprowler et completion automatique dans `sync-to-platform.ps1`, 222 fichiers runtime dans le miroir en build `ca5f4163630e`, `CHANGELOG.md`, `todo.md` et `antigravity.md` a jour. Ajout CSS : `.chapter-stats-table.descripteurs td:first-child` aligne les etiquettes a gauche, `.book-home-toc` pour le sommaire.
 
-Non fait : verification hors ligne dans un profil Chromium vierge. Les 1.8.9 a 1.8.19 sont deployees (build `18c6aef2b4f1`, commit plateforme `0e29f9cb`). Les documents plateforme de la 1.8.18 sont ecrits et pousses (commit `6fcef7be`), a reverifier apres chaque redeploiement (l'agent plateforme peut les ecraser).
+Non fait : verification hors ligne dans un profil Chromium vierge. Les 1.8.9 a 1.8.20 sont deployees (build `e1fa1775688a`, commit plateforme `b5cb1d78`). Les documents plateforme de la 1.8.18 sont ecrits et pousses (commit `6fcef7be`), a reverifier apres chaque redeploiement (l'agent plateforme peut les ecraser).
 La suite a proposer : verification offline approfondie de Nightprowler dans un profil Chromium vierge ; rediger un message pour l'agent deployment / suivi des apps sur la plateforme Hylst IT (dossier Docker / container Nginx Statique pour VPS).
 
 Point de methode : le corps d'un chapitre ne s'ouvre dans la liseuse que par un clic, aucun parametre d'URL ne cible un chapitre. Le rendu se controle donc sur une page d'apercu jetable qui charge `css/reader.css` et `css/book-fonts.css`, ou par capture d'ecran Chrome headless. Les extractions de travail vont dans `.extract/`, supprime apres usage.

@@ -409,6 +409,26 @@ if (-not $DryRun) {
     $today = Get-Date -Format 'yyyy-MM-dd'
     $sitemap = Get-Content -Raw -Encoding UTF8 -LiteralPath $TargetSitemapPath
     $sitemap = [regex]::Replace($sitemap, '<lastmod>[^<]+</lastmod>', "<lastmod>$today</lastmod>")
+
+    # Completer le sitemap avec toutes les fiches de livres declarees.
+    $booksIndexPath = Join-Path $Source 'public/books.json'
+    if (Test-Path -LiteralPath $booksIndexPath) {
+        $booksIndex = Get-Content -Raw -Encoding UTF8 -LiteralPath $booksIndexPath | ConvertFrom-Json
+        $added = 0
+        foreach ($book in $booksIndex) {
+            if ([string]::IsNullOrWhiteSpace($book.id)) { continue }
+            $loc = "https://hylst.fr/books_reader/livres/$($book.id)/"
+            if ($sitemap -notmatch [regex]::Escape($loc)) {
+                $entry = "  <url><loc>$loc</loc><lastmod>$today</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>`n"
+                $sitemap = $sitemap -replace '</urlset>', "$entry</urlset>"
+                $added++
+            }
+        }
+        if ($added -gt 0) {
+            Write-Host "[OK] Sitemap complete : $added fiche(s) de livre ajoutee(s)."
+        }
+    }
+
     Write-Utf8NoBom $TargetSitemapPath $sitemap
 }
 

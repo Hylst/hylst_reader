@@ -924,3 +924,138 @@
     opacity: 0.75;
     font-size: 0.85rem;
 }
+
+/* Variante pour les listes de descripteurs : la seconde colonne n'est pas une valeur */
+.chapter-stats-table.descripteurs td:nth-child(2) {
+    font-weight: 400;
+    color: inherit;
+    text-align: left;
+}
+
+.chapter-stats-table.descripteurs td:first-child {
+    text-align: left;
+}
+/* Bloc de telechargement PDF (livre Sciences et technologie) */
+.chapter-download {
+    margin: 2.5rem auto;
+    max-width: 620px;
+    padding: 1.4rem 1.6rem;
+    background: color-mix(in srgb, var(--book-surface) 55%, transparent);
+    border: 1px solid var(--book-border);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.chapter-download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.7rem 1.4rem;
+    background: var(--book-accent-dark);
+    color: var(--book-bg);
+    border-radius: 8px;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.92rem;
+    text-decoration: none;
+}
+
+.chapter-download-link:hover {
+    opacity: 0.88;
+}
+
+.chapter-download-meta {
+    margin-top: 0.7rem;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.75rem;
+    opacity: 0.65;
+}
+
+.chapter-download-note {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    opacity: 0.75;
+}
+
+/* Sommaire d'origine d'une partie */
+.chapter-original-toc {
+    margin: 1.5rem 0 2.5rem;
+    padding: 1.2rem 1.6rem;
+    border-left: 3px solid var(--book-accent);
+    background: color-mix(in srgb, var(--book-surface) 45%, transparent);
+}
+
+.chapter-original-toc h3 {
+    margin-top: 0;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+}
+
+.chapter-original-toc ol {
+    margin: 0;
+    padding-left: 1.2rem;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+.chapter-original-toc li {
+    margin-bottom: 0.15rem;
+}
+
+.chapter-original-toc .toc-page {
+    opacity: 0.55;
+}
+
+/* Contexte et resume de 2026 */
+.chapter-context {
+    text-align: center;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--book-accent-dark);
+    opacity: 0.7;
+    margin-bottom: 2rem;
+}
+
+.chapter-summary {
+    margin-bottom: 1.4rem;
+}
+
+/* Listes dans les chapitres (carnets et parties techniques) */
+.chapter-content ul,
+.chapter-content ol {
+    margin: 0 0 1.4rem;
+    padding-left: 1.35rem;
+    font-family: var(--book-font-body);
+    font-size: 1em;
+    line-height: var(--book-line-height);
+}
+
+.chapter-content li {
+    margin-bottom: 0.55rem;
+}
+
+.chapter-content li > ul,
+.chapter-content li > ol {
+    margin-top: 0.55rem;
+}
+
+/* Sommaire d'origine : listes sans puces, labels conserves */
+.chapter-original-toc ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+.chapter-original-toc ul ul {
+    padding-left: 1.2rem;
+    margin-top: 0.15rem;
+}
+
+.chapter-original-toc ul ul li {
+    opacity: 0.9;
+}

@@ -125,9 +125,29 @@ function BookHomeView({ book, onBack, onStartReading }) {
                             </span>
                         </div>
                     )}
-                    <button className="btn btn-primary" style={{ padding: '0.85rem 2rem', fontSize: '1rem', marginBottom: '2rem' }} onClick={onStartReading}>
+                    <button className="btn btn-primary" style={{ padding: '0.85rem 2rem', fontSize: '1rem', marginBottom: '2rem' }} onClick={() => onStartReading(0)}>
                         Commencer la lecture <Icon.ArrowRight />
                     </button>
+                    {book.chapters && book.chapters.length > 0 && (
+                        <nav className="book-home-toc" aria-label="Sommaire du livre">
+                            <h2>Sommaire</h2>
+                            <ol>
+                                {book.chapters.map((ch, i) => (
+                                    <li key={ch.id || i}>
+                                        <button
+                                            type="button"
+                                            className="book-home-toc-item"
+                                            onClick={() => onStartReading(i)}
+                                            disabled={ch.available === false}
+                                        >
+                                            <span>{ch.title}</span>
+                                            {ch.available === false && <span className="book-home-toc-status">À paraître</span>}
+                                        </button>
+                                    </li>
+                                ))}
+                            </ol>
+                        </nav>
+                    )}
                     <div className="book-home-intro reader-article" dangerouslySetInnerHTML={{ __html: safeIntroHtml }} />
                 </div>
             </div>

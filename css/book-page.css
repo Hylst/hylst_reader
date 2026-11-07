@@ -73,6 +73,36 @@ h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; margin: 0 0 0.4rem;
 .intro hr.ornament { width: 70px; margin: 1.2rem auto; border: 0; border-top: 1px solid var(--accent); opacity: 0.6; }
 .intro .chapter-byline, .intro .chapter-continuation { color: var(--muted); font-style: italic; font-size: 0.88rem; }
 .intro a { color: var(--accent); }
+.intro .chapter-download {
+    margin: 1.8rem 0;
+    padding: 1.2rem 1.4rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+.intro .chapter-download-meta {
+    margin: 0 0 0.7rem;
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.intro .chapter-download ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.intro .chapter-download li {
+    margin-bottom: 0.55rem;
+    line-height: 1.5;
+}
+.intro .chapter-download li:last-child { margin-bottom: 0; }
+.intro .chapter-download a {
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(212, 149, 90, 0.5);
+}
+.intro .chapter-download a:hover { color: #e8b07a; }
 .cite-model {
     margin: 0 0 1rem; padding: 1.1rem 1.4rem;
     background: var(--surface); border-left: 3px solid var(--accent);

@@ -1,0 +1,34 @@
+﻿[
+    {
+        "part":  "A",
+        "file":  "partie-a-introduction-histoire-interfaces-manuelles.pdf",
+        "source":  "etjv-a.docx",
+        "pages":  21,
+        "bytes":  934518,
+        "sha256":  "b853ed115df9c90088f9af7e57956832c6eac3a1f5fb9eced6e314f068277a5f"
+    },
+    {
+        "part":  "B",
+        "file":  "partie-b-interfaces-sensori-motrices.pdf",
+        "source":  "etjv-b.docx",
+        "pages":  17,
+        "bytes":  499891,
+        "sha256":  "6a4268a5d4ed24b5220762aa0065cc88ee2c70f06876295401a405bd7096d4aa"
+    },
+    {
+        "part":  "C",
+        "file":  "partie-c-interfaces-de-visualisation.pdf",
+        "source":  "etjv-c.docx",
+        "pages":  40,
+        "bytes":  1370408,
+        "sha256":  "b8f8c320a291c1a188950848f7aa61c65232a133f12e4cab72b3dbd889bb2c91"
+    },
+    {
+        "part":  "D",
+        "file":  "partie-d-capteurs-autres-systemes.pdf",
+        "source":  "etjv-d.docx",
+        "pages":  36,
+        "bytes":  935573,
+        "sha256":  "03921f923aae3887b61b09dea8bb23d55b999a12f70a1109fd63b4daa746a686"
+    }
+]

@@ -1,6 +1,101 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.11] - 2026-11-07
+### Ajouté
+- **Tome IV, *Carnets, réflexions & partages*** : quatrième tome de la série *Recueils de proses et poésies fantasques*, consacré aux textes non fictifs retrouvés dans les archives. Quatre chapitres chronologiques : *Hygiène de vie* (23 novembre 2003), *Imaginez-vous* (19 juin 2007), *Idées cadeaux* (5 septembre 2008) et *Marre d'apprendre* (vers 2024). Réécriture légère limitée à l'orthographe, à la ponctuation, aux répétitions et aux abréviations de blog ; images, parenthèses et jeux de mots conservés. Chaque chapitre affiche sa date d'origine et une note de source.
+- **Livre *Sciences et technologie*** : édition numérique de l'étude technique bibliographique *Analyse des solutions techniques mises en œuvre dans les jeux vidéos*, écrite en 2001-2002 en cinquième année NFIO, promotion 7. Une préface de 2026 (1 209 mots), puis quatre parties avec résumé 2026, sommaire d'origine et PDF complet téléchargeable. Format hybride : synthèses HTML dans la liseuse, texte et mise en page d'origine dans les PDF.
+- **Quatre PDF d'archive** : partie A (21 pages, 934 518 octets), partie B (17 pages, 499 891 octets), partie C (40 pages, 1 370 408 octets), partie D (36 pages, 935 573 octets), exportés depuis les `.docx` d'origine avec Word COM, images et schémas compris. Manifeste `pdf/manifest.json` avec pages, poids et empreintes SHA-256.
+- **Deux couvertures composées** : `recueils-proses-poesies-t4-carnets-reflexions-partages.webp` (600x900, 66 558 octets) et `sciences-et-technologie-jeux-videos.webp` (600x900, 36 118 octets). Fonds générés sur le GPU local, typographie composée avec PIL, sources conservées dans `scripts/assets/covers/`.
+- **Scripts** : `scripts/make_book_covers.py` pour les couvertures, `scripts/export_etjv_pdfs.ps1` pour l'export Word COM par processus séparé.
+
+### Modifié
+- **Catalogue** : `public/books.json` passe de 8 à 10 livres, avec les entrées `recueils-proses-poesies-t4-carnets-reflexions-partages` (4 chapitres) et `sciences-et-technologie-jeux-videos` (5 chapitres), soit 74 chapitres déclarés.
+- **Fiches statiques** : 10 fiches générées par `scripts/build_book_pages.py`, dont les deux nouvelles. Les styles du bloc de téléchargement sont désormais intégrés au script de génération, qui réécrit `css/book-page.css`.
+- **Styles de la liseuse** : ajout des blocs de téléchargement PDF, sommaire d'origine, résumé de 2026, contexte de partie et listes dans `css/reader.css`.
+- **Service Worker** : cache source passé de `hylst-reader-v66` à `hylst-reader-v67`. Les PDF ne sont pas précachés.
+- **Sitemap du miroir** : 12 URL, avec les fiches du Tome IV et du livre *Sciences et technologie*.
+
+### Vérifié
+- `python scripts/check_dashes.py --root . --all` : 166 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `public/books.json` valide : 10 livres, 74 chapitres.
+- `node scripts/build_jsx.js` : 10 fichiers JSX compilés ; `--check` à jour.
+- `python scripts/build_book_pages.py` : 10 fiches générées.
+- Synchronisation du miroir : build `1e368c766584`, cache `hylst-reader-1e368c766584`, 245 fichiers runtime vérifiés, sitemap à 12 URL.
+- Contrôle local sur `http://127.0.0.1:8765/books_reader/` : page d'accueil, deux fiches, cinq chapitres du Tome IV, six fichiers du livre Sciences, quatre PDF et les deux couvertures répondent en 200. Les PDF téléchargés ont exactement les poids du manifeste.
+- Contrôle visuel Chrome headless des deux fiches et de la page livre *Sciences et technologie* : couvertures, sommaire, bloc PDF et citation conformes.
+- Déploiement du 07/11 : build `1e368c766584`, cache `hylst-reader-1e368c766584`, index `?v=1e368c766584`, commit plateforme `30e645a4`. `verifier-prod.sh --full books_reader` : 13 pages / 140 assets / 0 anomalie. Les deux fiches, les neuf chapitres et leurs introductions, les quatre PDF, le manifeste et les deux couvertures répondent en 200 ; `books.json` sert 10 livres et 74 chapitres ; sitemap à 12 URL.
+
+### Limites
+- Les paginations incertaines des sommaires d'origine (parties C et D) sont signalées dans les pages, jamais corrigées d'office.
+- Les fichiers `.docx` et les textes sources restent dans `D:\0HYLST\0 HYLST ART 2024\ecrits\textes_a_trier\` ; rien n'a été supprimé.
+
+## [1.8.10] - 2026-11-06
+### Modifié
+- **Introduction de *Nightprowler, carnets de Samarande*** : texte complété et réécrit dans un ton d'hommage. Retour sur les années de meneur de jeu et de conteur, sur les règles maison et les scénarios écrits pour ce monde ; lien vers la fiche du [Guide du Rôliste Galactique](https://www.legrog.org/jeux/nightprowler) ; présentation du jeu (publié en 1995 par Siroz, réédité en 2006 par 2d Sans Faces) ; recommandation des quatre romans de Pierre Pevel parus en 1998 sous le pseudonyme de Pierre Jacq, *Premiers Sangs*, *La Voie du sang*, *Le Prix du sang* et *In memoriam*, cycle *Chroniques des sept cités*, avec le supplément *Mémoires de Sang* pour les trois premiers tomes.
+- **Mention de la nouvelle édition** : plus de vingt-cinq ans après les premières parties, style littéraire repris, chapitres et notes de marge complétés, sommaire ajouté, illustrations générées par IA sur le GPU local dans le style de la couverture. Le texte précise que les textes sont de l'auteur, que les images sont des interprétations et que l'édition n'est pas officielle.
+- Version 1.8.10, cache Service Worker source `hylst-reader-v66`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root . --all` : 149 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `python scripts/build_book_pages.py` : 8 fiches générées, la fiche Nightprowler contient le nouveau texte, le lien vers le Grog et la mention de Pierre Pevel.
+- Synchronisation du miroir : build `c66ade22a32c`, cache `hylst-reader-c66ade22a32c`, 222 fichiers runtime vérifiés, sitemap à 10 URL.
+- Contrôle visuel de la page livre : le nouveau texte s'affiche dans la colonne d'introduction, sous le sommaire à six entrées.
+
+### Limites
+- Version **1.8.10** déployée le 06/11, build `c66ade22a32c`, cache `hylst-reader-c66ade22a32c`. Le miroir local 1.8.11, build `1e368c766584`, attend son déploiement Coolify.
+
+## [1.8.9] - 2026-11-06
+### Ajouté
+- **Nightprowler, chapitre VI. Le combat** : version personnelle de l'auteur pour sa table, inspirée du système proposé par Mathieu Mazzoni, organisée en deux moteurs. Le premier règle l'action par action (dégainer, rangs d'action, attaques enchaînées, parade, esquive, contre-attaque, deux armes, pénétration de garde, résistance des armes, attaques en force, assommer, feinte, prise de risque). Le second traite une phase de cinq secondes en un seul jet (initiative, taille des armes, Force dans les dégâts, postures, résolution de l'échange, blessures, armes de jet, volonté facultative). Les incohérences du fichier d'origine sont signalées en fin de chapitre plutôt que comblées, et la note de provenance dit clairement que le texte est celui de l'auteur, inspiré de Mazzoni.
+- **Six illustrations de chapitre** : `chapitre-1-cover.webp` à `chapitre-6-cover.webp`, peintes dans le style de la couverture (ville teintée de vert-de-gris, lanternes ambrées, nuit pluvieuse). Générées sur le GPU local avec `z-image-turbo-sdcpp`, format WebP 1216×832, 114 à 197 Ko chacune. Chaque chapitre I à VI ouvre désormais sur son image, avec un texte alternatif descriptif.
+- **Sommaire sur la page du livre** : `BookHomeView` affiche la liste des chapitres sous le bouton de lecture, avec un bouton par chapitre. `startReading(index)` enregistre la progression sur le chapitre choisi avant d'ouvrir la liseuse, au lieu de forcer le premier chapitre.
+- **Enrichissements des premiers chapitres** : notes de marge ajoutées en 2026 et signalées dans les notes de source. Chapitre I, section « Ce que cette présentation ne dit pas » sur la ville jouée par quartiers. Chapitre II, note sur le réalisme comme refus des raccourcis. Chapitre IV, section « Un exemple, pour ne pas en rester au principe » avec un scénario complet en un paragraphe. Chapitre V, section « Trois traits, pas plus » avec un exemple de personnage construit à la table.
+- **Tableaux de descripteurs** : la première colonne est alignée à gauche pour éviter la justification des étiquettes courtes (`chapitre-stats-table.descripteurs td:first-child`).
+
+### Modifié
+- **Catalogue** : `public/books.json` déclare le chapitre VI disponible, soit 6 chapitres pour *Nightprowler, carnets de Samarande*.
+- **Fiche statique** : `livres/nightprowler-carnets-de-samarande/index.html` régénérée par `scripts/build_book_pages.py`, sommaire à 6 entrées.
+- **Sitemap du miroir** : la fiche `livres/nightprowler-carnets-de-samarande/` est ajoutée à `sitemap.xml`, qui passe de 9 à 10 URL, `lastmod` au 06/11. La production 1.8.8 n'en comptait que 9 : la fiche du nouveau livre manquait. `sync-to-platform.ps1` complète désormais automatiquement le sitemap avec toutes les fiches déclarées dans `public/books.json`, pour que l'oubli ne se reproduise pas.
+- Version 1.8.9, cache Service Worker source `hylst-reader-v65`.
+
+### Vérifié
+- `public/books.json` valide : 8 livres, 6 chapitres Nightprowler déclarés disponibles.
+- `python scripts/build_book_pages.py` : 8 fiches générées, la fiche Nightprowler affiche « VI. Le combat ».
+- `python scripts/check_dashes.py --root . --all` : 149 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- Contrôle visuel Chrome headless du chapitre VI sur page d'aperçu chargeant `css/reader.css` et `css/book-fonts.css` : titres, tableaux à deux et trois colonnes, étiquettes non justifiées et note de source conformes.
+- Contrôle visuel Chrome headless de la page livre : sommaire à six entrées sous le bouton de lecture. Contrôle du chapitre I sur page d'aperçu : illustration affichée dans la colonne de lecture, ratio 3:2 conservé.
+- Huit URL locales en 200 sur `http://127.0.0.1:8765/books_reader/` : `public/books.json`, `chapitre-6.html`, la fiche statique, `css/reader.css`, `css/components.css`, `sw.js` et les illustrations des chapitres I et VI.
+- Synchronisation du miroir : build `ca5f4163630e`, cache `hylst-reader-ca5f4163630e`, 222 fichiers runtime vérifiés, 115 fichiers contrôlés sans tiret dans le miroir.
+- Sitemap local : 10 URL, `lastmod` 06/11, l'URL `livres/nightprowler-carnets-de-samarande/` est présente ; le script de synchronisation la réajoute automatiquement si elle manque.
+
+### Limites
+- Production en **1.8.8**, build `d7cc2afa380f`, cache `hylst-reader-d7cc2afa380f`, déployée le 06/11 : fiche statique Nightprowler et image Open Graph en 200, sitemap à 9 URL car la fiche Nightprowler manquait, 86 fichiers contrôlés sans tiret. Le miroir local 1.8.9, build `ca5f4163630e`, est synchronisé, avec la fiche ajoutée au sitemap (10 URL), et attend son déploiement Coolify.
+- Coverage hors ligne Nightprowler dans un profil Chromium vierge non refaite pour cette version.
+- Rendu du corps de chapitre dans la liseuse non automatisé : l'ouverture passe par un clic, aucun paramètre d'URL ne cible un chapitre.
+
+## [1.8.8] - 2026-11-06
+### Ajouté
+- **Livre *Nightprowler, carnets de Samarande*** : nouvelle entrée `nightprowler-carnets-de-samarande` dans `public/books.json`, avec introduction et cinq chapitres publiés (I. Le monde de Samarande, II. L'esprit du jeu, III. Vies et prix, IV. Bâtir un scénario, V. Décrire un personnage), badge « En chantier », `authorship: human`, `aiAssisted: false`. Design en polices locales Outfit et Merriweather, aucune requête externe. Fiche statique générée par `scripts/build_book_pages.py`, image Open Graph produite.
+- **Variante de tableau `.chapter-stats-table.descripteurs`** dans `css/reader.css` : la colonne de descripteurs ne reprend pas le gras ni la couleur d'accent prévus pour les valeurs numériques.
+
+### Modifié
+- **Vignette d'attente retirée** : `f3` « Scénarios et campagnes pour Nightprowler » quitte `FUTURE_BOOKS` dans `js/components/LibraryView.jsx`, le livre étant désormais intégré.
+- **Rédaction du corpus Nightprowler** : présentation de 1999 (`hnp.htm`), réponses de la mailing list de 2000 (`hnpaj.htm`) aide à la description (`aidcreapersos.htm`) et inventaire d'échoppes (`hnpaj.htm`) remis en paragraphes et en tableaux, corrigées et complétées. Les listes du chapitre V sont reconstruites sur les 15 registres réellement présents dans la source, après retrait d'une première version dont les descripteurs étaient en partie inventés. L'Atlas de Bejofa (Letorve) et l'aide à la description de Hirrinkaël ne sont pas reproduits. Les règles de combat publiées au chapitre VI sont la version personnelle de l'auteur, inspirée de celle de Mathieu Mazzoni, et non une reproduction.
+- Version 1.8.8, cache Service Worker source `hylst-reader-v64`.
+
+### Vérifié
+- `public/books.json` valide et chargé : 8 livres, chapitres I à V déclarés disponibles.
+- `node scripts/build_jsx.js` puis `--check` : 10 fichiers compilés, sortie à jour.
+- `python scripts/check_dashes.py --root .` : 93 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- Neuf URL locales en 200 sur le serveur de test : `books.json`, couverture, introduction, trois chapitres, fiche statique, `book-fonts.css` et `sw.js`.
+- Chrome headless : la carte du livre apparaît dans la bibliothèque intégrée, la vignette « Bientôt » de Nightprowler a disparu, la page livre affiche titre, couverture, introduction et bouton « Commencer la lecture », la fiche statique affiche le titre du chapitre I et le lien `?book=nightprowler-carnets-de-samarande`.
+- Contrôle visuel du chapitre V sur page d'aperçu chargeant `css/reader.css` et `css/book-fonts.css` : tableaux à deux colonnes lisibles, listes non mises en gras, titres et notes de source conformes.
+
+### Limites
+- Rendu du corps de chapitre dans la liseuse non automatisé : l'ouverture d'un chapitre passe par un clic, aucun paramètre d'URL ne cible un chapitre.
+- Contrôles hors ligne, production, sitemap et Lighthouse non refaits pour cette version intermédiaire.
+
 ## [1.8.7] - 2026-11-04
 ### Modifié
 - **CSS inline externalisés** : les styles de `droits.html` passent dans `css/droits.css`, ceux des 7 fiches statiques dans `css/book-page.css`, généré par `scripts/build_book_pages.py`. La CSP meta passe de `style-src 'self' 'unsafe-inline'` à `style-src 'self'; style-src-attr 'unsafe-inline'`, ce qui retire l'autorisation globale des blocs `<style>` tout en conservant les attributs `style` de React.

@@ -64,6 +64,27 @@
         grid-template-columns: 1fr;
     }
 
+    .book-home-meta {
+        padding: 1.35rem;
+    }
+
+    .book-home-title {
+        font-size: 1.65rem;
+        overflow-wrap: anywhere;
+    }
+
+    .book-home-toc {
+        padding: 1rem;
+    }
+
+    .book-rights-row {
+        gap: 0.5rem 0.75rem;
+    }
+
+    .book-rights-line {
+        overflow-wrap: anywhere;
+    }
+
     .chapter-main-title {
         font-size: 2.2rem;
     }

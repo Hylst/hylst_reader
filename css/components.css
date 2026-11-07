@@ -686,6 +686,69 @@
     border-bottom-color: var(--app-primary-hover);
 }
 
+.book-home-toc {
+    margin: 0 0 2rem;
+    padding: 1.15rem 1.35rem;
+    border: 1px solid var(--app-card-border);
+    border-radius: 14px;
+    background: var(--app-surface);
+}
+
+.book-home-toc h2 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 0.6rem;
+    color: var(--app-text);
+}
+
+.book-home-toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.book-home-toc li {
+    border-top: 1px solid color-mix(in srgb, var(--app-card-border) 70%, transparent);
+}
+
+.book-home-toc li:first-child {
+    border-top: 0;
+}
+
+.book-home-toc-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.55rem 0;
+    border: 0;
+    background: none;
+    color: var(--app-text);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.book-home-toc-item:hover:not(:disabled),
+.book-home-toc-item:focus-visible {
+    color: var(--app-primary);
+}
+
+.book-home-toc-item:disabled {
+    color: var(--app-muted);
+    cursor: default;
+}
+
+.book-home-toc-status {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--app-muted);
+}
+
 .book-home-intro {
     margin-top: 1rem;
     line-height: 1.8;

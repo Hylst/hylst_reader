@@ -482,8 +482,9 @@ function App() {
             window.history.pushState({ hylstBook: id }, '', `?book=${encodeURIComponent(id)}`);
         }
     };
-    const startReading = () => {
-        window.HylstDB.saveProgress(activeBookId, 0, 0).then(() => {
+    const startReading = (chapterIndex = 0) => {
+        const index = Number.isInteger(chapterIndex) ? chapterIndex : 0;
+        window.HylstDB.saveProgress(activeBookId, index, 0).then(() => {
             setCurrentView('reader');
         });
     };

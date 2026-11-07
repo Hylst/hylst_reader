@@ -391,6 +391,34 @@
         "cover": "covers/stories/263469168.webp"
       },
       {
+        "id": "01b-escapade-b2-toundra.html",
+        "title": "À travers toundra et plateaux",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/01b-escapade-b2-toundra.html",
+        "available": true,
+        "originalDate": "1995"
+      },
+      {
+        "id": "01c-escapade-c-montagne.html",
+        "title": "Au gré de la montagne et des précipices",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/01c-escapade-c-montagne.html",
+        "available": true,
+        "originalDate": "1995-03-12"
+      },
+      {
+        "id": "01d-escapade-d-caverne.html",
+        "title": "Caverne et tunnels",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/01d-escapade-d-caverne.html",
+        "available": true,
+        "originalDate": "1995-05-12"
+      },
+      {
+        "id": "01e-escapade-e-plage.html",
+        "title": "La plage",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/01e-escapade-e-plage.html",
+        "available": true,
+        "originalDate": "1995-06-12"
+      },
+      {
         "id": "02-encourageantes-perspectives-printanieres.html",
         "title": "Encourageantes perspectives printanières",
         "path": "books/recueils-proses-poesies-t1-saisons-nature/02-encourageantes-perspectives-printanieres.html",
@@ -489,6 +517,13 @@
         "originalDate": "2024-02-28",
         "sourceUrl": "https://www.wattpad.com/story/363996989",
         "cover": "covers/stories/363996989.webp"
+      },
+      {
+        "id": "12-un-brin-d-ecrit.html",
+        "title": "Un brin d'écrit",
+        "path": "books/recueils-proses-poesies-t1-saisons-nature/12-un-brin-d-ecrit.html",
+        "available": true,
+        "originalDate": "1996-06-12"
       }
     ]
   },
@@ -616,6 +651,20 @@
         "originalDate": "2024-02-28",
         "sourceUrl": "https://www.wattpad.com/story/363995181",
         "cover": "covers/stories/363995181.webp"
+      },
+      {
+        "id": "09-farouches-apparitions.html",
+        "title": "Farouches apparitions",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/09-farouches-apparitions.html",
+        "available": true,
+        "originalDate": "1999-06-12"
+      },
+      {
+        "id": "10-la-taniere-du-mage.html",
+        "title": "La tanière du mage",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/10-la-taniere-du-mage.html",
+        "available": true,
+        "originalDate": "2020"
       }
     ]
   },

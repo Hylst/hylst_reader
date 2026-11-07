@@ -1,6 +1,26 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.12] - 2026-11-07
+
+### Ajouté
+- **Quatre escapades retrouvées (1995)** dans le Tome I, à la suite d'« Escapade boisée » : *À travers toundra et plateaux* (partie B2), *Au gré de la montagne et des précipices* (partie C, 12 mars 1995), *Caverne et tunnels* (partie D, 12 mai 1995) et *La plage* (partie E, 12 juin 1995). Réécriture légère limitée à l'orthographe, la ponctuation, les répétitions et les formules de fin de billet ; images, parenthèses et jeux de mots conservés. La partie B, « À la campagne », reste au Tome III.
+- **Un brin d'écrit (12 juin 1996)** dans le Tome I : premier poème du fichier retrouvé, présenté en strophes, avec sa date d'origine et une note de source.
+- **Farouches apparitions (12 juin 1999)** dans le Tome II : second poème du même fichier, avec sa note d'origine sur les mots égarés.
+- **La tanière du mage (fin 2020)** dans le Tome II : prose onirique écrite pour accompagner une peinture numérique, débarrassée des vœux de fin d'année et des clins d'œil personnels.
+
+### Modifié
+- **Catalogue** : `public/books.json` passe de 74 à 81 chapitres. Le Tome I passe de 11 à 16 textes, le Tome II de 8 à 10. Les deux introductions annoncent les nouveaux textes et les dates d'origine.
+- **Fiches statiques** : les pages des Tomes I et II listent les nouveaux chapitres et les compteurs à jour.
+- **Version** : 1.8.12, cache source `hylst-reader-v68`, mention de version de la modale À propos.
+- **Compteurs** : 91 fichiers de contenu (10 introductions et 81 chapitres) dans README, readme-dev, features, structure et antigravity.
+
+### Vérifié
+- `python scripts/check_dashes.py --root . --all` : 173 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `public/books.json` valide : 10 livres, 81 chapitres.
+- `node scripts/build_jsx.js` et `--check` : 10 fichiers compilés et à jour.
+- `python scripts/build_book_pages.py` : 10 fiches générées, sommaires des Tomes I et II à 16 et 10 entrées.
+
 ## [1.8.11] - 2026-11-07
 ### Ajouté
 - **Tome IV, *Carnets, réflexions & partages*** : quatrième tome de la série *Recueils de proses et poésies fantasques*, consacré aux textes non fictifs retrouvés dans les archives. Quatre chapitres chronologiques : *Hygiène de vie* (23 novembre 2003), *Imaginez-vous* (19 juin 2007), *Idées cadeaux* (5 septembre 2008) et *Marre d'apprendre* (vers 2024). Réécriture légère limitée à l'orthographe, à la ponctuation, aux répétitions et aux abréviations de blog ; images, parenthèses et jeux de mots conservés. Chaque chapitre affiche sa date d'origine et une note de source.

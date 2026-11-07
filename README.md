@@ -6,7 +6,7 @@
 - Nom court (PWA) : **Biblio Hylst**
 - Signature : **Livres, proses, poésies et récits de Geoffroy Streit**
 - URL : `https://hylst.fr/books_reader/` (alias `https://hylst.fr/bibliotheque/`)
-- Version : **1.8.11** (voir [CHANGELOG](CHANGELOG.md))
+- Version : **1.8.12** (voir [CHANGELOG](CHANGELOG.md))
 
 
 ---
@@ -18,7 +18,7 @@
 - **Partie V Intégrée** : Intégration du chapitre final *« De Spectateur à Architecte »* de l'essai **L'Odyssée de l'IA** (version nettoyée de ses tics typographiques d'IA).
 - **Nouvelle Halloween** : *« Les Ficelles du bonheur »*, pièce de théâtre en six tableaux et un épilogue, avec didascalies bleues, répliques mises en page comme au théâtre et couverture illustrée générée localement.
 - **L'Odyssée de l'énergie actualisée** : les 10 chapitres sont disponibles, avec données AIE 2026, typographie sans tirets cadratins ni ornements, et mention de transparence sur l'assistance IA en dernière de couverture.
-- **Trois recueils Wattpad** : 29 textes de 2021 à 2024 réunis en *Saisons, nature & contemplations*, *Fantasque & merveilleux* et *Cœurs, chaos & quotidien*, avec provenance, dates de publication et couvertures composées à partir des illustrations de l'auteur. Textes 100 % écrits par l'auteur, sans assistance d'IA.
+- **Trois recueils** : 36 textes réunis en *Saisons, nature & contemplations*, *Fantasque & merveilleux* et *Cœurs, chaos & quotidien*. 29 ont été publiés sur Wattpad de 2021 à 2024 ; 7 ont été retrouvés dans les archives (quatre escapades de 1995, deux poèmes de 1996 et 1999, une prose onirique de 2020), avec provenance, dates d'origine et couvertures composées à partir des illustrations de l'auteur. Textes 100 % écrits par l'auteur, sans assistance d'IA.
 - **Tome IV, *Carnets, réflexions & partages*** : quatre textes non fictifs retrouvés dans les archives, datés de 2003 à 2024, avec réécriture légère, date d'origine et note de source.
 - **Sciences et technologie** : étude technique bibliographique de 2001-2002 sur les solutions techniques des jeux vidéos, avec une préface de 2026, quatre parties, les sommaires d'origine et les quatre PDF d'archive.
 - **Nightprowler, carnets de Samarande** : six chapitres publiés, introduction hommage, sommaire à six entrées et illustrations de chapitre dans le style de la couverture.
@@ -38,7 +38,7 @@
 - **Framework** : React 18, JSX précompilé vers `js/dist/` par `scripts/build_jsx.js`. Babel reste un outil de build, jamais chargé par le navigateur.
 - **Modularité** : Composants React isolés et autonomes au sein de `js/components/`.
 - **Stockage** : `idb-keyval` (IndexedDB) pour la persistance locale totale de vos bibliothèques.
-- **PWA & Offline** : Service Worker (`sw.js`) qui précache l'app shell, les 84 contenus de livres (10 introductions et 74 chapitres) et les 10 couvertures. La bibliothèque, les fiches et la lecture restent accessibles hors ligne dès la première visite terminée.
+- **PWA & Offline** : Service Worker (`sw.js`) qui précache l'app shell, les 91 contenus de livres (10 introductions et 81 chapitres) et les 10 couvertures. La bibliothèque, les fiches et la lecture restent accessibles hors ligne dès la première visite terminée.
 - **Design** : CSS3 Vanilla modulaire.
 
 ---

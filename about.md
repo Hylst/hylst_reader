@@ -16,14 +16,14 @@ L'application a été conçue pour offrir un cadre noble et apaisant aux œuvres
 - **Thèmes Adaptatifs** : Modes Sépia, Clair et Sombre personnalisables avec des animations d'ambiance et des nuages de particules spécifiques. Le mode **Sombre** est celui proposé par défaut au premier lancement ; le choix de chacun est ensuite mémorisé et réappliqué avant le premier rendu.
 - **Accompagnement Musical** : Un lecteur audio premium intégré avec accès à plus de **280 compositions originales** de Hylst (tags, moods, recherche par ambiance).
 - **Ouverture et Liberté** : Importez vos propres livres (EPUB, TXT, Markdown, JSON, dossiers HML complexes) pour en profiter dans cet écrin de lecture.
-- **Illustrations d'origine** : les 29 textes des recueils affichent leur couverture Wattpad en tête de chapitre et en miniature dans le sommaire.
+- **Illustrations d'origine** : les textes publiés sur Wattpad affichent leur couverture d'origine en tête de chapitre et en miniature dans le sommaire.
 - **Quinte ou Les Harmoniques de l'Âme** : nouvelle en sept parties, dans la version remaniée par l'auteur.
 - **Souveraineté des Données** : Pas de cloud imposé, pas de pistage. Vos livres et votre progression restent stockés physiquement dans votre navigateur au sein d'IndexedDB.
 - **Intelligence de Lecture** : Calcul dynamique du temps restant par chapitre et indicateurs de progression contextuels.
 
 ---
 
-## 🚀 Technologie (Stack v1.8.11)
+## 🚀 Technologie (Stack v1.8.12)
 L'application utilise une stack moderne "Pure Frontend" optimisée pour la modularité et les performances :
 - **React 18 & JSX précompilé** : Interface réactive découpée en composants ES6 autonomes, compilés au build vers `js/dist/`. Aucun transpileur n'est chargé par le navigateur.
 - **IndexedDB (`idb-keyval`)** : Persistance robuste sans serveur pour les textes, signets et progressions de lecture.

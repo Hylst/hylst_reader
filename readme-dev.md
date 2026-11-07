@@ -53,7 +53,7 @@ Pour persister les données de progression sans serveur backend, nous utilisons 
 
 À l'installation, le Service Worker précache :
 1. **L'app shell** : `index.html`, CSS, JS compilés, vendors, manifeste, icônes et `droits.html`.
-2. **Les contenus** : `public/books.json`, les 84 fichiers de contenu (10 introductions et 74 chapitres), les 10 couvertures actives et les 10 fiches statiques `livres/<id>/`.
+2. **Les contenus** : `public/books.json`, les 91 fichiers de contenu (10 introductions et 81 chapitres), les 10 couvertures actives et les 10 fiches statiques `livres/<id>/`.
 
 La stratégie réseau reste Network-First pour les fichiers locaux, avec repli sur le cache hors ligne. Une navigation sans correspondance retombe sur l'app shell déjà précaché. L'activation ne supprime que les caches préfixés `hylst-reader-` : les caches des autres applications de l'origine `hylst.fr` sont préservés.
 

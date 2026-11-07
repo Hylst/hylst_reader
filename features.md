@@ -16,7 +16,7 @@ Conçu comme un livre physique de grande qualité, la liseuse adapte et peaufine
 - **Navigation de fin de partie** : un bloc « Fin de la partie » avec la partie suivante est toujours visible sous le dernier paragraphe, même barre masquée. Une pastille `1 / 7 · Suivant` reste accessible en lecture immersive.
 - **Accès direct** : `https://hylst.fr/books_reader` redirige en 301 vers `https://hylst.fr/books_reader/`, qui reste l'URL canonique.
 - **L'Odyssée de l'énergie** : les 10 chapitres sont disponibles, avec relecture orthographique complète, données actualisées et mention de transparence sur l'assistance IA en dernière de couverture.
-- **Recueils Wattpad** : 29 textes répartis en trois volumes, avec mise en page prose/poésie, dates de publication, lien vers la version originale et illustrations d'origine affichées en tête de chapitre et dans le sommaire. Création littéraire 100 % humaine, sans assistance d'IA.
+- **Recueils** : 36 textes répartis en trois volumes, dont 29 publiés sur Wattpad et 7 retrouvés dans les archives (escapades de 1995, poèmes de 1996 et 1999, prose de 2020). Mise en page prose/poésie, dates d'origine, lien vers la version originale quand elle existe et illustrations d'origine affichées en tête de chapitre et dans le sommaire. Création littéraire 100 % humaine, sans assistance d'IA.
 - **Quinte ou Les Harmoniques de l'Âme** : nouvelle en sept parties, version remaniée par l'auteur, avec introduction et note de provenance.
 - **Deux URL** : `/books_reader/` reste l'URL canonique, `/bibliotheque/` y redirige en 301 avec conservation de la query string.
 - **Réglages du texte** : Choix de la largeur de colonne (Étroit, Moyen, Large), alignement (Gauche ou Justifié), et taille du texte (de 70% à 170% de la taille de base).
@@ -53,5 +53,5 @@ L'application fonctionne à 100% sans serveur de base de données en s'appuyant 
 
 ## 📱 5. Technologie PWA Installable
 Compatible avec tous vos appareils (ordinateurs de bureau sous Windows/Mac/Linux, tablettes, smartphones Android et iOS) :
-- **Service Worker intelligent** : Précache l'app shell, `public/books.json`, les 84 fichiers de contenu (10 introductions et 74 chapitres), les 10 couvertures actives et les 10 fiches statiques. La navigation hors ligne retombe proprement sur l'app shell ou la fiche déjà mise en cache.
+- **Service Worker intelligent** : Précache l'app shell, `public/books.json`, les 91 fichiers de contenu (10 introductions et 81 chapitres), les 10 couvertures actives et les 10 fiches statiques. La navigation hors ligne retombe proprement sur l'app shell ou la fiche déjà mise en cache.
 - **Installation native** : S'intègre comme une application de bureau ou de téléphone grâce au fichier `manifest.json`.

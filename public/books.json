@@ -252,7 +252,6 @@
     "subtitle": "Histoire pour Musiciens déments et physiciens avertis",
     "author": "Hylst (Geoffroy Streit)",
     "year": "2021-2024",
-    "badge": "En chantier",
     "design": {
       "fonts": {
         "heading": "Cormorant Garamond",
@@ -302,22 +301,22 @@
       },
       {
         "id": "04-partie-4.html",
-        "title": "Partie 4",
+        "title": "La Faille Spectrale",
         "path": "books/quinte-ou-les-harmoniques-de-l-ame/04-partie-4.html"
       },
       {
         "id": "05-partie-5.html",
-        "title": "Partie 5",
+        "title": "L'Épreuve du Gouffre Sonore",
         "path": "books/quinte-ou-les-harmoniques-de-l-ame/05-partie-5.html"
       },
       {
         "id": "06-partie-6.html",
-        "title": "Partie 6",
+        "title": "L'Expansion et les Ondes Cosmiques",
         "path": "books/quinte-ou-les-harmoniques-de-l-ame/06-partie-6.html"
       },
       {
         "id": "07-partie-7-surprise.html",
-        "title": "Partie 7 (Surprise)",
+        "title": "La Grande Réaccordance",
         "path": "books/quinte-ou-les-harmoniques-de-l-ame/07-partie-7-surprise.html"
       }
     ],

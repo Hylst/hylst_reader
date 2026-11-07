@@ -4,7 +4,7 @@
 - [x] **Badge Nightprowler (1.8.20)** : Retrait du badge « En chantier » de *Nightprowler, carnets de Samarande* dans `public/books.json`. Le livre est complet et validé.
 - [ ] **Coverage hors-ligne complet** : Tester dans un profil Chromium vierge (PWA, Service Worker, navigation déconnectée, repli `/livres/<id>` sans slash) sur Nightprowler, Sciences et technologie, et les recueils.
 - [ ] **Textes littéraires restants du corpus** : Explorer et intégrer les inédits isolés des archives (`effet papillon.txt`, `Ariane.txt` / `.pdf`, `japonisant .odt` « Le rêve d'un gaijin profane »).
-- [ ] **Chantier Quinte** : Retirer le badge « En chantier » de *Quinte ou Les Harmoniques de l'Âme* en révisant les chapitres 4 à 7 à partir des documents Word/RTF complets (`Quinte ou Les Harmoniques de l' me...docx`).
+- [x] **Chantier Quinte (1.8.21)** : Restauration de l'amorce de la partie 4, titrage des parties 4 à 7 (*La Faille Spectrale*, *L'Épreuve du Gouffre Sonore*, *L'Expansion et les Ondes Cosmiques*, *La Grande Réaccordance*) et retrait du badge « En chantier ».
 - [ ] **Chantier Neurodiversité** : Concrétiser la vignette `f10` (*Approche de la Neurodiversité*) à partir des écrits d'expérience (`troubles dys.odt`, `Enfants en difficulté scolaire.doc`).
 - [ ] **Refactorisation CSS & export** : Diviser `css/base.css` et permettre l'export `.json` de la bibliothèque.
 

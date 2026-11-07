@@ -4,7 +4,7 @@ Point d'étape pour un agent qui reprendrait ce travail. Fichier de travail, non
 
 ## État au 7 novembre 2026
 
-Version **1.8.20** déployée en production le 07/11, cache Service Worker source `hylst-reader-v76`, build `e1fa1775688a`, cache `hylst-reader-e1fa1775688a`. 268 fichiers runtime, sitemap à 12 URL, 10 livres, 88 chapitres, 98 fichiers de contenu. Badge « En chantier » retiré de Nightprowler (achevé). `verify-release.ps1` entièrement vert.
+Version **1.8.21** synchronisée le 07/11, cache Service Worker source `hylst-reader-v77`, build `5350a1f1c551`, cache `hylst-reader-5350a1f1c551`, en attente de déploiement Coolify. 268 fichiers runtime, sitemap à 12 URL, 10 livres, 88 chapitres, 98 fichiers de contenu. Quinte complétée : phrase d'amorce restaurée en partie 4, parties 4 à 7 titrées, badge « En chantier » retiré. La 1.8.20 déployée reste la version de production : build `e1fa1775688a`, commit plateforme `b5cb1d78`, `verify-release.ps1` entièrement vert.
 
 ### Fait
 

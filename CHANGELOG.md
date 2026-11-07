@@ -1,6 +1,23 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.21] - 2026-11-07
+
+### Modifié
+- **Quinte ou Les Harmoniques de l'Âme** :
+  - Restauration de la phrase d'amorce du manuscrit d'origine (`quinte.rtf`) en ouverture du chapitre 4 : *« Quinte sentit, un jour, un appel provenant des profondeurs de son propre être. Une dissonance étrange, une perturbation subtile dans les ondes stationnaires qui l'entouraient. »*
+  - Harmonisation des titres des parties 4 à 7, désormais titrées dans le respect absolu du vocabulaire physique et musical de l'auteur : *IV. La Faille Spectrale*, *V. L'Épreuve du Gouffre Sonore*, *VI. L'Expansion et les Ondes Cosmiques*, *VII. La Grande Réaccordance*.
+  - Retrait du badge « En chantier » dans `public/books.json` : le livre est complet et stabilisé au catalogue.
+- **Version** : 1.8.21, cache source `hylst-reader-v77`, modale À propos et en-tête du Service Worker à jour.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 124 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `public/books.json` valide : 10 livres, 88 chapitres, Quinte achevée sans badge.
+- `node scripts/build_jsx.js` et `--check` : 10 fichiers compilés et à jour.
+- `python scripts/build_book_pages.py` : 10 fiches générées, sommaire de Quinte complet à sept entrées.
+- **Synchronisation du miroir** : build `5350a1f1c551`, cache `hylst-reader-5350a1f1c551`, 268 fichiers runtime vérifiés, sitemap à 12 URL, 26 placeholders `?v=5350a1f1c551`.
+- Tests HTTP locaux : accueil, fiche Quinte, chapitres 1 à 7 et `books.json` en 200.
+
 ## [1.8.20] - 2026-11-07
 
 ### Modifié

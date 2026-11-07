@@ -1,6 +1,26 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.14] - 2026-11-07
+
+### Ajouté
+- **Nightprowler, chapitre VIII. Le squelette enfoui d'Azefhfkrijiiir** : le premier scénario complet du recueil, écrit vers 1999 pour une équipe de gouris et retrouvé sous la forme d'un synopsis d'un seul bloc, sans actes ni dialogue, qui s'arrête au milieu d'une phrase sur « Ils feront ». La présente version le découpe en six actes, de la légende des cinq parties du squelette à la rencontre finale dans la salle basse. Sont ajoutés pour cette édition : la table des objets maudits, l'identité et le marché des Veilleurs, la rencontre finale et ses trois issues, ainsi que la section « Mener la table ». Les valeurs de possession, la difficulté 8 et le décompte des caractéristiques viennent du fichier d'origine. Aucun texte de tiers n'est reproduit.
+- **Illustration du chapitre VIII** : `chapitre-8-cover.webp` (1216x832), un crâne cornu traversé d'un kriss dans un sarcophage de granit ouvert, entouré de squelettes difformes à la lueur des torches, générée sur le GPU local avec `z-image-turbo-sdcpp`, dans le style de la couverture.
+
+### Modifié
+- **Catalogue** : `public/books.json` passe de 82 à 83 chapitres ; Nightprowler passe de 7 à 8 chapitres.
+- **Fiche statique** : la page de Nightprowler liste le chapitre VIII et son sommaire à huit entrées.
+- **Version** : 1.8.14, cache source `hylst-reader-v70`, modale À propos et en-tête du Service Worker à jour.
+- **Compteurs** : 93 fichiers de contenu (10 introductions et 83 chapitres) dans README, readme-dev, features, structure et antigravity.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 119 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `public/books.json` valide : 10 livres, 83 chapitres.
+- `node scripts/build_jsx.js` et `--check` : 10 fichiers compilés et à jour.
+- `python scripts/build_book_pages.py` : 10 fiches générées, sommaire de Nightprowler à huit entrées.
+- **Synchronisation du miroir** : build `28566d89e3fc`, cache `hylst-reader-28566d89e3fc`, 256 fichiers runtime vérifiés, sitemap à 12 URL, 26 placeholders `?v=28566d89e3fc`.
+- Tests HTTP locaux : accueil, fiche Nightprowler, chapitre VIII, illustration et `books.json` en 200 ; catalogue à 10 livres et 83 chapitres.
+
 ## [1.8.13] - 2026-11-07
 
 ### Ajouté

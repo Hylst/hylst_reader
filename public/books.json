@@ -915,6 +915,12 @@
         "title": "X. Vapeur et boulons",
         "path": "books/nightprowler-carnets-de-samarande/chapitre-10.html",
         "available": true
+      },
+      {
+        "id": "chapitre-11.html",
+        "title": "XI. La reconquête du trône des Rodallois",
+        "path": "books/nightprowler-carnets-de-samarande/chapitre-11.html",
+        "available": true
       }
     ],
     "tags": [

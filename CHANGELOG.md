@@ -1,6 +1,26 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.17] - 2026-11-07
+
+### Ajouté
+- **Nightprowler, chapitre XI. La reconquête du trône des Rodallois** : un scénario écrit en 1999 pour un autre jeu que Nightprowler, conservé sous les titres « La reconquête du trône des Rodallois des terres d'Alliphance » et « Introduction à l'aventure », dernière copie datée du 1er mars 2004. Le chapitre est volontairement séparé des carnets de Samarande et le dit dès sa première ligne. La présente version réorganise les deux fichiers en cinq actes, réunit les quatre lois et les figures en tableaux, ajoute la vérité du pacte, les alliances, les preuves et les issues, ainsi que la section « Mener la table ». Les noms, les lois, le discours et le bracelet viennent des fichiers d'origine. Aucun texte de tiers n'est reproduit.
+- **Illustration du chapitre XI** : `chapitre-11-cover.webp` (1216x832), un jeune prince caché dans le jardin royal à l'aube, son bracelet gravé au poignet, le château en flammes et un démon cornu dans le lointain, générée sur le GPU local avec `z-image-turbo-sdcpp`.
+
+### Modifié
+- **Catalogue** : `public/books.json` passe de 85 à 86 chapitres ; Nightprowler passe de 10 à 11 chapitres.
+- **Fiche statique** : la page de Nightprowler liste le chapitre XI et son sommaire à onze entrées.
+- **Version** : 1.8.17, cache source `hylst-reader-v73`, modale À propos et en-tête du Service Worker à jour.
+- **Compteurs** : 96 fichiers de contenu (10 introductions et 86 chapitres) dans README, readme-dev, features, structure et antigravity.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 122 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `public/books.json` valide : 10 livres, 86 chapitres.
+- `node scripts/build_jsx.js` et `--check` : 10 fichiers compilés et à jour.
+- `python scripts/build_book_pages.py` : 10 fiches générées, sommaire de Nightprowler à onze entrées.
+- **Synchronisation du miroir** : build `f5edc2c6c480`, cache `hylst-reader-f5edc2c6c480`, 264 fichiers runtime vérifiés, sitemap à 12 URL, 26 placeholders `?v=f5edc2c6c480`.
+- Tests HTTP locaux : accueil, fiche Nightprowler, chapitre XI, illustration et `books.json` en 200 ; catalogue à 10 livres et 86 chapitres.
+
 ## [1.8.16] - 2026-11-07
 
 ### Ajouté

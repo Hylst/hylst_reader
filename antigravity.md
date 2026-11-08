@@ -25,7 +25,7 @@
 
 ## État actuel
 
-- Version **1.8.30** en cours, cache Service Worker source `hylst-reader-v86`. 11 livres, 98 chapitres (109 fichiers de contenu), 13 URL au sitemap.
+- Version **1.8.30** déployée le 08/11 (commit plateforme `687c843d`, docs `328e9bfa`), cache Service Worker source `hylst-reader-v86`, build `1939c2d25914`, SW `hylst-reader-1939c2d25914`. 286 fichiers runtime, 11 livres, 98 chapitres (109 fichiers de contenu), 13 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Tome IV (*Carnets, réflexions & partages*) — Réflexions de jeunesse (1994-1998)** :
   - Intégration en tête de volume de 3 chapitres fondateurs : *I. De l'art et de la demoscene informatique* (vers 1996), *II. De l'édenisme et de la quête d'équilibre* (vers 1996-1998), *III. Éloge du temps libre et de l'éveil* (vers 1998).
   - Décalage des chapitres existants de 01-04 vers 04-07 (7 textes au total, période 1994-2024). Fiche statique regénérée.

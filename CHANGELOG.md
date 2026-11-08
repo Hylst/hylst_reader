@@ -1,6 +1,29 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.27] - 2026-11-08
+
+### Modifié
+- **Chapitre XIII (Annexes)** : refonte complète et enrichissement de la section finale de *Nightprowler, carnets de Samarande*. Les 14 tableaux d'origine sont désormais tous enveloppés dans `.chapter-table-scroll` avec attribut `data-cols` exact. Le lexique passe de 25 à 45 entrées attestées, couvrant les entités démoniaques (Azefhfkrijiiir, Kharvâsh, rat de Bromi), les factions (Main de Cendre, Veilleurs, Marques, Ezgir, Kahlérs), les artefacts (pierre de rosette, émeraudes de focus, fer froid) et les lieux des provinces (Alliphance, Orgilaine, Lujevire, Mont-Orgueil, Hautes Lices, Quartier 30, Bief). La chronologie est étendue avec les jalons de campagne (1500, 2557, 2558, 2559). Ajout d'une table de 16 termes d'argot des coupe-bourses de Samarande et de deux tables d6 de péripéties urbaines (ambiances nocturnes et complications de coupe-gorges). Volume porté de 1 795 à 3 060 mots de texte (17 tableaux, 6 `h2`).
+- **Humanisation des scénarios (Chapitres VIII à XI)** : révision stylistique vivante et organique donnant du relief d'auteur, de la verdeur, des phrases alambiquées et une pointe d'ironie mordante aux intrigues de jeu :
+  - *Chapitre VIII* : détails tactiles sur la moiteur du puits, le sarcophage balancé comme une huche à pain, le cynisme bureaucratique d'Albéric et Mathilde.
+  - *Chapitre IX* : accentuation de la détresse charnelle et de la folie toxique du parasite de Bromi, la fange de la rafle de la famille Migeon.
+  - *Chapitre X* : portrait maniaque et tragi-comique d'Humbert Aglino renvoyé de la guilde, puanteur de suie et d'acide, horreur du broyage de vie sous le vernis du rendement alchimique.
+  - *Chapitre XI* : cruauté féodale froide de Wilfried l'Impitoyable, grandiloquence juridique de l'écartèlement public, ironie mordante sur les alliances de cour.
+- **Chapitre XII (Pistes inachevées)** : enveloppement systématique des 4 tableaux dans `.chapter-table-scroll` avec `data-cols="3"`.
+- **Service Worker** : passage à la version source `hylst-reader-v83` (build miroir `ffbc6d92d427`).
+- **Typographie et accessibilité** : zéro tiret cadratin ou demi-cadratin sur 132 fichiers source et 151 fichiers miroir. Totalité des 95 tableaux des chapitres VIII à XIII enveloppés et défilables sur écran mobile 390 px sans débordement.
+- **Version** : 1.8.27, build `ffbc6d92d427`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 132 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique du Service Worker validés.
+- Validation des 6 chapitres (VIII à XIII) et des 7 SVGs : balises HTML équilibrées, 100 % des tableaux enveloppés, 0 tiret long, 0 erreur.
+- Rendu visuel desktop et mobile 390 px vérifié via Chrome headless pour XIII.
+- Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `ffbc6d92d427`, 277 fichiers runtime vérifiés, zéro dossier de travail.
+- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitres 8 à 13.
+
 ## [1.8.26] - 2026-11-08
 
 ### Modifié

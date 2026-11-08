@@ -1,9 +1,9 @@
-// sw.js - Service Worker La Bibliothèque de Hylst v1.8.26
+// sw.js - Service Worker La Bibliothèque de Hylst v1.8.27
 // Stratégie : précache versionné de l'app shell, des livres, des illustrations
 // et des fontes, puis Network-First avec repli cache pour le local. Le cache
 // d'exécution est séparé et plafonné.
 
-const CACHE_NAME = 'hylst-reader-v82';
+const CACHE_NAME = 'hylst-reader-v83';
 // Le stockage de caches est partagé par toute l'origine hylst.fr : ne jamais
 // supprimer les caches des autres applications hébergées sur le même domaine.
 const CACHE_PREFIX = 'hylst-reader-';

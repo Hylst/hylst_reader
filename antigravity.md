@@ -25,23 +25,28 @@
 
 ## État actuel
 
-- Version **1.8.26** déployée le 08/11 (commit plateforme `734046f2`, docs `d45979b7`), cache Service Worker source `hylst-reader-v82`, build `07ddbab6e488`, SW `hylst-reader-07ddbab6e488`. 277 fichiers runtime, 11 livres, 94 chapitres, 13 URL au sitemap. `verify-release.ps1` entièrement vert en production.
-- **Chapitre XI enrichi** :
-  - **Chapitre XI** (*La reconquête du trône des Rodallois*) porté à 9 089 mots de texte (17 `h2`, 23 tableaux, 2 figures, schéma vectoriel `chapitre-11-schema.svg`). Fiche technique, 5 horloges féodales, géographie d'Alliphance (12 lieux), dilemmes des quatre lois, 14 figures majeures, 8 factions et matrice relationnelle, épreuves des six preuves, règles et contre-mesures de Kharvâsh l'Équarrisseur et du contrat de fer froid, assaut du donjon et alertes, 10 issues principales et 6 secondaires, tables d'aides de jeu d6, sécurité de table.
-- **Chapitres VIII, IX et X enrichis** :
-  - Chapitre VIII : 7 161 mots, 11 sections, 14 tableaux, 3 figures, `chapitre-8-plan.svg` et `chapitre-8-schema.svg`.
-  - Chapitre IX (*Esclavage gouri sans vergogne*) : 16 603 mots, 22 `h2`, 35 tableaux, 3 figures, plan et schéma vectoriel `chapitre-9-schema.svg`.
-  - Chapitre X (*Vapeur et boulons*) : 13 885 mots, 18 `h2`, 33 tableaux, 3 figures, plan et schéma vectoriel `chapitre-10-schema.svg`.
-- **Tableaux mobiles** : les 91 tableaux des chapitres VIII, IX, X et XI sont tous enveloppés dans `.chapter-table-scroll` avec `data-cols` adéquat. Aucun débordement horizontal à 390 px.
-- Version **1.8.25** déployée en production (build `712e7d5f6378`, SW `hylst-reader-712e7d5f6378`).
+- Version **1.8.27** synchronisée le 08/11, cache Service Worker source `hylst-reader-v83`, build `ffbc6d92d427`, SW `hylst-reader-ffbc6d92d427`. 277 fichiers runtime, 11 livres, 94 chapitres, 13 URL au sitemap.
+- **Chapitre XIII (Annexes) refondu et complété** :
+  - 3 060 mots de texte, 6 `h2`, 10 `h3`, 17 tableaux tous enveloppés dans `.chapter-table-scroll`.
+  - Feuille de personnage normalisée et accessible.
+  - Lexique étendu à 45 entrées attestées couvrant la totalité des scénarios et provinces (Azefhfkrijiiir, Bromi, Kharvâsh, Main de Cendre, Veilleurs, Marques, La Verte, Bief, Pierre de rosette, Quartier 30, Hautes Lices, Double 7, etc.).
+  - Chronologie des campagnes (1500, 2258, 2300, 2310, 2476, 2557, 2558, 2559).
+  - Recueil de 16 termes d'argot des coupe-bourses de Samarande et deux tables d6 de péripéties urbaines.
+- **Humanisation stylistique des scénarios VIII, IX, X et XI** :
+  - Écriture plus organique, vivante, avec verve d'auteur, phrases alambiquées, pointes d'ironie mordante et descriptions viscérales.
+- **Chapitre XII (Pistes inachevées)** : 4 tableaux enveloppés dans `.chapter-table-scroll` avec `data-cols="3"`.
+- **Tableaux mobiles** : l'intégralité des 95 tableaux des chapitres VIII à XIII sont désormais tous enveloppés dans `.chapter-table-scroll` avec `data-cols` exact. Zéro débordement horizontal à 390 px.
+- Version **1.8.26** déployée en production (build `07ddbab6e488`, SW `hylst-reader-07ddbab6e488`).
 - Catalogue à **11 livres et 94 chapitres** (105 fichiers de contenu).
-- Livre ***Nightprowler, carnets de Samarande*** : chapitres VIII, IX, X et XI enrichis au standard de publication complète de campagne/convention. Prochaine étape : chapitre XII (*Pistes inachevées*).
-- Miroir local synchronisé et validé sur `http://127.0.0.1:8765/books_reader/` avec build `07ddbab6e488`.
+- Livre ***Nightprowler, carnets de Samarande*** : entièrement achevé, enrichi, humanisé et doté d'annexes exhaustives. Prochaine étape : enrichissement du chapitre XII (*Pistes inachevées*).
+- Miroir local synchronisé et validé sur `http://127.0.0.1:8765/books_reader/` avec build `ffbc6d92d427`.
 
 ## Prochaines étapes possibles
 
 - Enrichir le chapitre XII, *Pistes inachevées* (camp du prince démon, contrôle d'entrée, Kalaar) avec tables d'exploration, dangers, factions et schémas vectoriels.
-- Enrichir le chapitre XIII, *Annexes* (lexique, chronologie, aides de jeu).
+- Refactorisation CSS et allègement de `base.css`.
+- Export `.json` de la bibliothèque importée.
+- Preset de lecture longue avec réduction automatique des animations.
 - Refactorisation CSS et allègement de `base.css`.
 - Export `.json` de la bibliothèque importée.
 - Preset de lecture longue avec réduction automatique des animations.

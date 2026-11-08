@@ -25,6 +25,10 @@
 
 ## État actuel
 
+- Version **1.8.32** en cours, cache Service Worker source `hylst-reader-v88`. 11 livres, 98 chapitres (109 fichiers de contenu), 13 URL au sitemap.
+- **Genèse et provenance des 3 tomes de poésie** :
+  - Explicitation de la chaîne de création : rédigés sur le blog Joueb (*Pour la parole et pour le plaisir* sous la plume Hylst), revus en 1999-2000 pour le 2e site web personnel, prolongés en 2021 dans les *Fantasques du Bocal*, accompagnés d'affiches/couvertures originales en 2024, compilés en recueils en 2026.
+  - Mises à jour des introductions de Tomes I, II, III et des mentions `illustrationNote`. Fiches statiques regénérées.
 - Version **1.8.31** déployée le 08/11 (commit plateforme `4acec827`, docs `8da8b6e3`), cache Service Worker source `hylst-reader-v87`, build `a268efd0d8b6`, SW `hylst-reader-a268efd0d8b6`. 286 fichiers runtime, 11 livres, 98 chapitres (109 fichiers de contenu), 13 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Transparence des dates et mentions IA** :
   - Dissociation des périodes de rédaction réelle (100 % de l'auteur) et de l'année de compilation numérique 2026 : *Nightprowler* (1999-2011), *Carnets* (1994-2024), *Sciences* (2001-2002), *Saisons* (1999-2024), *Fantasque* (1999-2026), *Cœurs* (2021-2024).

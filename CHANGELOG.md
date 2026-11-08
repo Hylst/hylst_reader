@@ -1,6 +1,27 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.32] - 2026-11-08
+
+### Modifié
+- **Genèse et provenance réelle des 3 tomes de proses et poésies** :
+  - **Précision historique dans les métadonnées et introductions** : explicitation de la chaîne d'écriture authentique des trois tomes de proses et poésies (Tomes I, II et III) :
+    1. Textes initialement rédigés sous le nom de plume Hylst sur le blog Joueb (*Pour la parole et pour le plaisir*).
+    2. Révisés, corrigés et améliorés pour la plupart en **1999-2000** pour le second site internet personnel de l'auteur.
+    3. Prolongés et enrichis en **2021** lors des ateliers d'écriture du club littéraire des *Fantasques du Bocal*.
+    4. Accompagnés d'affiches et de couvertures originales créées par l'auteur en **2024** (à l'occasion de leur diffusion sur Wattpad).
+    5. Réunis et compilés sous forme de recueils numériques seulement en **2026**.
+  - **Mise à jour des introductions (`intro.html`)** : mise à jour des notes de bas de page de présentation des Tomes I, II et III retraçant cette histoire littéraire de plus de vingt-cinq ans.
+  - **Catalogue `public/books.json`** : enrichissement de la mention `illustrationNote` pour les trois tomes de poésies (*« Textes nés sur blog Joueb, revus en 1999-2000 (2e site web) puis en 2021 (Fantasques du Bocal) · Couvertures de l'auteur en 2024 · Compilation 2026 »*).
+  - **Fiches statiques** : regénération des fiches de présentation des tomes I, II et III (`build_book_pages.py`).
+  - **Service Worker** : incrémentation du cache source vers `hylst-reader-v88` dans `sw.js`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 136 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+- Validation des 3 introductions et des 11 fiches statiques regénérées.
+
 ## [1.8.31] - 2026-11-08
 
 ### Modifié

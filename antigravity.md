@@ -25,7 +25,7 @@
 
 ## État actuel
 
-- Version **1.8.33** en cours, cache Service Worker source `hylst-reader-v89`. 11 livres, 98 chapitres (109 fichiers de contenu), 13 URL au sitemap.
+- Version **1.8.33** déployée le 08/11 (commit plateforme `a8ad11a5`, docs `fd1da5b4`), cache Service Worker source `hylst-reader-v89`, build `da7807980fa5`, SW `hylst-reader-da7807980fa5`. 286 fichiers runtime, 11 livres, 98 chapitres (109 fichiers de contenu), 13 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Ajustements tomes de poésie** :
   - Terme « club d'écrivains » remplacé par « club / groupe d'écriture » (amateurs non professionnels pour le plaisir et le challenge créatif).
   - Datation du Tome III (*Cœurs, chaos & quotidien*) étendue à `1995-2024` (textes initiés dès 1995 comme pour le Tome I).

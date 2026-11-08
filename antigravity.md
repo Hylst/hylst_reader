@@ -25,24 +25,24 @@
 
 ## État actuel
 
-- Version **1.8.24** déployée le 08/11 (commit plateforme `2838cd6e`), cache Service Worker source `hylst-reader-v80`, build `6c0293e00a62`, SW `hylst-reader-6c0293e00a62`. Précache et cache d'exécution séparés, installation stricte, deux tentatives, exclusion audio, vidéo et `Range`, stockage persistant demandé. 324 entrées en cache. Tests de politique du Service Worker 6/6, lecteur desktop et mobile verts, hors ligne vérifié. `verify-release.ps1` entièrement vert en production.
-- **Chapitre VIII** enrichi à 7 161 mots de texte, 11 sections, 14 tableaux et 3 figures, avec `chapitre-8-plan.svg` et `chapitre-8-schema.svg`. Les tableaux de chapitre sont enveloppés dans `.chapter-table-scroll` pour rester lisibles sur mobile sans faire déborder la page.
-- **Assets** : cinq doublons Outfit supprimés, Merriweather conservée pour le sépia. Huit couvertures de *L'Odyssée de l'énergie* recompressées de 8 728 652 à 1 808 256 octets, soit 79,3 pour cent de moins.
-- Catalogue à **11 livres et 94 chapitres** (105 fichiers de contenu) : les huit livres existants, le Tome IV *Carnets, réflexions & partages* (4 chapitres), le livre *Sciences et technologie* (préface et quatre parties), le livre *Nightprowler, carnets de Samarande* (13 chapitres et annexes) et l'essai *Approche de la Neurodiversité* (préface et six chapitres).
-- Livre ***Nightprowler, carnets de Samarande*** complet : 13 chapitres publiés (I à XIII), introduction réécrite dans un ton d'hommage avec le lien Grog et les romans de Pierre Pevel, treize illustrations de chapitre dans le style de la couverture, sommaire complet à treize entrées sur la page du livre, fiche statique présente, `f3` retiré des contenus en préparation. Le chapitre VII réunit six fiches normalisées : Albert Degreffion et les cinq prétirés de la convention des Alchimistes de 2011. Le chapitre VIII est le scénario du squelette enfoui d'Azefhfkrijiiir, écrit vers 1999, restructuré en six actes et complété par la rencontre finale. Le chapitre IX est l'esclavage gouri, écrit en 1999-2000 et retapé en 2001, restructuré en cinq actes, avec un plan du camp en SVG et six issues d'évasion. Le chapitre X est Vapeur et boulons, écrit pour la convention des Alchimistes de 2011, restructuré en cinq actes, avec un plan du moulin en SVG, la machine et la pierre de rosette. Le chapitre XI est la reconquête du trône des Rodallois, écrit en 1999 pour un autre jeu et clairement séparé de Nightprowler. Le chapitre XII rassemble trois pistes inachevées de 1999 : le camp barbare du prince démon, le contrôle d'entrée et Kalaar. Le chapitre XIII rassemble les annexes : feuille de personnage vierge normalisée, lexique de 23 termes et chronologie documentée. Référence de reprise : `continue.md`.
-- **Rubrique Sciences et technologie** : format hybride. La liseuse sert une préface de 2026, des résumés et les sommaires d'origine ; les quatre PDF exportés depuis les `.docx` conservent le texte, les images et la mise en page de 2001-2002. Les PDF ne sont pas précachés. Les liens utilisent le chemin absolu `/books_reader/public/books/sciences-et-technologie-jeux-videos/pdf/...` pour fonctionner dans la liseuse et dans les fiches statiques.
-- CSP meta stricte : `style-src 'self'` et `style-src-attr 'unsafe-inline'`. Les CSS des droits et des fiches sont externalisés.
-- Production 1.8.24 (dernière vérifiée) : `verify-release.ps1` entièrement vert, sitemap à 13 URL, 11 livres, 94 chapitres, 274 fichiers runtime et 11 fiches. L'essai *Approche de la Neurodiversité* est en ligne avec ses 6 chapitres.
-- Hors ligne vérifié en profil Chromium vierge sur la production : bibliothèque, `droits.html`, 7 fiches avec et sans slash, liseuse des 7 livres, chapitre 1 et suivant, 28 illustrations, 16 couvertures à venir, 77 fontes, plans SVG, 0 image cassée et 0 erreur.
-- 301 des fiches sans slash actif (regex sur `/books_reader/livres/<id>`), query conservée, persistance confirmée après redéploiement.
-- En-tête CSP Nginx actif, limité à `/books_reader/` : configuration `28f5c867...`, base64 Coolify `375eebfe...`, sauvegarde `/root/hylst-nginx-backup-20261104-booksreader-csp/`, `nginx -t` OK, persistance confirmée après le redéploiement 1.8.23 (conteneur `...20261108T112915`).
-- Lighthouse production : mobile 91/100/100/100, desktop 97/100/100/100.
+- Version **1.8.25** déployée le 08/11 (commit plateforme `2838cd6e` mis à niveau), cache Service Worker source `hylst-reader-v81`, build `712e7d5f6378`, SW `hylst-reader-712e7d5f6378`. 276 fichiers runtime, 11 livres, 94 chapitres, 13 URL au sitemap.
+- **Chapitres IX et X enrichis** :
+  - **Chapitre IX** (*Esclavage gouri sans vergogne*) porté à 16 603 mots de texte (22 `h2`, 35 tableaux, 3 figures, plan et schéma vectoriel `chapitre-9-schema.svg`). Fiche technique, 5 horloges, quartier des Hautes Lices, PNJ, dangers, émeraudes, phases Bromi/rat, 6 routes, temple et aides de jeu d6.
+  - **Chapitre X** (*Vapeur et boulons*) porté à 13 885 mots de texte (18 `h2`, 33 tableaux, 3 figures, plan et schéma vectoriel `chapitre-10-schema.svg`). Fiche technique, 5 horloges, Samarande et Bejofa, filature, moulin pièce par pièce (zones A-I), machine et jauges, 15 PNJ, 8 factions, acte V, sort de Tramiel, pierre de rosette, 10 issues, aides de jeu d6, sécurité de table.
+- **Tableaux mobiles** : les 68 tableaux des deux chapitres sont tous enveloppés dans `.chapter-table-scroll` avec `data-cols` adéquat. Aucun débordement horizontal à 390 px.
+- **Chapitre VIII** enrichi à 7 161 mots de texte, 11 sections, 14 tableaux et 3 figures, avec `chapitre-8-plan.svg` et `chapitre-8-schema.svg`.
+- Version **1.8.24** (historique) : cache Service Worker séparé en précache et runtime plafonné à 200 entrées, installation stricte, persistance demandée. 324 entrées en cache.
+- Catalogue à **11 livres et 94 chapitres** (105 fichiers de contenu).
+- Livre ***Nightprowler, carnets de Samarande*** : chapitres VIII, IX et X enrichis au standard de publication complète de campagne/convention. Chapitres XI, XII et XIII prêts pour le prochain lot d'enrichissement (prochaine priorité : XI).
+- Miroir local synchronisé et validé sur `http://127.0.0.1:8765/books_reader/` avec build `712e7d5f6378`.
 
 ## Prochaines étapes possibles
 
-- Enrichir le chapitre IX, *Esclavage gouri sans vergogne* : structure de scénario, quartier, PNJ, factions, relations, dangers, plan et schéma, en conservant le texte de 1999-2001.
-- Enrichir le chapitre X, *Vapeur et boulons* : même traitement, avec le quartier des Alchimistes, les PNJ, la machine, les factions et les issues.
-- Enrichir ensuite le chapitre XI, *La reconquête du trône des Rodallois* : politique, mystère, tension, PNJ, ennemis et alliés.
+- Enrichir le chapitre XI, *La reconquête du trône des Rodallois* : politique, mystère, tension, PNJ, ennemis et alliés, 4 lois et issues.
+- Enrichir le chapitre XII, *Pistes inachevées* (camp du prince démon, contrôle d'entrée, Kalaar).
+- Refactorisation CSS et allègement de `base.css`.
+- Export `.json` de la bibliothèque importée.
+- Preset de lecture longue avec réduction automatique des animations.
 - Refactorisation CSS et allègement de `base.css`.
 - Export `.json` de la bibliothèque importée.
 - Preset de lecture longue avec réduction automatique des animations.

@@ -1,6 +1,24 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.25] - 2026-11-08
+
+### Modifié
+- **Chapitre IX** : enrichissement majeur du scénario « Esclavage gouri sans vergogne » (1999-2001) porté de 3 791 à 16 603 mots de texte (16 871 bruts), avec 22 sections `h2`, 35 tableaux tous enveloppés dans `.chapter-table-scroll` et 3 figures. Ajout d'une fiche technique complète, de la vérité de campagne avec cinq horloges modulaires, du quartier des Hautes Lices (12 lieux), de l'acte I en trois scènes et options, des PNJ et des factions du camp, des dangers environnementaux, de la table des cinq émeraudes de focus divin, des trois phases du combat contre Bromi et son rat-démon, du détail des six routes d'évasion, des étapes du temple d'Azefhfkrijiiir et des aides de jeu en tables d6. Ajout du schéma vectoriel `chapitre-9-schema.svg` à trois panneaux (la chaîne, la machine économique, les six routes). Réconciliation géographique : temple situé à 1-2 km du camp dans les collines, population des Marques clarifiée (hors du contingent des 95 esclaves du camp).
+- **Chapitre X** : enrichissement majeur du scénario « Vapeur et boulons » (convention des Alchimistes 2011) porté de 3 099 à 13 885 mots de texte (14 129 bruts), avec 18 sections `h2`, 33 tableaux tous enveloppés dans `.chapter-table-scroll` et 3 figures. Ajout de la fiche technique, de la vérité de campagne avec cinq horloges (machine 6, guilde 4, Kahlérs 4, Tramiel 6, ville 4), de Samarande et Bejofa (12 lieux de jeu), de la filature de l'acte III en six moments et complications, de la description pièce par pièce du moulin d'Humbert (zones A à I) avec rondes et sept voies d'approche, de la machine alchimique avec ses jauges (pression, température, réserve de vie, débit, bruit), ses dangers et ses modes d'arrêt, des quinze PNJ du moulin et de leurs profils, des huit factions et de leurs neuf relations croisées, de l'acte V en trois temps, du sort de Tramiel en quatre temps avec six routes de sauvetage, des règles et modes de destruction de la pierre de rosette, de dix issues principales et six issues secondaires, d'un tableau d'aides de jeu d6 (rumeurs, bruits, complications, objets, secrets, Nazir, visions, dernière image), du découpage horaire en quatre heures et des consignes de sécurité de table. Ajout du schéma vectoriel `chapitre-10-schema.svg` à trois panneaux (la chaîne de l'or, la machine, les dix issues).
+- **Service Worker** : passage à la version source `hylst-reader-v81` (build miroir `712e7d5f6378`). Les deux nouveaux schémas vectoriels `chapitre-9-schema.svg` et `chapitre-10-schema.svg` sont automatiquement extraits des HTML de chapitre et précachés hors ligne.
+- **Typographie et responsive** : zéro tiret cadratin ou demi-cadratin dans les sources et le miroir (`check_dashes.py --root .`). Tous les tableaux (35 dans IX, 33 dans X) sont dotés de la classe `.chapter-stats-table.descripteurs` sous conteneur `.chapter-table-scroll` avec attribut `data-cols` exact, garantissant une consultation mobile sans débordement de page à 390 px.
+- **Version** : 1.8.25, build `712e7d5f6378`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 132 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique du Service Worker passés avec succès.
+- Validations HTML/XML : balises équilibrées sur IX et X, 68 tableaux enveloppés avec `data-cols` exact, XML valide sur `chapitre-9-schema.svg` (14 512 octets) et `chapitre-10-schema.svg` (17 615 octets).
+- Rendu visuel desktop et mobile 390 px vérifié via Chrome headless (captures sans débordement, images et schémas vectoriels chargés, typographie saine).
+- Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `712e7d5f6378`, 276 fichiers runtime vérifiés, zéro dossier de travail.
+- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitres 9 et 10, plans et schémas SVG.
+
 ## [1.8.24] - 2026-11-08
 
 ### Modifié

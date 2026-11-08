@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="titre schema">
+  <title id="titre">La chaîne de l'or, la machine et les issues</title>
+  <desc id="schema">Schéma en trois panneaux : la réserve de vie nourrit la machine, la machine produit de l'or trop pur, Tramiel le revend au marché et la guilde remonte la filière. La machine transforme le charbon et la vapeur en or, mais chaque lingot coûte un cran de vie. Dix issues terminent le scénario, aucune ne rend l'or propre.</desc>
+
+  <defs>
+    <marker id="fleche" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9a6b34"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="800" fill="#f2ece0"/>
+  <rect x="18" y="18" width="1164" height="764" fill="none" stroke="#4a3323" stroke-width="2" rx="10"/>
+
+  <text x="600" y="44" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#241d17">La chaîne, la machine, les issues</text>
+  <text x="600" y="70" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="14" fill="#4a3323">Schéma de convention. Sans échelle. Les noms renvoient au texte du chapitre.</text>
+
+  <!-- Panneau 1 -->
+  <rect x="40" y="96" width="340" height="650" rx="10" fill="#f7f1e4" stroke="#9a6b34" stroke-width="2"/>
+  <text x="60" y="128" font-family="Outfit, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#241d17">1. La chaîne de l'or</text>
+
+  <g>
+    <rect x="100" y="150" width="220" height="58" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="174" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">La réserve de vie</text>
+    <text x="210" y="194" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">rats, bêtes, Tramiel</text>
+  </g>
+
+  <path d="M210 208 V226" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="228" width="220" height="58" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="252" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">La machine</text>
+    <text x="210" y="272" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">un lingot par cycle</text>
+  </g>
+
+  <path d="M210 286 V304" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="306" width="220" height="58" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="330" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">L'or trop pur</text>
+    <text x="210" y="350" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">une signature dans le métal</text>
+  </g>
+
+  <path d="M210 364 V382" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="384" width="220" height="58" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="408" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">Tramiel</text>
+    <text x="210" y="428" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">contrebandier, poison lent</text>
+  </g>
+
+  <path d="M210 442 V460" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="462" width="220" height="58" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="486" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">Le marché Fresnel</text>
+    <text x="210" y="506" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">acheteurs, bourgeois, rumeurs</text>
+  </g>
+
+  <path d="M210 520 V538" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="540" width="220" height="58" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="564" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">La guilde des anciens</text>
+    <text x="210" y="584" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">le monopole, le contrat</text>
+  </g>
+
+  <path d="M320 570 C368 570 368 270 324 270" stroke="#9a6b34" stroke-width="1.8" stroke-dasharray="5 4" fill="none" marker-end="url(#fleche)"/>
+  <text x="350" y="420" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323" transform="rotate(90 350 420)">la guilde remonte</text>
+
+  <text x="210" y="640" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">La vie entre en haut, l'or sort en bas.</text>
+  <text x="210" y="662" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Personne, dans la chaîne, ne demande</text>
+  <text x="210" y="684" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">d'où vient le premier lingot.</text>
+
+  <!-- Panneau 2 -->
+  <rect x="410" y="96" width="380" height="650" rx="10" fill="#f7f1e4" stroke="#9a6b34" stroke-width="2"/>
+  <text x="430" y="128" font-family="Outfit, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#241d17">2. La machine</text>
+
+  <g>
+    <rect x="438" y="160" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="513" y="184" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Charbon</text>
+    <text x="513" y="202" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">le combustible</text>
+  </g>
+
+  <g>
+    <rect x="620" y="160" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="695" y="184" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Feu</text>
+    <text x="695" y="202" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">la chaudière</text>
+  </g>
+
+  <path d="M588 188 H616" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="438" y="250" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="513" y="274" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Eau</text>
+    <text x="513" y="292" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">le bief, la vanne</text>
+  </g>
+
+  <g>
+    <rect x="620" y="250" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="695" y="274" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Vapeur</text>
+    <text x="695" y="292" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">la pression</text>
+  </g>
+
+  <path d="M588 278 H616" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+  <path d="M695 216 V246" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="438" y="340" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="513" y="364" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">La roue</text>
+    <text x="513" y="382" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">la force du bief</text>
+  </g>
+
+  <g>
+    <rect x="620" y="340" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="695" y="364" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Engrenages</text>
+    <text x="695" y="382" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">le mouvement</text>
+  </g>
+
+  <path d="M588 368 H616" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+  <path d="M695 306 V336" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="438" y="430" width="150" height="64" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="513" y="454" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Réserve de vie</text>
+    <text x="513" y="474" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">six crans au départ</text>
+  </g>
+
+  <g>
+    <rect x="620" y="430" width="150" height="64" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="695" y="454" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Pierre de rosette</text>
+    <text x="695" y="474" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">la porte, l'œil</text>
+  </g>
+
+  <path d="M588 462 H616" stroke="#9a6b34" stroke-width="1.8" stroke-dasharray="5 4" fill="none" marker-end="url(#fleche)"/>
+  <path d="M695 396 V426" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="620" y="528" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="695" y="552" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Or et argent</text>
+    <text x="695" y="570" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">un lingot, un cran</text>
+  </g>
+
+  <path d="M695 496 V524" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="438" y="528" width="150" height="56" rx="8" fill="#f7f1e4" stroke="#9a6b34" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="513" y="552" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Cendre</text>
+    <text x="513" y="570" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">ce qui reste des bêtes</text>
+  </g>
+
+  <text x="600" y="640" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">La machine ne crée rien. Elle déplace.</text>
+  <text x="600" y="662" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">L'or vient d'ailleurs, la vie s'en va.</text>
+  <text x="600" y="684" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Si la roue s'arrête, la porte se ferme.</text>
+
+  <!-- Panneau 3 -->
+  <rect x="820" y="96" width="340" height="650" rx="10" fill="#f7f1e4" stroke="#9a6b34" stroke-width="2"/>
+  <text x="840" y="128" font-family="Outfit, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#241d17">3. Les issues</text>
+
+  <g>
+    <rect x="840" y="150" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="910" y="174" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Le massacre</text>
+    <text x="910" y="194" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">tout brûler,</text>
+    <text x="910" y="210" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">tout perdre</text>
+  </g>
+
+  <g>
+    <rect x="990" y="150" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="1060" y="174" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Servir Humbert</text>
+    <text x="1060" y="194" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">l'or et la cendre,</text>
+    <text x="1060" y="210" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">un jour de plus</text>
+  </g>
+
+  <g>
+    <rect x="840" y="242" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="910" y="266" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Voler l'idée</text>
+    <text x="910" y="286" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">copier la machine,</text>
+    <text x="910" y="302" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">hériter du prix</text>
+  </g>
+
+  <g>
+    <rect x="990" y="242" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="1060" y="266" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Protéger la guilde</text>
+    <text x="1060" y="286" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">un contrat,</text>
+    <text x="1060" y="302" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">une dette</text>
+  </g>
+
+  <g>
+    <rect x="840" y="334" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="910" y="358" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">L'accord kahlér</text>
+    <text x="910" y="378" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">la pierre partie,</text>
+    <text x="910" y="394" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">le sabre reste</text>
+  </g>
+
+  <g>
+    <rect x="990" y="334" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="1060" y="358" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Casser la machine</text>
+    <text x="1060" y="378" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">l'or s'arrête,</text>
+    <text x="1060" y="394" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">la preuve reste</text>
+  </g>
+
+  <g>
+    <rect x="840" y="426" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="910" y="450" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Le procès</text>
+    <text x="910" y="470" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">une preuve,</text>
+    <text x="910" y="486" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">un coffre</text>
+  </g>
+
+  <g>
+    <rect x="990" y="426" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="1060" y="450" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">La fuite</text>
+    <text x="1060" y="470" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">Tramiel vivant,</text>
+    <text x="1060" y="486" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">un témoin de plus</text>
+  </g>
+
+  <g>
+    <rect x="840" y="518" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="910" y="542" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Le pacte</text>
+    <text x="910" y="562" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">Jiniane et Helrot,</text>
+    <text x="910" y="578" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">la moitié du magot</text>
+  </g>
+
+  <g>
+    <rect x="990" y="518" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="1060" y="542" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Le feu</text>
+    <text x="1060" y="562" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">tout effacer,</text>
+    <text x="1060" y="578" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">laisser la cendre</text>
+  </g>
+
+  <text x="990" y="640" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Aucune issue ne rend l'or propre.</text>
+  <text x="990" y="662" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Chacune laisse quelqu'un payer.</text>
+  <text x="990" y="684" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Le moulin, lui, s'arrête toujours.</text>
+
+</svg>

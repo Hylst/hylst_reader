@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="titre schema">
+  <title id="titre">La chaîne, la machine et les six routes</title>
+  <desc id="schema">Schéma en trois panneaux : le rat tient Bromi, Bromi tient les gardes, les gardes tiennent le camp et la secte tient le rat par le temple. La machine du camp transforme les esclaves en pierre, la pierre en argent, l'argent en outils et en peur. Six routes permettent de sortir, aucune ne sauve tout le monde.</desc>
+
+  <defs>
+    <marker id="fleche" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9a6b34"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="800" fill="#f2ece0"/>
+  <rect x="18" y="18" width="1164" height="764" fill="none" stroke="#4a3323" stroke-width="2" rx="10"/>
+
+  <text x="600" y="44" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#241d17">La chaîne, la machine, les six routes</text>
+  <text x="600" y="70" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="14" fill="#4a3323">Schéma de campagne. Sans échelle. Les lettres des zones renvoient au plan du camp.</text>
+
+  <!-- Panneau 1 -->
+  <rect x="40" y="96" width="340" height="650" rx="10" fill="#f7f1e4" stroke="#9a6b34" stroke-width="2"/>
+  <text x="60" y="128" font-family="Outfit, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#241d17">1. La chaîne</text>
+
+  <g>
+    <ellipse cx="210" cy="180" rx="44" ry="23" fill="#e8dfcd" stroke="#4a3323" stroke-width="2.5"/>
+    <circle cx="252" cy="172" r="15" fill="#e8dfcd" stroke="#4a3323" stroke-width="2.5"/>
+    <circle cx="247" cy="161" r="7" fill="#e8dfcd" stroke="#4a3323" stroke-width="2"/>
+    <circle cx="259" cy="160" r="7" fill="#e8dfcd" stroke="#4a3323" stroke-width="2"/>
+    <circle cx="258" cy="171" r="2.5" fill="#4a3323"/>
+    <path d="M166 186 C146 196 136 184 128 166" stroke="#4a3323" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M214 203 L214 214" stroke="#4a3323" stroke-width="2" fill="none"/>
+    <path d="M198 203 L198 214" stroke="#4a3323" stroke-width="2" fill="none"/>
+    <text x="210" y="232" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Le rat</text>
+    <text x="210" y="250" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">un éclat d'Azefhfkrijiiir</text>
+  </g>
+
+  <path d="M210 258 V276" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="278" width="220" height="58" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="302" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">Bromi</text>
+    <text x="210" y="322" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">possédé, deux mètres trente</text>
+  </g>
+
+  <path d="M210 336 V354" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="356" width="220" height="58" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="380" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">Les gardes</text>
+    <text x="210" y="400" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">dix bras armés, vingt auxiliaires</text>
+  </g>
+
+  <path d="M210 414 V432" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="434" width="220" height="58" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="458" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">Le camp</text>
+    <text x="210" y="478" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">quatre-vingt-quinze esclaves</text>
+  </g>
+
+  <path d="M210 492 V510" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="512" width="220" height="58" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="536" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">La Main de Cendre</text>
+    <text x="210" y="556" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">Corvelle, Tison, les Marques</text>
+  </g>
+
+  <path d="M210 570 V588" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="590" width="220" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="614" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">Le temple</text>
+    <text x="210" y="634" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">cinq yeux, une bouche, des morts</text>
+  </g>
+
+  <path d="M320 540 C352 540 352 180 276 180" stroke="#9a6b34" stroke-width="1.8" stroke-dasharray="5 4" fill="none"/>
+  <text x="342" y="366" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323" transform="rotate(90 342 366)">le temple</text>
+
+  <text x="210" y="686" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Le rat tient Bromi. Bromi tient les gardes.</text>
+  <text x="210" y="706" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Les gardes tiennent le camp.</text>
+  <text x="210" y="726" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">La secte tient le rat par le temple.</text>
+
+  <!-- Panneau 2 -->
+  <rect x="410" y="96" width="380" height="650" rx="10" fill="#f7f1e4" stroke="#9a6b34" stroke-width="2"/>
+  <text x="430" y="128" font-family="Outfit, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#241d17">2. La machine</text>
+
+  <g>
+    <rect x="438" y="160" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="513" y="184" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Esclaves</text>
+    <text x="513" y="202" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">quatre-vingt-quinze</text>
+  </g>
+
+  <g>
+    <rect x="620" y="160" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="695" y="184" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Mines, ateliers</text>
+    <text x="695" y="202" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">pierre, fer, cuivre, bois</text>
+  </g>
+
+  <path d="M588 188 H616" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="620" y="270" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="695" y="294" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Produits</text>
+    <text x="695" y="312" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">pavés, statues, poutres</text>
+  </g>
+
+  <path d="M695 216 V266" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="620" y="380" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="695" y="404" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Argent</text>
+    <text x="695" y="422" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">outils, rations, temple</text>
+  </g>
+
+  <path d="M695 326 V376" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="438" y="380" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="513" y="404" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Outils, rations</text>
+    <text x="513" y="422" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">ce qui fait tenir</text>
+  </g>
+
+  <path d="M616 408 H592" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+  <path d="M513 376 V220" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="530" y="500" width="150" height="64" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="605" y="524" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Secte et temple</text>
+    <text x="605" y="542" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">ce qui prend le reste</text>
+  </g>
+
+  <path d="M695 436 L640 500" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <text x="600" y="610" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">La machine tourne tant que la peur tient.</text>
+  <text x="600" y="632" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Retirez une pièce : l'argent, l'outil, le rat, la pierre.</text>
+  <text x="600" y="654" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Elle s'arrête, ou elle écrase ceux qui restent.</text>
+
+  <!-- Panneau 3 -->
+  <rect x="820" y="96" width="340" height="650" rx="10" fill="#f7f1e4" stroke="#9a6b34" stroke-width="2"/>
+  <text x="840" y="128" font-family="Outfit, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#241d17">3. Les six routes</text>
+
+  <g>
+    <rect x="840" y="152" width="140" height="82" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="910" y="176" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">La révolte</text>
+    <text x="910" y="196" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">tout sauver,</text>
+    <text x="910" y="212" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">tout payer</text>
+  </g>
+
+  <g>
+    <rect x="990" y="152" width="140" height="82" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="1060" y="176" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Le Culte</text>
+    <text x="1060" y="196" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">une preuve,</text>
+    <text x="1060" y="212" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">puis un juge</text>
+  </g>
+
+  <g>
+    <rect x="840" y="254" width="140" height="82" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="910" y="278" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Les mages</text>
+    <text x="910" y="298" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">les pierres,</text>
+    <text x="910" y="314" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">pas les gens</text>
+  </g>
+
+  <g>
+    <rect x="990" y="254" width="140" height="82" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="1060" y="278" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">La route H</text>
+    <text x="1060" y="298" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">trois ou quatre,</text>
+    <text x="1060" y="314" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">les autres restent</text>
+  </g>
+
+  <g>
+    <rect x="840" y="356" width="140" height="82" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="910" y="380" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">La salle K</text>
+    <text x="910" y="400" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">les yeux sortent,</text>
+    <text x="910" y="416" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">le temple sait</text>
+  </g>
+
+  <g>
+    <rect x="990" y="356" width="140" height="82" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="1060" y="380" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Bromi</text>
+    <text x="1060" y="400" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">le tuer ne tue</text>
+    <text x="1060" y="416" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">pas le rat</text>
+  </g>
+
+  <g>
+    <rect x="840" y="486" width="290" height="70" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="985" y="512" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">Le temple</text>
+    <text x="985" y="534" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">cinq étapes, cinq yeux, un corps</text>
+  </g>
+
+  <path d="M910 438 V482" stroke="#9a6b34" stroke-width="1.8" stroke-dasharray="5 4" fill="none"/>
+  <path d="M1060 438 V482" stroke="#9a6b34" stroke-width="1.8" stroke-dasharray="5 4" fill="none"/>
+
+  <text x="990" y="610" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Aucune route ne sauve tout le monde.</text>
+  <text x="990" y="632" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Toutes laissent le temple, ou ce qu'il en reste.</text>
+
+</svg>

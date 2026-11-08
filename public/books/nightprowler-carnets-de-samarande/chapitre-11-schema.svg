@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="titre schema">
+  <title id="titre">La dynastie, les quatre lois et la reconquête</title>
+  <desc id="schema">Schéma en trois panneaux : la dynastie des Rodallois brisée par le régicide de Wilfried et le pacte démoniaque de Kharvâsh ; la machine d'oppression des quatre lois étouffant Alliphance ; les voies de reconquête politique, d'alliance féodale et de rupture du contrat noir.</desc>
+
+  <defs>
+    <marker id="fleche" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9a6b34"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="800" fill="#f2ece0"/>
+  <rect x="18" y="18" width="1164" height="764" fill="none" stroke="#4a3323" stroke-width="2" rx="10"/>
+
+  <text x="600" y="44" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#241d17">La dynastie, les quatre lois, la reconquête</text>
+  <text x="600" y="70" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="14" fill="#4a3323">Schéma féodal et politique. Sans échelle. Les noms renvoient au texte du chapitre.</text>
+
+  <!-- Panneau 1 -->
+  <rect x="40" y="96" width="340" height="650" rx="10" fill="#f7f1e4" stroke="#9a6b34" stroke-width="2"/>
+  <text x="60" y="128" font-family="Outfit, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#241d17">1. La dynastie brisée</text>
+
+  <g>
+    <rect x="100" y="150" width="220" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="174" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">Le Roi Robert</text>
+    <text x="210" y="194" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">détrôné, captif aux mines</text>
+  </g>
+
+  <path d="M210 206 V226" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="228" width="220" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="252" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">Wilfried l'Impitoyable</text>
+    <text x="210" y="272" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">grand comte d'Orgilaine</text>
+  </g>
+
+  <path d="M210 284 V304" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="306" width="220" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="330" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">Kharvâsh le Démon</text>
+    <text x="210" y="350" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">pacte de fer froid</text>
+  </g>
+
+  <path d="M210 362 V382" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="384" width="220" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="408" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">Le Prince Gauvain</text>
+    <text x="210" y="428" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">héritier en fuite, bracelet</text>
+  </g>
+
+  <path d="M210 440 V460" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="462" width="220" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="486" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">Dame Marjolaine</text>
+    <text x="210" y="506" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">duché de Lujevire</text>
+  </g>
+
+  <path d="M210 518 V538" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="100" y="540" width="220" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="564" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#241d17">Les Otages</text>
+    <text x="210" y="584" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">Yvan (7 ans) et ses deux sœurs</text>
+  </g>
+
+  <path d="M320 412 C364 412 364 178 324 178" stroke="#9a6b34" stroke-width="1.8" stroke-dasharray="5 4" fill="none" marker-end="url(#fleche)"/>
+  <text x="348" y="295" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323" transform="rotate(90 348 295)">légitimité directe</text>
+
+  <text x="210" y="640" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Un trône souillé par le fratricide.</text>
+  <text x="210" y="662" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Robert survit aux fers d'Orgilaine ;</text>
+  <text x="210" y="684" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Kharvâsh attend son heure.</text>
+
+  <!-- Panneau 2 -->
+  <rect x="410" y="96" width="380" height="650" rx="10" fill="#f7f1e4" stroke="#9a6b34" stroke-width="2"/>
+  <text x="430" y="128" font-family="Outfit, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#241d17">2. La terreur des quatre lois</text>
+
+  <g>
+    <rect x="438" y="160" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="513" y="184" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">La dîme du trône</text>
+    <text x="513" y="202" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">moitié de la fortune</text>
+  </g>
+
+  <g>
+    <rect x="620" y="160" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="695" y="184" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">L'inspection</text>
+    <text x="695" y="202" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">fouilles trimestrielles</text>
+  </g>
+
+  <path d="M588 188 H616" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="438" y="250" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="513" y="274" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">La justice du roi</text>
+    <text x="513" y="292" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">tribunal unique</text>
+  </g>
+
+  <g>
+    <rect x="620" y="250" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="695" y="274" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Le bon vouloir</text>
+    <text x="695" y="292" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">écartèlement public</text>
+  </g>
+
+  <path d="M588 278 H616" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+  <path d="M695 216 V246" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="438" y="340" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="513" y="364" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Le blé des plaines</text>
+    <text x="513" y="382" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">silos cadenassés</text>
+  </g>
+
+  <g>
+    <rect x="620" y="340" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="695" y="364" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Le fer des mines</text>
+    <text x="695" y="382" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">armes d'Orgilaine</text>
+  </g>
+
+  <path d="M588 368 H616" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+  <path d="M695 306 V336" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="438" y="430" width="150" height="64" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="513" y="454" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Bourgeoisie</text>
+    <text x="513" y="474" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">ruine des corporations</text>
+  </g>
+
+  <g>
+    <rect x="620" y="430" width="150" height="64" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="695" y="454" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Paysannerie</text>
+    <text x="695" y="474" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">famine et mutinerie</text>
+  </g>
+
+  <path d="M588 462 H616" stroke="#9a6b34" stroke-width="1.8" stroke-dasharray="5 4" fill="none" marker-end="url(#fleche)"/>
+  <path d="M695 396 V426" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="530" y="528" width="150" height="56" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="605" y="552" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">L'Insurrection</text>
+    <text x="605" y="570" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">le peuple s'arme</text>
+  </g>
+
+  <path d="M513 496 L575 526" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+  <path d="M695 496 L635 526" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <text x="600" y="640" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">La terreur soumet tant que l'or coule.</text>
+  <text x="600" y="662" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Quand le pain manque et que le grain pourrit,</text>
+  <text x="600" y="684" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">la peur change de camp.</text>
+
+  <!-- Panneau 3 -->
+  <rect x="820" y="96" width="340" height="650" rx="10" fill="#f7f1e4" stroke="#9a6b34" stroke-width="2"/>
+  <text x="840" y="128" font-family="Outfit, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#241d17">3. Les voies du trône</text>
+
+  <g>
+    <rect x="840" y="150" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="910" y="174" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Le blocus civil</text>
+    <text x="910" y="194" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">la ville basse,</text>
+    <text x="910" y="210" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">la charte signée</text>
+  </g>
+
+  <g>
+    <rect x="990" y="150" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="1060" y="174" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">L'armée ducale</text>
+    <text x="1060" y="194" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">deux mille piques,</text>
+    <text x="1060" y="210" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">le mariage forcé</text>
+  </g>
+
+  <g>
+    <rect x="840" y="242" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="910" y="266" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Raid d'Orgilaine</text>
+    <text x="910" y="286" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">sauver Robert,</text>
+    <text x="910" y="302" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">briser la fosse</text>
+  </g>
+
+  <g>
+    <rect x="990" y="242" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="1060" y="266" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">L'Enchanteur</text>
+    <text x="1060" y="286" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">tour scellée,</text>
+    <text x="1060" y="302" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">les registres</text>
+  </g>
+
+  <g>
+    <rect x="840" y="334" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="910" y="358" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Le fer froid</text>
+    <text x="910" y="378" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">briser le contrat,</text>
+    <text x="910" y="394" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">chasser le monstre</text>
+  </g>
+
+  <g>
+    <rect x="990" y="334" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="1060" y="358" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">La régente</text>
+    <text x="1060" y="378" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">Yvan couronné,</text>
+    <text x="1060" y="394" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">le prince protège</text>
+  </g>
+
+  <g>
+    <rect x="840" y="426" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="910" y="450" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Infiltration</text>
+    <text x="910" y="470" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">par les égouts,</text>
+    <text x="910" y="486" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">la salle du trône</text>
+  </g>
+
+  <g>
+    <rect x="990" y="426" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="1060" y="450" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Le procès</text>
+    <text x="1060" y="470" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">aveux de Wilfried,</text>
+    <text x="1060" y="486" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">la paix des ordres</text>
+  </g>
+
+  <g>
+    <rect x="840" y="518" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="910" y="542" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">La scission</text>
+    <text x="910" y="562" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">deux royaumes,</text>
+    <text x="910" y="578" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">la guerre couve</text>
+  </g>
+
+  <g>
+    <rect x="990" y="518" width="140" height="76" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="1060" y="542" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">L'exil</text>
+    <text x="1060" y="562" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">tout quitter,</text>
+    <text x="1060" y="578" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">vivre libre</text>
+  </g>
+
+  <text x="990" y="640" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">Reprendre le trône n'est pas triompher.</text>
+  <text x="990" y="662" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">C'est payer le prix exigé par chaque allié.</text>
+  <text x="990" y="684" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="13" fill="#4a3323">La couronne pèse plus lourd que l'épée.</text>
+
+</svg>

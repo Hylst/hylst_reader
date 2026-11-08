@@ -1,6 +1,23 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.26] - 2026-11-08
+
+### Modifié
+- **Chapitre XI** : enrichissement majeur du scénario médiéval-fantastique sombre « La reconquête du trône des Rodallois » (1999-2004) porté de 2 762 à 9 089 mots de texte (9 302 bruts), avec 17 sections `h2`, 23 tableaux tous enveloppés dans `.chapter-table-scroll` et 2 figures. Ajout d'une fiche technique complète, de la vérité de campagne avec le démon Kharvâsh l'Équarrisseur et le contrat de fer froid, de cinq horloges de tension politique, de la géographie du royaume d'Alliphance et de ses trois provinces (12 lieux majeurs), du détail tactique de la fuite du jardin royal, des dilemmes civils de résistance sous les quatre lois, des fiches de 14 figures majeures et secondaires du royaume, d'une matrice relationnelle de 8 factions féodales, de la quête des six preuves décisives, des règles d'affrontement et de rupture du démon Kharvâsh, de l'assaut en trois temps avec tableau d'alertes de la forteresse, de 10 issues principales et 6 secondaires, d'un ensemble complet de tables d'aides de jeu d6 (rumeurs, bruits, patrouilles, reliques, Kharvâsh, dernières images), du découpage horaire de campagne et convention, et des protocoles de sécurité de table. Ajout du schéma vectoriel `chapitre-11-schema.svg` à trois panneaux (la dynastie brisée, la terreur des quatre lois, les voies du trône).
+- **Service Worker** : passage à la version source `hylst-reader-v82` (build miroir `07ddbab6e488`). Le schéma vectoriel `chapitre-11-schema.svg` est automatiquement extrait du HTML et précaché pour le mode hors ligne.
+- **Typographie et responsive** : zéro tiret cadratin ou demi-cadratin sur les 132 fichiers source et 151 fichiers miroir (`check_dashes.py --all`). Tous les 23 tableaux sont dotés de conteneurs défilables avec `data-cols` exact, sans débordement de page à 390 px.
+- **Version** : 1.8.26, build `07ddbab6e488`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 132 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique du Service Worker validés.
+- Balises HTML équilibrées, 23 tableaux enveloppés avec `data-cols` exact, XML valide sur `chapitre-11-schema.svg` (17 393 octets).
+- Rendu visuel desktop et mobile 390 px vérifié via Chrome headless (captures sans débordement, images et schémas vectoriels chargés, typographie saine).
+- Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `07ddbab6e488`, 277 fichiers runtime vérifiés, zéro dossier de travail.
+- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitre 11 et schéma SVG.
+
 ## [1.8.25] - 2026-11-08
 
 ### Modifié

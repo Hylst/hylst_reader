@@ -25,21 +25,26 @@
 
 ## État actuel
 
-- Version **1.8.25** déployée le 08/11 (commit plateforme `f1bdfc1c`, docs `c11f3c62`), cache Service Worker source `hylst-reader-v81`, build `712e7d5f6378`, SW `hylst-reader-712e7d5f6378`. 276 fichiers runtime, 11 livres, 94 chapitres, 13 URL au sitemap. `verify-release.ps1` entièrement vert en production.
-- **Chapitres IX et X enrichis** :
-  - **Chapitre IX** (*Esclavage gouri sans vergogne*) porté à 16 603 mots de texte (22 `h2`, 35 tableaux, 3 figures, plan et schéma vectoriel `chapitre-9-schema.svg`). Fiche technique, 5 horloges, quartier des Hautes Lices, PNJ, dangers, émeraudes, phases Bromi/rat, 6 routes, temple et aides de jeu d6.
-  - **Chapitre X** (*Vapeur et boulons*) porté à 13 885 mots de texte (18 `h2`, 33 tableaux, 3 figures, plan et schéma vectoriel `chapitre-10-schema.svg`). Fiche technique, 5 horloges, Samarande et Bejofa, filature, moulin pièce par pièce (zones A-I), machine et jauges, 15 PNJ, 8 factions, acte V, sort de Tramiel, pierre de rosette, 10 issues, aides de jeu d6, sécurité de table.
-- **Tableaux mobiles** : les 68 tableaux des deux chapitres sont tous enveloppés dans `.chapter-table-scroll` avec `data-cols` adéquat. Aucun débordement horizontal à 390 px.
-- **Chapitre VIII** enrichi à 7 161 mots de texte, 11 sections, 14 tableaux et 3 figures, avec `chapitre-8-plan.svg` et `chapitre-8-schema.svg`.
-- Version **1.8.24** (historique) : cache Service Worker séparé en précache et runtime plafonné à 200 entrées, installation stricte, persistance demandée. 324 entrées en cache.
+- Version **1.8.26** synchronisée le 08/11, cache Service Worker source `hylst-reader-v82`, build `07ddbab6e488`, SW `hylst-reader-07ddbab6e488`. 277 fichiers runtime, 11 livres, 94 chapitres, 13 URL au sitemap.
+- **Chapitre XI enrichi** :
+  - **Chapitre XI** (*La reconquête du trône des Rodallois*) porté à 9 089 mots de texte (17 `h2`, 23 tableaux, 2 figures, schéma vectoriel `chapitre-11-schema.svg`). Fiche technique, 5 horloges féodales, géographie d'Alliphance (12 lieux), dilemmes des quatre lois, 14 figures majeures, 8 factions et matrice relationnelle, épreuves des six preuves, règles et contre-mesures de Kharvâsh l'Équarrisseur et du contrat de fer froid, assaut du donjon et alertes, 10 issues principales et 6 secondaires, tables d'aides de jeu d6, sécurité de table.
+- **Chapitres VIII, IX et X enrichis** :
+  - Chapitre VIII : 7 161 mots, 11 sections, 14 tableaux, 3 figures, `chapitre-8-plan.svg` et `chapitre-8-schema.svg`.
+  - Chapitre IX (*Esclavage gouri sans vergogne*) : 16 603 mots, 22 `h2`, 35 tableaux, 3 figures, plan et schéma vectoriel `chapitre-9-schema.svg`.
+  - Chapitre X (*Vapeur et boulons*) : 13 885 mots, 18 `h2`, 33 tableaux, 3 figures, plan et schéma vectoriel `chapitre-10-schema.svg`.
+- **Tableaux mobiles** : les 91 tableaux des chapitres VIII, IX, X et XI sont tous enveloppés dans `.chapter-table-scroll` avec `data-cols` adéquat. Aucun débordement horizontal à 390 px.
+- Version **1.8.25** déployée en production (build `712e7d5f6378`, SW `hylst-reader-712e7d5f6378`).
 - Catalogue à **11 livres et 94 chapitres** (105 fichiers de contenu).
-- Livre ***Nightprowler, carnets de Samarande*** : chapitres VIII, IX et X enrichis au standard de publication complète de campagne/convention. Chapitres XI, XII et XIII prêts pour le prochain lot d'enrichissement (prochaine priorité : XI).
-- Miroir local synchronisé et validé sur `http://127.0.0.1:8765/books_reader/` avec build `712e7d5f6378`.
+- Livre ***Nightprowler, carnets de Samarande*** : chapitres VIII, IX, X et XI enrichis au standard de publication complète de campagne/convention. Prochaine étape : chapitre XII (*Pistes inachevées*).
+- Miroir local synchronisé et validé sur `http://127.0.0.1:8765/books_reader/` avec build `07ddbab6e488`.
 
 ## Prochaines étapes possibles
 
-- Enrichir le chapitre XI, *La reconquête du trône des Rodallois* : politique, mystère, tension, PNJ, ennemis et alliés, 4 lois et issues.
-- Enrichir le chapitre XII, *Pistes inachevées* (camp du prince démon, contrôle d'entrée, Kalaar).
+- Enrichir le chapitre XII, *Pistes inachevées* (camp du prince démon, contrôle d'entrée, Kalaar) avec tables d'exploration, dangers, factions et schémas vectoriels.
+- Enrichir le chapitre XIII, *Annexes* (lexique, chronologie, aides de jeu).
+- Refactorisation CSS et allègement de `base.css`.
+- Export `.json` de la bibliothèque importée.
+- Preset de lecture longue avec réduction automatique des animations.
 - Refactorisation CSS et allègement de `base.css`.
 - Export `.json` de la bibliothèque importée.
 - Preset de lecture longue avec réduction automatique des animations.

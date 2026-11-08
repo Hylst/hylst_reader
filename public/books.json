@@ -1031,7 +1031,7 @@
     "title": "Sciences et technologie",
     "subtitle": "Analyse des solutions techniques mises en œuvre dans les jeux vidéos · Étude 2001-2002",
     "author": "Hylst (Geoffroy Streit)",
-    "year": 2026,
+    "year": "2001-2002",
     "authorship": "human",
     "aiAssisted": false,
     "badge": "Archives",
@@ -1073,7 +1073,7 @@
     "chapters": [
       {
         "id": "00-preface.html",
-        "title": "Préface 2026",
+        "title": "Préface de l'auteur",
         "path": "books/sciences-et-technologie-jeux-videos/00-preface.html",
         "available": true
       },

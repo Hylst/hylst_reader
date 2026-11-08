@@ -1,6 +1,30 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.29] - 2026-11-08
+
+### Modifié
+- **Sciences et technologie (*Analyse des solutions techniques mises en œuvre dans les jeux vidéos*)** :
+  - **Correction de la date d'archive** : attribution de l'année réelle `2001-2002` dans `public/books.json` et sur la fiche statique (en remplacement de la date erronée `2026` qui laissait supposer un ouvrage contemporain).
+  - **Précision de la genèse** : explicitation dans la préface et l'introduction de la filiation de l'étude, dont l'intérêt pour les capteurs, l'optique et l'instrumentation physique est né dès 1994 sur les bancs de Terminale STL (Physique de laboratoire), avant d'être nourri et formalisé en 5e année d'école d'ingénieurs (NFIO optronique, promotion 7) en 2001-2002.
+  - **Titre du premier chapitre** : renommage de « Préface 2026 » en « Préface de l'auteur » pour lever tout anachronisme de présentation.
+  - **Illustrations d'archives authentiques (2001-2002)** : extraction directe et conversion en WebP optimisé de 5 figures et photographies historiques majeures issues des documents Word originaux de l'auteur pour orner les en-têtes de chapitres de la liseuse :
+    - *Préface de l'auteur* : figure de couverture d'origine (gant de données et capture spatiale du squelette 3D de la main).
+    - *Partie A* : le Power Glove de Mattel, interface manuelle pionnière à résistances variables.
+    - *Partie B* : bras maître exosquelette robotique à retour d'effort mécanique et couplage haptique.
+    - *Partie C* : visiocasque stéréoscopique Virtual Research à écrans LCD miniaturisés et écouteurs binauraux.
+    - *Partie D* : système de localisation spatiale à 6 degrés de liberté Polhemus 3Space UltraTrak.
+  - **Clarification des documents complets** : mention explicite que la liseuse présente la mise en perspective analytique, le sommaire et les figures d'archives clés, tandis que l'étude intégrale et ses 159 planches illustrées d'époque restent téléchargeables dans les 4 fichiers PDF d'origine.
+- **Service Worker** : passage à la version source `hylst-reader-v85` dans `sw.js`. Précache automatique des 5 nouvelles illustrations WebP.
+- **Fiche statique** : regénération de `livres/sciences-et-technologie-jeux-videos/index.html` affichant l'année `2001-2002` et « Préface de l'auteur ».
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 133 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+- Validation DOM des 5 chapitres de *Sciences et technologie* : balises HTML équilibrées, 0 erreur.
+- Rendu visuel mobile 390 px inspecté et validé via Chrome headless avec affichage net des figures d'archives.
+
 ## [1.8.28] - 2026-11-08
 
 ### Ajouté

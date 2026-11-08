@@ -1,12 +1,14 @@
-// sw.js - Service Worker La Bibliothèque de Hylst v1.8.22
-// Stratégie: précache de l'app shell et des livres, puis Network-First avec
-// repli cache pour le local. Cache-First pour les CDNs.
+// sw.js - Service Worker La Bibliothèque de Hylst v1.8.23
+// Stratégie: précache de l'app shell, des livres, des illustrations et des
+// fontes, puis Network-First avec repli cache pour le local. Cache-First pour
+// les CDNs.
 
-const CACHE_NAME = 'hylst-reader-v78';
+const CACHE_NAME = 'hylst-reader-v79';
 // Le stockage de caches est partagé par toute l'origine hylst.fr : ne jamais
 // supprimer les caches des autres applications hébergées sur le même domaine.
 const CACHE_PREFIX = 'hylst-reader-';
 const BOOKS_INDEX = 'public/books.json';
+const FONT_STYLESHEET = '/assets/fonts/fonts.css';
 
 // App shell minimal : de quoi démarrer la liseuse et afficher la bibliothèque
 // hors ligne. Les contenus de livres sont ajoutés dynamiquement à partir de
@@ -55,7 +57,13 @@ const APP_SHELL = [
     './public/icons/icon-192.png',
     './public/icons/icon-512.png',
     './public/icons/icon-512-maskable.png',
-    './public/icons/apple-touch-icon.png'
+    './public/icons/apple-touch-icon.png',
+    // Couvertures des livres à venir affichées dans la bibliothèque.
+    './public/covers/cover_godefroi.webp',
+    './public/covers/cover_atrophie.webp',
+    './public/covers/cover_nouvelles_alsaciennes.webp',
+    './public/covers/cover_automatisation_ia.webp',
+    './public/covers/cover_eclats_corbeau.webp'
 ];
 
 function scopeUrl(path) {
@@ -115,6 +123,70 @@ async function precacheBooks(cache) {
 
     const cached = await cacheInBatches(cache, [...paths]);
     console.log(`[SW] Précache : ${cached}/${paths.size} contenus de livres.`);
+    return books;
+}
+
+// Les illustrations vivent dans les HTML de chapitre : on les extrait des
+// réponses déjà précachées pour que le premier passage hors ligne soit complet.
+async function precacheChapterImages(cache, books) {
+    const paths = new Set();
+    for (const book of books) {
+        if (!book || !book.id) continue;
+        const htmlPaths = [];
+        if (book.introPath) htmlPaths.push(`public/${book.introPath}`);
+        for (const chapter of book.chapters || []) {
+            if (chapter && chapter.path) htmlPaths.push(`public/${chapter.path}`);
+        }
+        for (const htmlPath of htmlPaths) {
+            const response = await cache.match(scopeUrl(htmlPath));
+            if (!response) continue;
+            const html = await response.text();
+            for (const match of html.matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["']/gi)) {
+                const src = match[1].trim();
+                if (!src || src.startsWith('data:')) continue;
+                let target;
+                if (src.startsWith('http')) {
+                    if (new URL(src).origin !== self.location.origin) continue;
+                    target = src;
+                } else if (src.startsWith('/')) {
+                    target = new URL(src, self.location.origin).href;
+                } else if (src.startsWith('public/')) {
+                    target = scopeUrl(src);
+                } else {
+                    // Le rendu de la liseuse préfixe les images relatives avec
+                    // le dossier du livre.
+                    target = scopeUrl(`public/books/${book.id}/${src}`);
+                }
+                paths.add(target);
+            }
+        }
+    }
+    const cached = await cacheInBatches(cache, [...paths], 3);
+    console.log(`[SW] Précache : ${cached}/${paths.size} illustrations de chapitre.`);
+}
+
+// Les fontes de la plateforme sont hors du dossier de l'application mais
+// partagent la même origine. On lit la feuille de style pour suivre les
+// empreintes des fichiers générés.
+async function precachePlatformFonts(cache) {
+    try {
+        const cssUrl = new URL(FONT_STYLESHEET, self.location.origin).href;
+        const response = await fetch(new Request(cssUrl, { cache: 'reload' }));
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        await cache.put(cssUrl, response.clone());
+        const css = await response.text();
+        const paths = new Set();
+        for (const match of css.matchAll(/url\('([^']+\.woff2)'\)/g)) {
+            const value = match[1].trim();
+            paths.add(value.startsWith('/') ? new URL(value, self.location.origin).href : new URL(value, cssUrl).href);
+        }
+        const cached = await cacheInBatches(cache, [...paths]);
+        console.log(`[SW] Précache : ${cached}/${paths.size} fontes de la plateforme.`);
+    } catch (error) {
+        console.warn('[SW] Précache des fontes ignoré :', error.message);
+    }
 }
 
 self.addEventListener('install', (event) => {
@@ -123,11 +195,20 @@ self.addEventListener('install', (event) => {
         const cache = await caches.open(CACHE_NAME);
         const shellCached = await cacheInBatches(cache, APP_SHELL);
         console.log(`[SW] Précache : ${shellCached}/${APP_SHELL.length} fichiers de l'app shell.`);
+        let books = [];
         try {
-            await precacheBooks(cache);
+            books = await precacheBooks(cache);
         } catch (error) {
             console.warn('[SW] Précache des livres incomplet :', error.message);
         }
+        if (books.length > 0) {
+            try {
+                await precacheChapterImages(cache, books);
+            } catch (error) {
+                console.warn('[SW] Précache des illustrations incomplet :', error.message);
+            }
+        }
+        await precachePlatformFonts(cache);
     })());
 });
 

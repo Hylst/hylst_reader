@@ -1,6 +1,19 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.23] - 2026-11-08
+### Modifié
+- **Précache hors ligne complet** : le Service Worker lit les introductions et les chapitres déjà précachés, extrait leurs `<img>` et précache les 28 illustrations et plans SVG. Il ajoute aussi les 5 couvertures des livres à venir affichées dans la bibliothèque et les 77 fontes de la plateforme lues depuis `/assets/fonts/fonts.css`.
+- **Cache** : `hylst-reader-v79`, build `41e979fdec9e`, 322 entrées, environ 20 Mo. Les PDF de *Sciences et technologie* restent hors précache.
+- Version 1.8.23.
+
+### Vérifié
+- `node scripts/build_jsx.js --check` : 10 fichiers à jour. `python scripts/check_dashes.py --root .` : 132 fichiers, zéro tiret cadratin ou demi-cadratin.
+- Synchronisation : build `41e979fdec9e`, 277 fichiers runtime, 11 fiches, sitemap à 13 URL.
+- Profil Chromium vierge sur le miroir : 322 entrées en cache, 28 illustrations de chapitre, 29 couvertures de recueils, 5 couvertures à venir, 77 fontes et `fonts.css` présentes.
+- Hors ligne : bibliothèque, `droits.html`, 7 fiches avec et sans slash, liseuse des 7 livres testés au chapitre 1, puis chapitre suivant pour Nightprowler, Sciences et technologie et le Tome I. Les illustrations de Nightprowler (1216 px), les plans SVG (1200 px) et les illustrations des recueils (512 px) s'affichent.
+- 0 réponse en erreur, 0 requête échouée, 0 erreur console, 0 requête externe.
+
 ## [1.8.22] - 2026-11-07
 
 ### Ajouté

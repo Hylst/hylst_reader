@@ -1227,5 +1227,346 @@
       "essai",
       "societe"
     ]
+  },
+  {
+    "id": "chronique-une-atrophie-programmee",
+    "title": "Chronique d'une atrophie programmée",
+    "subtitle": "Roman d'anticipation et d'hérésie biologique",
+    "author": "Hylst (Geoffroy Streit)",
+    "year": "2022-2026 (compilation 2026)",
+    "writingPeriod": "2022-2026",
+    "compilationYear": 2026,
+    "authorship": "human",
+    "aiAssisted": false,
+    "badge": "Nouveau",
+    "illustrationNote": "Roman rédigé entre 2022 et 2026 (100 % de l'auteur, sans IA) · Illustrations d'ambiance et de décors de l'archive 2026 · Compilation 2026",
+    "coverPath": "covers/cover_atrophie.webp",
+    "introPath": "books/chronique-une-atrophie-programmee/intro.html",
+    "design": {
+      "fonts": {
+        "heading": "Outfit",
+        "body": "Merriweather",
+        "googleFonts": ""
+      },
+      "colors": {
+        "background": "#12161f",
+        "text": "#e2e8f0",
+        "primary": "#3b82f6",
+        "secondary": "#1e293b",
+        "accent": "#eab308"
+      },
+      "variables": {
+        "--book-bg": "#12161f",
+        "--book-text": "#e2e8f0",
+        "--book-accent": "#eab308",
+        "--book-accent-dark": "#3b82f6",
+        "--book-surface": "#1e293b",
+        "--book-border": "rgba(234, 179, 8, 0.2)",
+        "--book-font-body": "'Merriweather', Georgia, serif",
+        "--book-font-heading": "'Outfit', system-ui, sans-serif",
+        "--book-font-title": "'Outfit', system-ui, sans-serif",
+        "--book-font-size": "1.02rem",
+        "--book-line-height": "1.8",
+        "--book-max-width": "720px",
+        "--book-dropcap-size": "4.2em"
+      }
+    },
+    "chapters": [
+      {
+        "id": "01-la-moquette-de-l-ame.html",
+        "title": "Chapitre 1 : La Moquette de l'Âme",
+        "path": "books/chronique-une-atrophie-programmee/01-la-moquette-de-l-ame.html",
+        "available": true
+      },
+      {
+        "id": "02-le-souffle-dans-la-prise.html",
+        "title": "Chapitre 2 : Le Souffle dans la Prise",
+        "path": "books/chronique-une-atrophie-programmee/02-le-souffle-dans-la-prise.html",
+        "available": true
+      },
+      {
+        "id": "03-la-tasse-fendue.html",
+        "title": "Chapitre 3 : La Tasse Fendue",
+        "path": "books/chronique-une-atrophie-programmee/03-la-tasse-fendue.html",
+        "available": true
+      },
+      {
+        "id": "04-la-glissade-du-coton.html",
+        "title": "Chapitre 4 : La Glissade du Coton",
+        "path": "books/chronique-une-atrophie-programmee/04-la-glissade-du-coton.html",
+        "available": true
+      },
+      {
+        "id": "05-les-rappels-a-l-ordre-de-l-intendance.html",
+        "title": "Chapitre 5 : Les Rappels à l'Ordre de l'Intendance",
+        "path": "books/chronique-une-atrophie-programmee/05-les-rappels-a-l-ordre-de-l-intendance.html",
+        "available": true
+      },
+      {
+        "id": "06-le-registre-clandestin.html",
+        "title": "Chapitre 6 : Le Registre Clandestin",
+        "path": "books/chronique-une-atrophie-programmee/06-le-registre-clandestin.html",
+        "available": true
+      },
+      {
+        "id": "07-les-mots-interdits.html",
+        "title": "Chapitre 7 : Les Mots Interdits",
+        "path": "books/chronique-une-atrophie-programmee/07-les-mots-interdits.html",
+        "available": true
+      },
+      {
+        "id": "08-l-effacement.html",
+        "title": "Chapitre 8 : L'Effacement",
+        "path": "books/chronique-une-atrophie-programmee/08-l-effacement.html",
+        "available": true
+      },
+      {
+        "id": "09-le-vertige-du-hublot.html",
+        "title": "Chapitre 9 : Le Vertige du Hublot",
+        "path": "books/chronique-une-atrophie-programmee/09-le-vertige-du-hublot.html",
+        "available": true
+      },
+      {
+        "id": "10-le-dernier-narratif.html",
+        "title": "Chapitre 10 : Le Dernier Narratif",
+        "path": "books/chronique-une-atrophie-programmee/10-le-dernier-narratif.html",
+        "available": true
+      },
+      {
+        "id": "11-le-grand-debranchement.html",
+        "title": "Chapitre 11 : Le Grand Débranchement",
+        "path": "books/chronique-une-atrophie-programmee/11-le-grand-debranchement.html",
+        "available": true
+      },
+      {
+        "id": "12-la-chute-dans-le-tuyau.html",
+        "title": "Chapitre 12 : La Chute dans le Tuyau",
+        "path": "books/chronique-une-atrophie-programmee/12-la-chute-dans-le-tuyau.html",
+        "available": true
+      },
+      {
+        "id": "13-le-reveil-brutal.html",
+        "title": "Chapitre 13 : Le Réveil Brutal",
+        "path": "books/chronique-une-atrophie-programmee/13-le-reveil-brutal.html",
+        "available": true
+      },
+      {
+        "id": "14-la-douleur-est-une-information.html",
+        "title": "Chapitre 14 : La Douleur est une Information",
+        "path": "books/chronique-une-atrophie-programmee/14-la-douleur-est-une-information.html",
+        "available": true
+      },
+      {
+        "id": "15-le-premier-rhume.html",
+        "title": "Chapitre 15 : Le Premier Rhume",
+        "path": "books/chronique-une-atrophie-programmee/15-le-premier-rhume.html",
+        "available": true
+      },
+      {
+        "id": "16-les-fantomes-du-passe.html",
+        "title": "Chapitre 16 : Les Fantômes du Passé",
+        "path": "books/chronique-une-atrophie-programmee/16-les-fantomes-du-passe.html",
+        "available": true
+      },
+      {
+        "id": "17-la-memoire-de-la-terre.html",
+        "title": "Chapitre 17 : La Mémoire de la Terre",
+        "path": "books/chronique-une-atrophie-programmee/17-la-memoire-de-la-terre.html",
+        "available": true
+      },
+      {
+        "id": "18-les-graines-de-l-espoir.html",
+        "title": "Chapitre 18 : Les Graines de l'Espoir",
+        "path": "books/chronique-une-atrophie-programmee/18-les-graines-de-l-espoir.html",
+        "available": true
+      },
+      {
+        "id": "19-hors-du-terrier.html",
+        "title": "Chapitre 19 : Hors du Terrier",
+        "path": "books/chronique-une-atrophie-programmee/19-hors-du-terrier.html",
+        "available": true
+      },
+      {
+        "id": "20-les-cicatrices-du-monde.html",
+        "title": "Chapitre 20 : Les Cicatrices du Monde",
+        "path": "books/chronique-une-atrophie-programmee/20-les-cicatrices-du-monde.html",
+        "available": true
+      },
+      {
+        "id": "21-la-marche-vers-le-grand-refrigerant.html",
+        "title": "Chapitre 21 : La Marche vers le Grand Réfrigérant",
+        "path": "books/chronique-une-atrophie-programmee/21-la-marche-vers-le-grand-refrigerant.html",
+        "available": true
+      },
+      {
+        "id": "22-le-tombeau-des-geants.html",
+        "title": "Chapitre 22 : Le Tombeau des Géants",
+        "path": "books/chronique-une-atrophie-programmee/22-le-tombeau-des-geants.html",
+        "available": true
+      },
+      {
+        "id": "23-le-chant-des-rouages.html",
+        "title": "Chapitre 23 : Le Chant des Rouages",
+        "path": "books/chronique-une-atrophie-programmee/23-le-chant-des-rouages.html",
+        "available": true
+      },
+      {
+        "id": "24-veillee-sous-les-tenebres.html",
+        "title": "Chapitre 24 : Veillée sous les Ténèbres",
+        "path": "books/chronique-une-atrophie-programmee/24-veillee-sous-les-tenebres.html",
+        "available": true
+      },
+      {
+        "id": "25-la-derive-des-signaux.html",
+        "title": "Chapitre 25 : La Dérive des Signaux",
+        "path": "books/chronique-une-atrophie-programmee/25-la-derive-des-signaux.html",
+        "available": true
+      },
+      {
+        "id": "26-les-confidences-de-barnabe.html",
+        "title": "Chapitre 26 : Les Confidences de Barnabé",
+        "path": "books/chronique-une-atrophie-programmee/26-les-confidences-de-barnabe.html",
+        "available": true
+      },
+      {
+        "id": "27-le-plan-de-l-anesthesie-generale.html",
+        "title": "Chapitre 27 : Le Plan de l'Anesthésie Générale",
+        "path": "books/chronique-une-atrophie-programmee/27-le-plan-de-l-anesthesie-generale.html",
+        "available": true
+      },
+      {
+        "id": "28-l-alerte-au-secteur-cinq.html",
+        "title": "Chapitre 28 : L'Alerte au Secteur Cinq",
+        "path": "books/chronique-une-atrophie-programmee/28-l-alerte-au-secteur-cinq.html",
+        "available": true
+      },
+      {
+        "id": "29-la-blessure-ouverte.html",
+        "title": "Chapitre 29 : La Blessure Ouverte",
+        "path": "books/chronique-une-atrophie-programmee/29-la-blessure-ouverte.html",
+        "available": true
+      },
+      {
+        "id": "30-l-etau-mecanique.html",
+        "title": "Chapitre 30 : L'Étau Mécanique",
+        "path": "books/chronique-une-atrophie-programmee/30-l-etau-mecanique.html",
+        "available": true
+      },
+      {
+        "id": "31-la-panne-frigorigene.html",
+        "title": "Chapitre 31 : La Panne Frigorigène",
+        "path": "books/chronique-une-atrophie-programmee/31-la-panne-frigorigene.html",
+        "available": true
+      },
+      {
+        "id": "32-les-paroles-de-fer.html",
+        "title": "Chapitre 32 : Les Paroles de Fer",
+        "path": "books/chronique-une-atrophie-programmee/32-les-paroles-de-fer.html",
+        "available": true
+      },
+      {
+        "id": "33-silence-dans-le-cable.html",
+        "title": "Chapitre 33 : Silence dans le Câble",
+        "path": "books/chronique-une-atrophie-programmee/33-silence-dans-le-cable.html",
+        "available": true
+      },
+      {
+        "id": "34-la-decouverte-de-la-faille.html",
+        "title": "Chapitre 34 : La Découverte de la Faille",
+        "path": "books/chronique-une-atrophie-programmee/34-la-decouverte-de-la-faille.html",
+        "available": true
+      },
+      {
+        "id": "35-l-aveu-de-leonce.html",
+        "title": "Chapitre 35 : L'Aveu de Léonce",
+        "path": "books/chronique-une-atrophie-programmee/35-l-aveu-de-leonce.html",
+        "available": true
+      },
+      {
+        "id": "36-le-basculement.html",
+        "title": "Chapitre 36 : Le Basculement",
+        "path": "books/chronique-une-atrophie-programmee/36-le-basculement.html",
+        "available": true
+      },
+      {
+        "id": "37-au-fond-du-gouffre.html",
+        "title": "Chapitre 37 : Au Fond du Gouffre",
+        "path": "books/chronique-une-atrophie-programmee/37-au-fond-du-gouffre.html",
+        "available": true
+      },
+      {
+        "id": "38-l-idee-scandaleuse.html",
+        "title": "Chapitre 38 : L'Idée Scandaleuse",
+        "path": "books/chronique-une-atrophie-programmee/38-l-idee-scandaleuse.html",
+        "available": true
+      },
+      {
+        "id": "39-la-serre-hydroponique-de-guerre.html",
+        "title": "Chapitre 39 : La Serre Hydroponique de Guerre",
+        "path": "books/chronique-une-atrophie-programmee/39-la-serre-hydroponique-de-guerre.html",
+        "available": true
+      },
+      {
+        "id": "40-le-schisme-de-tristan.html",
+        "title": "Chapitre 40 : Le Schisme de Tristan",
+        "path": "books/chronique-une-atrophie-programmee/40-le-schisme-de-tristan.html",
+        "available": true
+      },
+      {
+        "id": "41-la-logique-du-scalpel.html",
+        "title": "Chapitre 41 : La Logique du Scalpel",
+        "path": "books/chronique-une-atrophie-programmee/41-la-logique-du-scalpel.html",
+        "available": true
+      },
+      {
+        "id": "42-l-infiltration-des-conduits.html",
+        "title": "Chapitre 42 : L'Infiltration des Conduits",
+        "path": "books/chronique-une-atrophie-programmee/42-l-infiltration-des-conduits.html",
+        "available": true
+      },
+      {
+        "id": "43-la-moisson-jaune.html",
+        "title": "Chapitre 43 : La Moisson Jaune",
+        "path": "books/chronique-une-atrophie-programmee/43-la-moisson-jaune.html",
+        "available": true
+      },
+      {
+        "id": "44-l-ascension-vers-le-noyau.html",
+        "title": "Chapitre 44 : L'Ascension vers le Noyau",
+        "path": "books/chronique-une-atrophie-programmee/44-l-ascension-vers-le-noyau.html",
+        "available": true
+      },
+      {
+        "id": "45-l-injection.html",
+        "title": "Chapitre 45 : L'Injection",
+        "path": "books/chronique-une-atrophie-programmee/45-l-injection.html",
+        "available": true
+      },
+      {
+        "id": "46-les-premiers-eternuements.html",
+        "title": "Chapitre 46 : Les Premiers Éternuements",
+        "path": "books/chronique-une-atrophie-programmee/46-les-premiers-eternuements.html",
+        "available": true
+      },
+      {
+        "id": "47-le-coup-de-maitre-de-l-intendance.html",
+        "title": "Chapitre 47 : Le Coup de Maître de l'Intendance",
+        "path": "books/chronique-une-atrophie-programmee/47-le-coup-de-maitre-de-l-intendance.html",
+        "available": true
+      },
+      {
+        "id": "48-la-fin-et-les-retifs.html",
+        "title": "Chapitre 48 : La Fin et les Rétifs",
+        "path": "books/chronique-une-atrophie-programmee/48-la-fin-et-les-retifs.html",
+        "available": true
+      }
+    ],
+    "tags": [
+      "science-fiction",
+      "dystopie",
+      "transhumanisme",
+      "biologie",
+      "roman"
+    ]
   }
 ]

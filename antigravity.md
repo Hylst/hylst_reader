@@ -25,7 +25,7 @@
 
 ## État actuel
 
-- Version **1.8.26** synchronisée le 08/11, cache Service Worker source `hylst-reader-v82`, build `07ddbab6e488`, SW `hylst-reader-07ddbab6e488`. 277 fichiers runtime, 11 livres, 94 chapitres, 13 URL au sitemap.
+- Version **1.8.26** déployée le 08/11 (commit plateforme `734046f2`, docs `d45979b7`), cache Service Worker source `hylst-reader-v82`, build `07ddbab6e488`, SW `hylst-reader-07ddbab6e488`. 277 fichiers runtime, 11 livres, 94 chapitres, 13 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Chapitre XI enrichi** :
   - **Chapitre XI** (*La reconquête du trône des Rodallois*) porté à 9 089 mots de texte (17 `h2`, 23 tableaux, 2 figures, schéma vectoriel `chapitre-11-schema.svg`). Fiche technique, 5 horloges féodales, géographie d'Alliphance (12 lieux), dilemmes des quatre lois, 14 figures majeures, 8 factions et matrice relationnelle, épreuves des six preuves, règles et contre-mesures de Kharvâsh l'Équarrisseur et du contrat de fer froid, assaut du donjon et alertes, 10 issues principales et 6 secondaires, tables d'aides de jeu d6, sécurité de table.
 - **Chapitres VIII, IX et X enrichis** :

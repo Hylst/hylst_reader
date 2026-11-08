@@ -48,6 +48,10 @@
         max-height: 400px;
     }
 
+    .music-offline-notice {
+        margin: 0.9rem 1rem 0;
+    }
+
     .reader-container {
         padding: 0 1.25rem 3rem;
     }

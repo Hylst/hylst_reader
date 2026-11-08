@@ -935,6 +935,29 @@
 .chapter-stats-table.descripteurs td:first-child {
     text-align: left;
 }
+
+/* Tableaux larges : defilement horizontal sur petit ecran */
+.chapter-table-scroll {
+    margin: 2rem 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.chapter-table-scroll > .chapter-stats-table {
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .chapter-table-scroll[data-cols="3"] > .chapter-stats-table {
+        min-width: 540px;
+    }
+
+    .chapter-table-scroll[data-cols="4"] > .chapter-stats-table {
+        min-width: 660px;
+    }
+}
+
 /* Bloc de telechargement PDF (livre Sciences et technologie) */
 .chapter-download {
     margin: 2.5rem auto;

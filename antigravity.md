@@ -25,7 +25,9 @@
 
 ## État actuel
 
-- Version **1.8.23** déployée le 08/11, cache Service Worker source `hylst-reader-v79`, build `0b632e9d5101`, SW `hylst-reader-0b632e9d5101`, commit plateforme `f4da5092`. Précache hors ligne complet : 322 entrées, 28 illustrations de chapitre, 16 couvertures de livres à venir, 77 fontes, environ 20 Mo. `verify-release.ps1` entièrement vert.
+- Version **1.8.24** synchronisée le 08/11, cache Service Worker source `hylst-reader-v80`, build `6c0293e00a62`, SW `hylst-reader-6c0293e00a62`. Précache et cache d'exécution séparés, installation stricte, deux tentatives, exclusion audio, vidéo et `Range`, stockage persistant demandé. 324 entrées en cache. Tests de politique du Service Worker 6/6, lecteur desktop et mobile verts, hors ligne vérifié.
+- **Chapitre VIII** enrichi à 7 161 mots de texte, 11 sections, 14 tableaux et 3 figures, avec `chapitre-8-plan.svg` et `chapitre-8-schema.svg`. Les tableaux de chapitre sont enveloppés dans `.chapter-table-scroll` pour rester lisibles sur mobile sans faire déborder la page.
+- **Assets** : cinq doublons Outfit supprimés, Merriweather conservée pour le sépia. Huit couvertures de *L'Odyssée de l'énergie* recompressées de 8 728 652 à 1 808 256 octets, soit 79,3 pour cent de moins.
 - Catalogue à **11 livres et 94 chapitres** (105 fichiers de contenu) : les huit livres existants, le Tome IV *Carnets, réflexions & partages* (4 chapitres), le livre *Sciences et technologie* (préface et quatre parties), le livre *Nightprowler, carnets de Samarande* (13 chapitres et annexes) et l'essai *Approche de la Neurodiversité* (préface et six chapitres).
 - Livre ***Nightprowler, carnets de Samarande*** complet : 13 chapitres publiés (I à XIII), introduction réécrite dans un ton d'hommage avec le lien Grog et les romans de Pierre Pevel, treize illustrations de chapitre dans le style de la couverture, sommaire complet à treize entrées sur la page du livre, fiche statique présente, `f3` retiré des contenus en préparation. Le chapitre VII réunit six fiches normalisées : Albert Degreffion et les cinq prétirés de la convention des Alchimistes de 2011. Le chapitre VIII est le scénario du squelette enfoui d'Azefhfkrijiiir, écrit vers 1999, restructuré en six actes et complété par la rencontre finale. Le chapitre IX est l'esclavage gouri, écrit en 1999-2000 et retapé en 2001, restructuré en cinq actes, avec un plan du camp en SVG et six issues d'évasion. Le chapitre X est Vapeur et boulons, écrit pour la convention des Alchimistes de 2011, restructuré en cinq actes, avec un plan du moulin en SVG, la machine et la pierre de rosette. Le chapitre XI est la reconquête du trône des Rodallois, écrit en 1999 pour un autre jeu et clairement séparé de Nightprowler. Le chapitre XII rassemble trois pistes inachevées de 1999 : le camp barbare du prince démon, le contrôle d'entrée et Kalaar. Le chapitre XIII rassemble les annexes : feuille de personnage vierge normalisée, lexique de 23 termes et chronologie documentée. Référence de reprise : `continue.md`.
 - **Rubrique Sciences et technologie** : format hybride. La liseuse sert une préface de 2026, des résumés et les sommaires d'origine ; les quatre PDF exportés depuis les `.docx` conservent le texte, les images et la mise en page de 2001-2002. Les PDF ne sont pas précachés. Les liens utilisent le chemin absolu `/books_reader/public/books/sciences-et-technologie-jeux-videos/pdf/...` pour fonctionner dans la liseuse et dans les fiches statiques.
@@ -38,6 +40,9 @@
 
 ## Prochaines étapes possibles
 
+- Enrichir le chapitre IX, *Esclavage gouri sans vergogne* : structure de scénario, quartier, PNJ, factions, relations, dangers, plan et schéma, en conservant le texte de 1999-2001.
+- Enrichir le chapitre X, *Vapeur et boulons* : même traitement, avec le quartier des Alchimistes, les PNJ, la machine, les factions et les issues.
+- Enrichir ensuite le chapitre XI, *La reconquête du trône des Rodallois* : politique, mystère, tension, PNJ, ennemis et alliés.
 - Refactorisation CSS et allègement de `base.css`.
 - Export `.json` de la bibliothèque importée.
 - Preset de lecture longue avec réduction automatique des animations.

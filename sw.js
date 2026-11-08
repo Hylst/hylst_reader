@@ -1,14 +1,20 @@
-// sw.js - Service Worker La Bibliothèque de Hylst v1.8.23
-// Stratégie: précache de l'app shell, des livres, des illustrations et des
-// fontes, puis Network-First avec repli cache pour le local. Cache-First pour
-// les CDNs.
+// sw.js - Service Worker La Bibliothèque de Hylst v1.8.24
+// Stratégie : précache versionné de l'app shell, des livres, des illustrations
+// et des fontes, puis Network-First avec repli cache pour le local. Le cache
+// d'exécution est séparé et plafonné.
 
-const CACHE_NAME = 'hylst-reader-v79';
+const CACHE_NAME = 'hylst-reader-v80';
 // Le stockage de caches est partagé par toute l'origine hylst.fr : ne jamais
 // supprimer les caches des autres applications hébergées sur le même domaine.
 const CACHE_PREFIX = 'hylst-reader-';
+// Les réponses consultées à la demande vivent dans un cache distinct du
+// précache. Le nom dérive de CACHE_NAME pour suivre le build injecté.
+const RUNTIME_CACHE_NAME = CACHE_NAME + '-runtime';
+const RUNTIME_CACHE_LIMIT = 200;
+const PRECACHE_ATTEMPTS = 2;
 const BOOKS_INDEX = 'public/books.json';
 const FONT_STYLESHEET = '/assets/fonts/fonts.css';
+const AUDIO_EXTENSIONS = /\.(mp3|wav|ogg|oga|flac|m4a|aac)$/i;
 
 // App shell minimal : de quoi démarrer la liseuse et afficher la bibliothèque
 // hors ligne. Les contenus de livres sont ajoutés dynamiquement à partir de
@@ -81,19 +87,65 @@ function scopeUrl(path) {
     return new URL(path, self.registration.scope).href;
 }
 
-async function cacheUrl(cache, path) {
+function isCacheableResponse(response) {
+    return !!response && response.status === 200 && response.type === 'basic';
+}
+
+function shouldBypassCache(request, url) {
+    if (request.method !== 'GET') return true;
+    if (request.destination === 'audio' || request.destination === 'video') return true;
+    if (request.headers && request.headers.has('range')) return true;
+    return AUDIO_EXTENSIONS.test(url.pathname);
+}
+
+async function trimCache(cache, limit) {
+    const keys = await cache.keys();
+    if (keys.length <= limit) return;
+    for (const key of keys.slice(0, keys.length - limit)) {
+        await cache.delete(key);
+    }
+}
+
+async function fetchFresh(url, attempts = PRECACHE_ATTEMPTS) {
+    let lastError = null;
+    for (let attempt = 1; attempt <= attempts; attempt++) {
+        try {
+            const response = await fetch(new Request(url, { cache: 'reload' }));
+            if (response.status !== 200) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            return response;
+        } catch (error) {
+            lastError = error;
+            if (attempt < attempts) {
+                await new Promise((resolve) => setTimeout(resolve, 150 * attempt));
+            }
+        }
+    }
+    throw lastError || new Error('réseau indisponible');
+}
+
+async function cacheUrl(cache, path, attempts = PRECACHE_ATTEMPTS) {
     const url = scopeUrl(path);
     try {
-        const response = await fetch(new Request(url, { cache: 'reload' }));
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-        }
+        const response = await fetchFresh(url, attempts);
         await cache.put(url, response);
         return true;
     } catch (error) {
         console.warn('[SW] Précache ignoré :', url, error.message);
         return false;
     }
+}
+
+// Les réponses consultées à la demande vont dans le cache d'exécution, jamais
+// dans le précache versionné. On évite aussi de dupliquer un fichier déjà
+// précaché, même si sa réponse réseau est plus récente.
+async function storeRuntimeResponse(url, response) {
+    const precache = await caches.open(CACHE_NAME);
+    if (await precache.match(url)) return;
+    const runtime = await caches.open(RUNTIME_CACHE_NAME);
+    await runtime.put(url, response);
+    await trimCache(runtime, RUNTIME_CACHE_LIMIT);
 }
 
 async function cacheInBatches(cache, paths, size = 6) {
@@ -108,11 +160,11 @@ async function cacheInBatches(cache, paths, size = 6) {
 
 async function precacheBooks(cache) {
     const indexUrl = scopeUrl(BOOKS_INDEX);
-    const response = await fetch(new Request(indexUrl, { cache: 'reload' }));
-    if (!response.ok) {
-        throw new Error(`books.json HTTP ${response.status}`);
-    }
+    const response = await fetchFresh(indexUrl);
     const books = await response.clone().json();
+    if (!Array.isArray(books) || books.length === 0) {
+        throw new Error('books.json vide ou invalide');
+    }
     await cache.put(indexUrl, response);
 
     const paths = new Set();
@@ -133,6 +185,9 @@ async function precacheBooks(cache) {
     }
 
     const cached = await cacheInBatches(cache, [...paths]);
+    if (cached !== paths.size) {
+        throw new Error(`Précache des livres incomplet : ${cached}/${paths.size}`);
+    }
     console.log(`[SW] Précache : ${cached}/${paths.size} contenus de livres.`);
     return books;
 }
@@ -182,10 +237,7 @@ async function precacheChapterImages(cache, books) {
 async function precachePlatformFonts(cache) {
     try {
         const cssUrl = new URL(FONT_STYLESHEET, self.location.origin).href;
-        const response = await fetch(new Request(cssUrl, { cache: 'reload' }));
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
-        }
+        const response = await fetchFresh(cssUrl);
         await cache.put(cssUrl, response.clone());
         const css = await response.text();
         const paths = new Set();
@@ -205,19 +257,15 @@ self.addEventListener('install', (event) => {
     event.waitUntil((async () => {
         const cache = await caches.open(CACHE_NAME);
         const shellCached = await cacheInBatches(cache, APP_SHELL);
-        console.log(`[SW] Précache : ${shellCached}/${APP_SHELL.length} fichiers de l'app shell.`);
-        let books = [];
-        try {
-            books = await precacheBooks(cache);
-        } catch (error) {
-            console.warn('[SW] Précache des livres incomplet :', error.message);
+        if (shellCached !== APP_SHELL.length) {
+            throw new Error(`App shell incomplet : ${shellCached}/${APP_SHELL.length}`);
         }
-        if (books.length > 0) {
-            try {
-                await precacheChapterImages(cache, books);
-            } catch (error) {
-                console.warn('[SW] Précache des illustrations incomplet :', error.message);
-            }
+        console.log(`[SW] Précache : ${shellCached}/${APP_SHELL.length} fichiers de l'app shell.`);
+        const books = await precacheBooks(cache);
+        try {
+            await precacheChapterImages(cache, books);
+        } catch (error) {
+            console.warn('[SW] Précache des illustrations incomplet :', error.message);
         }
         await precachePlatformFonts(cache);
     })());
@@ -227,7 +275,8 @@ self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((keys) => Promise.all(
             keys.map((key) => {
-                if (key !== CACHE_NAME && key.startsWith(CACHE_PREFIX)) {
+                const keep = key === CACHE_NAME || key === RUNTIME_CACHE_NAME;
+                if (!keep && key.startsWith(CACHE_PREFIX)) {
                     console.log('[SW] Suppression de l\'ancien cache:', key);
                     return caches.delete(key);
                 }
@@ -238,54 +287,31 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-    if (event.request.method !== 'GET') return;
+    if (!event.request.url.startsWith('http')) return;
 
-    const url = event.request.url;
-    if (!url.startsWith('http')) return;
-
-    // CDNs concernés par la mise en cache offline-first
-    const isCDN = url.includes('fonts.googleapis.com') ||
-        url.includes('fonts.gstatic.com') ||
-        url.includes('unpkg.com') ||
-        url.includes('cdnjs.cloudflare.com') ||
-        url.includes('cdn.jsdelivr.net');
-
-    // Pour les CDNs, stratégie Cache-First
-    if (isCDN) {
-        event.respondWith(
-            caches.match(event.request).then((cachedResponse) => {
-                if (cachedResponse) {
-                    return cachedResponse;
-                }
-                return fetch(event.request).then((networkResponse) => {
-                    if (networkResponse && networkResponse.ok) {
-                        const responseToCache = networkResponse.clone();
-                        caches.open(CACHE_NAME).then((cache) => {
-                            cache.put(event.request, responseToCache);
-                        });
-                    }
-                    return networkResponse;
-                }).catch((err) => {
-                    console.error('[SW] Erreur de récupération CDN:', err);
-                });
-            })
-        );
-        return;
-    }
+    const url = new URL(event.request.url);
+    // Aucun CDN au runtime : le Service Worker ne s'occupe que de l'origine.
+    if (url.origin !== self.location.origin) return;
+    // L'audio et la vidéo utilisent des réponses partielles que le Cache API
+    // ne peut pas stocker. On laisse le navigateur gérer le streaming.
+    if (shouldBypassCache(event.request, url)) return;
 
     // NETWORK-FIRST pour tous les assets locaux.
     // On nettoie l'URL des paramètres de requête (comme ?t=...) pour éviter de
     // gonfler le cache et pour permettre une correspondance hors-ligne exacte.
-    const cleanUrl = url.split('?')[0];
+    const cleanUrl = url.href.split('?')[0];
+    const isNavigation = event.request.mode === 'navigate';
 
     event.respondWith(
         fetch(event.request)
             .then((networkResponse) => {
-                if (networkResponse && networkResponse.ok && networkResponse.type === 'basic') {
+                if (!isNavigation && isCacheableResponse(networkResponse)) {
                     const responseToCache = networkResponse.clone();
-                    caches.open(CACHE_NAME).then((cache) => {
-                        cache.put(cleanUrl, responseToCache);
-                    });
+                    event.waitUntil(
+                        storeRuntimeResponse(cleanUrl, responseToCache).catch((error) => {
+                            console.warn('[SW] Cache d\'exécution ignoré :', cleanUrl, error.message);
+                        })
+                    );
                 }
                 return networkResponse;
             })

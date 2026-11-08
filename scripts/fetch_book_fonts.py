@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-"""Telecharge les polices de livres et genere css/book-fonts.css.
+"""Telecharge la police Merriweather et genere css/book-fonts.css.
 
-Polices utilisees par les designs de livres en theme sepia :
-Outfit (titres) et Merriweather (corps). Les fichiers sont auto-heberges
-dans public/fonts/ pour supprimer tout appel a Google Fonts au runtime.
+Merriweather sert au corps des livres en theme sepia. Outfit, utilise pour
+les titres, est deja fourni par /assets/fonts/fonts.css de la plateforme.
+Les fichiers sont auto-heberges dans public/fonts/ pour supprimer tout appel
+a Google Fonts au runtime.
 """
 import re
 import urllib.request
@@ -15,7 +16,6 @@ OUT_CSS = ROOT / "css" / "book-fonts.css"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 URL = ("https://fonts.googleapis.com/css2?"
-       "family=Outfit:wght@300;400;500;600;700&"
        "family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap")
 
 BLOCK_RE = re.compile(r"/\*\s*([a-z-]+)\s*\*/\s*@font-face\s*\{(.*?)\}", re.S)

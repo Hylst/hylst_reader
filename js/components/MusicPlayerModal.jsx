@@ -1,15 +1,36 @@
 // js/components/MusicPlayerModal.jsx
 // Dépend de : window.Icon, window.MUSIC_LIBRARY
 
-const { useState: useStateMusicModal, useMemo: useMemoMusicModal, useRef: useRefMusicModal } = React;
+const { useState: useStateMusicModal, useEffect: useEffectMusicModal, useMemo: useMemoMusicModal, useRef: useRefMusicModal } = React;
 
 function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isLoop, onPlayTrack, onTogglePlay, onToggleLoop }) {
     const Icon = window.Icon;
     const MUSIC_LIBRARY = window.MUSIC_LIBRARY;
     const [searchTerm, setSearchTerm] = useStateMusicModal('');
+    const [isOffline, setIsOffline] = useStateMusicModal(function () {
+        return typeof navigator !== 'undefined' && navigator.onLine === false;
+    });
     const modalRef = useRefMusicModal(null);
 
     window.useModalA11y(onClose, modalRef, isOpen);
+
+    useEffectMusicModal(function () {
+        const updateConnectivity = function () {
+            setIsOffline(navigator.onLine === false);
+        };
+        window.addEventListener('online', updateConnectivity);
+        window.addEventListener('offline', updateConnectivity);
+        updateConnectivity();
+        return function () {
+            window.removeEventListener('online', updateConnectivity);
+            window.removeEventListener('offline', updateConnectivity);
+        };
+    }, []);
+
+    const handlePlayTrack = function (track) {
+        if (isOffline) return;
+        onPlayTrack(track);
+    };
 
     const filteredTracks = useMemoMusicModal(() => {
         if (!searchTerm) return MUSIC_LIBRARY;
@@ -50,21 +71,31 @@ function MusicPlayerModal({ isOpen, onClose, currentTrack, isPlaying, isLoop, on
                     </div>
                 </div>
 
+                {isOffline && (
+                    <div className="music-offline-notice" role="status">
+                        <Icon.Info />
+                        <span>Hors ligne : les musiques ne sont pas téléchargées. Reconnectez-vous pour les écouter.</span>
+                    </div>
+                )}
+
                 <div className={`music-player-layout${currentTrack ? '' : ' without-player'}`}>
                     <div className="music-list-side" role="region" aria-label="Liste des morceaux">
                         <div className="music-grid">
                             {filteredTracks.map(track => (
                                 <div key={track.id}
-                                    className={`music-item ${currentTrack?.id === track.id ? 'active' : ''}`}
+                                    className={`music-item ${currentTrack?.id === track.id ? 'active' : ''}${isOffline ? ' is-offline' : ''}`}
                                     role="button"
-                                    tabIndex={0}
-                                    aria-label={`Lire ${track.title}`}
-                                    onClick={() => onPlayTrack(track)}
+                                    tabIndex={isOffline ? -1 : 0}
+                                    aria-disabled={isOffline || undefined}
+                                    aria-label={isOffline ? `${track.title}, indisponible hors ligne` : `Lire ${track.title}`}
+                                    title={isOffline ? 'Musique indisponible hors ligne' : undefined}
+                                    onClick={() => handlePlayTrack(track)}
                                     onKeyDown={(e) => {
                                         if (e.target !== e.currentTarget) return;
+                                        if (isOffline) return;
                                         if (e.key === 'Enter' || e.key === ' ') {
                                             e.preventDefault();
-                                            onPlayTrack(track);
+                                            handlePlayTrack(track);
                                         }
                                     }}>
                                     <div className="music-item-cover">

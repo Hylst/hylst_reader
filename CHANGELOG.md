@@ -1,6 +1,29 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.24] - 2026-11-08
+
+### Modifié
+- **Service Worker** : séparation du précache versionné et d'un cache d'exécution plafonné à 200 entrées. L'installation échoue désormais si l'app shell ou le cœur des livres est incomplet. Les téléchargements de précache font deux tentatives, les réponses autres que `200 basic` sont refusées, et les requêtes audio, vidéo et `Range` ne sont plus interceptées ni stockées. La navigation n'est jamais mise en cache et l'activation ne supprime que les caches `hylst-reader-`.
+- **Stockage persistant** : `navigator.storage.persist()` est demandé après l'enregistrement du Service Worker, sans bloquer le démarrage.
+- **Chapitre VIII** : enrichissement du scénario du squelette enfoui d'Azefhfkrijiiir de 3 188 à 7 161 mots de texte, avec 11 sections, 14 tableaux, 3 figures, une fiche technique, une clé des salles, les règles de possession, la table des rêves, les Veilleurs, les issues secondaires et les marques. Deux SVG ajoutés : une coupe de la salle basse et un schéma du verrou, de la possession et des issues.
+- **Cohérence du chapitre VIII** : pierre gravée à 1 m, plafond à 1,10 m, drain des rêves réservé aux personnages non possédés, coût de volonté renvoyé à la table de possession, Vieille Orme témoin d'un rituel, P'tit Fer porteur de remplacement, résultats du d6 alignés sur leurs descriptions.
+- **Tableaux mobiles** : les tableaux de chapitre sont enveloppés dans un conteneur défilable, avec une largeur minimale adaptée au nombre de colonnes. La page ne déborde plus à 390 px et les tableaux à quatre colonnes restent lisibles par défilement horizontal.
+- **Polices** : suppression des cinq doublons Outfit de `public/fonts/` et de leurs cinq blocs `@font-face`. Merriweather reste auto-hébergée pour le thème sépia. `scripts/fetch_book_fonts.py` ne régénère plus que Merriweather.
+- **Couvertures** : huit couvertures lourdes de *L'Odyssée de l'énergie* recompressées en WebP 1024×1024, qualité 82. Poids total ramené de 8 728 652 à 1 808 256 octets, soit 79,3 pour cent de moins, avec un PSNR de 37,39 à 38,45 dB.
+- **Catalogue** : retrait de la carte obsolète de *Quinte* dans les livres à venir, déjà publiée.
+- **Version** : 1.8.24, cache source `hylst-reader-v80`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 132 fichiers, zéro tiret cadratin ou demi-cadratin.
+- `node scripts/build_jsx.js` et `--check` : 10 fichiers compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6 tests de politique du Service Worker, tous verts.
+- `python scripts/check_future_covers.py --root .` : 16 couvertures à venir cohérentes.
+- Chapitre VIII : 7 161 mots, 11 `h2`, 14 tableaux, 3 figures, HTML équilibré, deux SVG valides, zéro tiret long.
+- Lecteur desktop : titre correct, 11 sections, 14 tableaux, 3 figures, images chargées, aucun débordement horizontal, aucune erreur CSP ou console. Cache `hylst-reader-6c0293e00a62` avec 324 entrées, chapitre et deux SVG précachés, rechargement et ouverture hors ligne réussis.
+- Lecteur mobile 390 px : page sans débordement, tableaux à deux colonnes lisibles, tableaux à trois et quatre colonnes défilables dans leur conteneur, ouverture hors ligne réussie.
+- Synchronisation : build `6c0293e00a62`, 274 fichiers runtime, 11 fiches, fontes Outfit obsolètes élaguées, contrôles de tirets et de CSP verts sur le miroir.
+
 ## [1.8.23] - 2026-11-08
 ### Modifié
 - **Précache hors ligne complet** : le Service Worker lit les introductions et les chapitres déjà précachés, extrait leurs `<img>` et précache les 28 illustrations et plans SVG. Il ajoute aussi les 16 couvertures des livres à venir affichées dans la bibliothèque et les 77 fontes de la plateforme lues depuis `/assets/fonts/fonts.css`.

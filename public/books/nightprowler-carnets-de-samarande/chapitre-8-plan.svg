@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="titre plan">
+  <title id="titre">Coupe de la salle basse d'Azefhfkrijiiir</title>
+  <desc id="plan">Coupe schématique sous le quartier des Hautes Lices : puits de chantier A, seuil descellé B, salle basse C, sarcophage D, pierre gravée E, niche des morts F et galerie effondrée G.</desc>
+
+  <defs>
+    <pattern id="terre" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M0 14 H28" stroke="#c9b895" stroke-width="1" opacity="0.55"/>
+      <circle cx="7" cy="7" r="1.2" fill="#c9b895" opacity="0.6"/>
+      <circle cx="21" cy="21" r="1.2" fill="#c9b895" opacity="0.6"/>
+    </pattern>
+    <marker id="fleche" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#4a3323"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="800" fill="#f2ece0"/>
+  <rect x="18" y="18" width="1164" height="764" fill="none" stroke="#4a3323" stroke-width="2" rx="10"/>
+
+  <text x="600" y="44" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#241d17">La salle basse, en coupe</text>
+  <text x="600" y="70" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="14" fill="#4a3323">Coupe schématique, sans échelle. Les lettres renvoient à la clé de la salle.</text>
+
+  <text x="600" y="96" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="13" fill="#4a3323">Niveau de la rue, quartier des Hautes Lices</text>
+  <path d="M80 120 H1120" stroke="#4a3323" stroke-width="3" fill="none"/>
+  <g stroke="#4a3323" stroke-width="1.5" opacity="0.55">
+    <path d="M120 120 L108 108"/>
+    <path d="M180 120 L168 108"/>
+    <path d="M240 120 L228 108"/>
+    <path d="M300 120 L288 108"/>
+    <path d="M360 120 L348 108"/>
+    <path d="M420 120 L408 108"/>
+    <path d="M480 120 L468 108"/>
+    <path d="M540 120 L528 108"/>
+    <path d="M600 120 L588 108"/>
+    <path d="M660 120 L648 108"/>
+    <path d="M720 120 L708 108"/>
+    <path d="M780 120 L768 108"/>
+    <path d="M840 120 L828 108"/>
+    <path d="M900 120 L888 108"/>
+    <path d="M960 120 L948 108"/>
+    <path d="M1020 120 L1008 108"/>
+    <path d="M1080 120 L1068 108"/>
+  </g>
+
+  <rect x="80" y="120" width="1040" height="570" fill="url(#terre)" stroke="none"/>
+
+  <!-- Puits de chantier -->
+  <rect x="250" y="120" width="60" height="570" fill="#f7f1e4" stroke="#4a3323" stroke-width="3"/>
+  <g stroke="#4a3323" stroke-width="2" opacity="0.75">
+    <path d="M262 130 V680"/>
+    <path d="M298 130 V680"/>
+    <path d="M262 150 H298"/>
+    <path d="M262 180 H298"/>
+    <path d="M262 210 H298"/>
+    <path d="M262 240 H298"/>
+    <path d="M262 270 H298"/>
+    <path d="M262 300 H298"/>
+    <path d="M262 330 H298"/>
+    <path d="M262 360 H298"/>
+    <path d="M262 390 H298"/>
+    <path d="M262 420 H298"/>
+    <path d="M262 450 H298"/>
+    <path d="M262 480 H298"/>
+    <path d="M262 510 H298"/>
+    <path d="M262 540 H298"/>
+    <path d="M262 570 H298"/>
+    <path d="M262 600 H298"/>
+    <path d="M262 630 H298"/>
+    <path d="M262 660 H298"/>
+  </g>
+  <ellipse cx="280" cy="130" rx="16" ry="6" fill="#e8dfcd" stroke="#4a3323" stroke-width="2"/>
+
+  <!-- Salle basse -->
+  <rect x="310" y="600" width="620" height="90" fill="#f7f1e4" stroke="#4a3323" stroke-width="3"/>
+  <rect x="306" y="640" width="8" height="36" fill="#f7f1e4" stroke="none"/>
+  <path d="M310 600 V640" stroke="#4a3323" stroke-width="3" fill="none"/>
+  <path d="M310 676 V690" stroke="#4a3323" stroke-width="3" fill="none"/>
+  <path d="M310 690 H930" stroke="#4a3323" stroke-width="3" fill="none"/>
+
+  <!-- Seuil et ouverture -->
+  <path d="M310 640 H340" stroke="#9a6b34" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+  <path d="M310 676 H340" stroke="#9a6b34" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+
+  <!-- Sarcophage -->
+  <rect x="560" y="625" width="180" height="65" rx="4" fill="#d6c6a6" stroke="#4a3323" stroke-width="3"/>
+  <path d="M560 638 H740" stroke="#4a3323" stroke-width="2" fill="none"/>
+  <g stroke="#4a3323" stroke-width="1.5" opacity="0.7">
+    <path d="M580 680 V668"/>
+    <path d="M590 680 V668"/>
+    <path d="M600 680 V668"/>
+    <path d="M700 680 V668"/>
+    <path d="M710 680 V668"/>
+    <path d="M720 680 V668"/>
+  </g>
+  <ellipse cx="650" cy="660" rx="44" ry="10" fill="none" stroke="#9a6b34" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.8"/>
+
+  <!-- Pierre gravée -->
+  <rect x="881" y="608" width="49" height="82" rx="3" fill="#d6c6a6" stroke="#4a3323" stroke-width="3"/>
+  <g stroke="#4a3323" stroke-width="1.5" opacity="0.8">
+    <path d="M890 620 H921"/>
+    <path d="M890 634 H921"/>
+    <path d="M890 648 H921"/>
+    <path d="M890 662 H921"/>
+  </g>
+
+  <!-- Niche des morts -->
+  <g stroke="#4a3323" stroke-width="2" fill="none" opacity="0.75">
+    <circle cx="382" cy="680" r="3"/>
+    <path d="M382 683 V690"/>
+    <circle cx="414" cy="680" r="3"/>
+    <path d="M414 683 V690"/>
+    <circle cx="446" cy="680" r="3"/>
+    <path d="M446 683 V690"/>
+    <circle cx="478" cy="680" r="3"/>
+    <path d="M478 683 V690"/>
+    <circle cx="510" cy="680" r="2"/>
+    <path d="M510 682 V688"/>
+    <circle cx="790" cy="680" r="3"/>
+    <path d="M790 683 V690"/>
+    <circle cx="820" cy="680" r="3"/>
+    <path d="M820 683 V690"/>
+    <circle cx="850" cy="680" r="2"/>
+    <path d="M850 682 V688"/>
+  </g>
+
+  <!-- Galerie effondrée -->
+  <path d="M930 620 H1020" stroke="#4a3323" stroke-width="3" stroke-dasharray="8 5" fill="none"/>
+  <path d="M930 670 H1020" stroke="#4a3323" stroke-width="3" stroke-dasharray="8 5" fill="none"/>
+  <path d="M930 620 V670" stroke="#4a3323" stroke-width="2" stroke-dasharray="8 5" fill="none"/>
+  <g fill="#d6c6a6" stroke="#4a3323" stroke-width="2">
+    <path d="M1020 610 L1040 625 L1032 642 L1044 660 L1028 682 L1012 666 L1018 646 L1006 632 Z"/>
+  </g>
+  <text x="1036" y="705" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="12" fill="#4a3323">éboulement</text>
+
+  <!-- Cotes -->
+  <g stroke="#4a3323" stroke-width="2" fill="none" marker-start="url(#fleche)" marker-end="url(#fleche)">
+    <path d="M1080 120 V690"/>
+    <path d="M310 718 H930"/>
+    <path d="M770 600 V690"/>
+  </g>
+  <text x="1090" y="410" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">30 m</text>
+  <text x="620" y="712" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">9 m</text>
+  <text x="770" y="594" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#241d17">1,1 m</text>
+
+  <!-- Lettres -->
+  <g font-family="Outfit, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#f2ece0">
+    <circle cx="280" cy="165" r="16" fill="#9a6b34"/>
+    <text x="280" y="171" text-anchor="middle">A</text>
+    <circle cx="358" cy="575" r="15" fill="#9a6b34"/>
+    <text x="358" y="581" text-anchor="middle">B</text>
+    <path d="M345 585 L320 638" stroke="#9a6b34" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+    <circle cx="500" cy="625" r="15" fill="#9a6b34"/>
+    <text x="500" y="631" text-anchor="middle">C</text>
+    <circle cx="650" cy="626" r="15" fill="#9a6b34"/>
+    <text x="650" y="632" text-anchor="middle">D</text>
+    <circle cx="850" cy="640" r="15" fill="#9a6b34"/>
+    <text x="850" y="646" text-anchor="middle">E</text>
+    <path d="M866 640 H881" stroke="#9a6b34" stroke-width="1.5" stroke-dasharray="4 4" fill="none"/>
+    <circle cx="424" cy="660" r="13" fill="#9a6b34"/>
+    <text x="424" y="665" text-anchor="middle" font-size="14">F</text>
+    <circle cx="990" cy="600" r="15" fill="#9a6b34"/>
+    <text x="990" y="606" text-anchor="middle">G</text>
+  </g>
+
+  <!-- Légende -->
+  <g font-family="Outfit, Segoe UI, sans-serif" fill="#241d17">
+    <rect x="80" y="730" width="1040" height="46" rx="8" fill="#f7f1e4" stroke="#9a6b34" stroke-width="1.5"/>
+    <text x="96" y="750" font-size="13" font-weight="700">A. Puits de chantier. B. Seuil descellé. C. Salle basse. D. Sarcophage. E. Pierre gravée.</text>
+    <text x="96" y="768" font-size="13">F. Niche des morts. G. Galerie effondrée. Trait pointillé : passage étroit ou condamné.</text>
+  </g>
+
+</svg>

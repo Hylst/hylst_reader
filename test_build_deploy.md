@@ -34,7 +34,7 @@ Après le sync, lancer `npx serve` depuis `Cours_Memos/Docker` et ouvrir `/books
 ### Vérifier le mode hors ligne
 1. Utiliser un profil Chromium neuf, sans Service Worker existant.
 2. Charger `http://127.0.0.1:8765/books_reader/` et attendre l'activation du Service Worker (`navigator.serviceWorker.ready`).
-3. Dans DevTools, onglet Application, vérifier le cache `hylst-reader-<build>` : 322 entrées au build `41e979fdec9e`, dont les 28 illustrations de chapitre, les 5 couvertures à venir et les 77 fontes de la plateforme.
+3. Dans DevTools, onglet Application, vérifier le cache `hylst-reader-<build>` : 322 entrées au build `0b632e9d5101`, dont les 28 illustrations de chapitre, les 16 couvertures à venir et les 77 fontes de la plateforme.
 4. Passer en mode hors ligne (Network, Offline), puis ouvrir la bibliothèque, `droits.html`, chaque fiche avec et sans slash, puis un livre dans la liseuse.
 5. Vérifier que le texte et les illustrations s'affichent, sans requête en erreur. Les PDF de *Sciences et technologie* ne sont pas précachés : ce comportement est attendu.
 

@@ -997,30 +997,51 @@
     },
     "chapters": [
       {
-        "id": "01-hygiene-de-vie.html",
-        "title": "I. Hygiène de vie",
-        "path": "books/recueils-proses-poesies-t4-carnets-reflexions-partages/01-hygiene-de-vie.html",
+        "id": "01-de-l-art-et-de-la-demoscene.html",
+        "title": "I. De l'art et de la demoscene informatique",
+        "path": "books/recueils-proses-poesies-t4-carnets-reflexions-partages/01-de-l-art-et-de-la-demoscene.html",
+        "available": true,
+        "originalDate": "1996"
+      },
+      {
+        "id": "02-de-l-edenisme-et-de-la-quete-d-equilibre.html",
+        "title": "II. De l'édenisme et de la quête d'équilibre",
+        "path": "books/recueils-proses-poesies-t4-carnets-reflexions-partages/02-de-l-edenisme-et-de-la-quete-d-equilibre.html",
+        "available": true,
+        "originalDate": "1996-1998"
+      },
+      {
+        "id": "03-eloge-du-temps-libre-et-de-l-eveil.html",
+        "title": "III. Éloge du temps libre et de l'éveil",
+        "path": "books/recueils-proses-poesies-t4-carnets-reflexions-partages/03-eloge-du-temps-libre-et-de-l-eveil.html",
+        "available": true,
+        "originalDate": "1998"
+      },
+      {
+        "id": "04-hygiene-de-vie.html",
+        "title": "IV. Hygiène de vie",
+        "path": "books/recueils-proses-poesies-t4-carnets-reflexions-partages/04-hygiene-de-vie.html",
         "available": true,
         "originalDate": "2003-11-23"
       },
       {
-        "id": "02-imaginez-vous.html",
-        "title": "II. Imaginez-vous",
-        "path": "books/recueils-proses-poesies-t4-carnets-reflexions-partages/02-imaginez-vous.html",
+        "id": "05-imaginez-vous.html",
+        "title": "V. Imaginez-vous",
+        "path": "books/recueils-proses-poesies-t4-carnets-reflexions-partages/05-imaginez-vous.html",
         "available": true,
         "originalDate": "2007-06-19"
       },
       {
-        "id": "03-idees-cadeaux.html",
-        "title": "III. Idées cadeaux",
-        "path": "books/recueils-proses-poesies-t4-carnets-reflexions-partages/03-idees-cadeaux.html",
+        "id": "06-idees-cadeaux.html",
+        "title": "VI. Idées cadeaux",
+        "path": "books/recueils-proses-poesies-t4-carnets-reflexions-partages/06-idees-cadeaux.html",
         "available": true,
         "originalDate": "2008-09-05"
       },
       {
-        "id": "04-marre-d-apprendre.html",
-        "title": "IV. Marre d'apprendre",
-        "path": "books/recueils-proses-poesies-t4-carnets-reflexions-partages/04-marre-d-apprendre.html",
+        "id": "07-marre-d-apprendre.html",
+        "title": "VII. Marre d'apprendre",
+        "path": "books/recueils-proses-poesies-t4-carnets-reflexions-partages/07-marre-d-apprendre.html",
         "available": true,
         "originalDate": "2024"
       }

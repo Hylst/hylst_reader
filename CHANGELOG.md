@@ -1,6 +1,33 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.28] - 2026-11-08
+
+### Ajouté
+- **Tome II (*Fantasque & merveilleux*) — Chapitre 05 : *Le pantin et la poupée de cire*** : intégration d'un conte poétique inédit rédigé en novembre 2021 lors d'un défi littéraire (*Nouvember 2021*), retrouvé dans les archives personnelles de l'auteur. Le texte forme un diptyque narratif direct avec *Le précieux pantin de bois* (chapitre 04) dont il compose le pendant féerique et nocturne dans l'échoppe de jouets traditionnels de l'ancienne ruelle des Jouvenceaux.
+  - *Premier volet* : texte manuscrit d'origine intégralement préservé (l'éveil nocturne, le pendule d'argent, la boîte d'allumettes, la haute bougie coquelicot, la traversée acrobatique de la boutique et l'arrivée devant la poupée de cire).
+  - *Scène médiane complétée* : prose poétique cadencée en vers libres épousant le souffle et le rythme ternaire du manuscrit, développant les notes d'étape de l'auteur (les douze coups de minuit au pendule, le réveil d'une boîte à musique en fer blanc, le jeu d'ombres projeté sur les boiseries, la danse et la marelle enchantée, l'impétuosité d'un baiser timide et la tragédie de la chaleur qui fait naître une première larme de cire fondue).
+  - *Poème final* : poème original complet de 5 strophes d'alexandrins et décasyllabes préservé mot à mot (*L'aube ouvre son regard, lisse sa chevelure... Un sanglot de cire se suspend à la lune / Une larme volée au cœur d'une poupée*).
+  - Volume du conte : 1 557 mots, balisage HTML sémantique avec classes `poem-stanza`.
+
+### Modifié
+- **Tome II (*Fantasque & merveilleux*)** :
+  - Décalage ordonné des chapitres 05 à 10 existants vers les positions 06 à 11 (`06-ondes-positives`, `07-intermede-feerique`, `08-dangaord`, `09-metro-fantasque`, `10-farouches-apparitions`, `11-la-taniere-du-mage`).
+  - Le recueil passe de 10 à **11 textes** (de 1999 à 2026).
+  - Mise à jour de `intro.html` pour présenter les 11 textes et expliciter le diptyque des pantins de l'artisan.
+  - Mise à jour du catalogue `public/books.json` (11 chapitres, métadonnées, dates et chemins alignés).
+  - Fiche statique `livres/recueils-proses-poesies-t2-fantasque-merveilleux/index.html` regénérée via `scripts/build_book_pages.py`.
+- **Catalogue global** : La Bibliothèque de Hylst compte désormais **11 livres et 95 chapitres** (106 fichiers de contenu).
+- **Service Worker** : incrémentation du cache source vers `hylst-reader-v84` dans `sw.js`.
+- **Typographie et responsive** : zéro tiret cadratin ou demi-cadratin sur les 133 fichiers contrôlés (`python scripts/check_dashes.py --root .`). Rendu desktop et mobile 390 px validé sans débordement horizontal.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 133 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+- Validation des 11 chapitres de Tome II : balises HTML équilibrées, 0 erreur DOM, métadonnées `books.json` synchronisées.
+- Rendu visuel desktop (1440 px) et mobile (390 px) inspecté et validé via Chrome headless.
+
 ## [1.8.27] - 2026-11-08
 
 ### Modifié

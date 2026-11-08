@@ -23,6 +23,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Lecteur desktop : titre correct, 11 sections, 14 tableaux, 3 figures, images chargées, aucun débordement horizontal, aucune erreur CSP ou console. Cache `hylst-reader-6c0293e00a62` avec 324 entrées, chapitre et deux SVG précachés, rechargement et ouverture hors ligne réussis.
 - Lecteur mobile 390 px : page sans débordement, tableaux à deux colonnes lisibles, tableaux à trois et quatre colonnes défilables dans leur conteneur, ouverture hors ligne réussie.
 - Synchronisation : build `6c0293e00a62`, 274 fichiers runtime, 11 fiches, fontes Outfit obsolètes élaguées, contrôles de tirets et de CSP verts sur le miroir.
+- Production : déployée le 08/11 (commit plateforme `2838cd6e`), build `6c0293e00a62`, SW `hylst-reader-6c0293e00a62`, index `?v=6c0293e00a62`. `verify-release.ps1` entièrement vert : build cohérent, 13 URL, 11 fiches, 301, CSP meta et Nginx, `.env` 403, sources 404, aucun Babel ni JSX servi.
 
 ## [1.8.23] - 2026-11-08
 ### Modifié

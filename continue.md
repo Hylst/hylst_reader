@@ -2,12 +2,13 @@
 
 Point d'étape pour un agent qui reprendrait ce travail. Fichier de travail, non servi par le lecteur.
 
-## État au 7 novembre 2026
+## État au 8 novembre 2026
 
-Version **1.8.22** déployée en production le 07/11, cache Service Worker source `hylst-reader-v78`, build `04d19b84bf10`, cache `hylst-reader-04d19b84bf10`. 277 fichiers runtime, sitemap à 13 URL, 11 livres, 94 chapitres, 105 fichiers de contenu. Nouveau livre : *Approche de la Neurodiversité* (6 chapitres, essai pessimiste et lucide). `verify-release.ps1` entièrement vert.
+Version **1.8.23** déployée en production le 08/11, cache Service Worker source `hylst-reader-v79`, build `0b632e9d5101`, cache `hylst-reader-0b632e9d5101`. 277 fichiers runtime, sitemap à 13 URL, 11 livres, 94 chapitres, 105 fichiers de contenu. Précache hors ligne complet : 322 entrées, 28 illustrations de chapitre, 16 couvertures de livres à venir, 77 fontes, environ 20 Mo. `verify-release.ps1` entièrement vert.
 
 ### Fait
 
+- **Hors ligne complet (1.8.23, déployée)** : le Service Worker extrait les `<img>` des introductions et chapitres, précache les 28 illustrations et plans SVG, les 16 couvertures des livres à venir et les 77 fontes de la plateforme. Testé en profil Chromium vierge sur la production : bibliothèque, droits, 7 fiches avec et sans slash, liseuse des 7 livres, chapitre 1 et suivant, plans SVG, 0 image cassée, 0 réponse en erreur, 0 violation CSP.
 - **Nightprowler 1.8.10** : introduction réécrite dans un ton d'hommage, six chapitres (I à VI), six illustrations de chapitre, sommaire à six entrées sur la page du livre, fiche statique et image Open Graph.
 - **Nightprowler, chapitre VII (1.8.13, déployée)** : six fiches normalisées, Albert Degreffion et les cinq prétirés de la convention de 2011, avec portraits et conseils de jeu réécrits, valeurs d'origine et illustration de chapitre. Le sommaire de la fiche passe à sept entrées.
 - **Nightprowler, chapitre VIII (1.8.14, déployée)** : le scénario du squelette enfoui, écrit vers 1999, restructuré en six actes, complété par la table des objets maudits, le marché des Veilleurs, la rencontre finale et ses trois issues, et une section « Mener la table ». Illustration de chapitre. Le sommaire de la fiche passe à huit entrées.
@@ -25,9 +26,8 @@ Version **1.8.22** déployée en production le 07/11, cache Service Worker sourc
 
 ### À faire, dans l'ordre
 
-1. **Nightprowler** : livre complet avec ses 13 chapitres publiés et vérifiés.
-2. **Hors ligne** : coverage Nightprowler et des deux nouveaux livres dans un profil Chromium vierge, y compris `/livres/<id>` sans slash.
-3. **Documents plateforme** : après chaque déploiement, vérifier que `changelog.md`, `securite.md`, `todo.md` et `hylst_IT_platform_content.md` n'ont pas été écrasés par l'agent de déploiement.
+1. **Documents plateforme** : après chaque déploiement, vérifier que `changelog.md`, `securite.md`, `todo.md` et `hylst_IT_platform_content.md` n'ont pas été écrasés par l'agent de déploiement.
+2. **Textes littéraires restants du corpus** : explorer et intégrer les inédits isolés des archives (`effet papillon.txt`, `Ariane.txt` / `.pdf`, `japonisant .odt` « Le rêve d'un gaijin profane »).
 
 ### Repères techniques
 
@@ -151,7 +151,7 @@ Fait au 06/11/2026 :
 - Illustrations : `chapitre-1-cover.webp` a `chapitre-6-cover.webp`, generees sur le GPU local (`D:/0CODE/ClaudeCode/wainsfw/main.py`, modele `z-image-turbo-sdcpp`, 1216x832, 114 a 197 Ko), dans le style de la couverture. Chaque chapitre I a VI ouvre sur son image.
 - Integration : entree `nightprowler-carnets-de-samarande` dans `public/books.json` (8 livres au catalogue), badge En chantier, design Outfit et Merriweather, fiche statique generee, image Open Graph produite, sommaire a six entrees dans `BookHomeView` avec ouverture directe du chapitre choisi, `f3` retiree de `FUTURE_BOOKS`, cache `hylst-reader-v65`, sitemap du miroir complete a 10 URL avec la fiche Nightprowler et completion automatique dans `sync-to-platform.ps1`, 222 fichiers runtime dans le miroir en build `ca5f4163630e`, `CHANGELOG.md`, `todo.md` et `antigravity.md` a jour. Ajout CSS : `.chapter-stats-table.descripteurs td:first-child` aligne les etiquettes a gauche, `.book-home-toc` pour le sommaire.
 
-Non fait : verification hors ligne dans un profil Chromium vierge. Les 1.8.9 a 1.8.22 sont deployees (build `04d19b84bf10`, commit plateforme `af2800fc`). Les documents plateforme de la 1.8.18 sont ecrits et pousses (commit `6fcef7be`), a reverifier apres chaque redeploiement (l'agent plateforme peut les ecraser).
+Fait : verification hors ligne complete dans un profil Chromium vierge. Les 1.8.9 a 1.8.23 sont deployees (build `0b632e9d5101`, commit plateforme `f4da5092`). Les documents plateforme de la 1.8.18 sont ecrits et pousses (commit `6fcef7be`), a reverifier apres chaque redeploiement (l'agent plateforme peut les ecraser).
 La suite a proposer : verification offline approfondie de Nightprowler dans un profil Chromium vierge ; rediger un message pour l'agent deployment / suivi des apps sur la plateforme Hylst IT (dossier Docker / container Nginx Statique pour VPS).
 
 Point de methode : le corps d'un chapitre ne s'ouvre dans la liseuse que par un clic, aucun parametre d'URL ne cible un chapitre. Le rendu se controle donc sur une page d'apercu jetable qui charge `css/reader.css` et `css/book-fonts.css`, ou par capture d'ecran Chrome headless. Les extractions de travail vont dans `.extract/`, supprime apres usage.

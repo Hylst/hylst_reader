@@ -13,6 +13,8 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Profil Chromium vierge sur le miroir : 322 entrées en cache, 28 illustrations de chapitre, 29 couvertures de recueils, 16 couvertures à venir, 77 fontes et `fonts.css` présentes.
 - Hors ligne : bibliothèque, `droits.html`, 7 fiches avec et sans slash, liseuse des 7 livres testés au chapitre 1, puis chapitre suivant pour Nightprowler, Sciences et technologie et le Tome I. Les illustrations de Nightprowler (1216 px), les plans SVG (1200 px) et les illustrations des recueils (512 px) s'affichent.
 - 0 réponse en erreur, 0 requête échouée, 0 erreur console, 0 requête externe.
+- Production déployée le 08/11 (commit plateforme `f4da5092`, conteneur `zg4880k00soco08c4wkg48ks-20261108T112915`) : build `0b632e9d5101`, SW `hylst-reader-0b632e9d5101`, index `?v=0b632e9d5101`, version 1.8.23. `verify-release.ps1` entièrement vert.
+- Profil Chromium vierge sur la production : 322 entrées, 28 illustrations, 16 couvertures à venir, 77 fontes, 0 image cassée, 7 fiches avec et sans slash, 7 livres dans la liseuse, illustrations et plans SVG affichés, 0 réponse en erreur, 0 requête échouée, 0 erreur console, 0 violation CSP.
 
 ## [1.8.22] - 2026-11-07
 

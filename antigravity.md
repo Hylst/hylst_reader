@@ -25,7 +25,7 @@
 
 ## État actuel
 
-- Version **1.8.27** synchronisée le 08/11, cache Service Worker source `hylst-reader-v83`, build `ffbc6d92d427`, SW `hylst-reader-ffbc6d92d427`. 277 fichiers runtime, 11 livres, 94 chapitres, 13 URL au sitemap.
+- Version **1.8.27** déployée le 08/11 (commit plateforme `256085f7`, docs `48005aec`), cache Service Worker source `hylst-reader-v83`, build `ffbc6d92d427`, SW `hylst-reader-ffbc6d92d427`. 277 fichiers runtime, 11 livres, 94 chapitres, 13 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Chapitre XIII (Annexes) refondu et complété** :
   - 3 060 mots de texte, 6 `h2`, 10 `h3`, 17 tableaux tous enveloppés dans `.chapter-table-scroll`.
   - Feuille de personnage normalisée et accessible.

@@ -1,6 +1,27 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.34] - 2026-11-09
+
+### Ajouté
+- **Publication du 12ᵉ livre : *Chronique d'une atrophie programmée*** :
+  - **Roman d'anticipation et d'hérésie biologique complet en 48 chapitres et 4 actes** :
+    - *Acte 1 (Le Plissage et la Fêlure)* : chapitres 1 à 12, réécrits à partir de l'archive 2026 en intégrant Léonce l'Harmonisateur de Narratifs de classe Alpha (surnommé « Le Plisseur »), l'Intendance sous la tutelle du S.Y.N.D.I.C., la Trame, le réveil des doutes, le manifeste de l'Atrophie et la chute dans les boyaux d'évacuation.
+    - *Acte 2 (La Chair et les Décombres)* : chapitres 13 à 24, adaptés du manuscrit d'auteur de 2022 avec Marthe dite « La Râpe » (la douleur est une information), Barnabé « Pépé Rature », le premier rhume biologique, les graines de Svalbard, l'exploration du cratère minier et les turbines de Saint-Denis avec Le Cliquet.
+    - *Acte 3 (L'Ombre et le Doute)* : chapitres 25 à 36, dérive des signaux, le plan d'anesthésie générale par liquéfaction des corps en stase, l'étau mécanique, la découverte de la faille de la Tour Zéphyr et l'aveu de Léonce.
+    - *Acte 4 (L'Hérésie du Pollen)* : chapitres 37 à 48, l'infiltration des conduits de ventilation, l'injection de quarante livres de pollen d'ambroisie dans la turbine de pulsation, la vague d'éternuements géante, et le dénouement satirique féroce de l'auteur : l'Intendance récupère l'allergie pour créer le « Frisson Divin » (dopamine + histamine) où la foule s'extasie dans la mutilation consentie, face aux Rétifs lucides retournant à la terre.
+  - **Éradication des stéréotypes d'IA** : élimination complète des tropes génériques (AURA, Léo, Silas, Anya, Glitch, Marcus le clone, Elara) au profit d'un univers corrosif, satirique, français et organique.
+  - **Style débridé d'auteur** : phrases asymétriques et alambiquées, onomatopées sensorielles (crrrc, kof-kof, zzzzt, tchiii, atchoum), verve truculente et viscéralité de la chair.
+  - **48 illustrations WebP locales** : extraites et auditées depuis l'archive de l'auteur de 2026, intégrées en tête de chaque chapitre (`chapter-01.webp` à `chapter-48.webp`).
+  - **Catalogue & UI** : entrée complète dans `public/books.json`, retrait de `f17` de la liste des livres à paraître dans `LibraryView.jsx`, compilation JSX et génération de la 12ᵉ fiche statique `livres/chronique-une-atrophie-programmee/index.html`.
+  - **Service Worker** : incrémentation du cache source vers `hylst-reader-v90` dans `sw.js` (précache des 48 chapitres et illustrations).
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 186 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+- `python scripts/test_assets_atrophie.py` : 48/48 illustrations WebP conformes.
+
 ## [1.8.33] - 2026-11-08
 
 ### Modifié

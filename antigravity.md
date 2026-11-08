@@ -25,6 +25,14 @@
 
 ## État actuel
 
+- Version **1.8.34** en cours, cache Service Worker source `hylst-reader-v90`. 12 livres, 146 chapitres (158 fichiers de contenu), 14 URL au sitemap.
+- **Publication du 12ᵉ livre : *Chronique d'une atrophie programmée*** :
+  - Roman complet en 48 chapitres et 4 actes (20 105 mots).
+  - Éradication des clichés d'IA (AURA, Léo, Silas, Anya, Glitch, Marcus le clone) au profit de Léonce l'Ajusteur / Plisseur de mots, Barnabé Pépé Rature, Marthe la Râpe, Le Cliquet, Tristan et l'Intendance du S.Y.N.D.I.C.
+  - Style asymétrique, débridé et satirique d'auteur (onomatopées, folie humaine, viscéralité de la chair).
+  - Twist satirique du « Frisson Divin » (dopamine + histamine) scrupuleusement conservé.
+  - 48 illustrations WebP locales auditées et intégrées.
+  - Retrait de `f17` des livres futurs, 12 fiches statiques générées.
 - Version **1.8.33** déployée le 08/11 (commit plateforme `a8ad11a5`, docs `fd1da5b4`), cache Service Worker source `hylst-reader-v89`, build `da7807980fa5`, SW `hylst-reader-da7807980fa5`. 286 fichiers runtime, 11 livres, 98 chapitres (109 fichiers de contenu), 13 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Ajustements tomes de poésie** :
   - Terme « club d'écrivains » remplacé par « club / groupe d'écriture » (amateurs non professionnels pour le plaisir et le challenge créatif).

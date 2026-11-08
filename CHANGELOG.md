@@ -21,6 +21,9 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
 - `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
 - Validation des 3 introductions et des 11 fiches statiques regénérées.
+- Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `b6d90941bf41`, 286 fichiers runtime vérifiés.
+- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitres.
+- Production : déployée le 08/11 (commit plateforme `2f2d3269`, docs `7184e940`), build `b6d90941bf41`, SW `hylst-reader-b6d90941bf41`, index `?v=b6d90941bf41`. `verify-release.ps1` entièrement vert. Lignes de provenance des 3 tomes de poésie vérifiées en direct sur la production.
 
 ## [1.8.31] - 2026-11-08
 

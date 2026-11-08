@@ -25,7 +25,7 @@
 
 ## État actuel
 
-- Version **1.8.32** en cours, cache Service Worker source `hylst-reader-v88`. 11 livres, 98 chapitres (109 fichiers de contenu), 13 URL au sitemap.
+- Version **1.8.32** déployée le 08/11 (commit plateforme `2f2d3269`, docs `7184e940`), cache Service Worker source `hylst-reader-v88`, build `b6d90941bf41`, SW `hylst-reader-b6d90941bf41`. 286 fichiers runtime, 11 livres, 98 chapitres (109 fichiers de contenu), 13 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Genèse et provenance des 3 tomes de poésie** :
   - Explicitation de la chaîne de création : rédigés sur le blog Joueb (*Pour la parole et pour le plaisir* sous la plume Hylst), revus en 1999-2000 pour le 2e site web personnel, prolongés en 2021 dans les *Fantasques du Bocal*, accompagnés d'affiches/couvertures originales en 2024, compilés en recueils en 2026.
   - Mises à jour des introductions de Tomes I, II, III et des mentions `illustrationNote`. Fiches statiques regénérées.

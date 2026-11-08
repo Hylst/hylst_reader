@@ -24,6 +24,9 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
 - Validation DOM des 5 chapitres de *Sciences et technologie* : balises HTML équilibrées, 0 erreur.
 - Rendu visuel mobile 390 px inspecté et validé via Chrome headless avec affichage net des figures d'archives.
+- Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `514f57879866`, 283 fichiers runtime vérifiés.
+- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitres et les 5 illustrations WebP.
+- Production : déployée le 08/11 (commit plateforme `c80b771b`, docs `0e4445fd`), build `514f57879866`, SW `hylst-reader-514f57879866`, index `?v=514f57879866`. `verify-release.ps1` entièrement vert : build cohérent, 13 URL, 11 fiches, 301, CSP meta et Nginx, `.env` 403, sources 404. Fiche statique en `<p class="year">2001-2002</p>` et illustrations d'archives en 200 sur le domaine de production.
 
 ## [1.8.28] - 2026-11-08
 

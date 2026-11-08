@@ -25,7 +25,7 @@
 
 ## État actuel
 
-- Version **1.8.29** en cours, cache Service Worker source `hylst-reader-v85`. 11 livres, 95 chapitres (106 fichiers de contenu), 13 URL au sitemap.
+- Version **1.8.29** déployée le 08/11 (commit plateforme `c80b771b`, docs `0e4445fd`), cache Service Worker source `hylst-reader-v85`, build `514f57879866`, SW `hylst-reader-514f57879866`. 283 fichiers runtime, 11 livres, 95 chapitres (106 fichiers de contenu), 13 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Sciences et technologie (*Analyse des solutions techniques mises en œuvre dans les jeux vidéos*)** :
   - Date d'archive corrigée à `2001-2002` dans `public/books.json` et sur la fiche statique (au lieu de 2026 erroné).
   - Genèse explicitée : intérêt pour les capteurs et l'optique né dès 1994 en Terminale STL (Physique de laboratoire), formalisé en 5e année d'ingénieur NFIO optronique en 2001-2002.

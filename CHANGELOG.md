@@ -1,6 +1,27 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.31] - 2026-11-08
+
+### Modifié
+- **Transparence des dates d'écriture et mentions IA (Éthique et paternité)** :
+  - **Dissociation claire écriture vs compilation 2026** : suppression du millésime générique `2026` sur les fiches et dans la liseuse qui laissait faussement croire que les textes avaient été rédigés en 2026. Affichage au premier regard des périodes de rédaction réelles (100 % humaines) et de la date de compilation numérique 2026 :
+    - *Nightprowler, carnets de Samarande* : `1999-2011 (compilation 2026)`. Mention explicite : *« Textes originaux rédigés entre 1999 et 2011 (100 % de l'auteur) réunis en 2026 · Anciennes illustrations remplacées par des générations IA locales en 2026 »*.
+    - *Carnets, réflexions & partages (Tome IV)* : `1994-2024 (compilation 2026)`. Mention explicite : *« Textes d'archives rédigés entre 1994 et 2024 (100 % de l'auteur, sans IA) · Compilation numérique en 2026 »*.
+    - *Sciences et technologie* : `2001-2002 (archive 2026)`. Mention : *« Étude d'ingénieur 2001-2002 (germée en 1994 en STL) · Véritables figures et schémas d'archives de 2001 »*.
+    - *Tome I (Saisons, nature & contemplations)* : `1999-2024 (compilation 2026)`.
+    - *Tome II (Fantasque & merveilleux)* : `1999-2026 (compilation 2026)`.
+    - *Tome III (Cœurs, chaos & quotidien)* : `2021-2024 (compilation 2026)`.
+  - **Fiches statiques (`build_book_pages.py`)** : ajout d'une ligne dédiée `.illustration-note` sous le millésime, détaillant la paternité humaine des textes et le statut exact des illustrations (IA locale ou archives historiques).
+  - **Liseuse (`BookHomeView.jsx`)** : affichage immédiat sous le titre de la période d'écriture et de la mention de transparence des illustrations. Compilation JSX vers `js/dist/`.
+  - **Service Worker** : passage à la version source `hylst-reader-v87` dans `sw.js`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 136 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+- Régénération des 11 fiches statiques de livres avec affichage des périodes d'écriture réelles et des notes d'illustrations.
+
 ## [1.8.30] - 2026-11-08
 
 ### Ajouté

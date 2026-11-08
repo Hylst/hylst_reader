@@ -25,6 +25,10 @@
 
 ## État actuel
 
+- Version **1.8.31** en cours, cache Service Worker source `hylst-reader-v87`. 11 livres, 98 chapitres (109 fichiers de contenu), 13 URL au sitemap.
+- **Transparence des dates et mentions IA** :
+  - Dissociation des périodes de rédaction réelle (100 % de l'auteur) et de l'année de compilation numérique 2026 : *Nightprowler* (1999-2011), *Carnets* (1994-2024), *Sciences* (2001-2002), *Saisons* (1999-2024), *Fantasque* (1999-2026), *Cœurs* (2021-2024).
+  - Ligne dédiée `.illustration-note` ajoutée sur les fiches statiques et dans l'app, précisant le remplacement des illustrations par des générations IA locales en 2026 pour Nightprowler, et la présence des figures authentiques pour Sciences.
 - Version **1.8.30** déployée le 08/11 (commit plateforme `687c843d`, docs `328e9bfa`), cache Service Worker source `hylst-reader-v86`, build `1939c2d25914`, SW `hylst-reader-1939c2d25914`. 286 fichiers runtime, 11 livres, 98 chapitres (109 fichiers de contenu), 13 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Tome IV (*Carnets, réflexions & partages*) — Réflexions de jeunesse (1994-1998)** :
   - Intégration en tête de volume de 3 chapitres fondateurs : *I. De l'art et de la demoscene informatique* (vers 1996), *II. De l'édenisme et de la quête d'équilibre* (vers 1996-1998), *III. Éloge du temps libre et de l'éveil* (vers 1998).

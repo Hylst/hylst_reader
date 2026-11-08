@@ -93,7 +93,8 @@ a { color: var(--accent); }
 h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; margin: 0 0 0.4rem; font-weight: 600; }
 .subtitle { color: var(--muted); font-style: italic; font-size: 1.1rem; margin: 0 0 0.9rem; }
 .author { color: var(--text); margin: 0 0 0.35rem; }
-.year { color: var(--muted); font-size: 0.9rem; margin: 0 0 1.1rem; }
+.year { color: var(--muted); font-size: 0.9rem; margin: 0 0 0.6rem; }
+.illustration-note { color: var(--accent); font-size: 0.82rem; font-style: italic; margin: 0 0 1rem; }
 .rights { color: var(--muted); font-size: 0.78rem; margin: 0 0 1.4rem; }
 .rights a { text-decoration: none; border-bottom: 1px dotted rgba(212, 149, 90, 0.5); }
 .badge {
@@ -242,6 +243,9 @@ def build_book(book: dict) -> str:
     if subtitle:
         subtitle_html = f'                <p class="subtitle">{html.escape(subtitle)}</p>\n'
 
+    illustration_note = book.get("illustrationNote") or ""
+    illustration_html = f'                    <p class="illustration-note">{html.escape(illustration_note)}</p>\n' if illustration_note else ''
+
     chapters = book.get("chapters") or []
     chapter_blocks = []
     for i, chapter in enumerate(chapters, 1):
@@ -342,7 +346,7 @@ def build_book(book: dict) -> str:
                     <h1>{html.escape(title)}</h1>
 {subtitle_html}                    <p class="author">{html.escape(author)}</p>
                     <p class="year">{html.escape(year)}</p>
-                    <p class="rights">Texte de <strong>Geoffroy Streit</strong> · © Tous droits réservés · <a href="{SITE_PATH}droits.html">Citation &amp; IA</a></p>
+{illustration_html}                    <p class="rights">Texte de <strong>Geoffroy Streit</strong> · © Tous droits réservés · <a href="{SITE_PATH}droits.html">Citation &amp; IA</a></p>
                     <a class="cta" href="{SITE_PATH}?book={book_id}">Lire dans la liseuse</a>
                 </div>
             </div>

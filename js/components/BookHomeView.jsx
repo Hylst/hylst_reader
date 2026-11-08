@@ -111,6 +111,11 @@ function BookHomeView({ book, onBack, onStartReading }) {
                 <div className="book-home-meta">
                     <h1 className="book-home-title">{book.title}</h1>
                     <p className="book-home-author">{book.author} {book.year ? `· ${book.year}` : ''}</p>
+                    {book.illustrationNote && (
+                        <p className="book-home-illustration-note" style={{ fontStyle: 'italic', fontSize: '0.86rem', color: 'var(--book-accent, #c47c3a)', margin: '-0.3rem 0 0.9rem' }}>
+                            {book.illustrationNote}
+                        </p>
+                    )}
                     {!book.isImported && (
                         <div className="book-rights-row">
                             <p className="book-rights-line">

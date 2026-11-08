@@ -25,7 +25,7 @@
 
 ## État actuel
 
-- Version **1.8.28** en cours, cache Service Worker source `hylst-reader-v84`. 11 livres, 95 chapitres (106 fichiers de contenu), 13 URL au sitemap.
+- Version **1.8.28** déployée le 08/11 (commit plateforme `7c69dc42`, docs `44ac5c69`), cache Service Worker source `hylst-reader-v84`, build `7665440676e7`, SW `hylst-reader-7665440676e7`. 278 fichiers runtime, 11 livres, 95 chapitres (106 fichiers de contenu), 13 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Tome II (*Fantasque & merveilleux*) — Chapitre 05 (*Le pantin et la poupée de cire*)** :
   - Conte poétique inédit écrit en novembre 2021 lors du défi *Nouvember 2021*, formant diptyque avec le chapitre 04 (*Le précieux pantin de bois*).
   - Premier volet original scrupuleusement conservé mot à mot.

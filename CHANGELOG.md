@@ -21,12 +21,17 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - **Service Worker** : incrémentation du cache source vers `hylst-reader-v84` dans `sw.js`.
 - **Typographie et responsive** : zéro tiret cadratin ou demi-cadratin sur les 133 fichiers contrôlés (`python scripts/check_dashes.py --root .`). Rendu desktop et mobile 390 px validé sans débordement horizontal.
 
+- **Version** : 1.8.28, build `7665440676e7`.
+
 ### Vérifié
 - `python scripts/check_dashes.py --root .` : 133 fichiers contrôlés, zéro tiret long.
 - `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
 - `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
 - Validation des 11 chapitres de Tome II : balises HTML équilibrées, 0 erreur DOM, métadonnées `books.json` synchronisées.
 - Rendu visuel desktop (1440 px) et mobile (390 px) inspecté et validé via Chrome headless.
+- Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `7665440676e7`, 278 fichiers runtime vérifiés, 6 fichiers orphelins décalés purgés proprement du miroir.
+- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitres 01 à 11.
+- Production : déployée le 08/11 (commit plateforme `7c69dc42`, docs `44ac5c69`), build `7665440676e7`, SW `hylst-reader-7665440676e7`, index `?v=7665440676e7`. `verify-release.ps1` entièrement vert : build cohérent, 13 URL, 11 fiches, 301, CSP meta et Nginx, `.env` 403, sources 404. Chapitre 05 et fiche Tome II en 200 sur le domaine de production.
 
 ## [1.8.27] - 2026-11-08
 

@@ -1,6 +1,31 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.30] - 2026-11-08
+
+### Ajouté
+- **Tome IV (*Carnets, réflexions & partages*) — Réflexions de jeunesse (1994-1998)** : intégration en ouverture du volume de trois chapitres fondateurs retrouvés dans les archives personnelles de l'auteur, portant l'ouvrage de 4 à **7 textes** et étendant sa couverture chronologique à trente ans de réflexion (1994-2024) :
+  - **Chapitre 01 : *De l'art et de la demoscene informatique* (vers 1996, 956 mots)** : réflexion sur l'artifice face à la nature, la noblesse de la difficulté technique, suivie d'une tribune sur l'esprit pionnier de la demoscene (Oric, C64, Atari ST, Amiga), la distinction entre spectacle et jeu interactif, et un réquisitoire éthique sans complaisance contre le rip de code, la contrefaçon de graphismes scannés face au dessin manuel au pixel, et le pillage de samples musicaux.
+  - **Chapitre 02 : *De l'édenisme et de la quête d'équilibre* (vers 1996-1998, 894 mots)** : formulation de la philosophie édeniste (éprouver le plaisir et le partager), graduation des plaisirs (simples, naturels avec mise en garde contre l'orgueil, la paresse et l'avarice, passions et efforts gratifiants), primauté de la complicité humaine, recherche d'équilibre vital entre sciences de laboratoire (optique, électronique, informatique) et imaginaire médiéval (JdR, musique, dessin), et maximes fondatrices (Carpe Diem, parabole de l'oiseau au creux de la main).
+  - **Chapitre 03 : *Éloge du temps libre et de l'éveil* (vers 1998, 724 mots)** : éveil sensoriel de l'enfant (analogie du cerveau comme disque dur défragmenté à la naissance accumulant sans conflits psychologiques), suivi d'un manifeste foisonnant pour les loisirs actifs et associatifs contre la passivité télévisuelle du métro-boulot-dodo (jeux de plateau à figurines comme *Warhammer 40000*, *Space Hulk*, jeux de stratégie *Civilisation*, *Dune*, conception personnelle du jeu *Les Royaumes d'Yttria*, jeux de cartes *Magic* et *Vampire*, jeux de rôle, sports et clubs).
+
+### Modifié
+- **Tome IV (*Carnets, réflexions & partages*)** :
+  - Décalage ordonné des chapitres existants vers les positions 04 à 07 (`04-hygiene-de-vie.html`, `05-imaginez-vous.html`, `06-idees-cadeaux.html`, `07-marre-d-apprendre.html`) avec harmonisation de leur titrage en chiffres romains (`IV.` à `VII.`).
+  - Mise à jour de `intro.html` (7 textes, période 1996-2024, mention des thématiques d'art, de demoscene, d'édenisme et de temps libre).
+  - Mise à jour de `public/books.json` (7 chapitres déclarés avec dates et chemins).
+  - Fiche statique `livres/recueils-proses-poesies-t4-carnets-reflexions-partages/index.html` regénérée via `scripts/build_book_pages.py`.
+- **Catalogue global** : La Bibliothèque de Hylst compte désormais **11 livres et 98 chapitres** (109 fichiers de contenu).
+- **Service Worker** : passage à la version source `hylst-reader-v86` dans `sw.js`.
+- **Typographie et responsive** : zéro tiret cadratin ou demi-cadratin sur 136 fichiers contrôlés (`python scripts/check_dashes.py --root .`). Rendu mobile 390 px vérifié.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 136 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+- Validation DOM des 7 chapitres de Tome IV : balises HTML équilibrées, 0 erreur.
+- Rendu visuel desktop et mobile 390 px inspecté et validé via Chrome headless.
+
 ## [1.8.29] - 2026-11-08
 
 ### Modifié

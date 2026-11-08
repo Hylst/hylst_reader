@@ -612,9 +612,17 @@
         "cover": "covers/stories/265975184.webp"
       },
       {
-        "id": "05-ondes-positives.html",
+        "id": "05-le-pantin-et-la-poupee-de-cire.html",
+        "title": "Le pantin et la poupée de cire",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/05-le-pantin-et-la-poupee-de-cire.html",
+        "available": true,
+        "originalTitle": "Le pantin et la poupée de cire",
+        "originalDate": "2021-11-04"
+      },
+      {
+        "id": "06-ondes-positives.html",
         "title": "Ondes positives",
-        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/05-ondes-positives.html",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/06-ondes-positives.html",
         "available": true,
         "originalTitle": "Ondes positives",
         "originalDate": "2024-01-29",
@@ -622,9 +630,9 @@
         "cover": "covers/stories/361625826.webp"
       },
       {
-        "id": "06-intermede-feerique.html",
+        "id": "07-intermede-feerique.html",
         "title": "Intermède féerique",
-        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/06-intermede-feerique.html",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/07-intermede-feerique.html",
         "available": true,
         "originalTitle": "Intermède féérique",
         "originalDate": "2024-01-29",
@@ -632,9 +640,9 @@
         "cover": "covers/stories/361622900.webp"
       },
       {
-        "id": "07-dangaord.html",
+        "id": "08-dangaord.html",
         "title": "Dangaord",
-        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/07-dangaord.html",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/08-dangaord.html",
         "available": true,
         "originalTitle": "Dangaord",
         "originalDate": "2024-02-28",
@@ -642,9 +650,9 @@
         "cover": "covers/stories/363995434.webp"
       },
       {
-        "id": "08-metro-fantasque.html",
+        "id": "09-metro-fantasque.html",
         "title": "Métro Fantasque",
-        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/08-metro-fantasque.html",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/09-metro-fantasque.html",
         "available": true,
         "originalTitle": "Métro Fantasque",
         "originalDate": "2024-02-28",
@@ -652,16 +660,16 @@
         "cover": "covers/stories/363995181.webp"
       },
       {
-        "id": "09-farouches-apparitions.html",
+        "id": "10-farouches-apparitions.html",
         "title": "Farouches apparitions",
-        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/09-farouches-apparitions.html",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/10-farouches-apparitions.html",
         "available": true,
         "originalDate": "1999-06-12"
       },
       {
-        "id": "10-la-taniere-du-mage.html",
+        "id": "11-la-taniere-du-mage.html",
         "title": "La tanière du mage",
-        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/10-la-taniere-du-mage.html",
+        "path": "books/recueils-proses-poesies-t2-fantasque-merveilleux/11-la-taniere-du-mage.html",
         "available": true,
         "originalDate": "2020"
       }

@@ -1,6 +1,21 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.33] - 2026-11-08
+
+### Modifié
+- **Ajustements de terminologie et datation des poésies** :
+  - **Fantasques du Bocal** : remplacement de « club d'écrivains » par **« club / groupe d'écriture »** (cercle d'amateurs non professionnels pour le plaisir et le défi de créer) dans les 3 introductions de tomes (`intro.html`) et la mention catalogue `illustrationNote`.
+  - **Datation Tome III (*Cœurs, chaos & quotidien*)** : période d'écriture étendue à **1995-2024** (au lieu de 2021-2024), plusieurs textes ayant été initiés dès 1995 comme pour le Tome I.
+  - **Fiches statiques** : régénération des 11 fiches (`scripts/build_book_pages.py`).
+  - **Service Worker** : incrémentation du cache source vers `hylst-reader-v89` dans `sw.js`.
+  - **Vérification d'archives** : confirmation que les textes isolés des archives (*Effet papillon*, *Ariane*, *Le rêve d'un gaijin profane*) sont déjà tous intégrés aux tomes II et III.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 136 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+
 ## [1.8.32] - 2026-11-08
 
 ### Modifié

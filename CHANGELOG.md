@@ -18,6 +18,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Rendu visuel desktop et mobile 390 px vérifié via Chrome headless (captures sans débordement, images et schémas vectoriels chargés, typographie saine).
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `712e7d5f6378`, 276 fichiers runtime vérifiés, zéro dossier de travail.
 - Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitres 9 et 10, plans et schémas SVG.
+- Production : déployée le 08/11 (commit plateforme `f1bdfc1c`, docs `c11f3c62`), build `712e7d5f6378`, SW `hylst-reader-712e7d5f6378`, index `?v=712e7d5f6378`. `verify-release.ps1` entièrement vert : build cohérent, 13 URL, 11 fiches, 301, CSP meta et Nginx, `.env` 403, sources 404, aucun Babel ni JSX servi. Chapitres 9, 10 et leurs schémas SVG en 200 sur le domaine de production.
 
 ## [1.8.24] - 2026-11-08
 

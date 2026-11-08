@@ -25,7 +25,7 @@
 
 ## État actuel
 
-- Version **1.8.25** déployée le 08/11 (commit plateforme `2838cd6e` mis à niveau), cache Service Worker source `hylst-reader-v81`, build `712e7d5f6378`, SW `hylst-reader-712e7d5f6378`. 276 fichiers runtime, 11 livres, 94 chapitres, 13 URL au sitemap.
+- Version **1.8.25** déployée le 08/11 (commit plateforme `f1bdfc1c`, docs `c11f3c62`), cache Service Worker source `hylst-reader-v81`, build `712e7d5f6378`, SW `hylst-reader-712e7d5f6378`. 276 fichiers runtime, 11 livres, 94 chapitres, 13 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Chapitres IX et X enrichis** :
   - **Chapitre IX** (*Esclavage gouri sans vergogne*) porté à 16 603 mots de texte (22 `h2`, 35 tableaux, 3 figures, plan et schéma vectoriel `chapitre-9-schema.svg`). Fiche technique, 5 horloges, quartier des Hautes Lices, PNJ, dangers, émeraudes, phases Bromi/rat, 6 routes, temple et aides de jeu d6.
   - **Chapitre X** (*Vapeur et boulons*) porté à 13 885 mots de texte (18 `h2`, 33 tableaux, 3 figures, plan et schéma vectoriel `chapitre-10-schema.svg`). Fiche technique, 5 horloges, Samarande et Bejofa, filature, moulin pièce par pièce (zones A-I), machine et jauges, 15 PNJ, 8 factions, acte V, sort de Tramiel, pierre de rosette, 10 issues, aides de jeu d6, sécurité de table.

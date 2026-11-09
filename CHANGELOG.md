@@ -1,6 +1,30 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.35] - 2026-11-09
+
+### Modifié
+- **Cadrage des vignettes d'illustrations de chapitre (`css/reader.css`)** :
+  - Définition de règles précises pour `.chapter-figure` et `.chapter-figure img` (`max-width: 480px; max-height: 280px; object-fit: cover; margin: 1.5rem auto 2.5rem; border-radius: 12px`).
+  - L'illustration ne monopolise plus la totalité de l'écran et s'intègre harmonieusement comme une vignette de tête de chapitre (semblable aux couvertures Wattpad).
+- **Éradication de la mention « AURA » et des bandeaux anglais sur les 48 visuels** :
+  - Recadrage du ciel sur l'ensemble des 48 illustrations de *Chronique d'une atrophie programmée* pour supprimer les cartouches anglais (« CHAPTER 3 THE FISSURE », etc.).
+  - Inpainting et masquage des logos et badges « AURA » (notamment sur le casque VR du chapitre 3 et les emblèmes muraux).
+  - Remplacement des chapitres litigieux par des scènes d'ambiance et panoramiques vierges de tout texte issues de l'archive.
+  - Validation Tesseract : zéro mention « AURA » résiduelle sur les 48 illustrations.
+- **Rectification de la datation d'*Approche de la Neurodiversité*** :
+  - Période d'écriture réelle fixée à **2018-2022** (mise en ligne en 2026) dans `public/books.json`, `intro.html` et la fiche statique `livres/approche-de-la-neurodiversite/index.html`.
+- **Service Worker** : incrémentation du cache source vers `hylst-reader-v91` dans `sw.js`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 186 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+- `python scripts/test_assets_atrophie.py` : 48/48 illustrations WebP conformes.
+- Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `f45d0fcef3ea`, 385 fichiers runtime vérifiés.
+- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur tous les assets.
+- Production : déployée le 09/11 (commit plateforme `ac6cabe3`, docs `1c7b8b45`), build `f45d0fcef3ea`, SW `hylst-reader-f45d0fcef3ea`, index `?v=f45d0fcef3ea`. `verify-release.ps1` entièrement vert.
+
 ## [1.8.34] - 2026-11-09
 
 ### Ajouté

@@ -25,7 +25,12 @@
 
 ## État actuel
 
-- Version **1.8.34** en cours, cache Service Worker source `hylst-reader-v90`. 12 livres, 146 chapitres (158 fichiers de contenu), 14 URL au sitemap.
+- Version **1.8.35** déployée le 09/11 (commit plateforme `ac6cabe3`, docs `1c7b8b45`), cache Service Worker source `hylst-reader-v91`, build `f45d0fcef3ea`, SW `hylst-reader-f45d0fcef3ea`. 385 fichiers runtime, 12 livres, 146 chapitres (158 fichiers de contenu), 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
+- **Cadrage des vignettes et élimination d'AURA** :
+  - `.chapter-figure` calibré sous `css/reader.css` (`max-width: 480px; max-height: 280px; object-fit: cover`) évitant le débordement plein écran sur la lecture.
+  - Élimination des bandeaux anglais et des mentions « AURA » sur les 48 illustrations de chapitres.
+  - Rectification de la datation d'*Approche de la Neurodiversité* : rédaction de **2018 à 2022** (mise en ligne en 2026).
+- Version **1.8.34** déployée le 09/11 (commit plateforme `0d7b368b`, docs `ff0ac19d`), cache Service Worker source `hylst-reader-v90`, build `31530bf4ee27`, SW `hylst-reader-31530bf4ee27`. 385 fichiers runtime, 12 livres, 146 chapitres (158 fichiers de contenu), 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Publication du 12ᵉ livre : *Chronique d'une atrophie programmée*** :
   - Roman complet en 48 chapitres et 4 actes (20 105 mots).
   - Éradication des clichés d'IA (AURA, Léo, Silas, Anya, Glitch, Marcus le clone) au profit de Léonce l'Ajusteur / Plisseur de mots, Barnabé Pépé Rature, Marthe la Râpe, Le Cliquet, Tristan et l'Intendance du S.Y.N.D.I.C.

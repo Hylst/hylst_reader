@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="100%" height="auto" role="img" aria-label="Architecture des 13 bequilles cognitives pour adultes neuroatypiques">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .col-box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; rx: 12px; }
+      .col-header { fill: #f1f5f9; rx: 8px; }
+      .title { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #0f172a; }
+      .header-txt { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 700; fill: #1e293b; letter-spacing: 0.5px; }
+      .item-title { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 700; fill: #0369a1; }
+      .item-desc { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; fill: #475569; }
+      .banner { fill: #eff6ff; stroke: #bfdbfe; stroke-width: 1.5; rx: 10px; }
+      .banner-txt { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 600; fill: #1e40af; }
+      @media (prefers-color-scheme: dark) {
+        .bg { fill: #0f172a; }
+        .col-box { fill: #1e293b; stroke: #334155; }
+        .col-header { fill: #0f172a; }
+        .title { fill: #f8fafc; }
+        .header-txt { fill: #f1f5f9; }
+        .item-title { fill: #38bdf8; }
+        .item-desc { fill: #94a3b8; }
+        .banner { fill: #1e293b; stroke: #3b82f6; }
+        .banner-txt { fill: #93c5fd; }
+      }
+    </style>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" rx="14" />
+
+  <text x="480" y="38" text-anchor="middle" class="title">La Boîte à Béquilles : 13 Stratégies Cognitives de Terrain</text>
+  <text x="480" y="60" text-anchor="middle" class="item-desc" font-size="13px">L'arsenal pragmatique de l'adulte pour contourner la friction sans s'épuiser</text>
+
+  <!-- Pilier 1 : Corps & Espace -->
+  <g transform="translate(30, 85)">
+    <rect width="210" height="420" class="col-box" />
+    <rect x="8" y="8" width="194" height="36" class="col-header" />
+    <text x="105" y="31" text-anchor="middle" class="header-txt">1. CORPS &amp; ESPACE</text>
+
+    <g transform="translate(14, 60)">
+      <text x="0" y="14" class="item-title">1. Poste épuré</text>
+      <text x="0" y="30" class="item-desc">Plan de travail dégagé.</text>
+      <text x="0" y="44" class="item-desc">Nuque et mains calées.</text>
+    </g>
+
+    <g transform="translate(14, 130)">
+      <text x="0" y="14" class="item-title">2. Zéro parasite</text>
+      <text x="0" y="30" class="item-desc">Couper notifications,</text>
+      <text x="0" y="44" class="item-desc">bruits de fond et écrans.</text>
+    </g>
+
+    <g transform="translate(14, 200)">
+      <text x="0" y="14" class="item-title">3. Rituel d'ancrage</text>
+      <text x="0" y="30" class="item-desc">Respirer, s'installer,</text>
+      <text x="0" y="44" class="item-desc">trouver le calme intérieur.</text>
+    </g>
+
+    <g transform="translate(14, 270)">
+      <text x="0" y="14" class="item-title">4. Temps long</text>
+      <text x="0" y="30" class="item-desc">Répéter le geste sans honte.</text>
+      <text x="0" y="44" class="item-desc">Apprivoiser la lenteur.</text>
+    </g>
+  </g>
+
+  <!-- Pilier 2 : Délestage Mental -->
+  <g transform="translate(260, 85)">
+    <rect width="210" height="420" class="col-box" />
+    <rect x="8" y="8" width="194" height="36" class="col-header" />
+    <text x="105" y="31" text-anchor="middle" class="header-txt">2. DÉLESTAGE</text>
+
+    <g transform="translate(14, 60)">
+      <text x="0" y="14" class="item-title">5. Micro-étapes</text>
+      <text x="0" y="30" class="item-desc">Segmenter l'effort pour</text>
+      <text x="0" y="44" class="item-desc">éviter le mur mental.</text>
+    </g>
+
+    <g transform="translate(14, 130)">
+      <text x="0" y="14" class="item-title">6. Listes immédiates</text>
+      <text x="0" y="30" class="item-desc">Pense-bêtes prioritaires.</text>
+      <text x="0" y="44" class="item-desc">Vider la mémoire vive.</text>
+    </g>
+
+    <g transform="translate(14, 200)">
+      <text x="0" y="14" class="item-title">7. Automates &amp; Alarmes</text>
+      <text x="0" y="30" class="item-desc">Programmer les rappels</text>
+      <text x="0" y="44" class="item-desc">pour ne plus s'angoisser.</text>
+    </g>
+
+    <g transform="translate(14, 270)">
+      <text x="0" y="14" class="item-title">8. Jeter sur papier</text>
+      <text x="0" y="30" class="item-desc">Évacuer les pensées</text>
+      <text x="0" y="44" class="item-desc">parasites avant de créer.</text>
+    </g>
+  </g>
+
+  <!-- Pilier 3 : Méthode & Biologie -->
+  <g transform="translate(490, 85)">
+    <rect width="210" height="420" class="col-box" />
+    <rect x="8" y="8" width="194" height="36" class="col-header" />
+    <text x="105" y="31" text-anchor="middle" class="header-txt">3. STRUCTURE</text>
+
+    <g transform="translate(14, 60)">
+      <text x="0" y="14" class="item-title">9. Schémas visuels</text>
+      <text x="0" y="30" class="item-desc">Traduire l'abstrait en</text>
+      <text x="0" y="44" class="item-desc">arborescences et couleurs.</text>
+    </g>
+
+    <g transform="translate(14, 130)">
+      <text x="0" y="14" class="item-title">10. Relecture différée</text>
+      <text x="0" y="30" class="item-desc">Ne jamais relire à chaud</text>
+      <text x="0" y="44" class="item-desc">avec les yeux fatigués.</text>
+    </g>
+
+    <g transform="translate(14, 200)">
+      <text x="0" y="14" class="item-title">11. Carburant physique</text>
+      <text x="0" y="30" class="item-desc">Sommeil inviolable,</text>
+      <text x="0" y="44" class="item-desc">eau fraîche et aération.</text>
+    </g>
+  </g>
+
+  <!-- Pilier 4 : Esprit Embrumé -->
+  <g transform="translate(720, 85)">
+    <rect width="210" height="420" class="col-box" />
+    <rect x="8" y="8" width="194" height="36" class="col-header" />
+    <text x="105" y="31" text-anchor="middle" class="header-txt">4. RUPTURE</text>
+
+    <g transform="translate(14, 60)">
+      <text x="0" y="14" class="item-title">12. Alerte « Brouillard »</text>
+      <text x="0" y="30" class="item-desc">Sentir quand le cerveau</text>
+      <text x="0" y="44" class="item-desc">refuse d'additionner.</text>
+    </g>
+
+    <g transform="translate(14, 150)">
+      <text x="0" y="14" class="item-title">13. Savoir dire Stop</text>
+      <text x="0" y="30" class="item-desc">Couper net, reporter sans</text>
+      <text x="0" y="44" class="item-desc">culpabiliser. Sauvegarder.</text>
+    </g>
+
+    <g transform="translate(14, 240)">
+      <text x="0" y="14" class="item-title">Bienveillance</text>
+      <text x="0" y="30" class="item-desc">Pardonner l'oubli.</text>
+      <text x="0" y="44" class="item-desc">Respecter ses limites.</text>
+    </g>
+  </g>
+
+  <!-- Bandeau synthese inferieur -->
+  <g transform="translate(30, 530)">
+    <rect width="900" height="60" class="banner" />
+    <text x="450" y="35" text-anchor="middle" class="banner-txt">« La béquille n'est pas un aveu de faiblesse : c'est l'intelligence de celui qui veut continuer à marcher. »</text>
+  </g>
+</svg>

@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" width="100%" height="auto" role="img" aria-label="Cartographie des troubles cognitifs et de leurs interferences">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; rx: 10px; }
+      .card-accent { fill: #eff6ff; stroke: #3b82f6; stroke-width: 2; rx: 10px; }
+      .card-warn { fill: #fff7ed; stroke: #f97316; stroke-width: 1.5; rx: 10px; }
+      .title { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #0f172a; }
+      .subtitle { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 600; fill: #334155; }
+      .txt { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; fill: #475569; }
+      .txt-bold { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 600; fill: #1e293b; }
+      .tag { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 700; fill: #1d4ed8; letter-spacing: 0.5px; }
+      .tag-warn { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 700; fill: #c2410c; }
+      .arrow { stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 4 4; fill: none; marker-end: url(#arrowhead); }
+      @media (prefers-color-scheme: dark) {
+        .bg { fill: #0f172a; }
+        .card { fill: #1e293b; stroke: #334155; }
+        .card-accent { fill: #172554; stroke: #60a5fa; }
+        .card-warn { fill: #431407; stroke: #fb923c; }
+        .title { fill: #f8fafc; }
+        .subtitle { fill: #e2e8f0; }
+        .txt { fill: #94a3b8; }
+        .txt-bold { fill: #cbd5e1; }
+        .tag { fill: #93c5fd; }
+        .tag-warn { fill: #fdba74; }
+        .arrow { stroke: #64748b; }
+      }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" rx="14" />
+
+  <!-- En-tete -->
+  <text x="480" y="38" text-anchor="middle" class="title">Cartographie des Troubles Cognitifs et de leurs Répercussions</text>
+  <text x="480" y="60" text-anchor="middle" class="txt">Architecture des cinq familles dys : un relais défaillant dans une intelligence normale</text>
+
+  <!-- Bloc 1 : Langage ecrit -->
+  <g transform="translate(40, 90)">
+    <rect width="260" height="150" class="card" />
+    <text x="16" y="28" class="tag">01. LANGAGE ÉCRIT</text>
+    <text x="16" y="50" class="subtitle">Dyslexie &amp; Dysorthographie</text>
+    <text x="16" y="74" class="txt">• Lecture hachée, déchiffrage lent</text>
+    <text x="16" y="94" class="txt">• Forme visuelle des mots fuyante</text>
+    <text x="16" y="114" class="txt">• Fatigue oculaire et cérébrale précoce</text>
+    <text x="16" y="134" class="txt-bold">Impact : scolarité littéraire ralentie</text>
+  </g>
+
+  <!-- Bloc 2 : Langage oral -->
+  <g transform="translate(350, 90)">
+    <rect width="260" height="150" class="card" />
+    <text x="16" y="28" class="tag">02. LANGAGE ORAL</text>
+    <text x="16" y="50" class="subtitle">Dysphasie de développement</text>
+    <text x="16" y="74" class="txt">• Prononciation et débit heurtés</text>
+    <text x="16" y="94" class="txt">• Recherche laborieuse du mot exact</text>
+    <text x="16" y="114" class="txt">• Décodage subtil des intonations lent</text>
+    <text x="16" y="134" class="txt-bold">Impact : communication sociale entravée</text>
+  </g>
+
+  <!-- Bloc 3 : Psychomoteur & Espace -->
+  <g transform="translate(660, 90)">
+    <rect width="260" height="150" class="card" />
+    <text x="16" y="28" class="tag">03. GESTE &amp; ESPACE</text>
+    <text x="16" y="50" class="subtitle">Dyspraxie, TAC &amp; Dysgraphie</text>
+    <text x="16" y="74" class="txt">• Écriture manuelle douloureuse</text>
+    <text x="16" y="94" class="txt">• Maladresse gestuelle au quotidien</text>
+    <text x="16" y="114" class="txt">• Repérage spatial et géométrie fuyants</text>
+    <text x="16" y="134" class="txt-bold">Impact : perte d'autonomie pratique</text>
+  </g>
+
+  <!-- Bloc 4 : Attention & Execution -->
+  <g transform="translate(180, 275)">
+    <rect width="275" height="150" class="card" />
+    <text x="16" y="28" class="tag">04. ATTENTION &amp; FOCUS</text>
+    <text x="16" y="50" class="subtitle">TDA/H &amp; Fonctions Exécutives</text>
+    <text x="16" y="74" class="txt">• Filtre attentionnel perméable</text>
+    <text x="16" y="94" class="txt">• Captation impromptue par les stimuli</text>
+    <text x="16" y="114" class="txt">• Difficulté à initier et maintenir la tâche</text>
+    <text x="16" y="134" class="txt-bold">Impact : dispersion et épuisement mental</text>
+  </g>
+
+  <!-- Bloc 5 : Memoire & Calcul -->
+  <g transform="translate(505, 275)">
+    <rect width="275" height="150" class="card" />
+    <text x="16" y="28" class="tag">05. MÉMOIRE &amp; CALCUL</text>
+    <text x="16" y="50" class="subtitle">Mémoire de travail &amp; Dyscalculie</text>
+    <text x="16" y="74" class="txt">• Saturation immédiate des consignes</text>
+    <text x="16" y="94" class="txt">• Tables, conversions et durées floues</text>
+    <text x="16" y="114" class="txt">• Décalage entre logique et manipulation</text>
+    <text x="16" y="134" class="txt-bold">Impact : gestion du temps et des comptes</text>
+  </g>
+
+  <!-- Nœud central transversal : Le Foyer Commun -->
+  <g transform="translate(140, 460)">
+    <rect width="680" height="125" class="card-warn" />
+    <text x="340" y="30" text-anchor="middle" class="tag-warn">LE SOCLE COMMUN DU VÉCU DYS</text>
+    <text x="340" y="54" text-anchor="middle" class="subtitle">Surcharge Cognitive · Usure Invisible · Jugement Social Biaisé</text>
+    <text x="340" y="80" text-anchor="middle" class="txt">Le décalage ne relève ni d'une mauvaise volonté, ni d'un déficit d'intelligence :</text>
+    <text x="340" y="102" text-anchor="middle" class="txt-bold">Il exige un surcoût d'énergie permanent pour compenser chaque seconde ce que d'autres automatisent.</text>
+  </g>
+
+  <!-- Lignes d'influence -->
+  <path d="M 170 240 L 300 460" class="arrow" />
+  <path d="M 480 240 L 480 460" class="arrow" />
+  <path d="M 790 240 L 660 460" class="arrow" />
+</svg>

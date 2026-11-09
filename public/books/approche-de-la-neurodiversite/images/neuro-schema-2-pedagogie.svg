@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="auto" role="img" aria-label="Dynamique de l'accompagnement scolaire pour enfants en difficulte">
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .card-err { fill: #fef2f2; stroke: #ef4444; stroke-width: 1.5; rx: 10px; }
+      .card-ok { fill: #f0fdf4; stroke: #22c55e; stroke-width: 1.5; rx: 10px; }
+      .card-pivot { fill: #eff6ff; stroke: #3b82f6; stroke-width: 2; rx: 10px; }
+      .title { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #0f172a; }
+      .subtitle { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 600; fill: #334155; }
+      .txt { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; fill: #475569; }
+      .txt-bold { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 600; fill: #1e293b; }
+      .tag-err { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 700; fill: #b91c1c; }
+      .tag-ok { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 700; fill: #15803d; }
+      .tag-pivot { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 700; fill: #1d4ed8; }
+      .arr-err { stroke: #ef4444; stroke-width: 2; fill: none; marker-end: url(#arr-err); }
+      .arr-ok { stroke: #22c55e; stroke-width: 2; fill: none; marker-end: url(#arr-ok); }
+      @media (prefers-color-scheme: dark) {
+        .bg { fill: #0f172a; }
+        .card-err { fill: #450a0a; stroke: #f87171; }
+        .card-ok { fill: #052e16; stroke: #4ade80; }
+        .card-pivot { fill: #172554; stroke: #60a5fa; }
+        .title { fill: #f8fafc; }
+        .subtitle { fill: #e2e8f0; }
+        .txt { fill: #94a3b8; }
+        .txt-bold { fill: #cbd5e1; }
+        .tag-err { fill: #fca5a5; }
+        .tag-ok { fill: #86efac; }
+        .tag-pivot { fill: #93c5fd; }
+      }
+    </style>
+    <marker id="arr-err" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#ef4444" />
+    </marker>
+    <marker id="arr-ok" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#22c55e" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" rx="14" />
+
+  <text x="480" y="38" text-anchor="middle" class="title">Accompagnement de l'Enfant : Sortir de l'Engrenage de l'Échec</text>
+  <text x="480" y="60" text-anchor="middle" class="txt">La rupture de la spirale punitive au profit d'une remédiation pragmatique</text>
+
+  <!-- Colonne Gauche : La Spirale de l'Echec -->
+  <g transform="translate(50, 90)">
+    <text x="180" y="24" text-anchor="middle" class="tag-err">L'ENGRENAGE DE LA BLESSURE</text>
+    
+    <g transform="translate(0, 40)">
+      <rect width="360" height="70" class="card-err" />
+      <text x="16" y="26" class="subtitle">1. Blocage d'apprentissage initial</text>
+      <text x="16" y="48" class="txt">Mécanisme dys ignoré ou pris pour de la distraction.</text>
+    </g>
+
+    <g transform="translate(0, 130)">
+      <rect width="360" height="70" class="card-err" />
+      <text x="16" y="26" class="subtitle">2. Sanction scolaire &amp; Mauvaise note</text>
+      <text x="16" y="48" class="txt">Le résultat chiffré condamne l'effort invisible fourni.</text>
+    </g>
+
+    <g transform="translate(0, 220)">
+      <rect width="360" height="70" class="card-err" />
+      <text x="16" y="26" class="subtitle">3. Jugement social &amp; Incompréhension</text>
+      <text x="16" y="48" class="txt">« Il ne fait aucun effort », « Il est dans la lune ».</text>
+    </g>
+
+    <g transform="translate(0, 310)">
+      <rect width="360" height="70" class="card-err" />
+      <text x="16" y="26" class="subtitle">4. Agressivité ou Retrait dépressif</text>
+      <text x="16" y="48" class="txt">L'enfant capitule pour se protéger du mépris.</text>
+    </g>
+
+    <path d="M 180 110 L 180 130" class="arr-err" />
+    <path d="M 180 200 L 180 220" class="arr-err" />
+    <path d="M 180 290 L 180 310" class="arr-err" />
+  </g>
+
+  <!-- Colonne Droite : La Remédiation Bienveillante -->
+  <g transform="translate(550, 90)">
+    <text x="180" y="24" text-anchor="middle" class="tag-ok">LE LEVIER PÉDAGOGIQUE DU TERRAIN</text>
+
+    <g transform="translate(0, 40)">
+      <rect width="360" height="70" class="card-ok" />
+      <text x="16" y="26" class="subtitle">1. Écoute sans jugement &amp; Diagnostic</text>
+      <text x="16" y="48" class="txt">Identifier la source : ambiance de classe, fatigue, dys.</text>
+    </g>
+
+    <g transform="translate(0, 130)">
+      <rect width="360" height="70" class="card-ok" />
+      <text x="16" y="26" class="subtitle">2. Dédramatisation de la note</text>
+      <text x="16" y="48" class="txt">Séparer la valeur de l'enfant de son carnet de notes.</text>
+    </g>
+
+    <g transform="translate(0, 220)">
+      <rect width="360" height="70" class="card-ok" />
+      <text x="16" y="26" class="subtitle">3. Méthode du pas-à-pas &amp; Concret</text>
+      <text x="16" y="48" class="txt">Micro-objectifs, pauses récréatives, supports visuels.</text>
+    </g>
+
+    <g transform="translate(0, 310)">
+      <rect width="360" height="70" class="card-ok" />
+      <text x="16" y="26" class="subtitle">4. Victoires minuscules &amp; Confiance</text>
+      <text x="16" y="48" class="txt">L'enfant retrouve le plaisir d'oser apprendre.</text>
+    </g>
+
+    <path d="M 180 110 L 180 130" class="arr-ok" />
+    <path d="M 180 200 L 180 220" class="arr-ok" />
+    <path d="M 180 290 L 180 310" class="arr-ok" />
+  </g>
+
+  <!-- Pont central de bascule -->
+  <g transform="translate(425, 230)">
+    <rect width="110" height="70" class="card-pivot" />
+    <text x="55" y="28" text-anchor="middle" class="tag-pivot">POSTURE</text>
+    <text x="55" y="48" text-anchor="middle" class="txt-bold">Tuteur d'égal</text>
+    <text x="55" y="62" text-anchor="middle" class="txt-bold">à égal</text>
+  </g>
+  <path d="M 410 265 L 425 265" class="arr-err" />
+  <path d="M 535 265 L 550 265" class="arr-ok" />
+
+  <!-- Conclusion basse -->
+  <g transform="translate(100, 490)">
+    <rect width="760" height="50" class="bg" stroke="#cbd5e1" stroke-width="1" rx="8" />
+    <text x="380" y="30" text-anchor="middle" class="txt-bold">« On n'apprend rien sous la menace. On apprend quand on a le droit d'échouer sans être diminué. »</text>
+  </g>
+</svg>

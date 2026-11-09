@@ -1,6 +1,23 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.42] - 2026-11-09
+
+### Modifié
+- **Amélioration éditoriale et typographique d'Approche de la Neurodiversité** :
+  - **Maintien intégral des textes et de la voix d'auteur** : conservation des chapitres 04 (volontairement infantile) et 07, sans altération ni purge de ton, préservation des expressions authentiques et smileys d'origine (`oO`, `^^`, `notre superpouvoir secret`).
+  - **Correction des anomalies d'extraction** :
+    - Chapitre 10 (*Navigation dans le labyrinthe des idées*) : élimination totale des fragments de code React/TSX et reconstruction complète du texte authentique structuré avec préambule et quatre parties.
+    - Chapitre 05 (*Enfants en difficulté scolaire*) : recollage des coupures de phrases intempestives sur les apostrophes et suppression des métadonnées OLE Word résiduelles.
+    - Chapitres 12, 13 et 14 (*La Boîte à béquilles*) : recollage des phrases coupées par les retours à la ligne du fichier source, et structuration complète des 14 stratégies de terrain.
+  - **Hiérarchie sémantique et mise en valeur** : promotion des titres importants en grands titres de section (`<h2>`, `<h3>`), structuration des listes (`<ul>`, `<li>`), et utilisation de l'italique où c'est opportun dans l'ensemble des chapitres.
+- **Service Worker** : incrémentation du cache source vers `hylst-reader-v98` dans `sw.js`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 196 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- Fiches de livres régénérées : 12 fiches à jour.
+
 ## [1.8.41] - 2026-11-09
 
 ### Modifié

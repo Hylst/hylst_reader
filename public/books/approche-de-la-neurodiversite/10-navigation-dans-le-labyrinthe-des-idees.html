@@ -1,279 +1,82 @@
 <div class="chapter-content">
   <h1 class="chapter-main-title"><strong>10. Navigation dans le labyrinthe des idées</strong></h1>
-  <p class="chapter-byline">PARTIE III : ANATOMIE DES CERVEAUX QUI DANSENT · Guide pour esprits foisonnants (2024)</p>
-<p class="chapter-paragraph">; import { motion, AnimatePresence } from</p>
-<p class="chapter-paragraph">; import OptimizedCollapsibleSection from</p>
-<p class="chapter-paragraph">../../components/ui/OptimizedTooltip</p>
-<p class="chapter-paragraph">; /** * NavigationLabyrintheIdees Component * * Displays the</p>
-<p class="chapter-paragraph">article * as an in-app page with modern design and interactive elements. * * Features: * - Structured content with clear sections * - Visual icons and animations * - Professional typography and spacing * - Responsive design * - Author information and development note * - Dark mode compatibility */ const NavigationLabyrintheIdees: React.FC = () => { const navigate = useNavigate(); const [activeTab, setActiveTab] = useState<</p>
-<p class="chapter-paragraph">); const handleBackClick = useCallback(() => { navigate(</p>
-<p class="chapter-paragraph">); }, [navigate]); const fadeInUp = { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6 } }; const staggerChildren = { animate: { transition: { staggerChildren: 0.1 } } }; const textContent = useMemo(() => ({ preamble: { title:</p>
-<p class="chapter-paragraph">Il est essentiel de comprendre pourquoi ces deux difficultés sont si souvent liées, notamment chez les profils neuroatypiques.</p>
-<p class="chapter-paragraph">La structuration de la pensée est une fonction exécutive. C</p>
-<p class="chapter-paragraph">architecte : planifier, organiser, hiérarchiser les idées, créer des liens logiques et suivre un raisonnement.</p>
-<p class="chapter-paragraph">La mémoire, et plus spécifiquement la mémoire de travail, est le chantier de l</p>
-<p class="chapter-paragraph">(les idées, les faits, les consignes) le temps de construire le \</p>
-<p class="chapter-paragraph">}, link: { title:</p>
-<p class="chapter-paragraph">Imaginez que vous essayez de construire un mur, mais que les briques disparaissent de vos mains dès que vous en saisissez une nouvelle. C</p>
-<p class="chapter-paragraph">une mémoire de travail défaillante rencontre un besoin de structuration :</p>
-<p class="chapter-paragraph">Surcharge Cognitive : Le cerveau dépense une énergie considérable juste pour retenir les éléments de la pensée (le début d</p>
-<p class="chapter-paragraph">argument B). Il ne lui reste alors que peu de ressources pour le travail de structuration (comment A et B sont-ils liés ? Lequel est le plus important ?).</p>
-<p class="chapter-paragraph">une réflexion, une nouvelle idée (pensée en arborescence du TDA/H) ou une distraction survient. La mémoire de travail, déjà saturée, \</p>
-<p class="chapter-paragraph">les informations précédentes pour traiter la nouvelle. Le fil est rompu.</p>
-<p class="chapter-paragraph">Objectif : Sans une mémoire de travail solide pour garder l</p>
-<p class="chapter-paragraph">Ce guide propose des stratégies visant précisément à décharger la mémoire de travail pour libérer des ressources mentales au profit de la structuration.</p>
-<p class="chapter-paragraph">Partie 1 : La Fondation - Externaliser sa Pensée pour Libérer sa Mémoire</p>
-<p class="chapter-paragraph">objectif est de sortir les idées de votre tête le plus vite et le plus fidèlement possible, sans filtre ni jugement.</p>
-<p class="chapter-paragraph">est la technique la plus fondamentale. L</p>
-<p class="chapter-paragraph">Principe : Sur une feuille de papier, un tableau blanc ou un document numérique (Notion, OneNote, etc.), écrivez absolument tout ce qui vous passe par la tête concernant votre sujet de réflexion.</p>
-<p class="chapter-paragraph">En Vrac Total : Ne vous souciez ni de l</p>
-<p class="chapter-paragraph">est pas de produire un texte parfait, mais de vider votre charge mentale. Une idée \</p>
-<p class="chapter-paragraph">Le Résultat : Vous disposez maintenant d</p>
-<p class="chapter-paragraph">de votre pensée à un instant T. Votre cerveau n</p>
-<p class="chapter-paragraph">}, voiceDictation: { title:</p>
-<p class="chapter-paragraph">Pour beaucoup, la pensée est plus rapide et instinctive que la vitesse de frappe ou d</p>
-<p class="chapter-paragraph">Principe : Utiliser la fonction dictaphone de votre téléphone ou un logiciel de transcription pour parler de votre idée, comme si vous l</p>
-<p class="chapter-paragraph">Méthode : Ouvrez une note ou un enregistreur et parlez. Décrivez votre projet, posez vos questions à voix haute, développez vos arguments de manière décousue.</p>
-<p class="chapter-paragraph">avantage crucial : Même si au bout de la phrase vous avez oublié le début, l</p>
-<p class="chapter-paragraph">Exploitation : Relisez (ou faites lire par une IA) la transcription. Le simple fait de voir vos propres mots vous remettra sur les rails de votre pensée, vous permettant de la poursuivre, de la corriger et de l</p>
-<p class="chapter-paragraph">} }, part2: { title:</p>
-<p class="chapter-paragraph">Une fois vos idées externalisées, il faut les organiser. C</p>
-<p class="chapter-paragraph">, visualLab: { title:</p>
-<p class="chapter-paragraph">organisation manuelle et visuelle, très efficace pour les penseurs visuels.</p>
-<p class="chapter-paragraph">Principe : Utiliser des codes visuels pour regrouper, hiérarchiser et relier les idées issues de votre \</p>
-<p class="chapter-paragraph">Regrouper : Utilisez des surligneurs de couleurs différentes pour lier les idées qui vont ensemble. Entourez les concepts similaires.</p>
-<p class="chapter-paragraph">Hiérarchiser : Utilisez des symboles (étoiles, chiffres) ou des tailles d</p>
-<p class="chapter-paragraph">Faire des Liens : Dessinez des flèches, des schémas, des tableaux simples pour visualiser les relations de cause à effet, les oppositions, les séquences.</p>
-<p class="chapter-paragraph">Outils : Des post-it de couleurs différentes sur un mur, un grand tableau blanc, ou des applications de mind mapping (Xmind, Miro, Coggle).</p>
-<p class="chapter-paragraph">Cette technique aide à construire un raisonnement linéaire à partir d</p>
-<p class="chapter-paragraph">une idée initiale et se forcer à la lier à la suivante par une question ou une déduction logique, créant une chaîne.</p>
-<p class="chapter-paragraph">Quel est le but de cet événement ?\</p>
-<p class="chapter-paragraph">Le but est de célébrer le lancement du produit X.\</p>
-<p class="chapter-paragraph">Les clients, les partenaires, la presse.\</p>
-<p class="chapter-paragraph">Cela transforme une montagne de réflexion en une série de petites collines à franchir l</p>
-<p class="chapter-paragraph">} }, part3: { title:</p>
-<p class="chapter-paragraph">Même avec des notes, il faut parfois garder des éléments clés en tête.</p>
-<p class="chapter-paragraph">5. Le Palais Mental : Une Technique Puissante mais Exigeante</p>
-<p class="chapter-paragraph">Principe : Associer des informations à mémoriser à des lieux ou des objets dans un endroit que vous connaissez parfaitement (votre maison, votre trajet pour le travail). Pour se souvenir, on parcourt mentalement ce lieu.</p>
-<p class="chapter-paragraph">Est-ce adapté ? Oui : Pour mémoriser une liste d</p>
-<p class="chapter-paragraph">une présentation). Non : Moins adapté pour la phase créative et chaotique de la réflexion. C</p>
-<p class="chapter-paragraph">Méthode Simplifiée : Choisissez votre lieu : Votre appartement. Définissez un parcours logique : Porte d</p>
-<p class="chapter-paragraph">entrée de manière imagée et marquante (ex: la porte est recouverte du logo du projet). Associez la deuxième idée à l</p>
-<p class="chapter-paragraph">}, quickMemoryAids: { title:</p>
-<p class="chapter-paragraph">Pour les concepts importants au sein de vos réflexions, utilisez des techniques plus légères :</p>
-<p class="chapter-paragraph">Images Mentales Frappantes : Associez un concept abstrait à une image absurde, drôle ou émotionnellement forte.</p>
-<p class="chapter-paragraph">Analogies Familières : Reliez une nouvelle idée à quelque chose que vous connaissez déjà très bien.</p>
-<p class="chapter-paragraph">Acronymes : Créez un mot avec la première lettre de chaque élément d</p>
-<p class="chapter-paragraph">} }, part4: { title:</p>
-<p class="chapter-paragraph">Intelligence Artificielle et la Technologie</p>
-<p class="chapter-paragraph">IA peut agir comme un co-pilote pour votre pensée.</p>
-<p class="chapter-paragraph">IA comme Assistant de Structuration :</p>
-<p class="chapter-paragraph">ou la transcription de votre dictée vocale dans une IA (Gemini, ChatGPT, etc.). Demandez-lui : \</p>
-<p class="chapter-paragraph">Identifie une structure logique (introduction, développement, conclusion) dans ce texte.\</p>
-<p class="chapter-paragraph">Propose une suite ou des aspects à développer à partir de ces notes.\</p>
-<p class="chapter-paragraph">Transforme cette liste de points en un plan détaillé.\</p>
-<p class="chapter-paragraph">}, aiTasks: { title:</p>
-<p class="chapter-paragraph">IA pour Décomposer les Tâches et Gérer le Temps :</p>
-<p class="chapter-paragraph">To-Do Lists Assistées : Des applications comme Todoist ou Motion peuvent organiser vos tâches et vous aider à planifier votre journée.</p>
-<p class="chapter-paragraph">Programmation de Tâches : Donnez un objectif à une IA (\</p>
-<p class="chapter-paragraph">) et demandez-lui de décomposer le projet en une liste de tâches réalisables avec des échéances.</p>
-<p class="chapter-paragraph">Rappels Intelligents : Utilisez les assistants vocaux (\</p>
-<p class="chapter-paragraph">) pour décharger votre mémoire prospective. Des applications comme Tiimo sont spécifiquement conçues pour les profils neuroatypiques, avec des rappels visuels et une structuration du temps.</p>
-<p class="chapter-paragraph">Pour les Enfants : Adapter les Astuces à l</p>
-<p class="chapter-paragraph">appliquent, mais de manière plus ludique.</p>
-<p class="chapter-paragraph">une feuille, utilisez une vraie boîte où l</p>
-<p class="chapter-paragraph">Le Dessin en Étoile (Mind Mapping) : Mettez le sujet principal au centre d</p>
-<p class="chapter-paragraph">y rattache. Utilisez beaucoup de couleurs.</p>
-<p class="chapter-paragraph">La Recette de Cuisine : Pour un devoir complexe, présentez les étapes comme une recette : \</p>
-<p class="chapter-paragraph">Le Chemin du Trésor dans la Chambre : Pour mémoriser une leçon (les planètes du système solaire, par exemple), \</p>
-<p class="chapter-paragraph">chaque planète dans un endroit de la chambre (le Soleil sur la lampe, Mars sous le tapis rouge...). L</p>
-<p class="chapter-paragraph">}), []); return ( <div className=</p>
-<p class="chapter-paragraph">container mx-auto px-4 py-8 max-w-4xl</p>
-<p class="chapter-paragraph">> <button onClick={handleBackClick} className=</p>
-<p class="chapter-paragraph">> <ArrowLeft className=</p>
-<p class="chapter-paragraph">p-3 bg-gradient-to-r from-neuro-purple to-neuro-blue rounded-xl</p>
-<p class="chapter-paragraph">> Guide Pratique : Naviguer dans le Labyrinthe des Idées </h1> <p className=</p>
-<p class="chapter-paragraph">> Pour les esprits foisonnants qui peinent à structurer leurs pensées et à retenir l</p>
-<p class="chapter-paragraph">flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400</p>
-<p class="chapter-paragraph">> <Users className=</p>
-<p class="chapter-paragraph">> <Clock className=</p>
-<p class="chapter-paragraph">> <div className=</p>
-<p class="chapter-paragraph">> <Sparkles className=</p>
-<p class="chapter-paragraph">>Développement en cours</h3> <p className=</p>
-<p class="chapter-paragraph">auteur développe actuellement une suite d</p>
-<p class="chapter-paragraph">accès pour répondre concrètement à ces problématiques. Ces outils numériques viendront compléter les stratégies présentées dans ce guide pour offrir un accompagnement pratique aux personnes neurodivergentes. </p> </div> </div> </div> </motion.div> {/* Tab Navigation */} <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.6 }} className=</p>
-<p class="chapter-paragraph">> <button onClick={() => setActiveTab(</p>
-<p class="chapter-paragraph">)} className={`flex-1 px-6 py-4 text-center font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${ activeTab ===</p>
-<p class="chapter-paragraph">bg-gradient-to-r from-neuro-purple to-neuro-blue text-white</p>
-<p class="chapter-paragraph">text-gray-600 hover:text-neuro-purple hover:bg-gray-50 dark:text-gray-300 dark:hover:text-purple-400 dark:hover:bg-gray-700</p>
-<p class="chapter-paragraph">? ( <motion.div key=</p>
-<p class="chapter-paragraph">initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }} transition={{ duration: 0.3 }} > {/* Préambule enrichi */} <motion.section {...fadeInUp} transition={{ delay: 0.3 }} className=</p>
-<p class="chapter-paragraph">text-3xl font-bold text-neuro-purple mb-4 dark:text-purple-400</p>
-<p class="chapter-paragraph">text-lg text-gray-600 max-w-3xl mx-auto dark:text-gray-300</p>
-<p class="chapter-paragraph">bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 mb-8 border-2 border-blue-200 dark:from-blue-900 dark:to-indigo-900 dark:border-blue-700</p>
-<p class="chapter-paragraph">> <Lightbulb className=</p>
-<p class="chapter-paragraph">Analogie du Jongleur Distrait 🤹‍♂️</h3> <p className=</p>
-<p class="chapter-paragraph">> Imaginez un jongleur talentueux qui doit jongler avec 5 balles tout en construisant une tour de Jenga. Sauf que parfois, il regarde passer un papillon et... POUF ! Tout s</p>
-<p class="chapter-paragraph">bg-white rounded-lg p-6 dark:bg-gray-700</p>
-<p class="chapter-paragraph">font-bold text-blue-900 mb-3 dark:text-blue-200</p>
-<p class="chapter-paragraph">> <p className=</p>
-<p class="chapter-paragraph">><strong>Les balles =</strong> Vos idées brillantes</p> <p className=</p>
-<p class="chapter-paragraph">><strong>La tour de Jenga =</strong> Votre raisonnement structuré</p> <p className=</p>
-<p class="chapter-paragraph">><strong>Le papillon =</strong> Cette notification, ce bruit, cette pensée parasite</p> </div> <div className=</p>
-<p class="chapter-paragraph">en étais déjà ? Ah oui, je parlais de... euh... 🤔</p>
-<p class="chapter-paragraph">grid grid-cols-1 lg:grid-cols-2 gap-8</p>
-<p class="chapter-paragraph">bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border-2 border-green-200 dark:from-green-900 dark:to-emerald-900 dark:border-green-700</p>
-<p class="chapter-paragraph">> <CheckCircle className=</p>
-<p class="chapter-paragraph">>Quand Tout Roule 🚗💨</h3> </div> <div className=</p>
-<p class="chapter-paragraph">>🎯 Focus Laser</p> <p className=</p>
-<p class="chapter-paragraph">>Votre mémoire de travail est au top, elle retient toutes les balles sans effort. Votre cerveau peut se concentrer sur la construction de la tour.</p> </div> <div className=</p>
-<p class="chapter-paragraph">>🚀 Idées Fluides</p> <p className=</p>
-<p class="chapter-paragraph">enchaînent logiquement, la tour monte sans accroc. Vous savez où vous allez.</p> </div> </div> </div> <div className=</p>
-<p class="chapter-paragraph">> <AlertCircle className=</p>
-<p class="chapter-paragraph">>Quand Ça Coince 🚧💥</h3> </div> <div className=</p>
-<p class="chapter-paragraph">>🤯 Surcharge Mentale</p> <p className=</p>
-<p class="chapter-paragraph">>Votre mémoire de travail est comme un petit bureau encombré. Dès qu</p>
-<p class="chapter-paragraph">bg-white p-4 rounded-lg border-l-4 border-red-400 dark:bg-gray-700 dark:border-red-600</p>
-<p class="chapter-paragraph">text-red-800 font-semibold mb-1 dark:text-red-200</p>
-<p class="chapter-paragraph">text-gray-700 text-sm dark:text-gray-300</p>
-<p class="chapter-paragraph">avoir commencé.</p> </div> <div className=</p>
-<p class="chapter-paragraph">>⏳ Perte de Temps</p> <p className=</p>
-<p class="chapter-paragraph">>Vous passez plus de temps à essayer de vous souvenir de ce que vous vouliez dire qu</p>
-<p class="chapter-paragraph">text-lg text-gray-700 dark:text-gray-300</p>
-<p class="chapter-paragraph">font-bold text-neuro-blue dark:text-blue-300</p>
-<p class="chapter-paragraph">font-bold text-neuro-purple dark:text-purple-300</p>
-<p class="chapter-paragraph">> {/* Partie 1 */} <OptimizedCollapsibleSection title={textContent.part1.title} icon={PenTool} id=</p>
-<p class="chapter-paragraph">> {textContent.part1.intro} </p> <div className=</p>
-<p class="chapter-paragraph">> {/* Brain Dumping */} <div className=</p>
-<p class="chapter-paragraph">text-xl font-bold text-neuro-purple mb-3 dark:text-purple-300 flex items-center gap-2</p>
-<p class="chapter-paragraph">> {textContent.part1.brainDumping.description} </p> <ul className=</p>
-<p class="chapter-paragraph">> <li> <span className=</p>
-<p class="chapter-paragraph">>Principe :</span> {textContent.part1.brainDumping.principle} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>En Vrac Total :</span> {textContent.part1.brainDumping.methodVrac} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Sans Jugement :</span> {textContent.part1.brainDumping.methodNoJudgment} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Le Résultat :</span> {textContent.part1.brainDumping.result} </li> </ul> </div> {/* Dictée Vocale */} <div className=</p>
-<p class="chapter-paragraph">> {textContent.part1.voiceDictation.description} </p> <ul className=</p>
-<p class="chapter-paragraph">>Principe :</span> {textContent.part1.voiceDictation.principle} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Méthode :</span> {textContent.part1.voiceDictation.method} </li> <li> <span className=</p>
-<p class="chapter-paragraph">avantage crucial :</span> {textContent.part1.voiceDictation.advantage} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Exploitation :</span> {textContent.part1.voiceDictation.exploitation} </li> </ul> </div> </div> </OptimizedCollapsibleSection> {/* Partie 2 */} <OptimizedCollapsibleSection title={textContent.part2.title} icon={Lightbulb} id=</p>
-<p class="chapter-paragraph">> {textContent.part2.intro} </p> <div className=</p>
-<p class="chapter-paragraph">> {/* Laboratoire Visuel */} <div className=</p>
-<p class="chapter-paragraph">> {textContent.part2.visualLab.description} </p> <ul className=</p>
-<p class="chapter-paragraph">>Principe :</span> {textContent.part2.visualLab.principle} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Regrouper :</span> {textContent.part2.visualLab.methodGroup} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Hiérarchiser :</span> {textContent.part2.visualLab.methodHierarchy} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Faire des Liens :</span> {textContent.part2.visualLab.methodLinks} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Outils :</span> {textContent.part2.visualLab.tools} </li> </ul> </div> {/* Chaîne de Pensée */} <div className=</p>
-<p class="chapter-paragraph">> {textContent.part2.chainOfThought.description} </p> <ul className=</p>
-<p class="chapter-paragraph">>Principe :</span> {textContent.part2.chainOfThought.principle} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Méthode :</span> {textContent.part2.chainOfThought.methodExample} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Conclusion :</span> {textContent.part2.chainOfThought.conclusion} </li> </ul> </div> </div> </OptimizedCollapsibleSection> {/* Partie 3 */} <OptimizedCollapsibleSection title={textContent.part3.title} icon={BookOpen} id=</p>
-<p class="chapter-paragraph">> {textContent.part3.intro} </p> <div className=</p>
-<p class="chapter-paragraph">> {/* Palais Mental */} <div className=</p>
-<p class="chapter-paragraph">>Principe :</span> {textContent.part3.mentalPalace.principle} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Est-ce adapté ?</span> {textContent.part3.mentalPalace.adapted} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Méthode Simplifiée :</span> {textContent.part3.mentalPalace.method} </li> </ul> </div> {/* Aides Rapides */} <div className=</p>
-<p class="chapter-paragraph">> {textContent.part3.quickMemoryAids.description} </p> <ul className=</p>
-<p class="chapter-paragraph">>Images Mentales Frappantes :</span> {textContent.part3.quickMemoryAids.images} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Analogies Familières :</span> {textContent.part3.quickMemoryAids.analogies} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Acronymes :</span> {textContent.part3.quickMemoryAids.acronyms} </li> </ul> </div> </div> </OptimizedCollapsibleSection> {/* Partie 4 */} <OptimizedCollapsibleSection title={textContent.part4.title} icon={Smartphone} id=</p>
-<p class="chapter-paragraph">> {textContent.part4.intro} </p> <div className=</p>
-<p class="chapter-paragraph">> {/* IA Structuration */} <div className=</p>
-<p class="chapter-paragraph">>Méthode :</span> {textContent.part4.aiStructuring.method} </li> </ul> </div> {/* IA Tâches */} <div className=</p>
-<p class="chapter-paragraph">>To-Do Lists Assistées :</span> {textContent.part4.aiTasks.todo} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Programmation de Tâches :</span> {textContent.part4.aiTasks.planning} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Rappels Intelligents :</span> {textContent.part4.aiTasks.reminders} </li> </ul> </div> {/* Pour les Enfants */} <div className=</p>
-<p class="chapter-paragraph">> {textContent.part4.forChildren.intro} </p> <ul className=</p>
-<p class="chapter-paragraph">:</span> {textContent.part4.forChildren.ideaBox} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Le Dessin en Étoile (Mind Mapping) :</span> {textContent.part4.forChildren.mindMapping} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>La Recette de Cuisine :</span> {textContent.part4.forChildren.recipe} </li> <li> <span className=</p>
-<p class="chapter-paragraph">>Le Chemin du Trésor dans la Chambre :</span> {textContent.part4.forChildren.treasureHunt} </li> </ul> </div> </div> </OptimizedCollapsibleSection> </motion.div> {/* Footer */} <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.6 }} className=</p>
-<p class="chapter-paragraph">> <p>&copy; {new Date().getFullYear()} NeuroDiversité Explorer. Tous droits réservés.</p> <p>Développé avec ❤️ par Geoffroy Streit</p> </motion.div> </motion.div> ) : ( <motion.div key=</p>
-<p class="chapter-paragraph">initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }} > {/* Textual Presentation */} <div className=</p>
-<p class="chapter-paragraph">text-lg text-gray-600 dark:text-gray-300 italic</p>
-<p class="chapter-paragraph">essentiel </p> </div> <div className=</p>
-<p class="chapter-paragraph">> <section> <h2 className=</p>
-<p class="chapter-paragraph">> Préambule : Différence et Liens entre Mémoire et Structuration de la Pensée </h2> <p className=</p>
-<p class="chapter-paragraph">> Il est essentiel de comprendre pourquoi ces deux difficultés sont si souvent liées, notamment chez les profils neuroatypiques. </p> <h3 className=</p>
-<p class="chapter-paragraph">>La Différence :</h3> <ul className=</p>
-<p class="chapter-paragraph">> <li>La structuration de la pensée est une fonction exécutive. C</p>
-<p class="chapter-paragraph">architecte : planifier, organiser, hiérarchiser les idées, créer des liens logiques et suivre un raisonnement.</li> <li>La mémoire, et plus spécifiquement la mémoire de travail, est le chantier de l</p>
-<p class="chapter-paragraph">(les idées, les faits, les consignes) le temps de construire le</p>
-<p class="chapter-paragraph">(la réflexion).</li> </ul> <h3 className=</p>
-<p class="chapter-paragraph">>Le Lien Indissociable :</h3> <p className=</p>
-<p class="chapter-paragraph">> Imaginez que vous essayez de construire un mur, mais que les briques disparaissent de vos mains dès que vous en saisissez une nouvelle. C</p>
-<p class="chapter-paragraph">une mémoire de travail défaillante rencontre un besoin de structuration : </p> <ul className=</p>
-<p class="chapter-paragraph">> <li><strong>Surcharge Cognitive :</strong> Le cerveau dépense une énergie considérable juste pour retenir les éléments de la pensée (le début d</p>
-<p class="chapter-paragraph">argument B). Il ne lui reste alors que peu de ressources pour le travail de structuration (comment A et B sont-ils liés ? Lequel est le plus important ?).</li> <li><strong>Perte du Fil :</strong> Au milieu d</p>
-<p class="chapter-paragraph">les informations précédentes pour traiter la nouvelle. Le fil est rompu.</li> <li><strong>L</p>
-<p class="chapter-paragraph">Objectif :</strong> Sans une mémoire de travail solide pour garder l</p>
-<p class="chapter-paragraph">> Ce guide propose des stratégies visant précisément à décharger la mémoire de travail pour libérer des ressources mentales au profit de la structuration. </p> </section> <section> <h2 className=</p>
-<p class="chapter-paragraph">> Partie 1 : La Fondation - Externaliser sa Pensée pour Libérer sa Mémoire </h2> <p className=</p>
-<p class="chapter-paragraph">objectif est de sortir les idées de votre tête le plus vite et le plus fidèlement possible, sans filtre ni jugement. </p> <h3 className=</p>
-<p class="chapter-paragraph">(Brain Dumping)</h3> <p className=</p>
-<p class="chapter-paragraph">><strong>Principe :</strong> Sur une feuille de papier, un tableau blanc ou un document numérique (Notion, OneNote, etc.), écrivez absolument tout ce qui vous passe par la tête concernant votre sujet de réflexion.</p> <p className=</p>
-<p class="chapter-paragraph">><strong>Méthode :</strong></p> <ul className=</p>
-<p class="chapter-paragraph">> <li><strong>En Vrac Total :</strong> Ne vous souciez ni de l</p>
-<p class="chapter-paragraph">est pas de produire un texte parfait, mais de vider votre charge mentale. Une idée</p>
-<p class="chapter-paragraph">peut en cacher une brillante.</li> </ul> <p className=</p>
-<p class="chapter-paragraph">><strong>Le Résultat :</strong> Vous disposez maintenant d</p>
-<p class="chapter-paragraph">organisation.</p> <h3 className=</p>
-<p class="chapter-paragraph">>2. La Dictée Vocale : La Pensée Fluide</h3> <p className=</p>
-<p class="chapter-paragraph">>Pour beaucoup, la pensée est plus rapide et instinctive que la vitesse de frappe ou d</p>
-<p class="chapter-paragraph">><strong>Principe :</strong> Utiliser la fonction dictaphone de votre téléphone ou un logiciel de transcription pour parler de votre idée, comme si vous l</p>
-<p class="chapter-paragraph">un.</p> <p className=</p>
-<p class="chapter-paragraph">> <li>Ouvrez une note ou un enregistreur et parlez. Décrivez votre projet, posez vos questions à voix haute, développez vos arguments de manière décousue.</li> <li><strong>L</p>
-<p class="chapter-paragraph">enregistrement, lui, sera complet.</li> </ul> <p className=</p>
-<p class="chapter-paragraph">><strong>Exploitation :</strong> Relisez (ou faites lire par une IA) la transcription. Le simple fait de voir vos propres mots vous remettra sur les rails de votre pensée, vous permettant de la poursuivre, de la corriger et de l</p>
-<p class="chapter-paragraph">text-2xl font-bold text-neuro-purple mb-4 dark:text-purple-400</p>
-<p class="chapter-paragraph">Organisation - Structurer le Chaos </h2> <p className=</p>
-<p class="chapter-paragraph">>Une fois vos idées externalisées, il faut les organiser. C</p>
-<p class="chapter-paragraph">text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3</p>
-<p class="chapter-paragraph">organisation manuelle et visuelle, très efficace pour les penseurs visuels.</p> <p className=</p>
-<p class="chapter-paragraph">><strong>Principe :</strong> Utiliser des codes visuels pour regrouper, hiérarchiser et relier les idées issues de votre</p>
-<p class="chapter-paragraph">.</p> <p className=</p>
-<p class="chapter-paragraph">> <li><strong>Regrouper :</strong> Utilisez des surligneurs de couleurs différentes pour lier les idées qui vont ensemble. Entourez les concepts similaires.</li> <li><strong>Hiérarchiser :</strong> Utilisez des symboles (étoiles, chiffres) ou des tailles d</p>
-<p class="chapter-paragraph">><strong>Outils :</strong> Des post-it de couleurs différentes sur un mur, un grand tableau blanc, ou des applications de mind mapping (Xmind, Miro, Coggle).</p> <h3 className=</p>
-<p class="chapter-paragraph">(Chain of Thought)</h3> <p className=</p>
-<p class="chapter-paragraph">>Cette technique aide à construire un raisonnement linéaire à partir d</p>
-<p class="chapter-paragraph">><strong>Principe :</strong> Partir d</p>
-<p class="chapter-paragraph">> <li>Phrase de départ :</p>
-<p class="chapter-paragraph"></li> <li>Question induite :</p>
-<p class="chapter-paragraph">Le but est de célébrer le lancement du produit X.</p>
-<p class="chapter-paragraph">Les clients, les partenaires, la presse.</p>
-<p class="chapter-paragraph">>Cela transforme une montagne de réflexion en une série de petites collines à franchir l</p>
-<p class="chapter-paragraph">autre.</p> </section> <section> <h2 className=</p>
-<p class="chapter-paragraph">> Partie 3 : Consolider les Acquis - Techniques de Mémorisation Active </h2> <p className=</p>
-<p class="chapter-paragraph">>Même avec des notes, il faut parfois garder des éléments clés en tête.</p> <h3 className=</p>
-<p class="chapter-paragraph">>5. Le Palais Mental : Une Technique Puissante mais Exigeante</h3> <p className=</p>
-<p class="chapter-paragraph">><strong>Principe :</strong> Associer des informations à mémoriser à des lieux ou des objets dans un endroit que vous connaissez parfaitement (votre maison, votre trajet pour le travail). Pour se souvenir, on parcourt mentalement ce lieu.</p> <p className=</p>
-<p class="chapter-paragraph">><strong>Est-ce adapté ?</strong></p> <ul className=</p>
-<p class="chapter-paragraph">> <li><strong>Oui :</strong> Pour mémoriser une liste d</p>
-<p class="chapter-paragraph">une présentation).</li> <li><strong>Non :</strong> Moins adapté pour la phase créative et chaotique de la réflexion. C</p>
-<p class="chapter-paragraph">><strong>Méthode Simplifiée :</strong></p> <ul className=</p>
-<p class="chapter-paragraph">> <li>Choisissez votre lieu : Votre appartement.</li> <li>Définissez un parcours logique : Porte d</p>
-<p class="chapter-paragraph">>Pour les concepts importants au sein de vos réflexions, utilisez des techniques plus légères :</p> <ul className=</p>
-<p class="chapter-paragraph">> <li><strong>Images Mentales Frappantes :</strong> Associez un concept abstrait à une image absurde, drôle ou émotionnellement forte.</li> <li><strong>Analogies Familières :</strong> Reliez une nouvelle idée à quelque chose que vous connaissez déjà très bien.</li> <li><strong>Acronymes :</strong> Créez un mot avec la première lettre de chaque élément d</p>
-<p class="chapter-paragraph">Intelligence Artificielle et la Technologie </h2> <p className=</p>
-<p class="chapter-paragraph">IA peut agir comme un co-pilote pour votre pensée.</p> <h3 className=</p>
-<p class="chapter-paragraph">IA comme Assistant de Structuration :</h3> <p className=</p>
-<p class="chapter-paragraph">ou la transcription de votre dictée vocale dans une IA (Gemini, ChatGPT, etc.).</p> <p className=</p>
-<p class="chapter-paragraph">>Demandez-lui :</p> <ul className=</p>
-<p class="chapter-paragraph">Identifie une structure logique (introduction, développement, conclusion) dans ce texte.</p>
-<p class="chapter-paragraph">Propose une suite ou des aspects à développer à partir de ces notes.</p>
-<p class="chapter-paragraph">Transforme cette liste de points en un plan détaillé.</p>
-<p class="chapter-paragraph">IA pour Décomposer les Tâches et Gérer le Temps :</h3> <ul className=</p>
-<p class="chapter-paragraph">> <li><strong>To-Do Lists Assistées :</strong> Des applications comme Todoist ou Motion peuvent organiser vos tâches et vous aider à planifier votre journée.</li> <li><strong>Programmation de Tâches :</strong> Donnez un objectif à une IA (</p>
-<p class="chapter-paragraph">) et demandez-lui de décomposer le projet en une liste de tâches réalisables avec des échéances.</li> <li><strong>Rappels Intelligents :</strong> Utilisez les assistants vocaux (</p>
-<p class="chapter-paragraph">) pour décharger votre mémoire prospective. Des applications comme Tiimo sont spécifiquement conçues pour les profils neuroatypiques, avec des rappels visuels et une structuration du temps.</li> </ul> <h3 className=</p>
-<p class="chapter-paragraph">>Pour les Enfants : Adapter les Astuces à l</p>
-<p class="chapter-paragraph">appliquent, mais de manière plus ludique.</p> <ul className=</p>
-<p class="chapter-paragraph">> <li><strong>La</p>
-<p class="chapter-paragraph">y rattache. Utilisez beaucoup de couleurs.</li> <li><strong>La Recette de Cuisine :</strong> Pour un devoir complexe, présentez les étapes comme une recette :</p>
-<p class="chapter-paragraph"></li> <li><strong>Le Chemin du Trésor dans la Chambre :</strong> Pour mémoriser une leçon (les planètes du système solaire, par exemple),</p>
-<p class="chapter-paragraph">text-center mt-8 pt-6 border-t border-gray-200 dark:border-gray-600</p>
-<p class="chapter-paragraph">text-lg font-semibold text-gray-800 dark:text-gray-200</p>
-<p class="chapter-paragraph">text-sm text-gray-600 dark:text-gray-400 mt-2</p>
-<p class="chapter-paragraph">mt-8 text-center text-gray-600 dark:text-gray-400 text-sm</p>
+  <p class="chapter-byline">PARTIE III : ANATOMIE DES CERVEAUX QUI DANSENT · Par Geoffroy Streit (2021, revu en 2025)</p>
+  <h2>Préambule : Différence et Liens entre Mémoire et Structuration de la Pensée</h2>
+  <p class="chapter-paragraph"><em>Il est essentiel de comprendre pourquoi ces deux difficultés sont si souvent liées, notamment chez les profils neuroatypiques.</em></p>
+  <h3>La Différence :</h3>
+  <p class="chapter-paragraph"><strong>La structuration de la pensée :</strong> La structuration de la pensée est une fonction exécutive. C'est le travail de l'architecte : planifier, organiser, hiérarchiser les idées, créer des liens logiques et suivre un raisonnement.</p>
+  <p class="chapter-paragraph"><strong>La mémoire de travail :</strong> La mémoire, et plus spécifiquement la mémoire de travail, est le chantier de l'architecte. C'est l'espace mental limité où l'on conserve et manipule les "briques" (les idées, les faits, les consignes) le temps de construire le "mur" (la réflexion).</p>
+  <h3>Le Lien Indissociable :</h3>
+  <p class="chapter-paragraph">Imaginez que vous essayez de construire un mur, mais que les briques disparaissent de vos mains dès que vous en saisissez une nouvelle. C'est exactement ce qui se passe lorsqu'une mémoire de travail défaillante rencontre un besoin de structuration :</p>
+  <ul>
+    <li><strong>Surcharge cognitive :</strong> Surcharge Cognitive : Le cerveau dépense une énergie considérable juste pour retenir les éléments de la pensée (le début d'une phrase, l'idée A, l'argument B). Il ne lui reste alors que peu de ressources pour le travail de structuration (comment A et B sont-ils liés ? Lequel est le plus important ?).</li>
+    <li><strong>Rupture du fil :</strong> Perte du Fil : Au milieu d'une réflexion, une nouvelle idée (pensée en arborescence du TDA/H) ou une distraction survient. La mémoire de travail, déjà saturée, "lâche" les informations précédentes pour traiter la nouvelle. Le fil est rompu.</li>
+    <li><strong>Perte de l'objectif :</strong> L'Oubli de l'Objectif : Sans une mémoire de travail solide pour garder l'objectif final en tête, il est facile de se perdre dans les méandres des sous-idées et de ne jamais arriver à une conclusion.</li>
+  </ul>
+  <p class="chapter-paragraph"><em>Ce guide propose des stratégies visant précisément à décharger la mémoire de travail pour libérer des ressources mentales au profit de la structuration.</em></p>
+  <h2>Partie 1 : La Fondation, Externaliser sa Pensée pour Libérer sa Mémoire</h2>
+  <p class="chapter-paragraph"><em>L'objectif est de sortir les idées de votre tête le plus vite et le plus fidèlement possible, sans filtre ni jugement.</em></p>
+  <h3>1. La "Vidange Cérébrale" (Brain Dumping)</h3>
+  <p class="chapter-paragraph"><em>C'est la technique la plus fondamentale. L'idée est de créer un réceptacle externe pour vos pensées.</em></p>
+  <p class="chapter-paragraph"><strong>Principe :</strong> Principe : Sur une feuille de papier, un tableau blanc ou un document numérique (Notion, OneNote, etc.), écrivez absolument tout ce qui vous passe par la tête concernant votre sujet de réflexion.</p>
+  <ul>
+    <li><strong>En vrac total :</strong> En Vrac Total : Ne vous souciez ni de l'ordre, ni de la grammaire, ni de la pertinence. Notez des mots-clés, des bribes de phrases, des questions, des doutes.</li>
+    <li><strong>Pas de censure ni de perfectionnisme :</strong> Sans Jugement : L'objectif n'est pas de produire un texte parfait, mais de vider votre charge mentale. Une idée "bête" peut en cacher une brillante.</li>
+  </ul>
+  <p class="chapter-paragraph"><strong>Le résultat :</strong> Le Résultat : Vous disposez maintenant d'une "photographie" de votre pensée à un instant T. Votre cerveau n'a plus à lutter pour tout retenir, il peut passer à l'étape suivante : l'organisation.</p>
+  <h3>2. La Dictée Vocale : La Pensée Fluide</h3>
+  <p class="chapter-paragraph"><em>Pour beaucoup, la pensée est plus rapide et instinctive que la vitesse de frappe ou d'écriture, souvent source de blocage (sauf en cas de dysphasie sévère).</em></p>
+  <p class="chapter-paragraph"><strong>Principe :</strong> Principe : Utiliser la fonction dictaphone de votre téléphone ou un logiciel de transcription pour parler de votre idée, comme si vous l'expliquiez à quelqu'un.</p>
+  <ul>
+    <li><strong>Méthode :</strong> Méthode : Ouvrez une note ou un enregistreur et parlez. Décrivez votre projet, posez vos questions à voix haute, développez vos arguments de manière décousue.</li>
+    <li><strong>Avantage crucial :</strong> L'avantage crucial : Même si au bout de la phrase vous avez oublié le début, l'enregistrement, lui, sera complet.</li>
+    <li><strong>Exploitation :</strong> Exploitation : Relisez (ou faites lire par une IA) la transcription. Le simple fait de voir vos propres mots vous remettra sur les rails de votre pensée, vous permettant de la poursuivre, de la corriger et de l'enrichir.</li>
+  </ul>
+  <h2>Partie 2 : L'Atelier d'Organisation, Structurer le Chaos</h2>
+  <p class="chapter-paragraph"><em>Une fois vos idées externalisées, il faut les organiser. C'est là que la magie opère.</em></p>
+  <h3>3. Le Laboratoire Visuel et Itératif</h3>
+  <p class="chapter-paragraph"><em>C'est la phase d'organisation manuelle et visuelle, très efficace pour les penseurs visuels.</em></p>
+  <p class="chapter-paragraph"><strong>Principe :</strong> Principe : Utiliser des codes visuels pour regrouper, hiérarchiser et relier les idées issues de votre "vidange cérébrale".</p>
+  <ul>
+    <li><strong>Regrouper :</strong> Regrouper : Utilisez des surligneurs de couleurs différentes pour lier les idées qui vont ensemble. Entourez les concepts similaires.</li>
+    <li><strong>Hiérarchiser :</strong> Hiérarchiser : Utilisez des symboles (étoiles, chiffres) ou des tailles d'écriture différentes pour marquer les idées principales, les sous-idées et les détails.</li>
+    <li><strong>Faire des liens :</strong> Faire des Liens : Dessinez des flèches, des schémas, des tableaux simples pour visualiser les relations de cause à effet, les oppositions, les séquences.</li>
+  </ul>
+  <p class="chapter-paragraph"><strong>Outils recommandés :</strong> Outils : Des post-it de couleurs différentes sur un mur, un grand tableau blanc, ou des applications de mind mapping (Xmind, Miro, Coggle).</p>
+  <h3>4. Le Principe de la "Chaîne de Pensée" (Chain of Thought)</h3>
+  <p class="chapter-paragraph"><em>Cette technique aide à construire un raisonnement linéaire à partir d'un point de départ.</em></p>
+  <p class="chapter-paragraph"><strong>Principe :</strong> Principe : Partir d'une idée initiale et se forcer à la lier à la suivante par une question ou une déduction logique, créant une chaîne.</p>
+  <p class="chapter-paragraph"><strong>Mise en pratique :</strong> Méthode : Phrase de départ : "Je dois organiser un événement." Question induite : "Quel est le but de cet événement ?" -> Réponse/Maillon suivant : "Le but est de célébrer le lancement du produit X." Question induite : "Qui devons-nous inviter ?" -> Réponse/Maillon suivant : "Les clients, les partenaires, la presse." ... et ainsi de suite.</p>
+  <p class="chapter-paragraph"><strong>Conclusion :</strong> Cela transforme une montagne de réflexion en une série de petites collines à franchir l'une après l'autre.</p>
+  <h2>Partie 3 : Consolider les Acquis, Techniques de Mémorisation Active</h2>
+  <p class="chapter-paragraph"><em>Même avec des notes, il faut parfois garder des éléments clés en tête.</em></p>
+  <h3>5. Le Palais Mental : Une Technique Puissante mais Exigeante</h3>
+  <p class="chapter-paragraph"><strong>Principe :</strong> Principe : Associer des informations à mémoriser à des lieux ou des objets dans un endroit que vous connaissez parfaitement (votre maison, votre trajet pour le travail). Pour se souvenir, on parcourt mentalement ce lieu.</p>
+  <p class="chapter-paragraph"><strong>Adaptation aux atypiques :</strong> Est-ce adapté ? Oui : Pour mémoriser une liste d'éléments structurés et ordonnés (les étapes d'un discours, les points clés d'une présentation). Non : Moins adapté pour la phase créative et chaotique de la réflexion. C'est un outil de stockage, pas de création.</p>
+  <p class="chapter-paragraph"><strong>Méthode concrète :</strong> Méthode Simplifiée : Choisissez votre lieu : Votre appartement. Définissez un parcours logique : Porte d'entrée -> Couloir -> Cuisine -> Salon... Placez vos idées : Associez votre première idée (ex: "Introduction du projet") à la porte d'entrée de manière imagée et marquante (ex: la porte est recouverte du logo du projet). Associez la deuxième idée à l'objet suivant sur votre parcours, etc. Répétez la promenade mentale pour la renforcer.</p>
+  <h3>6. Aides à la Mémorisation Rapides</h3>
+  <p class="chapter-paragraph"><em>Pour les concepts importants au sein de vos réflexions, utilisez des techniques plus légères :</em></p>
+  <ul>
+    <li><strong>Images mentales absurdes :</strong> Images Mentales Frappantes : Associez un concept abstrait à une image absurde, drôle ou émotionnellement forte.</li>
+    <li><strong>Analogies et métaphores :</strong> Analogies Familières : Reliez une nouvelle idée à quelque chose que vous connaissez déjà très bien.</li>
+    <li><strong>Acronymes et rimes :</strong> Acronymes : Créez un mot avec la première lettre de chaque élément d'une liste.</li>
+  </ul>
+  <h2>Partie 4 : L'Allié Moderne, Utiliser l'Intelligence Artificielle et la Technologie</h2>
+  <p class="chapter-paragraph"><em>L'IA peut agir comme un co-pilote pour votre pensée.</em></p>
+  <h3>L'IA comme Assistant de Structuration :</h3>
+  <p class="chapter-paragraph">Copiez-collez votre "vidange cérébrale" ou la transcription de votre dictée vocale dans une IA (Gemini, ChatGPT, etc.). Demandez-lui : "Résume ce texte en 5 points clés." "Regroupe ces idées par thèmes." "Identifie une structure logique (introduction, développement, conclusion) dans ce texte." "Propose une suite ou des aspects à développer à partir de ces notes." "Transforme cette liste de points en un plan détaillé."</p>
+  <h3>L'IA pour Décomposer les Tâches et Gérer le Temps :</h3>
+  <ul>
+    <li><strong>Décomposition de tâches :</strong> To-Do Lists Assistées : Des applications comme Todoist ou Motion peuvent organiser vos tâches et vous aider à planifier votre journée.</li>
+    <li><strong>Gestion du temps :</strong> Programmation de Tâches : Donnez un objectif à une IA ("Je dois préparer une présentation sur le sujet X pour vendredi") et demandez-lui de décomposer le projet en une liste de tâches réalisables avec des échéances.</li>
+    <li><strong>Rappels et suivi :</strong> Rappels Intelligents : Utilisez les assistants vocaux ("Hey Google, rappelle-moi d'envoyer un mail à Paul à 14h") pour décharger votre mémoire prospective. Des applications comme Tiimo sont spécifiquement conçues pour les profils neuroatypiques, avec des rappels visuels et une structuration du temps.</li>
+  </ul>
+  <h3>Pour les Enfants : Adapter les Astuces à l'Apprentissage</h3>
+  <p class="chapter-paragraph"><em>Les mêmes principes s'appliquent, mais de manière plus ludique.</em></p>
+  <ul>
+    <li><strong>La boîte à idées :</strong> La "Boîte à Idées" : Au lieu d'une feuille, utilisez une vraie boîte où l'enfant peut déposer des dessins, des post-it, des objets (LEGOs) qui représentent ses idées pour une rédaction ou un exposé.</li>
+    <li><strong>Le dessin d'organisation :</strong> Le Dessin en Étoile (Mind Mapping) : Mettez le sujet principal au centre d'une grande feuille et demandez à l'enfant de dessiner des "branches" pour chaque idée qui s'y rattache. Utilisez beaucoup de couleurs.</li>
+    <li><strong>La recette de cuisine :</strong> La Recette de Cuisine : Pour un devoir complexe, présentez les étapes comme une recette : "Ingrédient 1 : Lire la consigne. Ingrédient 2 : Souligner les mots importants... Étape 1 : Préparer le brouillon..."</li>
+    <li><strong>La chasse au trésor mentale :</strong> Le Chemin du Trésor dans la Chambre : Pour mémoriser une leçon (les planètes du système solaire, par exemple), "cachez" chaque planète dans un endroit de la chambre (le Soleil sur la lampe, Mars sous le tapis rouge...). L'enfant mémorise le parcours pour retrouver sa leçon.</li>
+  </ul>
 </div>

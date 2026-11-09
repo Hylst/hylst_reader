@@ -1145,7 +1145,7 @@
   {
     "id": "approche-de-la-neurodiversite",
     "title": "Approche de la Neurodiversité",
-    "subtitle": "Vision d'un non-professionnel",
+    "subtitle": "Recueil thématique · Vision d'un non-professionnel",
     "author": "Hylst (Geoffroy Streit)",
     "year": "2018-2022 (mis en ligne en 2026)",
     "writingPeriod": "2018-2022",
@@ -1153,7 +1153,7 @@
     "badge": "Nouveau",
     "authorship": "human",
     "aiAssisted": false,
-    "illustrationNote": "Textes de réflexion rédigés entre 2018 et 2022 (100 % de l'auteur, sans IA) · Mis en ligne en 2026",
+    "illustrationNote": "Textes de réflexion rédigés entre 2018 et 2022 (100 % de l'auteur, sans IA) · Schémas vectoriels et illustrations locales Krea 2026",
     "design": {
       "fonts": {
         "heading": "Outfit",
@@ -1187,39 +1187,81 @@
     "introPath": "books/approche-de-la-neurodiversite/intro.html",
     "chapters": [
       {
-        "id": "chapitre-1.html",
-        "title": "I. L'ornière scolaire et la blessure originelle",
-        "path": "books/approche-de-la-neurodiversite/chapitre-1.html",
+        "id": "00-prologue.html",
+        "title": "Prologue : Le Décalage Invisible",
+        "path": "books/approche-de-la-neurodiversite/00-prologue.html",
         "available": true
       },
       {
-        "id": "chapitre-2.html",
-        "title": "II. La mécanique grippée : langage, geste et espace",
-        "path": "books/approche-de-la-neurodiversite/chapitre-2.html",
+        "id": "chapitre-01.html",
+        "title": "I. L'école, premier tribunal et blessure originelle",
+        "path": "books/approche-de-la-neurodiversite/chapitre-01.html",
         "available": true
       },
       {
-        "id": "chapitre-3.html",
+        "id": "chapitre-02.html",
+        "title": "II. Les cinq familles de troubles : langage, geste et calcul",
+        "path": "books/approche-de-la-neurodiversite/chapitre-02.html",
+        "available": true
+      },
+      {
+        "id": "chapitre-03.html",
         "title": "III. L'attention en miettes et la mémoire qui fuit",
-        "path": "books/approche-de-la-neurodiversite/chapitre-3.html",
+        "path": "books/approche-de-la-neurodiversite/chapitre-03.html",
         "available": true
       },
       {
-        "id": "chapitre-4.html",
+        "id": "chapitre-04.html",
         "title": "IV. L'usure adulte et le malentendu permanent",
-        "path": "books/approche-de-la-neurodiversite/chapitre-4.html",
+        "path": "books/approche-de-la-neurodiversite/chapitre-04.html",
         "available": true
       },
       {
-        "id": "chapitre-5.html",
-        "title": "V. Béquilles cognitives et stratégies de survie",
-        "path": "books/approche-de-la-neurodiversite/chapitre-5.html",
+        "id": "chapitre-05.html",
+        "title": "V. Décrypter le malaise scolaire sans condamner",
+        "path": "books/approche-de-la-neurodiversite/chapitre-05.html",
         "available": true
       },
       {
-        "id": "chapitre-6.html",
-        "title": "VI. Épilogue : Vivre avec la friction",
-        "path": "books/approche-de-la-neurodiversite/chapitre-6.html",
+        "id": "chapitre-06.html",
+        "title": "VI. Dédramatiser, écouter et restaurer la confiance",
+        "path": "books/approche-de-la-neurodiversite/chapitre-06.html",
+        "available": true
+      },
+      {
+        "id": "chapitre-07.html",
+        "title": "VII. Pédagogie de terrain : la méthode du pas-à-pas",
+        "path": "books/approche-de-la-neurodiversite/chapitre-07.html",
+        "available": true
+      },
+      {
+        "id": "chapitre-08.html",
+        "title": "VIII. L'environnement et le corps : poser les fondations",
+        "path": "books/approche-de-la-neurodiversite/chapitre-08.html",
+        "available": true
+      },
+      {
+        "id": "chapitre-09.html",
+        "title": "IX. Le délestage mental : externaliser la mémoire",
+        "path": "books/approche-de-la-neurodiversite/chapitre-09.html",
+        "available": true
+      },
+      {
+        "id": "chapitre-10.html",
+        "title": "X. Structuration visuelle et hygiène biologique",
+        "path": "books/approche-de-la-neurodiversite/chapitre-10.html",
+        "available": true
+      },
+      {
+        "id": "chapitre-11.html",
+        "title": "XI. Savoir quand s'arrêter : la gestion de l'esprit embrumé",
+        "path": "books/approche-de-la-neurodiversite/chapitre-11.html",
+        "available": true
+      },
+      {
+        "id": "epilogue.html",
+        "title": "Épilogue : Vivre avec la friction",
+        "path": "books/approche-de-la-neurodiversite/epilogue.html",
         "available": true
       }
     ],

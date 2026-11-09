@@ -25,7 +25,11 @@
 
 ## État actuel
 
-- Version **1.8.38** en cours, cache Service Worker source `hylst-reader-v94`. 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap.
+- Version **1.8.39** en cours, cache Service Worker source `hylst-reader-v95`. 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap.
+- **Régénération locale sur GPU des illustrations d'Atrophie (zéro mention AURA)** :
+  - 10 nouvelles illustrations d'ambiance générées avec Krea-2-Turbo (`krea-2-turbo-sdcpp`) sur GPU RTX 5070 via `wainsfw`.
+  - Élimination intégrale du mot AURA et des titrages anglais sur les 48 chapitres de *Chronique d'une atrophie*. Tesseract OCR à 0 violation.
+- Version **1.8.38** déployée le 09/11 (commit plateforme `50e4d3a1`, docs `7e1778b4`), cache Service Worker source `hylst-reader-v94`, build `bbbd652d6381`, SW `hylst-reader-bbbd652d6381`. 402 fichiers runtime, 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap.
 - **Pied de page mobile & Transparence éthique IA** :
   - Déplacement de `<footer className="app-footer">` à l'intérieur du conteneur de défilement `<main className="library-container">`. Fini le pied de page flottant qui prenait 1/4 d'écran sur smartphone : il est désormais accessible naturellement tout en bas de page.
   - Mentions éthiques de l'assistance IA affinées :

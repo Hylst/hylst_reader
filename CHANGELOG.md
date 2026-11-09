@@ -1,6 +1,25 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.39] - 2026-11-09
+
+### Modifié
+- **Régénération locale sur GPU des illustrations d'ambiance d'Atrophie (zéro mention AURA)** :
+  - Génération de 10 nouvelles illustrations d'ambiance sur mesure avec le modèle local **Krea-2-Turbo** (`krea-2-turbo-sdcpp`) sur GPU RTX 5070 via `wainsfw`.
+  - Remplacement intégral des visuels comportant des mentions indésirables :
+    - Chapitre 3 (*La Tasse Fendue*) : tasse de café virtuel se brisant et se dissolvant pour révéler la boue et le béton moisi.
+    - Chapitre 4 (*La Glissade du Coton*) : vue à travers la tôle sur la Tour Eiffel rouillée dans la nuit pluvieuse toxique.
+    - Chapitre 6 (*Le Registre Clandestin*) : vieux terminal 1990s à écran vert phosphorescent dans un coffre d'acier.
+    - Chapitres 7, 9, 10, 12, 16, 22, 38 : tunnels cyclopéens, perspective vertigineuse sur les tranchées, explosion de relais électrique, catacombes, bibliothèque secrète de Barnabé, salle des turbines et serre d'ambroisie.
+  - Audit Tesseract exhaustif sur les 48 chapitres : **0 violation**, zéro mention « AURA », zéro bandeau de titre en anglais.
+- **Service Worker** : incrémentation du cache source vers `hylst-reader-v95` dans `sw.js`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 196 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+- Contrôle Tesseract OCR : 48/48 images d'Atrophie 100 % vierges de texte parasite.
+
 ## [1.8.38] - 2026-11-09
 
 ### Modifié

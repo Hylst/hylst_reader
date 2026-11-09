@@ -25,7 +25,7 @@
 
 ## État actuel
 
-- Version **1.8.41** en cours, cache Service Worker source `hylst-reader-v97`. 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap.
+- Version **1.8.41** déployée le 09/11 (commit plateforme `93f50ab5`, docs `5fcb2e18`), cache Service Worker source `hylst-reader-v97`, build `90ef30d837de`, SW `hylst-reader-90ef30d837de`. 402 fichiers runtime, 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Régénération intégrale des 48 illustrations d'Atrophie avec Qwen Image 2.1 Uncensored** :
   - 48 illustrations de chapitres générées localement sur GPU RTX 5070 avec `qwen-image-21-uc-sdcpp` via `wainsfw` (format 16:9 cinématographique 1024x576, 20 steps, CFG 2.5).
   - Cohérence stricte des personnages (Léonce, Marthe, Barnabé, Le Cliquet) et des décors (clapiers délabrés, catacombes, Tour Zéphyr, centrale).

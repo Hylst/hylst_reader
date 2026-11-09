@@ -21,6 +21,9 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
 - `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
 - Contrôle Tesseract OCR : 48/48 images d'Atrophie 100 % vierges de texte ou mentions parasites.
+- Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `90ef30d837de`, 402 fichiers runtime vérifiés.
+- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur tous les assets.
+- Production : déployée le 09/11 (commit plateforme `93f50ab5`, docs `5fcb2e18`), build `90ef30d837de`, SW `hylst-reader-90ef30d837de`, index `?v=90ef30d837de`. `verify-release.ps1` entièrement vert.
 
 ## [1.8.40] - 2026-11-09
 

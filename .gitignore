@@ -27,3 +27,6 @@ livres_pour_import/
 
 # Dossier de travail des extractions de sources
 .extract/
+
+# Superpowers artifacts
+.superpowers/

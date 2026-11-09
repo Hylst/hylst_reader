@@ -25,7 +25,7 @@
 
 ## État actuel
 
-- Version **1.8.40** en cours, cache Service Worker source `hylst-reader-v96`. 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap.
+- Version **1.8.40** déployée le 09/11 (commit plateforme `b281b8f5`, docs `adfddecb`), cache Service Worker source `hylst-reader-v96`, build `c8c8705aa1e5`, SW `hylst-reader-c8c8705aa1e5`. 402 fichiers runtime, 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Restauration intégrale d'Approche de la Neurodiversité & Cache-busting Atrophie** :
   - Restauration intégrale sans troncature des 16 chapitres de l'anthologie (19 272 mots, extraction exhaustive de `Lettre d'un dyspraxique` 120 paras, `Chaos organisé` 62 paras, `Marre d'apprendre` 67 paras, `Labyrinthe des idées` 275 paras, `Les cinq familles` 143 paras de `troubles dys.odt`, et les 13 béquilles complètes).
   - Préservation du style asymétrique, humain et alambiqué de l'auteur.

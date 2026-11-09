@@ -25,6 +25,13 @@
 
 ## État actuel
 
+- Version **1.8.37** en cours, cache Service Worker source `hylst-reader-v93`. 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap.
+- **Anthologie intégrale d'*Approche de la Neurodiversité* (16 chapitres, 2003-2025)** :
+  - Intégration exhaustive des écrits de terrain de l'auteur sur 22 ans (site `hylst.fr/neurodivers/` et manuscrits d'archives).
+  - 4 mouvements : I. Confessions & Vécus (Lettre d'un dyspraxique mars 2003, Chaos 2005/2024, Pensée en ébullition 2024), II. Enfance & École (Neurodiversité enfant 2023, Difficulté scolaire, Pas-à-pas avec SVG 2, Marre d'apprendre ! 2025), III. Anatomie des cerveaux (5 familles avec SVG 1, Mémoire 2024, Labyrinthe des idées 2024, Cerveau danse 2025), IV. Boîte à béquilles (13 stratégies avec SVG 3, Conditionnement, Esprit embrumé), Prologue et Épilogue.
+  - Style asymétrique, humain et alambiqué d'auteur préservé.
+  - 3 schémas vectoriels SVG interactifs et 4 illustrations locales GPU Krea-2-Turbo.
+  - Catalogue et fiche statique à 16 entrées, période `2003-2025 (compilation 2026)`.
 - Version **1.8.36** déployée le 09/11 (commit plateforme `30c72d7b`, docs `d3c9ff9c`), cache Service Worker source `hylst-reader-v92`, build `b4a05e753aea`, SW `hylst-reader-b4a05e753aea`. 399 fichiers runtime, 12 livres, 153 chapitres (165 fichiers de contenu), 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Édition intégrale d'*Approche de la Neurodiversité* (Recueil thématique en 3 parties, 13 chapitres)** :
   - Consolidation des 3 textes d'archives (2018-2022) : Partie I (Anatomie des décalages, 5 familles dys d'après `troubles dys.odt`), Partie II (L'Enfance et l'École, guide d'accompagnement d'après `Enfants en difficulté scolaire.doc`), Partie III (La Boîte à Béquilles, 13 stratégies concrètes de l'adulte d'après `Idées pour lutter...pdf`).

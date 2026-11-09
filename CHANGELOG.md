@@ -1,6 +1,41 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.37] - 2026-11-09
+
+### Ajouté
+- **Grande Anthologie d'*Approche de la Neurodiversité* (16 chapitres, 4 mouvements, 2003-2025)** :
+  - **Intégration exhaustive des écrits de terrain de l'auteur sur 22 ans** :
+    - *Partie I : Confessions & Vécus de l'intérieur (2003-2024)* :
+      - 01. *Lettre d'un dyspraxique* (Mars 2003) : la confrérie secrète des casseurs de vaisselle et des rois des lacets défaits, le clavier à la volonté propre.
+      - 02. *Vie dans un chaos organisé : confessions d'un cerveau Dys/TDA/H* (2005 / revu en 2024) : le bureau balayé par une tornade, la procrastination sans honte.
+      - 03. *Pensée en ébullition : le volcan des connexions* (2024) : l'arborescence mentale, le chef d'orchestre en panne.
+    - *Partie II : L'Enfance, l'École et la Pédagogie de terrain (2004-2025)* :
+      - 04. *La neurodiversité expliquée aux enfants* (Mars 2023) : le grand ciel d'arcs-en-ciel, dialogue d'égal à égal.
+      - 05. *Enfants en difficulté scolaire : guide d'écoute pour parents et tuteurs* (vers 2004) : diagnostic sans blâme, dédramatiser la note.
+      - 06. *Pédagogie de terrain : la méthode du pas-à-pas* avec schéma SVG 2 : micro-objectifs, alternance travail/récréation.
+      - 07. *Marre d'apprendre ! Lettre ouverte aux élèves découragés* (2025) : redonner du sens à la curiosité face aux écrans.
+    - *Partie III : Anatomie des Cerveaux qui dansent (2018-2024)* :
+      - 08. *Les cinq familles de troubles cognitifs : langage, geste et calcul* avec schéma SVG 1 (source : `troubles dys.odt`).
+      - 09. *La mémoire dans la neurodiversité : un labyrinthe aux multiples facettes* (2024) : la RAM cérébrale, le post-it qui s'envole.
+      - 10. *Navigation dans le labyrinthe des idées* (2024, ~4 000 mots) : le jongleur aux 5 balles et la tour de Jenga, techniques d'arborescence.
+      - 11. *Apprendre quand le cerveau danse : stratégies d'assimilation atypiques* (2025) : Pomodoro court (15 min), écoute du rythme biologique.
+    - *Partie IV : La Boîte à Béquilles, Discipline & Survie (2022)* :
+      - 12. *L'environnement et le corps : poser les fondations* (Juin 2022) : poste épuré, zéro parasite, rituels de centrage.
+      - 13. *Le délestage mental : externaliser la mémoire* avec schéma SVG 3 : listes prioritaires, alarmes programmées.
+      - 14. *Conditionnement, hygiène de vie et gestion de l'esprit embrumé* (Juin 2022) : détecter le brouillard cérébral, oser dire stop, bienveillance.
+    - *Prologue et Épilogue* : *Le décalage invisible* (prologue) et *Vivre avec la friction* (conclusion lucide).
+  - **Style humain, irrégulier et alambiqué préservé** : chaque texte conserve son rythme d'époque, ses anecdotes vécues, ses métaphores organiques et ses longueurs naturelles.
+  - **Catalogue & UI** : datation globale `2003-2025 (compilation 2026)`, sommaire à 16 entrées dans `public/books.json`, régénération de la fiche statique `livres/approche-de-la-neurodiversite/index.html`.
+  - **Service Worker** : incrémentation du cache source vers `hylst-reader-v93` dans `sw.js`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 196 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+- `python scripts/test_neuro_svg.py` : 3/3 schémas SVG validés.
+- `python scripts/test_neuro_art.py` : 4/4 illustrations Krea WebP validées.
+
 ## [1.8.36] - 2026-11-09
 
 ### Ajouté

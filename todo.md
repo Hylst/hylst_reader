@@ -1,6 +1,7 @@
 # La Bibliothèque de Hylst - TODO
 
 ## 🎯 Priorités Actuelles
+- [x] **Régénération intégrale des 48 illustrations d'Atrophie Flux 3 Klein (1.8.48)** : les 48 chapitres d'Atrophie régénérés avec `flux3-klein-sdcpp` (décors détaillés, charte 35mm, zéro texte certifié Tesseract sur 48/48, cache-busting `?v=5`). Déployé le 09/11 (build `e309f3d1a65c`).
 - [x] **Régénération intégrale Acte 2 Atrophie Flux 3 Klein (1.8.47)** : chapitres 13 à 24 régénérés avec `flux3-klein-sdcpp` rehaussé (décors détaillés de catacombes, zéro texte, cache-busting `?v=5`). Déployé le 09/11 (build `302aca1140ef`).
 - [x] **Régénération intégrale Acte 1 Atrophie Flux 3 Klein (1.8.46)** : les 12 chapitres d'Atrophie (01 à 12) régénérés avec `flux3-klein-sdcpp` rehaussé (décors détaillés, zéro texte, cache-busting `?v=5`). Déployé le 09/11 (build `7202b462124c`).
 - [x] **Rehaussement décor et texture 35mm Atrophie 01 & 06 (1.8.45)** : chapitres 01 et 06 régénérés avec `flux3-klein-sdcpp` (décors détaillés, zéro texte, cache-busting `?v=5`). Déployé le 09/11 (build `478f3b056a27`).

@@ -25,6 +25,8 @@
 
 ## État actuel
 
+- Version **1.8.45** déployée le 09/11, cache Service Worker source `hylst-reader-v99`, build `478f3b056a27`, SW `hylst-reader-478f3b056a27`. 402 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
+- **Rehaussement de décor et texture 35mm Atrophie (01 et 06)** : chapitres 01 et 06 régénérés avec `flux3-klein-sdcpp` avec prompts enrichis de décor complet (béton humide, meulière, lanterne, tuyauteries), zéro texte (audit Tesseract 0 violation), cache-busting forcé `?v=5`.
 - Version **1.8.44** déployée le 09/11, cache Service Worker source `hylst-reader-v99`, build `118351d10e5a`, SW `hylst-reader-118351d10e5a`. 402 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Régénération haute fidélité Acte 1 Atrophie avec Flux 3 Klein** : chapitres 01 à 12 régénérés avec `flux3-klein-sdcpp` (16 steps, 800x450 WebP q85), zéro texte (audit Tesseract 0 violation sur 12/12), cache-busting forcé `?v=4`.
 - Version **1.8.43** déployée le 09/11 (commit plateforme `b8ddb7e1`), cache Service Worker source `hylst-reader-v99`, build `e30b4eebec9f`, SW `hylst-reader-e30b4eebec9f`. 402 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.

@@ -1145,15 +1145,15 @@
   {
     "id": "approche-de-la-neurodiversite",
     "title": "Approche de la Neurodiversité",
-    "subtitle": "Recueil thématique · Vision d'un non-professionnel",
+    "subtitle": "Anthologie intégrale (2003-2025) · Vision d'un non-professionnel",
     "author": "Hylst (Geoffroy Streit)",
-    "year": "2018-2022 (mis en ligne en 2026)",
-    "writingPeriod": "2018-2022",
+    "year": "2003-2025 (compilation 2026)",
+    "writingPeriod": "2003-2025",
     "compilationYear": 2026,
     "badge": "Nouveau",
     "authorship": "human",
     "aiAssisted": false,
-    "illustrationNote": "Textes de réflexion rédigés entre 2018 et 2022 (100 % de l'auteur, sans IA) · Schémas vectoriels et illustrations locales Krea 2026",
+    "illustrationNote": "Anthologie et recueil thématique rédigés entre 2003 et 2025 (100 % de l'auteur, sans IA) · Schémas vectoriels SVG et illustrations locales Krea 2026",
     "design": {
       "fonts": {
         "heading": "Outfit",
@@ -1193,75 +1193,93 @@
         "available": true
       },
       {
-        "id": "chapitre-01.html",
-        "title": "I. L'école, premier tribunal et blessure originelle",
-        "path": "books/approche-de-la-neurodiversite/chapitre-01.html",
+        "id": "01-lettre-d-un-dyspraxique.html",
+        "title": "01. Lettre d'un dyspraxique",
+        "path": "books/approche-de-la-neurodiversite/01-lettre-d-un-dyspraxique.html",
         "available": true
       },
       {
-        "id": "chapitre-02.html",
-        "title": "II. Les cinq familles de troubles : langage, geste et calcul",
-        "path": "books/approche-de-la-neurodiversite/chapitre-02.html",
+        "id": "02-vie-dans-un-chaos-organise.html",
+        "title": "02. Vie dans un chaos organisé : confessions d'un cerveau Dys/TDA/H",
+        "path": "books/approche-de-la-neurodiversite/02-vie-dans-un-chaos-organise.html",
         "available": true
       },
       {
-        "id": "chapitre-03.html",
-        "title": "III. L'attention en miettes et la mémoire qui fuit",
-        "path": "books/approche-de-la-neurodiversite/chapitre-03.html",
+        "id": "03-pensee-en-ebullition.html",
+        "title": "03. Pensée en ébullition : le volcan des connexions",
+        "path": "books/approche-de-la-neurodiversite/03-pensee-en-ebullition.html",
         "available": true
       },
       {
-        "id": "chapitre-04.html",
-        "title": "IV. L'usure adulte et le malentendu permanent",
-        "path": "books/approche-de-la-neurodiversite/chapitre-04.html",
+        "id": "04-la-neurodiversite-expliquee-aux-enfants.html",
+        "title": "04. La neurodiversité expliquée aux enfants",
+        "path": "books/approche-de-la-neurodiversite/04-la-neurodiversite-expliquee-aux-enfants.html",
         "available": true
       },
       {
-        "id": "chapitre-05.html",
-        "title": "V. Décrypter le malaise scolaire sans condamner",
-        "path": "books/approche-de-la-neurodiversite/chapitre-05.html",
+        "id": "05-enfants-en-difficulte-scolaire.html",
+        "title": "05. Enfants en difficulté scolaire : guide d'écoute pour parents et tuteurs",
+        "path": "books/approche-de-la-neurodiversite/05-enfants-en-difficulte-scolaire.html",
         "available": true
       },
       {
-        "id": "chapitre-06.html",
-        "title": "VI. Dédramatiser, écouter et restaurer la confiance",
-        "path": "books/approche-de-la-neurodiversite/chapitre-06.html",
+        "id": "06-pedagogie-de-terrain-le-pas-a-pas.html",
+        "title": "06. Pédagogie de terrain : la méthode du pas-à-pas",
+        "path": "books/approche-de-la-neurodiversite/06-pedagogie-de-terrain-le-pas-a-pas.html",
         "available": true
       },
       {
-        "id": "chapitre-07.html",
-        "title": "VII. Pédagogie de terrain : la méthode du pas-à-pas",
-        "path": "books/approche-de-la-neurodiversite/chapitre-07.html",
+        "id": "07-marre-d-apprendre.html",
+        "title": "07. Marre d'apprendre ! Lettre ouverte aux élèves découragés",
+        "path": "books/approche-de-la-neurodiversite/07-marre-d-apprendre.html",
         "available": true
       },
       {
-        "id": "chapitre-08.html",
-        "title": "VIII. L'environnement et le corps : poser les fondations",
-        "path": "books/approche-de-la-neurodiversite/chapitre-08.html",
+        "id": "08-les-cinq-familles-de-troubles-cognitifs.html",
+        "title": "08. Les cinq familles de troubles cognitifs : langage, geste et calcul",
+        "path": "books/approche-de-la-neurodiversite/08-les-cinq-familles-de-troubles-cognitifs.html",
         "available": true
       },
       {
-        "id": "chapitre-09.html",
-        "title": "IX. Le délestage mental : externaliser la mémoire",
-        "path": "books/approche-de-la-neurodiversite/chapitre-09.html",
+        "id": "09-la-memoire-dans-la-neurodiversite.html",
+        "title": "09. La mémoire dans la neurodiversité : un labyrinthe aux multiples facettes",
+        "path": "books/approche-de-la-neurodiversite/09-la-memoire-dans-la-neurodiversite.html",
         "available": true
       },
       {
-        "id": "chapitre-10.html",
-        "title": "X. Structuration visuelle et hygiène biologique",
-        "path": "books/approche-de-la-neurodiversite/chapitre-10.html",
+        "id": "10-navigation-dans-le-labyrinthe-des-idees.html",
+        "title": "10. Navigation dans le labyrinthe des idées",
+        "path": "books/approche-de-la-neurodiversite/10-navigation-dans-le-labyrinthe-des-idees.html",
         "available": true
       },
       {
-        "id": "chapitre-11.html",
-        "title": "XI. Savoir quand s'arrêter : la gestion de l'esprit embrumé",
-        "path": "books/approche-de-la-neurodiversite/chapitre-11.html",
+        "id": "11-apprendre-quand-le-cerveau-danse.html",
+        "title": "11. Apprendre quand le cerveau danse : stratégies d'assimilation atypiques",
+        "path": "books/approche-de-la-neurodiversite/11-apprendre-quand-le-cerveau-danse.html",
         "available": true
       },
       {
-        "id": "epilogue.html",
-        "title": "Épilogue : Vivre avec la friction",
-        "path": "books/approche-de-la-neurodiversite/epilogue.html",
+        "id": "12-l-environnement-et-le-corps-poser-les-fondations.html",
+        "title": "12. L'environnement et le corps : poser les fondations",
+        "path": "books/approche-de-la-neurodiversite/12-l-environnement-et-le-corps-poser-les-fondations.html",
+        "available": true
+      },
+      {
+        "id": "13-le-delestage-mental-externaliser-la-memoire.html",
+        "title": "13. Le délestage mental : externaliser la mémoire",
+        "path": "books/approche-de-la-neurodiversite/13-le-delestage-mental-externaliser-la-memoire.html",
+        "available": true
+      },
+      {
+        "id": "14-conditionnement-hygiene-de-vie-et-esprit-embrume.html",
+        "title": "14. Conditionnement, hygiène de vie et gestion de l'esprit embrumé",
+        "path": "books/approche-de-la-neurodiversite/14-conditionnement-hygiene-de-vie-et-esprit-embrume.html",
+        "available": true
+      },
+      {
+        "id": "15-epilogue-vivre-avec-la-friction.html",
+        "title": "15. Épilogue : Vivre avec la friction",
+        "path": "books/approche-de-la-neurodiversite/15-epilogue-vivre-avec-la-friction.html",
         "available": true
       }
     ],

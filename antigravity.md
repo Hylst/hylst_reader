@@ -25,6 +25,8 @@
 
 ## État actuel
 
+- Version **1.8.43** déployée le 09/11 (commit plateforme `b8ddb7e1`), cache Service Worker source `hylst-reader-v99`, build `e30b4eebec9f`, SW `hylst-reader-e30b4eebec9f`. 402 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
+- **Enrichissement typographique Partie III Neurodiversité (chapitres 08, 09, 11)** : structuration sémantique avec sous-titres `<h2>`/`<h3>`, listes à puces `<ul><li>`, mise en valeur en gras/italique des concepts et techniques clés.
 - Version **1.8.42** déployée le 09/11 (commit plateforme `c7ffcaad`), cache Service Worker source `hylst-reader-v99`, build `fc0a8a4d8d23`, SW `hylst-reader-fc0a8a4d8d23`. 402 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Amélioration éditoriale et typographique d'Approche de la Neurodiversité** : purge intégrale du code React TSX au chapitre 10, recollage des coupures de phrases et suppression des métadonnées OLE Word au chapitre 05, reconstitution continue des 14 stratégies aux chapitres 12, 13 et 14, maintien des chapitres 04 et 07, structuration sémantique avec titres de section `<h2>`/`<h3>` et listes ordonnées/non-ordonnées.
 - Version **1.8.41** déployée le 09/11 (commit plateforme `93f50ab5`, docs `5fcb2e18`), cache Service Worker source `hylst-reader-v97`, build `90ef30d837de`, SW `hylst-reader-90ef30d837de`. 402 fichiers runtime, 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.

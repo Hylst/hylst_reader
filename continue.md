@@ -4,7 +4,7 @@ Point d'étape pour un agent qui reprendrait ce travail. Fichier de travail, non
 
 ## État au 8 novembre 2026
 
-Version **1.8.42** déployée en production le 09/11, cache Service Worker source `hylst-reader-v99`, build `fc0a8a4d8d23`, cache `hylst-reader-fc0a8a4d8d23`. 402 fichiers runtime, sitemap à 14 URL, 12 livres, 156 chapitres. Amélioration éditoriale et typographique d'*Approche de la Neurodiversité* (chapitres 05, 10, 12, 13, 14 réparés, chapitres 04 et 07 conservés, titres h2/h3). `verify-release.ps1` entièrement vert. 277 fichiers runtime, sitemap à 13 URL, 11 livres, 94 chapitres, 105 fichiers de contenu. Précache hors ligne complet : 322 entrées, 28 illustrations de chapitre, 16 couvertures de livres à venir, 77 fontes, environ 20 Mo. `verify-release.ps1` entièrement vert.
+Version **1.8.43** déployée en production le 09/11, cache Service Worker source `hylst-reader-v99`, build `e30b4eebec9f`, cache `hylst-reader-e30b4eebec9f`. 402 fichiers runtime, sitemap à 14 URL, 12 livres, 156 chapitres. Enrichissement typographique et sémantique de la Partie III de la Neurodiversité (chapitres 08, 09, 11 : titres h2/h3, listes à puces, gras et italique). `verify-release.ps1` entièrement vert. 402 fichiers runtime, sitemap à 14 URL, 12 livres, 156 chapitres. Amélioration éditoriale et typographique d'*Approche de la Neurodiversité* (chapitres 05, 10, 12, 13, 14 réparés, chapitres 04 et 07 conservés, titres h2/h3). `verify-release.ps1` entièrement vert. 277 fichiers runtime, sitemap à 13 URL, 11 livres, 94 chapitres, 105 fichiers de contenu. Précache hors ligne complet : 322 entrées, 28 illustrations de chapitre, 16 couvertures de livres à venir, 77 fontes, environ 20 Mo. `verify-release.ps1` entièrement vert.
 
 ### Fait
 

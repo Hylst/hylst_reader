@@ -25,6 +25,8 @@
 
 ## État actuel
 
+- Version **1.8.49** déployée le 09/11, cache Service Worker source `hylst-reader-v99`, build `a4765c3db052`, SW `hylst-reader-a4765c3db052`. 405 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
+- **Enrichissement de Nightprowler XII (Pistes inachevées)** : schéma vectoriel triptyque `chapitre-12-schema.svg` (1200×800) et intégration de trois tables techniques d6 de jeu (complications au campement, incidents de herse, périls de Kalaar).
 - Version **1.8.48** déployée le 09/11, cache Service Worker source `hylst-reader-v99`, build `e309f3d1a65c`, SW `hylst-reader-e309f3d1a65c`. 404 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Régénération intégrale des 48 illustrations d'Atrophie avec Flux 3 Klein** : les 48 chapitres disposent désormais d'illustrations haute fidélité avec décors détaillés et ambiance 35mm, zéro texte (audit Tesseract 0 violation sur 48/48), cache-busting forcé `?v=5`.
 - Version **1.8.47** déployée le 09/11, cache Service Worker source `hylst-reader-v99`, build `302aca1140ef`, SW `hylst-reader-302aca1140ef`. 404 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.

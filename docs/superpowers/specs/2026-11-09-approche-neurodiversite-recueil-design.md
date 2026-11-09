@@ -1,132 +1,132 @@
-# Design Document : Édition intégrale d'*Approche de la Neurodiversité* (Recueil thématique en 3 parties)
+# Design Document : Anthologie intégrale d'*Approche de la Neurodiversité* (2003-2025)
 
 ## 1. Intention et Pourquoi
 
-*Approche de la Neurodiversité* (sous-titré *Vision d'un non-professionnel*) est l'un des ouvrages les plus personnels et singuliers de Geoffroy Streit (Hylst). Contrairement aux discours lénifiants du développement personnel qui transforment les troubles neurodéveloppementaux en « super-pouvoirs » illusoires, l'auteur y défend une approche résolument lucide, pragmatique et ancrée dans le réel : celle d'un adulte « dys » qui a dû grandir, apprendre, travailler et survivre avec une machinerie cérébrale atypique tout en accompagnant bénévolement d'autres enfants et adolescents en détresse scolaire.
+*Approche de la Neurodiversité* (sous-titré *Vision d'un non-professionnel · Recueil thématique & anthologie 2003-2025*) réunit l'ensemble de l'œuvre écrite de Geoffroy Streit (Hylst) consacrée à la neurodiversité, aux troubles dys, au TDA/H et à la remédiation scolaire et adulte.
 
-La version actuellement en ligne dans la liseuse (6 chapitres, ~3 500 mots) ne constituait qu'un condensé philosophique resserré. Les archives personnelles de l'auteur recèlent trois documents fondamentaux rédigés entre 2018 et 2022 (avec des racines pédagogiques remontant à près de vingt ans) :
-1. `troubles dys.odt` (~2 400 mots) : La cartographie clinique et vécue des 5 familles de troubles dys (dyslexie, dysphasie, dyspraxie, TDA/H, mémoire de travail et dyscalculie) et de l'incompréhension sociale.
-2. `Enfants en difficulté scolaire.doc` (~1 400 mots) : Un guide pédagogique de terrain pour parents, professeurs particuliers et tuteurs d'enfants en souffrance scolaire.
-3. `Idées pour lutter contre les troubles ‘dys’ et autres troubles neurocognitifs.pdf` (~3 330 mots, juin 2022) : La boîte à outils pragmatique de l'adulte détaillant 13 béquilles cognitives concrètes.
+L'auteur a lui-même traversé le système scolaire et professionnel en tant que multi-dys et TDA/H, expérimentant dans sa chair et son cerveau la souffrance du décalage, les procès en paresse, la saturation de la mémoire de travail et la maladresse motrice. Loin de toute théorie désincarnée ou de romantisme de pacotille (« les dys ont des super-pouvoirs »), il a développé sur plus de vingt ans (de mars 2003 à 2025) une discipline rigoureuse de conditionnement mental, d'hygiène de vie, de béquilles cognitives d'artisan et de pédagogie bienveillante auprès d'enfants et d'étudiants en perdition.
 
-L'objectif de cette édition intégrale est de **consolider, enrichir et unifier ces textes en un recueil thématique majeur en trois grandes parties (11 chapitres + prologue et épilogue)**, accompagné de **schémas vectoriels SVG précis** pour les mécanismes cognitifs et d'**illustrations d'art éditorial générées localement sur GPU avec Krea-2-Turbo** pour les têtes de parties.
+L'objectif de cette édition monumentale est de **fusionner les deux approches souhaitées par l'auteur** :
+1. **Une architecture thématique solide en 4 grands mouvements** (Témoignages & confessions vécues ; Enfance et pédagogie ; Anatomie des cerveaux qui dansent ; La boîte à béquilles et discipline adulte) encadrée par un prologue et un épilogue.
+2. **La préservation scrupuleuse de l'autonomie historique de chaque texte**, avec son titre d'origine, sa date exacte d'écriture (de mars 2003 à 2025), ses anecdotes savoureuses, ses métaphores visuelles décapantes (le jongleur aux cinq balles et la tour de Jenga, la vaisselle brisée, la tornade dans le bureau) et ses longueurs asymétriques naturelles.
 
 ---
 
 ## 2. Objectifs, Non-Objectifs et Anti-Objectifs
 
 ### Objectifs
-- **Recueil structuré en 3 parties (11 chapitres)** :
-  - **Partie I : Anatomie des décalages (Le vécu de l'intérieur)** : 4 chapitres décrivant de manière vécue et sans jargon les 5 familles dys, la surconsommation d'énergie et l'incompréhension sociale.
-  - **Partie II : L'Enfance et l'École (Guide pour parents et tuteurs)** : 3 chapitres d'accompagnement bienveillant, de diagnostic des blocages et de pédagogie du déblocage.
-  - **Partie III : La Boîte à Béquilles (13 stratégies concrètes pour adultes)** : 4 chapitres de méthodes de terrain (ergonomie, délestage mental par l'écrit, gestion des pannes et de l'esprit embrumé).
-  - **Épilogue** : *Vivre avec la friction*.
-- **Voix authentique de l'auteur** : Préserver scrupuleusement le style de Geoffroy Streit : direct, sincère, lucide, sans prétention académique, profondément humain et bienveillant, refusant la condescendance.
-- **Schémas vectoriels SVG haute précision** : Intégrer des infographies SVG claires, responsives, auto-hébergées et adaptées aux modes sombre/clair de la liseuse pour schématiser les concepts clés (boucles cognitives, segmentation des tâches, filtres attentionnels).
-- **Illustrations éditoriales locales (Krea-2-Turbo)** : Générer localement sur GPU (sans API externe ni coût) des œuvres sobres et poétiques (style encre fine et lavis or/ardoise) pour les ouvertures de parties.
-- **Conformité technique absolue** : Zéro tiret cadratin ou demi-cadratin (`check_dashes.py`), CSP `'self'`, précache Service Worker (`hylst-reader-v92`).
+- **Volume complet de 16 textes (environ 24 000 mots)** couvrant 22 ans d'expérience humaine et de réflexion de terrain.
+- **Organisation en 4 mouvements thématiques + Prologue + Épilogue** :
+  - *Prologue* : Le décalage invisible (Le refus de la démagogie des super-pouvoirs).
+  - *Partie I : Confessions & Vécus de l'intérieur (2003-2024)* (3 textes intimes et piquants).
+  - *Partie II : L'Enfance, l'École et la Pédagogie de terrain (2004-2025)* (4 textes de transmission et d'aide aux jeunes).
+  - *Partie III : Anatomie des Cerveaux qui dansent (2018-2024)* (4 textes cliniques, mémoriels et conceptuels).
+  - *Partie IV : La Boîte à Béquilles, Discipline & Survie (2022)* (3 textes de stratégies concrètes pour l'adulte).
+  - *Épilogue* : Vivre avec la friction (Marcher debout avec de bonnes béquilles).
+- **Voix authentique, humaine et asymétrique** : Respecter les tournures alambiquées propres à l'auteur, ses formulations sinueuses de TDAH/Dys, son autodérision chaleureuse, son pragmatisme sans jargon médical et son exigence éthique.
+- **3 Schémas vectoriels SVG haute précision** : Intégrés dans le flux des chapitres avec styles adaptatifs clair/sombre (`neuro-schema-1-familles.svg`, `neuro-schema-2-pedagogie.svg`, `neuro-schema-3-bequilles.svg`).
+- **4 Illustrations d'art éditorial locales (Krea-2-Turbo)** : `partie-1-couverture.webp` à `epilogue-couverture.webp`.
+- **Règle absolue des zéros tirets cadratins** : Remplacement de tout tiret cadratin ou demi-cadratin par parenthèses, deux-points ou virgules (`check_dashes.py` vert).
 
 ### Non-Objectifs
-- Ne pas chercher à rédiger un traité médical ou psychiatrique (la valeur du texte réside dans son statut de « vision d'un non-professionnel » issu du terrain et du vécu intime).
-- Ne pas prescrire de traitements médicaux ni de promesses de « guérison ».
+- Ne pas homogénéiser artificiellement la longueur des chapitres : un texte de 650 mots côtoie un guide approfondi de 4 000 mots. L'irrégularité est le reflet fidèle de la pensée de l'auteur.
+- Ne pas lisser les anecdotes (la vaisselle cassée, les lacets défaits, le bureau tornade).
 
 ### Anti-Objectifs
-- **Zéro romantisation « super-pouvoir »** : Bannir tout discours démagogique prétendant que les troubles dys sont un don magique. C'est un handicap qui coûte de l'énergie chaque seconde.
-- **Zéro jargon jargonnant** : Préférer les métaphores concrètes (l'engrenage qui coince, la mémoire qui fuit, la fatigue de l'adulte) aux néologismes médicaux prétentieux.
+- Bannir tout discours démagogique de développement personnel prétendant que le handicap est un don magique.
+- Ne jamais transformer l'expérience de terrain en jargon psychiatrique impersonnel.
 
 ---
 
-## 3. Structure détaillée du Recueil (11 Chapitres)
+## 3. Sommaire Détaillé de l'Anthologie (16 Chapitres)
 
-### Prologue
-* **Le décalage invisible** : Présentation du recueil, genèse 2018-2022 (racines 2004), avertissement sur la lucidité et refus du prêt-à-penser.
-
-### PARTIE I : ANATOMIE DES DÉCALAGES (Le vécu de l'intérieur)
-* **Chapitre 1 : L'école, premier tribunal et blessure originelle**  
-  Le décalage naissant hors du cocon familial. Le moment où la singularité devient une faute. L'enfant jugé paresseux ou nonchalant alors que ses circuits luttent contre la surcharge.
-* **Chapitre 2 : Les cinq familles de troubles : langage, geste et calcul**  
-  Description détaillée, incarnée et sans complaisance des différentes facettes :
-  - Langage écrit : dyslexie et dysorthographie (la fatigue de lecture, la forme visuelle des mots qui se dérobe).
-  - Langage oral : dysphasie (la parole entravée, la peur du mot qui ne sort pas).
-  - Psychomoteur et espace : dyspraxie, TAC et TDC (le geste maladroit, le lacet rebelle, la feuille froissée, la géométrie impossible).
-  - Activités numériques : dyscalculie (le chiffre qui se transforme, la terreur des tables et des durées).
-  *Schéma SVG 1 : Cartographie interactive des 5 familles et de leurs interférences.*
-* **Chapitre 3 : L'attention en miettes et la mémoire qui fuit**  
-  Le TDA/H sans fard : la captation intempestive par les stimuli extérieurs, l'impulsivité relationnelle, la mémoire de travail qui sature en trois secondes, les consignes oubliées prises pour de la négligence.
-* **Chapitre 4 : L'usure adulte et le malentendu permanent**  
-  Démystification de la « disparition à l'âge adulte ». La persistance du coût énergétique, l'angoisse des formulaires administratifs, les entretiens d'embauche, la gestion des finances et la peur du ridicule.
-
-### PARTIE II : L'ENFANCE ET L'ÉCOLE (Guide pour parents et tuteurs)
-* **Chapitre 5 : Décrypter le malaise scolaire sans condamner**  
-  La posture de l'adulte face aux mauvaises notes. Diagnostic des causes réelles : ambiance de classe agitée, humiliation par les pairs, complexes vestimentaires, fatigue accumulée. Pourquoi l'agressivité de l'enfant masque souvent un appel au secours.
-* **Chapitre 6 : Dédramatiser, écouter et restaurer la confiance**  
-  Sortir de la dictature du résultat immédiat. La séparation essentielle entre la valeur de l'enfant et ses notes. Écouter d'égal à égal, dédramatiser l'erreur, offrir un cadre sécurisant où l'effort est reconnu indépendamment du verdict scolaire.
-* **Chapitre 7 : Pédagogie de terrain : la méthode du pas-à-pas**  
-  Conseils concrets pour les cours particuliers et le travail à la maison : segmenter l'effort en petites étapes victorieuses, alterner temps calme et récréation, ancrer les notions abstraites dans des objets réels, apprendre avec humilité et patience.
-  *Schéma SVG 2 : La spirale du découragement scolaire et les leviers de désamorçage.*
-
-### PARTIE III : LA BOÎTE À BÉQUILLES (13 stratégies concrètes de terrain)
-* **Chapitre 8 : L'environnement et le corps : poser les fondations**  
-  - Axe 1 : L'espace de travail épuré (nuque, éclairage, posture, suppression des bruits et notifications).
-  - Axe 2 : Les rituels de centrage et de respiration avant l'effort.
-  - Axe 3 : L'acceptation du temps long (répéter sans honte pour apprivoiser le geste).
-* **Chapitre 9 : Le délestage mental : externaliser la mémoire**  
-  - Axe 4 : La segmentation des tâches en micro-étapes indolores.
-  - Axe 5 : Les listes de délestage et le « pense-bête » immédiat pour vider le cerveau.
-  - Axe 6 : Les rappels programmés et l'automatisation numérique au service de l'autonomie.
-  - Axe 7 : Jeter sur le papier les idées parasites pour retrouver le calme.
-  *Schéma SVG 3 : La boucle de délestage cognitif et d'externalisation de la mémoire.*
-* **Chapitre 10 : Méthodologie intellectuelle et hygiène de vie**  
-  - Axe 8 : Structurer les pensées (fiches visuelles, schémas, techniques d'ancrage).
-  - Axe 9 : Vérification et relecture différée (ne jamais relire à chaud avec le cerveau fatigué).
-  - Axe 10 : L'hygiène biologique : sommeil réparateur, hydratation, aération régulière.
-* **Chapitre 11 : Savoir quand s'arrêter : la gestion de l'esprit embrumé**  
-  - Axe 11 : Détecter le point de rupture et la saturation cognitive (« l'esprit dans le brouillard »).
-  - Axe 12 : Savoir dire stop : oser demander une pause, reporter à tête reposée sans culpabiliser.
-  - Axe 13 : La boussole de la bienveillance envers soi-même.
-
-### Épilogue
-* **Vivre avec la friction**  
-  Le texte de clôture lucide : ni résignation ni faux espoirs. Construire des béquilles solides pour affronter la fatigue du réel et marcher debout.
+### OUVERTURE
+* **00. Prologue : Le décalage invisible** *(2018-2022 · ~650 mots)*  
+  La posture de l'auteur, le refus du romantisme des super-pouvoirs, la friction de chaque seconde.
 
 ---
 
-## 4. Direction Artistique & Assets
-
-### Schémas Vectoriels SVG (Précision & Clarté)
-Trois schémas SVG interactifs et sémantiques, intégrés directement dans le flux des chapitres avec support natif des thèmes clair/sombre :
-1. `neuro-schema-1-familles.svg` (Chapitre 2) : Cartographie des 5 familles de troubles, leurs zones cérébrales associées et leurs interactions quotidiennes.
-2. `neuro-schema-2-pedagogie.svg` (Chapitre 7) : Boucle du découragement scolaire et leviers d'intervention bienveillante.
-3. `neuro-schema-3-bequilles.svg` (Chapitre 9) : Schéma fonctionnel du délestage mental et des 13 béquilles cognitives.
-
-### Illustrations d'en-tête (Générées localement via Krea-2-Turbo)
-Quatre illustrations au format WebP optimisé (480x280 px, style art éditorial sobre à l'encre fine et lavis ardoise/or) :
-1. `partie-1-couverture.webp` : *L'Archipel des Pensées* (métaphore des circuits asymétriques et des ponts suspendus).
-2. `partie-2-couverture.webp` : *La Main sur l'Épaule* (silhouette bienveillante guidant un enfant vers un cahier sous une lumière douce).
-3. `partie-3-couverture.webp` : *La Boîte à Outils* (engrenages de bois délicats, carnet ouvert et boussole de cuivre).
-4. `epilogue-couverture.webp` : *La Silhouette et le Phare* (marcheur solitaire avançant avec assurance le long d'un sentier côtier dans la brume).
+### PARTIE I : CONFESSIONS & VÉCUS DE L'INTÉRIEUR (2003-2024)
+* **01. Lettre d'un dyspraxique** *(Mars 2003 · ~2 000 mots)*  
+  *Byline : Par Geoffroy Streit · Mars 2003*  
+  La confrérie des « casseurs involontaires de vaisselle » et des « rois des lacets défaits », le clavier à la volonté propre, l'aventure imprévisible de chaque geste.  
+  *Illustration : `partie-1-couverture.webp` (L'Archipel des Pensées).*
+* **02. Vie dans un chaos organisé : confessions d'un cerveau Dys/TDA/H** *(2005 / revu 2024 · ~1 700 mots)*  
+  *Byline : Par Geoffroy Streit · 2005 et des brouettes, revu en 2024*  
+  L'esprit comme un bureau balayé par une tornade, la procrastination sans culpabilité, l'humour face à la surcharge.
+* **03. Pensée en ébullition : le volcan des connexions** *(2024 · ~1 150 mots)*  
+  *Byline : Réflexion de terrain · 2024*  
+  L'arborescence mentale, le chef d'orchestre en panne, le court-circuit des fonctions exécutives.
 
 ---
 
-## 5. Spécifications Techniques
+### PARTIE II : L'ENFANCE, L'ÉCOLE ET LA PÉDAGOGIE DE TERRAIN (2004-2025)
+* **04. La neurodiversité expliquée aux enfants** *(Mars 2023 · ~650 mots)*  
+  *Byline : Par Geoffroy Streit · Mars 2023*  
+  Le grand ciel d'arcs-en-ciel, dialogue d'égal à égal avec un enfant pour dédramatiser la différence sans faux semblants.  
+  *Illustration : `partie-2-couverture.webp` (La Main sur l'Épaule).*
+* **05. Enfants en difficulté scolaire : guide d'écoute pour parents et tuteurs** *(vers 2004-2010 · ~1 400 mots)*  
+  *Byline : Texte d'archive pédagogique · vers 2004*  
+  Comprendre d'où vient le malaise : ambiance de classe, brimades, complexes vestimentaires, fatigue. Dédramatiser la note.
+* **06. Pédagogie de terrain : la méthode du pas-à-pas** *(vers 2010 · ~1 100 mots)*  
+  *Byline : Méthodologie d'accompagnement scolaire*  
+  Micro-objectifs, alternance travail/récréation, ancrage dans la matière concrète, patience et humilité de l'adulte.  
+  *Schéma SVG 2 : `neuro-schema-2-pedagogie.svg`.*
+* **07. Marre d'apprendre ! Lettre ouverte aux élèves découragés** *(2025 · ~1 950 mots)*  
+  *Byline : Par Geoffroy Streit · 2025*  
+  Coup de gueule fraternel aux jeunes en perte de sens face aux écrans, redonner le goût de l'aventure de la connaissance.
 
-- **Chemin du livre** : `public/books/approche-de-la-neurodiversite/`
-- **Fichiers** :
-  - `intro.html` (carte de présentation de la liseuse)
-  - `00-prologue.html` (chapitre de lecture d'ouverture)
-  - `chapitre-01.html` à `chapitre-11.html`
-  - `epilogue.html` (chapitre de clôture)
-  - `images/` (les 4 illustrations WebP locales + les 3 schémas vectoriels SVG)
+---
+
+### PARTIE III : ANATOMIE DES CERVEAUX QUI DANSENT (2018-2024)
+* **08. Les cinq familles de troubles cognitifs : langage, geste et calcul** *(2018-2020 · ~2 450 mots)*  
+  *Byline : Étude clinique et vécue · 2018-2020 (source : troubles dys.odt)*  
+  Dyslexie, dysorthographie, dysphasie, dyspraxie (TAC/TDC), dyscalculie. Description minutieuse et vécue sans jargon.  
+  *Schéma SVG 1 : `neuro-schema-1-familles.svg`.*
+* **09. La mémoire dans la neurodiversité : un labyrinthe aux multiples facettes** *(2024 · ~1 900 mots)*  
+  *Byline : Synthèse cognitive · 2024*  
+  La RAM du cerveau, le post-it qui s'envole, la mémoire de travail saturée, mémoire procédurale et trucs de rétention.
+* **10. Navigation dans le labyrinthe des idées** *(2024 · ~4 000 mots)*  
+  *Byline : Guide pour esprits foisonnants · 2024*  
+  La métaphore du jongleur aux 5 balles et de la tour de Jenga, organiser les pensées arborescentes, mind-mapping et délestage.
+* **11. Apprendre quand le cerveau danse : stratégies d'assimilation atypiques** *(2024-2025 · ~1 100 mots)*  
+  *Byline : Pratiques d'apprentissage personnalisées · 2025*  
+  Pomodoro raccourci (15 min), pauses fréquentes, gestion sensorielle de l'environnement de travail.
+
+---
+
+### PARTIE IV : LA BOÎTE À BÉQUILLES, DISCIPLINE & SURVIE (2022)
+* **12. L'environnement et le corps : poser les fondations** *(Juin 2022 · ~1 200 mots)*  
+  *Byline : 13 stratégies de terrain · 3 juin 2022*  
+  Axes 1 à 4 : poste épuré, zéro parasite, rituel d'ancrage et de respiration, acceptation du temps long.  
+  *Illustration : `partie-3-couverture.webp` (La Boîte à Outils).*
+* **13. Le délestage mental : externaliser la mémoire** *(Juin 2022 · ~1 500 mots)*  
+  *Byline : 13 stratégies de terrain · 3 juin 2022*  
+  Axes 5 à 8 : segmentation en micro-étapes, listes de délestage, rappels programmés et décharge des pensées parasites sur papier.  
+  *Schéma SVG 3 : `neuro-schema-3-bequilles.svg`.*
+* **14. Conditionnement, hygiène de vie et gestion de l'esprit embrumé** *(Juin 2022 · ~1 600 mots)*  
+  *Byline : 13 stratégies de terrain · 3 juin 2022*  
+  Axes 9 à 13 : structuration visuelle, relecture différée, carburant biologique (sommeil, eau), détecter le brouillard cérébral, oser dire stop et bienveillance envers soi-même.
+
+---
+
+### CLÔTURE
+* **15. Épilogue : Vivre avec la friction** *(2022 · ~700 mots)*  
+  *Byline : Conclusion*  
+  Marcher debout avec de bonnes béquilles d'artisan, assumer la rudesse du réel sans faux espoirs.  
+  *Illustration : `epilogue-couverture.webp` (La Silhouette et le Phare).*
+
+---
+
+## 4. Spécifications Techniques
+
+- **Total fichiers chapitres** : 16 fichiers HTML dans `public/books/approche-de-la-neurodiversite/` :
+  `00-prologue.html`, `01-lettre-d-un-dyspraxique.html` ... `15-epilogue.html`, et `intro.html`.
 - **Catalogue (`public/books.json`)** :
-  - `year`: `"2018-2022 (mis en ligne en 2026)"`
-  - `writingPeriod`: `"2018-2022"`
+  - `year`: `"2003-2025 (compilation 2026)"`
+  - `writingPeriod`: `"2003-2025"`
   - `compilationYear`: 2026
-  - `illustrationNote`: *"Textes de réflexion rédigés entre 2018 et 2022 (100 % de l'auteur, sans IA) · Schémas vectoriels et illustrations locales Krea 2026"*
-  - Sommaire à 13 entrées (Prologue + 11 chapitres + Épilogue), garantissant une lecture linéaire complète.
-- **Intégration des Schémas SVG** :
-  - Intégrés sous balises sémantiques `<figure class="chapter-figure"><img src="...svg" alt="..." loading="lazy" /></figure>` avec palettes CSS adaptatives et accompagnés d'un tableau ou d'un descriptif accessible sous-jacent, conformément aux normes CSP `'self'` et à la pratique éprouvée de *Nightprowler*.
-- **Démarche éditoriale** :
-  - Consolidation littéraire fidèle à partir des 3 manuscrits d'archives de l'auteur (`troubles dys.odt`, `Enfants en difficulté scolaire.doc`, `Idées pour lutter contre les troubles...pdf`) : respect scrupuleux de son propos de terrain, de ses anecdotes, de sa méthode pédagogique et de ses 13 stratégies d'adulte, formulés dans son style direct, humain et lucide.
-- **Service Worker** : incrémentation vers `hylst-reader-v92`.
-- **Fiche statique** : regénération de `livres/approche-de-la-neurodiversite/index.html`.
-- **Contrôles qualité** : `check_dashes.py` (0 tiret long), `build_jsx.js --check`, `test-sw-policy.js`.
+  - `illustrationNote`: *"Anthologie et recueil thématique rédigés entre 2003 et 2025 (100 % de l'auteur, sans IA) · Schémas vectoriels SVG et illustrations locales Krea 2026"*
+  - Sommaire complet à 16 entrées.
+- **Service Worker** : incrémentation vers `hylst-reader-v93`.
+- **Fiche statique** : régénération de `livres/approche-de-la-neurodiversite/index.html`.

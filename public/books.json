@@ -1147,10 +1147,13 @@
     "title": "Approche de la Neurodiversité",
     "subtitle": "Vision d'un non-professionnel",
     "author": "Hylst (Geoffroy Streit)",
-    "year": 2026,
+    "year": "2018-2022 (mis en ligne en 2026)",
+    "writingPeriod": "2018-2022",
+    "compilationYear": 2026,
     "badge": "Nouveau",
     "authorship": "human",
     "aiAssisted": false,
+    "illustrationNote": "Textes de réflexion rédigés entre 2018 et 2022 (100 % de l'auteur, sans IA) · Mis en ligne en 2026",
     "design": {
       "fonts": {
         "heading": "Outfit",

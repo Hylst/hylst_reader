@@ -25,6 +25,8 @@
 
 ## État actuel
 
+- Version **1.8.47** déployée le 09/11, cache Service Worker source `hylst-reader-v99`, build `302aca1140ef`, SW `hylst-reader-302aca1140ef`. 404 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
+- **Régénération intégrale de l'Acte 2 d'Atrophie (13 à 24) avec Flux 3 Klein rehaussé** : les 12 chapitres disposent d'illustrations calibrées avec décors complets de catacombes, bibliothèque clandestine, crypte et centrale, ambiance 35mm, zéro texte (audit Tesseract 0 violation sur 12/12) et cache-busting forcé `?v=5`.
 - Version **1.8.46** déployée le 09/11, cache Service Worker source `hylst-reader-v99`, build `7202b462124c`, SW `hylst-reader-7202b462124c`. 404 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Régénération intégrale de l'Acte 1 d'Atrophie (01 à 12) avec Flux 3 Klein rehaussé** : les 12 chapitres disposent d'illustrations calibrées avec décors complets de meulière et béton, ambiance 35mm, zéro texte (audit Tesseract 0 violation sur 12/12) et cache-busting forcé `?v=5`.
 - Version **1.8.45** déployée le 09/11, cache Service Worker source `hylst-reader-v99`, build `478f3b056a27`, SW `hylst-reader-478f3b056a27`. 402 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.

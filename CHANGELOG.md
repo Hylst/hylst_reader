@@ -1,6 +1,28 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.50] - 2026-11-09
+
+### Ajouté & Modifié
+- **Refonte intégrale et expansion romanesque de *Chronique d'une atrophie programmée* (Édition augmentée de 67 100 mots)** :
+  - **Volumétrie multipliée par trois** : passage de 21 750 mots à 67 106 mots sur l'ensemble de l'œuvre.
+  - **4 Chapitres-Piliers denses** (2 500 à 3 700 mots) :
+    - Chapitre 1 (*La Moquette de l'Âme*, 2 753 mots) : démonstration clinique de l'Écœurement Sémantique, claustrophobie du box B-412, autopsie des trois dossiers d'euthanasie administrative.
+    - Chapitre 14 (*La Douleur est une Information*, 3 668 mots) : défaillance des otolithes vestibulaires, rééducation non-magique, fabrication et pose des Fers de marche forgés par Le Cliquet (4,5 kg par jambe).
+    - Chapitre 32 (*Les Paroles de Fer*, 3 441 mots) : grand banquet nocturne des Rétifs, aveu de culpabilité de Barnabé (conception des clapiers en 2045), secret d'Élise (la fille de Marthe en stase).
+    - Chapitre 47 (*Le Coup de Maître de l'Intendance*, 2 687 mots) : court-circuit dopaminergique, liturgie du Frisson Divin, chute tragique de Tristan en transe sacrificielle.
+  - **4 Interludes documentaires intégrés à la navigation** :
+    - Interlude I : Circulaire 2058-DCA-14 du S.Y.N.D.I.C. et glossaire des correspondances obligatoires.
+    - Interlude II : Rapport d'inspection VOA-2080-COL-0412 sur la purge de la colonne B-412.
+    - Interlude III : Fiche de surveillance DSS-2080-DIS-0914 sur Tristan Vasseur.
+    - Interlude IV : Décret pastoral CPU-2080-FRISSON-0104 instituant le Frisson Divin.
+  - **Résolution des vulnérabilités canoniques** :
+    - Écœurement Sémantique : justification de l'Harmonisation biologique humaine face à l'échec des I.A. en 2058.
+    - Biomécanique contrainte : démarche claudicante de Léonce aux attelles d'acier boulonnées.
+    - Coût civil de l'allergène : hécatombe par œdème et détresse respiratoire aiguë chez les dormeurs privés d'antihistaminiques.
+    - Veillée funèbre de Barnabé mise en scène in situ dans la crypte des Buttes-Chaumont.
+  - Zéro tiret cadratin ou demi-cadratin sur 200 fichiers contrôlés.
+
 ## [1.8.49] - 2026-11-09
 
 ### Modifié

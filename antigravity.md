@@ -25,6 +25,8 @@
 
 ## État actuel
 
+- Version **1.8.50** déployée le 09/11, cache Service Worker source `hylst-reader-v99`, build `b0bcfcc94ccb`, SW `hylst-reader-b0bcfcc94ccb`. 409 fichiers runtime, 12 livres, 160 chapitres (52 pour Atrophie dont 4 interludes documentaires), 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
+- **Refonte intégrale et expansion pessimiste d'*Atrophie* (édition 67 100 mots)** : volumétrie triplée (passage de 21 750 à 67 106 mots), intégration de 4 chapitres-piliers (2 500 à 3 700 mots), 4 interludes documentaires S.Y.N.D.I.C., Fers de marche articulés de Léonce (4,5 kg par jambe), Écœurement Sémantique, hécatombe civile du pollen et chute tragique de Tristan sous le Frisson Divin. Zéro tiret cadratin ou demi-cadratin.
 - Version **1.8.49** déployée le 09/11, cache Service Worker source `hylst-reader-v99`, build `a4765c3db052`, SW `hylst-reader-a4765c3db052`. 405 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Enrichissement de Nightprowler XII (Pistes inachevées)** : schéma vectoriel triptyque `chapitre-12-schema.svg` (1200×800) et intégration de trois tables techniques d6 de jeu (complications au campement, incidents de herse, périls de Kalaar).
 - Version **1.8.48** déployée le 09/11, cache Service Worker source `hylst-reader-v99`, build `e309f3d1a65c`, SW `hylst-reader-e309f3d1a65c`. 404 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.

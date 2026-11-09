@@ -1,6 +1,7 @@
 # La Bibliothèque de Hylst - TODO
 
 ## 🎯 Priorités Actuelles
+- [x] **Expansion littéraire et refonte pessimiste d'*Atrophie* (1.8.50)** : passage de 21 750 à 67 106 mots (multiplié par 3), 4 chapitres-piliers (2 500-3 700 mots), 4 interludes documentaires S.Y.N.D.I.C., intégration des Fers de marche de Léonce, chute tragique de Tristan et Frisson Divin. Déployé le 09/11 (build `b0bcfcc94ccb`).
 - [x] **Nightprowler XII (1.8.49)** : enrichissement de *Pistes inachevées* avec schéma vectoriel triptyque SVG (1200×800, `chapitre-12-schema.svg`), 3 tables d6 de complications, incidents de herse et périls de Kalaar. Déployé le 09/11 (build `a4765c3db052`).
 - [x] **Régénération intégrale des 48 illustrations d'Atrophie Flux 3 Klein (1.8.48)**
 - [x] **48 Illustrations Qwen Image 2.1 sans AURA (Atrophie 1.8.41)** : régénération locale intégrale des 48 illustrations de chapitres avec Qwen-Image-2.1 Uncensored via sdcpp local (`qwen-image-21-uc-sdcpp`, 20 steps, CFG 2.5). Cohérence stricte des personnages (Léonce, Marthe, Barnabé, Le Cliquet) et des lieux (clapiers, catacombes, Tour Zéphyr, centrale). Zéro mention AURA, zéro titre anglais sur 48/48 images (audit Tesseract à 0). Cache-busting forcé `?v=3`. Cache SW `hylst-reader-v97`.

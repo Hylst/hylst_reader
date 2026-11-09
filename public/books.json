@@ -1408,6 +1408,12 @@
         "available": true
       },
       {
+        "id": "interlude-01-registre-des-mots-interdits.html",
+        "title": "Interlude I : Registre des Mots Interdits",
+        "path": "books/chronique-une-atrophie-programmee/interlude-01-registre-des-mots-interdits.html",
+        "available": true
+      },
+      {
         "id": "13-le-reveil-brutal.html",
         "title": "Chapitre 13 : Le Réveil Brutal",
         "path": "books/chronique-une-atrophie-programmee/13-le-reveil-brutal.html",
@@ -1477,6 +1483,12 @@
         "id": "24-veillee-sous-les-tenebres.html",
         "title": "Chapitre 24 : Veillée sous les Ténèbres",
         "path": "books/chronique-une-atrophie-programmee/24-veillee-sous-les-tenebres.html",
+        "available": true
+      },
+      {
+        "id": "interlude-02-rapport-voirie-b412.html",
+        "title": "Interlude II : Rapport de Voirie VOA-2080-COL-0412",
+        "path": "books/chronique-une-atrophie-programmee/interlude-02-rapport-voirie-b412.html",
         "available": true
       },
       {
@@ -1552,6 +1564,12 @@
         "available": true
       },
       {
+        "id": "interlude-03-dossier-tristan-syndic.html",
+        "title": "Interlude III : Dossier S.Y.N.D.I.C. Tristan Vasseur",
+        "path": "books/chronique-une-atrophie-programmee/interlude-03-dossier-tristan-syndic.html",
+        "available": true
+      },
+      {
         "id": "37-au-fond-du-gouffre.html",
         "title": "Chapitre 37 : Au Fond du Gouffre",
         "path": "books/chronique-une-atrophie-programmee/37-au-fond-du-gouffre.html",
@@ -1609,6 +1627,12 @@
         "id": "46-les-premiers-eternuements.html",
         "title": "Chapitre 46 : Les Premiers Éternuements",
         "path": "books/chronique-une-atrophie-programmee/46-les-premiers-eternuements.html",
+        "available": true
+      },
+      {
+        "id": "interlude-04-liturgie-du-frisson.html",
+        "title": "Interlude IV : Liturgie Pastorale du Frisson Divin",
+        "path": "books/chronique-une-atrophie-programmee/interlude-04-liturgie-du-frisson.html",
         "available": true
       },
       {

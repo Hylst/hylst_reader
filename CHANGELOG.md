@@ -1,6 +1,21 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.40] - 2026-11-09
+
+### Modifié
+- **Restauration intégrale et exhaustive de l'Anthologie Neurodiversité (19 272 mots)** :
+  - Fin de toute troncature : extraction intégrale des sources originelles (`Lettre d'un dyspraxique` 120 paragraphes, `Vie dans un chaos organisé` 62 paragraphes, `Marre d'apprendre !` 67 paragraphes, `Navigation dans le labyrinthe des idées` 275 paragraphes, `Les cinq familles` 143 paragraphes d'après `troubles dys.odt`, et les 13 béquilles complètes d'après l'archive PDF de 2022).
+  - Préservation intégrale du style humain, irrégulier, foisonnant et alambiqué de Geoffroy Streit (multi-dys et TDA/H parlant d'expérience vécue, de conditionnement et d'hygiène de vie).
+- **Cache-busting forcé sur les 48 illustrations d'Atrophie (`?v=2`)** :
+  - Ajout systématique du paramètre `?v=2` sur toutes les balises `<img src="...chapter-XX.webp?v=2">` de *Chronique d'une atrophie programmée* pour forcer immédiatement le navigateur et le Service Worker à rejeter les anciennes images en cache comportant la mention AURA.
+- **Service Worker** : incrémentation du cache source vers `hylst-reader-v96` dans `sw.js`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 196 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+
 ## [1.8.39] - 2026-11-09
 
 ### Modifié

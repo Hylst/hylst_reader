@@ -25,6 +25,11 @@
 
 ## État actuel
 
+- Version **1.8.40** en cours, cache Service Worker source `hylst-reader-v96`. 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap.
+- **Restauration intégrale d'Approche de la Neurodiversité & Cache-busting Atrophie** :
+  - Restauration intégrale sans troncature des 16 chapitres de l'anthologie (19 272 mots, extraction exhaustive de `Lettre d'un dyspraxique` 120 paras, `Chaos organisé` 62 paras, `Marre d'apprendre` 67 paras, `Labyrinthe des idées` 275 paras, `Les cinq familles` 143 paras de `troubles dys.odt`, et les 13 béquilles complètes).
+  - Préservation du style asymétrique, humain et alambiqué de l'auteur.
+  - Cache-busting forcé `?v=2` sur toutes les balises d'images d'Atrophie pour forcer la purge des anciens visuels avec mention AURA dans les navigateurs clients.
 - Version **1.8.39** déployée le 09/11 (commit plateforme `0bda8cbb`, docs `06dbb4f9`), cache Service Worker source `hylst-reader-v95`, build `20cdd2868200`, SW `hylst-reader-20cdd2868200`. 402 fichiers runtime, 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Régénération locale sur GPU des illustrations d'Atrophie (zéro mention AURA)** :
   - 10 nouvelles illustrations d'ambiance générées avec Krea-2-Turbo (`krea-2-turbo-sdcpp`) sur GPU RTX 5070 via `wainsfw`.

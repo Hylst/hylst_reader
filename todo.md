@@ -1,6 +1,7 @@
 # La Bibliothèque de Hylst - TODO
 
 ## 🎯 Priorités Actuelles
+- [x] **Amélioration Neurodiversité (1.8.42)** : Chapitre 10 purgé du code React TSX, chapitre 05 réparé (phrases et métadonnées OLE), chapitres 12-14 recollés sans hachage de lignes, chapitres 04 et 07 conservés, titres h2/h3 intégrés. Déployé le 09/11 (build `fc0a8a4d8d23`).
 - [ ] **Nightprowler XII** : enrichir *Pistes inachevées* (camp du prince démon, contrôle d'entrée à choix, Kalaar) avec tables d'exploration, dangers, factions et schémas vectoriels.
 - [x] **48 Illustrations Qwen Image 2.1 sans AURA (Atrophie 1.8.41)** : régénération locale intégrale des 48 illustrations de chapitres avec Qwen-Image-2.1 Uncensored via sdcpp local (`qwen-image-21-uc-sdcpp`, 20 steps, CFG 2.5). Cohérence stricte des personnages (Léonce, Marthe, Barnabé, Le Cliquet) et des lieux (clapiers, catacombes, Tour Zéphyr, centrale). Zéro mention AURA, zéro titre anglais sur 48/48 images (audit Tesseract à 0). Cache-busting forcé `?v=3`. Cache SW `hylst-reader-v97`.
 - [x] **Restauration intégrale Neurodiversité & Cache-busting Atrophie (1.8.40)** : intégration exhaustive sans troncature des 16 chapitres d'*Approche de la Neurodiversité* (19 272 mots, textes intégraux de 2003 à 2025 avec le style asymétrique et alambiqué d'auteur), cache-busting forcé `?v=2` sur les 48 illustrations d'Atrophie pour purger les caches navigateurs de l'ancienne mention AURA. Cache SW `hylst-reader-v96`.

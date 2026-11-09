@@ -1,6 +1,13 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.49] - 2026-11-09
+
+### Modifié
+- **Nightprowler XII : enrichissement des Pistes inachevées** :
+  - Intégration du grand schéma vectoriel triptyque `chapitre-12-schema.svg` (1200×800) illustrant la cartographie conceptuelle des trois intrigues : le camp d'Azefhfkrijiiir, les trois filières de franchissement de la herse de Samarande (garde véreux, contrebandier, culte d'Arlam), et la coupe étagée de la cité naine de Kalaar dans les Monts Ocres.
+  - Ajout de trois tables techniques d6 de jeu : complications au campement (nomades, chaman, mutinerie gouri, duel), incidents de contrôle à la herse (fouilles, faussaires, pickpockets, molosses), et périls des galeries de Kalaar (éboulements, vapeurs sulfureuses, couvées d'hélodermes, pièges nains).
+
 ## [1.8.42] - 2026-11-09
 
 ### Modifié

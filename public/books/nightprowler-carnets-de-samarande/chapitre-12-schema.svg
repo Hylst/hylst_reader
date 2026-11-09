@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-labelledby="titre schema">
+  <title id="titre">Les trois pistes inachevées : Camp barbare, Contrôle d'entrée et Kalaar</title>
+  <desc id="schema">Schéma en trois panneaux présentant l'organisation spatiale et factionnelle des trois pistes de jeu : le campement du prince démon Azefhfkrijiiir, le franchissement à trois filières de la porte de Samarande, et la coupe verticale de la cité souterraine de Kalaar dans les Monts Ocres.</desc>
+
+  <defs>
+    <marker id="fleche" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#9a6b34"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="800" fill="#f2ece0"/>
+  <rect x="18" y="18" width="1164" height="764" fill="none" stroke="#4a3323" stroke-width="2" rx="10"/>
+
+  <text x="600" y="44" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#241d17">Les trois pistes inachevées de Samarande</text>
+  <text x="600" y="70" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="14" fill="#4a3323">Cartographie conceptuelle des intrigues, factions et accès. Sans échelle. Noms conformes au texte.</text>
+
+  <!-- Panneau 1 : Camp barbare -->
+  <rect x="40" y="96" width="340" height="650" rx="10" fill="#f7f1e4" stroke="#9a6b34" stroke-width="2"/>
+  <text x="60" y="128" font-family="Outfit, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#241d17">1. Le Camp du Prince Démon</text>
+  <text x="60" y="146" font-family="Merriweather, Georgia, serif" font-size="12" fill="#7a5525">Au-delà des terres de Samarande</text>
+
+  <g>
+    <rect x="70" y="170" width="280" height="60" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="210" y="194" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Azefhfkrijiiir</text>
+    <text x="210" y="214" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">Trône de toile, voix spectrale, pacte</text>
+  </g>
+
+  <path d="M210 230 V250" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="70" y="252" width="280" height="54" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="1.5"/>
+    <text x="210" y="274" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Les Tribus des Steppes</text>
+    <text x="210" y="292" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">Cavaliers, forges de campagne, butin</text>
+  </g>
+
+  <path d="M210 306 V326" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="70" y="328" width="280" height="54" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="1.5"/>
+    <text x="210" y="350" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Les Gouris Ralliés</text>
+    <text x="210" y="368" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">Pionniers des sapes, soif de revanche</text>
+  </g>
+
+  <path d="M210 382 V402" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="70" y="404" width="280" height="54" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="1.5"/>
+    <text x="210" y="426" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Les Renégats des Sept Cités</text>
+    <text x="210" y="444" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">Courtisans en fuite, informateurs vénaux</text>
+  </g>
+
+  <rect x="70" y="480" width="280" height="240" rx="8" fill="#f2ece0" stroke="#7a5525" stroke-dasharray="4,4"/>
+  <text x="85" y="506" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#7a5525">Enjeux &amp; Risques :</text>
+  <text x="85" y="534" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Infiltration dans la foule bigarrée</text>
+  <text x="85" y="562" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Sabotage des réserves de fer et vivres</text>
+  <text x="85" y="590" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Négociation risquée avec le démon</text>
+  <text x="85" y="618" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Trahison inévitable des factions</text>
+  <text x="85" y="646" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Fuite avant la charge sur Samarande</text>
+  <text x="85" y="674" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Destin lié au squelette du chapitre VIII</text>
+
+  <!-- Panneau 2 : Contrôle d'entrée -->
+  <rect x="430" y="96" width="340" height="650" rx="10" fill="#f7f1e4" stroke="#9a6b34" stroke-width="2"/>
+  <text x="450" y="128" font-family="Outfit, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#241d17">2. Le Contrôle d'Entrée</text>
+  <text x="450" y="146" font-family="Merriweather, Georgia, serif" font-size="12" fill="#7a5525">Porte des Faubourgs de Samarande</text>
+
+  <g>
+    <rect x="460" y="170" width="280" height="60" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="600" y="194" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">La Grande Herse Gardée</text>
+    <text x="600" y="214" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">Milice urbaine, péage officiel, fouille</text>
+  </g>
+
+  <path d="M600 230 V250" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="460" y="252" width="280" height="54" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="1.5"/>
+    <text x="600" y="274" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Option A : Le Garde Véreux</text>
+    <text x="600" y="292" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">Pot-de-vin, dette contractée, espionnage</text>
+  </g>
+
+  <path d="M600 306 V326" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="460" y="328" width="280" height="54" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="1.5"/>
+    <text x="600" y="350" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Option B : Le Contrebandier</text>
+    <text x="600" y="368" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">Poterne basse, égout, pourcentage réclamé</text>
+  </g>
+
+  <path d="M600 382 V402" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="460" y="404" width="280" height="54" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="1.5"/>
+    <text x="600" y="426" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Option C : Le Culte d'Arlam</text>
+    <text x="600" y="444" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">Procession, robes de bure, serment pieux</text>
+  </g>
+
+  <rect x="460" y="480" width="280" height="240" rx="8" fill="#f2ece0" stroke="#7a5525" stroke-dasharray="4,4"/>
+  <text x="475" y="506" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#7a5525">Conséquences en Jeu :</text>
+  <text x="475" y="534" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Faux papiers à l'épreuve du prévôt</text>
+  <text x="475" y="562" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Colis compromettant à livrer</text>
+  <text x="475" y="590" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Passage surveillé par un mouchard</text>
+  <text x="475" y="618" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Racket ou taxe arbitraire du bailli</text>
+  <text x="475" y="646" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Option D : Dormir dehors dans la boue</text>
+  <text x="475" y="674" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Le choix du seuil teinte toute la soirée</text>
+
+  <!-- Panneau 3 : Kalaar -->
+  <rect x="820" y="96" width="340" height="650" rx="10" fill="#f7f1e4" stroke="#9a6b34" stroke-width="2"/>
+  <text x="840" y="128" font-family="Outfit, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#241d17">3. Aventures à Kalaar</text>
+  <text x="840" y="146" font-family="Merriweather, Georgia, serif" font-size="12" fill="#7a5525">Cité naine perdue des Monts Ocres</text>
+
+  <g>
+    <rect x="850" y="170" width="280" height="60" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="2"/>
+    <text x="990" y="194" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#241d17">Niveau Supérieur : La Mine</text>
+    <text x="990" y="214" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="12" fill="#4a3323">Forges éteintes, rails, engrenages d'eau</text>
+  </g>
+
+  <path d="M990 230 V250" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="850" y="252" width="280" height="54" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="1.5"/>
+    <text x="990" y="274" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Niveau Médian : Failles Ocres</text>
+    <text x="990" y="292" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">Territoire des Hélodermes, vapeurs</text>
+  </g>
+
+  <path d="M990 306 V326" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="850" y="328" width="280" height="54" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="1.5"/>
+    <text x="990" y="350" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Niveau Bas : La Nurserie</text>
+    <text x="990" y="368" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">Couvée sacrée, gardiens écailleux géants</text>
+  </g>
+
+  <path d="M990 382 V402" stroke="#9a6b34" stroke-width="2.5" marker-end="url(#fleche)"/>
+
+  <g>
+    <rect x="850" y="404" width="280" height="54" rx="8" fill="#e8dfcd" stroke="#9a6b34" stroke-width="1.5"/>
+    <text x="990" y="426" text-anchor="middle" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#241d17">Le Temple Noyé</text>
+    <text x="990" y="444" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-size="11" fill="#4a3323">Trésor oublié des Nains, pacte ancien</text>
+  </g>
+
+  <rect x="850" y="480" width="280" height="240" rx="8" fill="#f2ece0" stroke="#7a5525" stroke-dasharray="4,4"/>
+  <text x="865" y="506" font-family="Outfit, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#7a5525">Trois Pistes de Jeu :</text>
+  <text x="865" y="534" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; La quête d'héritage d'un nain banni</text>
+  <text x="865" y="562" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Le vol d'un œuf d'héloderme vivant</text>
+  <text x="865" y="590" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Négociation de paix impossible</text>
+  <text x="865" y="618" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Pièges nains encore actifs</text>
+  <text x="865" y="646" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Venin paralysant et obscurité totale</text>
+  <text x="865" y="674" font-family="Merriweather, Georgia, serif" font-size="12" fill="#241d17">&#8226; Choix : piller, fuir ou arbitrer</text>
+
+</svg>

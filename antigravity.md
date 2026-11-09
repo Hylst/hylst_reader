@@ -25,6 +25,12 @@
 
 ## État actuel
 
+- Version **1.8.41** en cours, cache Service Worker source `hylst-reader-v97`. 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap.
+- **Régénération intégrale des 48 illustrations d'Atrophie avec Qwen Image 2.1 Uncensored** :
+  - 48 illustrations de chapitres générées localement sur GPU RTX 5070 avec `qwen-image-21-uc-sdcpp` via `wainsfw` (format 16:9 cinématographique 1024x576, 20 steps, CFG 2.5).
+  - Cohérence stricte des personnages (Léonce, Marthe, Barnabé, Le Cliquet) et des décors (clapiers délabrés, catacombes, Tour Zéphyr, centrale).
+  - Zéro mention AURA, zéro cartouche anglais sur l'ensemble des 48 images (audit Tesseract à 0 violation).
+  - Cache-busting forcé `?v=3` sur les 48 chapitres HTML pour purger immédiatement tout cache navigateur client.
 - Version **1.8.40** déployée le 09/11 (commit plateforme `b281b8f5`, docs `adfddecb`), cache Service Worker source `hylst-reader-v96`, build `c8c8705aa1e5`, SW `hylst-reader-c8c8705aa1e5`. 402 fichiers runtime, 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Restauration intégrale d'Approche de la Neurodiversité & Cache-busting Atrophie** :
   - Restauration intégrale sans troncature des 16 chapitres de l'anthologie (19 272 mots, extraction exhaustive de `Lettre d'un dyspraxique` 120 paras, `Chaos organisé` 62 paras, `Marre d'apprendre` 67 paras, `Labyrinthe des idées` 275 paras, `Les cinq familles` 143 paras de `troubles dys.odt`, et les 13 béquilles complètes).

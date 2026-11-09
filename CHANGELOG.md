@@ -1,6 +1,27 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.41] - 2026-11-09
+
+### Modifié
+- **Régénération intégrale des 48 illustrations de chapitres d'Atrophie avec Qwen-Image-2.1 Uncensored (sdcpp)** :
+  - Fin définitive de la mention AURA et des titrages anglais : les 48 chapitres de *Chronique d'une atrophie programmée* disposent désormais d'une illustration générée localement sur GPU RTX 5070 avec `qwen-image-21-uc-sdcpp` via `wainsfw` (format 16:9 cinématographique 1024x576, 20 steps, CFG 2.5).
+  - Continuité visuelle et caractérisation respectée :
+    - Léonce (trentaine d'années, pâle, cheveux bruns, regard fatigué, combinaison d'égoutier rapiécée, bras en écharpe).
+    - Barnabé / Pépé Rature (vieil homme barbu au crâne rasé, favoris poivre et sel, balafre sur la pommette, pipe en terre).
+    - Marthe « La Râpe » (femme trapue de 50 ans, cheveux gris courts, veste de cuir cloutée, badine ou fusil).
+    - Le Cliquet (petit homme noueux, lunettes de soudeur relevées sur le front, mains noircies).
+    - Décors : clapiers haussmanniens virtuels délabrés, conduits cyclopéens de meulière, centrale thermique de Saint-Denis, Tour Zéphyr, nuage de pollen d'ambroisie doré et colline de Romainville.
+  - Zéro texte en anglais, zéro logo AURA sur les 48 illustrations (audit Tesseract à 0 violation).
+  - Cache-busting forcé `?v=3` dans les 48 fichiers HTML pour purger immédiatement tout cache navigateur client.
+- **Service Worker** : incrémentation du cache source vers `hylst-reader-v97` dans `sw.js`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 196 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+- Contrôle Tesseract OCR : 48/48 images d'Atrophie 100 % vierges de texte ou mentions parasites.
+
 ## [1.8.40] - 2026-11-09
 
 ### Modifié

@@ -35,6 +35,9 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
 - `python scripts/test_neuro_svg.py` : 3/3 schémas SVG validés.
 - `python scripts/test_neuro_art.py` : 4/4 illustrations Krea WebP validées.
+- Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `59670cfcb111`, 402 fichiers runtime vérifiés.
+- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur tous les assets.
+- Production : déployée le 09/11 (commit plateforme `6fd89cdc`, docs `691ada2e`), build `59670cfcb111`, SW `hylst-reader-59670cfcb111`, index `?v=59670cfcb111`. `verify-release.ps1` entièrement vert.
 
 ## [1.8.36] - 2026-11-09
 

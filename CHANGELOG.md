@@ -1,6 +1,31 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.36] - 2026-11-09
+
+### Ajouté
+- **Édition intégrale d'*Approche de la Neurodiversité* (Recueil thématique en 3 parties, 13 chapitres)** :
+  - **Consolidation magistrale des 3 textes d'archives de l'auteur (2018-2022)** :
+    - *Partie I : Anatomie des décalages (Le vécu de l'intérieur)* : chapitres 1 à 4 (d'après `troubles dys.odt` et textes d'amorce), analyse détaillée des 5 familles de troubles dys (dyslexie/dysorthographie, dysphasie, dyspraxie/TDC/dysgraphie, TDA/H, mémoire de travail et dyscalculie), machinerie cérébrale, coût énergétique et usure adulte.
+    - *Partie II : L'Enfance et l'École (Guide d'accompagnement pour parents et tuteurs)* : chapitres 5 à 7 (d'après `Enfants en difficulté scolaire.doc`), diagnostic du malaise scolaire sans condamner (ambiance de classe, décalage avec les pairs, complexes), dédramatisation de la note, écoute d'égal à égal, et pédagogie concrète du pas-à-pas.
+    - *Partie III : La Boîte à Béquilles (13 stratégies concrètes pour adultes)* : chapitres 8 à 11 (d'après `Idées pour lutter contre les troubles ‘dys’...pdf` de juin 2022), aménagement de l'espace, délestage mental par l'écrit, listes immédiates, alarmes programmées, structuration visuelle, relecture différée, hygiène de vie et gestion du point de rupture (« l'esprit embrumé »).
+    - *Prologue et Épilogue* : *Le décalage invisible* (prologue navigable) et *Vivre avec la friction* (conclusion lucide, refus du mythe romantique des « super-pouvoirs », marcher debout avec des béquilles ajustées).
+  - **3 Schémas vectoriels SVG haute précision** créés et intégrés :
+    - `neuro-schema-1-familles.svg` (Chapitre 2) : cartographie des 5 familles et impacts croisés.
+    - `neuro-schema-2-pedagogie.svg` (Chapitre 7) : boucle du découragement scolaire vs cercle vertueux de remédiation bienveillante.
+    - `neuro-schema-3-bequilles.svg` (Chapitre 9) : architecture des 13 béquilles cognitives de terrain.
+  - **4 Illustrations d'art éditorial générées localement sur GPU (Krea-2-Turbo)** :
+    - `partie-1-couverture.webp` (*L'Archipel des Pensées*), `partie-2-couverture.webp` (*La Main sur l'Épaule*), `partie-3-couverture.webp` (*La Boîte à Outils*) et `epilogue-couverture.webp` (*La Silhouette et le Phare*).
+  - **Catalogue & Sommaire** : sommaire étendu à 13 entrées dans `public/books.json`, régénération de la fiche indexable `livres/approche-de-la-neurodiversite/index.html`.
+  - **Service Worker** : incrémentation du cache source vers `hylst-reader-v92` dans `sw.js`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 193 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+- `python scripts/test_neuro_svg.py` : 3/3 schémas SVG validés.
+- `python scripts/test_neuro_art.py` : 4/4 illustrations Krea WebP validées.
+
 ## [1.8.35] - 2026-11-09
 
 ### Modifié

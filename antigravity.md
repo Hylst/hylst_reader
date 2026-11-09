@@ -25,6 +25,12 @@
 
 ## État actuel
 
+- Version **1.8.36** en cours, cache Service Worker source `hylst-reader-v92`. 12 livres, 153 chapitres (165 fichiers de contenu), 14 URL au sitemap.
+- **Édition intégrale d'*Approche de la Neurodiversité* (Recueil thématique en 3 parties, 13 chapitres)** :
+  - Consolidation des 3 textes d'archives (2018-2022) : Partie I (Anatomie des décalages, 5 familles dys d'après `troubles dys.odt`), Partie II (L'Enfance et l'École, guide d'accompagnement d'après `Enfants en difficulté scolaire.doc`), Partie III (La Boîte à Béquilles, 13 stratégies concrètes de l'adulte d'après `Idées pour lutter...pdf`).
+  - 3 schémas vectoriels SVG interactifs créés : `neuro-schema-1-familles.svg`, `neuro-schema-2-pedagogie.svg`, `neuro-schema-3-bequilles.svg`.
+  - 4 illustrations d'art éditorial générées localement sur GPU RTX 5070 (Krea-2-Turbo) : `partie-1-couverture.webp`, `partie-2-couverture.webp`, `partie-3-couverture.webp`, `epilogue-couverture.webp`.
+  - Sommaire étendu à 13 entrées avec Prologue et Épilogue pour une navigation linéaire complète. Fiche statique regénérée.
 - Version **1.8.35** déployée le 09/11 (commit plateforme `ac6cabe3`, docs `1c7b8b45`), cache Service Worker source `hylst-reader-v91`, build `f45d0fcef3ea`, SW `hylst-reader-f45d0fcef3ea`. 385 fichiers runtime, 12 livres, 146 chapitres (158 fichiers de contenu), 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Cadrage des vignettes et élimination d'AURA** :
   - `.chapter-figure` calibré sous `css/reader.css` (`max-width: 480px; max-height: 280px; object-fit: cover`) évitant le débordement plein écran sur la lecture.

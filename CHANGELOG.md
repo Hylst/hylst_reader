@@ -1,6 +1,24 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.38] - 2026-11-09
+
+### Modifié
+- **Pied de page mobile repositionné en fin de page naturelle (`LibraryView.jsx`, `layout.css`, `responsive.css`)** :
+  - Déplacement du composant `<footer className="app-footer">` à l'intérieur du conteneur défilant `<main className="library-container">`.
+  - Suppression de l'ancrage fixe/flottant qui monopolisait plus d'un quart de l'écran en mode portrait sur smartphone. Le pied de page est désormais accessible uniquement lorsque l'utilisateur fait défiler la bibliothèque jusqu'en bas, libérant 100 % de l'espace vertical pour les livres.
+  - Ajustement des marges et espacements responsive (`responsive.css`) pour une intégration soignée et compacte en fin de défilement.
+- **Transparence et éthique de l'assistance IA (Approche de la Neurodiversité & Chronique d'une atrophie)** :
+  - *Approche de la Neurodiversité* : mention explicite ajoutée dans `books.json` et `intro.html` précisant que les illustrations sont générées par une IA locale (Krea-2-Turbo sur GPU) et que l'auteur s'est aidé d'une IA pour relire ses écrits passés et en corriger dans une moindre mesure quelques coquilles ou lourdeurs d'expression.
+  - *Chronique d'une atrophie programmée* : mention explicite ajoutée dans `books.json` et `intro.html` indiquant une écriture humaine à la main jusqu'aux deux tiers de la rédaction, puis une assistance IA pour mieux structurer, corriger, brainstormer des pistes narratives, documenter et générer les illustrations d'ambiance locales.
+  - Fiches statiques indexables des deux ouvrages régénérées (`build_book_pages.py`).
+- **Service Worker** : incrémentation du cache source vers `hylst-reader-v94` dans `sw.js`.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 196 fichiers contrôlés, zéro tiret long.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
+
 ## [1.8.37] - 2026-11-09
 
 ### Ajouté

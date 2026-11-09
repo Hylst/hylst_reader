@@ -318,30 +318,30 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                     </div>
                 )}
 
+                <footer className="app-footer">
+                    <div className="footer-content">
+                        <div className="footer-brand">
+                            <span className="app-title" style={{ fontSize: '1.1rem' }}>La Bibliothèque de Hylst</span>
+                            <span className="footer-signature">Livres, proses, poésies et récits de Geoffroy Streit</span>
+                            <span className="footer-wip">En cours de développement</span>
+                        </div>
+                        <div className="footer-creator">
+                            Créé par <strong>Geoffroy Streit</strong> alias <em>Hylst</em>
+                            &nbsp;&middot;&nbsp; Artiste &eacute;clectique, développeur bancal, &eacute;crivain &agrave; ses heures
+                            &nbsp;&middot;&nbsp;
+                            <a href="mailto:geoffroy.streit@gmail.com" className="footer-mail">
+                                <Icon.Mail /> geoffroy.streit@gmail.com
+                            </a>
+                        </div>
+                        <div className="footer-rights">
+                            <span>&copy; 2026 Geoffroy Streit &middot; Tous droits réservés</span>
+                            <a href="droits.html" className="footer-rights-link" title="Droits d'auteur, citation et intelligence artificielle">
+                                <Icon.Shield /> Droits &amp; IA
+                            </a>
+                        </div>
+                    </div>
+                </footer>
             </main>
-            <footer className="app-footer">
-                <div className="footer-content">
-                    <div className="footer-brand">
-                        <span className="app-title" style={{ fontSize: '1.1rem' }}>La Bibliothèque de Hylst</span>
-                        <span className="footer-signature">Livres, proses, poésies et récits de Geoffroy Streit</span>
-                        <span className="footer-wip">En cours de développement</span>
-                    </div>
-                    <div className="footer-creator">
-                        Créé par <strong>Geoffroy Streit</strong> alias <em>Hylst</em>
-                        &nbsp;&middot;&nbsp; Artiste &eacute;clectique, développeur bancal, &eacute;crivain &agrave; ses heures
-                        &nbsp;&middot;&nbsp;
-                        <a href="mailto:geoffroy.streit@gmail.com" className="footer-mail">
-                            <Icon.Mail /> geoffroy.streit@gmail.com
-                        </a>
-                    </div>
-                    <div className="footer-rights">
-                        <span>&copy; 2026 Geoffroy Streit &middot; Tous droits réservés</span>
-                        <a href="droits.html" className="footer-rights-link" title="Droits d'auteur, citation et intelligence artificielle">
-                            <Icon.Shield /> Droits &amp; IA
-                        </a>
-                    </div>
-                </div>
-            </footer>
         </div>
     );
 }

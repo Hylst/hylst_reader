@@ -25,6 +25,12 @@
 
 ## État actuel
 
+- Version **1.8.38** en cours, cache Service Worker source `hylst-reader-v94`. 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap.
+- **Pied de page mobile & Transparence éthique IA** :
+  - Déplacement de `<footer className="app-footer">` à l'intérieur du conteneur de défilement `<main className="library-container">`. Fini le pied de page flottant qui prenait 1/4 d'écran sur smartphone : il est désormais accessible naturellement tout en bas de page.
+  - Mentions éthiques de l'assistance IA affinées :
+    - *Approche de la Neurodiversité* : relecture assistée par IA pour corriger coquilles et lourdeurs d'expression d'écrits 2003-2025, illustrations d'ouverture Krea locales.
+    - *Chronique d'une atrophie programmée* : écriture manuelle originelle jusqu'aux 2/3, puis assistance IA pour structuration, corrections, brainstorming, recherches et illustrations d'ambiance.
 - Version **1.8.37** déployée le 09/11 (commit plateforme `6fd89cdc`, docs `691ada2e`), cache Service Worker source `hylst-reader-v93`, build `59670cfcb111`, SW `hylst-reader-59670cfcb111`. 402 fichiers runtime, 12 livres, 156 chapitres (168 fichiers de contenu), 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Anthologie intégrale d'*Approche de la Neurodiversité* (16 chapitres, 2003-2025)** :
   - Intégration exhaustive des écrits de terrain de l'auteur sur 22 ans (site `hylst.fr/neurodivers/` et manuscrits d'archives).

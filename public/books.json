@@ -1655,5 +1655,174 @@
       "biologie",
       "roman"
     ]
+  },
+  {
+    "id": "nouvelles-satiriques-alsaciennes",
+    "title": "Nouvelles satiriques alsaciennes",
+    "author": "Hylst (Geoffroy Streit)",
+    "year": 2026,
+    "design": {
+      "fonts": {
+        "heading": "Cormorant Garamond",
+        "body": "Libre Baskerville",
+        "googleFonts": ""
+      },
+      "colors": {
+        "background": "#faf4e8",
+        "text": "#2e2b28",
+        "primary": "#8b5a2b",
+        "secondary": "#d9c8a9",
+        "accent": "#c47c3a"
+      },
+      "variables": {
+        "--book-bg": "#faf4e8",
+        "--book-text": "#2e2b28",
+        "--book-accent": "#c47c3a",
+        "--book-accent-dark": "#8b5a2b",
+        "--book-surface": "#f2e8d8",
+        "--book-border": "rgba(139, 90, 43, 0.2)",
+        "--book-font-body": "'Libre Baskerville', Georgia, serif",
+        "--book-font-heading": "'Cormorant Garamond', Georgia, serif",
+        "--book-font-title": "'Cormorant Garamond', Georgia, serif",
+        "--book-font-size": "1.05rem",
+        "--book-line-height": "1.8",
+        "--book-max-width": "720px",
+        "--book-dropcap-size": "4.2em"
+      }
+    },
+    "coverPath": "covers/nouvelles-satiriques-alsaciennes.webp",
+    "introPath": "books/nouvelles-satiriques-alsaciennes/intro.html",
+    "chapters": [
+      {
+        "id": "01-chienne-de-vie.html",
+        "title": "Chienne de Vie",
+        "path": "books/nouvelles-satiriques-alsaciennes/01-chienne-de-vie.html"
+      },
+      {
+        "id": "02-jusqu-au-dernier-sou.html",
+        "title": "Jusqu'au Dernier Sou",
+        "path": "books/nouvelles-satiriques-alsaciennes/02-jusqu-au-dernier-sou.html"
+      },
+      {
+        "id": "03-l-education-de-monsieur-bezard.html",
+        "title": "L'Éducation de Monsieur Bézard",
+        "path": "books/nouvelles-satiriques-alsaciennes/03-l-education-de-monsieur-bezard.html"
+      },
+      {
+        "id": "04-la-derniere-utopie.html",
+        "title": "La Dernière Utopie",
+        "path": "books/nouvelles-satiriques-alsaciennes/04-la-derniere-utopie.html"
+      },
+      {
+        "id": "05-la-maison-blanche.html",
+        "title": "La Maison Blanche",
+        "path": "books/nouvelles-satiriques-alsaciennes/05-la-maison-blanche.html"
+      },
+      {
+        "id": "06-la-ville-des-miroirs.html",
+        "title": "La Ville des Miroirs",
+        "path": "books/nouvelles-satiriques-alsaciennes/06-la-ville-des-miroirs.html"
+      },
+      {
+        "id": "07-le-chant-des-sirenes.html",
+        "title": "Le Chant des Sirènes",
+        "path": "books/nouvelles-satiriques-alsaciennes/07-le-chant-des-sirenes.html"
+      },
+      {
+        "id": "08-le-dernier-mot.html",
+        "title": "Le Dernier Mot",
+        "path": "books/nouvelles-satiriques-alsaciennes/08-le-dernier-mot.html"
+      },
+      {
+        "id": "09-le-discours.html",
+        "title": "Le Discours",
+        "path": "books/nouvelles-satiriques-alsaciennes/09-le-discours.html"
+      },
+      {
+        "id": "10-le-don-de-soi.html",
+        "title": "Le Don de Soi",
+        "path": "books/nouvelles-satiriques-alsaciennes/10-le-don-de-soi.html"
+      },
+      {
+        "id": "11-les-merites-du-feu.html",
+        "title": "Les Mérites du Feu",
+        "path": "books/nouvelles-satiriques-alsaciennes/11-les-merites-du-feu.html"
+      },
+      {
+        "id": "12-les-reves-de-monsieur-groslot.html",
+        "title": "Les Rêves de Monsieur Groslot",
+        "path": "books/nouvelles-satiriques-alsaciennes/12-les-reves-de-monsieur-groslot.html"
+      },
+      {
+        "id": "13-un-honnete-homme.html",
+        "title": "Un Honnête Homme",
+        "path": "books/nouvelles-satiriques-alsaciennes/13-un-honnete-homme.html"
+      },
+      {
+        "id": "14-le-syndrome-de-la-perfection-numerique.html",
+        "title": "Le Syndrome de la Perfection Numérique",
+        "path": "books/nouvelles-satiriques-alsaciennes/14-le-syndrome-de-la-perfection-numerique.html"
+      },
+      {
+        "id": "15-le-prix-de-la-transparence.html",
+        "title": "Le Prix de la Transparence",
+        "path": "books/nouvelles-satiriques-alsaciennes/15-le-prix-de-la-transparence.html"
+      },
+      {
+        "id": "16-la-ferme-des-illusions.html",
+        "title": "La Ferme des Illusions",
+        "path": "books/nouvelles-satiriques-alsaciennes/16-la-ferme-des-illusions.html"
+      },
+      {
+        "id": "17-le-musee-des-ames-perdues.html",
+        "title": "Le Musée des Âmes Perdues",
+        "path": "books/nouvelles-satiriques-alsaciennes/17-le-musee-des-ames-perdues.html"
+      },
+      {
+        "id": "18-le-silence-des-agneaux-numeriques.html",
+        "title": "Le Silence des Agneaux Numériques",
+        "path": "books/nouvelles-satiriques-alsaciennes/18-le-silence-des-agneaux-numeriques.html"
+      },
+      {
+        "id": "19-le-theatre-des-ombres.html",
+        "title": "Le Théâtre des Ombres",
+        "path": "books/nouvelles-satiriques-alsaciennes/19-le-theatre-des-ombres.html"
+      },
+      {
+        "id": "20-le-syndrome-de-l-immortel.html",
+        "title": "Le Syndrome de l'Immortel",
+        "path": "books/nouvelles-satiriques-alsaciennes/20-le-syndrome-de-l-immortel.html"
+      },
+      {
+        "id": "21-le-dernier-sourire-du-clown.html",
+        "title": "Le Dernier Sourire du Clown",
+        "path": "books/nouvelles-satiriques-alsaciennes/21-le-dernier-sourire-du-clown.html"
+      },
+      {
+        "id": "22-le-secret-du-vigneron.html",
+        "title": "Le Secret du Vigneron",
+        "path": "books/nouvelles-satiriques-alsaciennes/22-le-secret-du-vigneron.html"
+      },
+      {
+        "id": "23-le-dernier-oracle.html",
+        "title": "Le Dernier Oracle",
+        "path": "books/nouvelles-satiriques-alsaciennes/23-le-dernier-oracle.html"
+      },
+      {
+        "id": "24-le-dernier-rire.html",
+        "title": "Le Dernier Rire",
+        "path": "books/nouvelles-satiriques-alsaciennes/24-le-dernier-rire.html"
+      },
+      {
+        "id": "25-le-grand-nettoyage.html",
+        "title": "Le Grand Nettoyage",
+        "path": "books/nouvelles-satiriques-alsaciennes/25-le-grand-nettoyage.html"
+      },
+      {
+        "id": "26-le-jardin-des-illusions.html",
+        "title": "Le Jardin des Illusions",
+        "path": "books/nouvelles-satiriques-alsaciennes/26-le-jardin-des-illusions.html"
+      }
+    ]
   }
 ]

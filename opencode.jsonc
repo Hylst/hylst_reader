@@ -1,0 +1,64 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "bibliothecaire",
+  "instructions": ["AGENTS.md", "antigravity.md"],
+  "permissions": [
+    // Lecture : tout le projet, sauf les secrets.
+    { "action": "read", "resource": "*", "effect": "allow" },
+    { "action": "read", "resource": "*.env", "effect": "ask" },
+    { "action": "read", "resource": "*.env.*", "effect": "ask" },
+
+    // Écriture : sources et outils modifiables.
+    { "action": "edit", "resource": "livres_pour_import/**", "effect": "allow" },
+    { "action": "edit", "resource": "docs/**", "effect": "allow" },
+    { "action": "edit", "resource": "css/**", "effect": "allow" },
+    { "action": "edit", "resource": "js/**", "effect": "allow" },
+    { "action": "edit", "resource": "scripts/**", "effect": "allow" },
+    { "action": "edit", "resource": "AGENTS.md", "effect": "allow" },
+    { "action": "edit", "resource": "antigravity.md", "effect": "allow" },
+    { "action": "edit", "resource": "README.md", "effect": "allow" },
+    { "action": "edit", "resource": "structure.md", "effect": "allow" },
+    { "action": "edit", "resource": "test_build_deploy.md", "effect": "allow" },
+    { "action": "edit", "resource": "todo.md", "effect": "allow" },
+    { "action": "edit", "resource": "CHANGELOG.md", "effect": "allow" },
+    { "action": "edit", "resource": "opencode.jsonc", "effect": "allow" },
+    { "action": "edit", "resource": ".opencode/**", "effect": "allow" },
+
+    // Contenus servis : jamais réécrits sans décision humaine.
+    { "action": "edit", "resource": "public/books/**", "effect": "deny" },
+    { "action": "edit", "resource": "public/books.json", "effect": "ask" },
+    { "action": "edit", "resource": "public/covers/**", "effect": "ask" },
+    { "action": "edit", "resource": "index.html", "effect": "ask" },
+    { "action": "edit", "resource": "sw.js", "effect": "ask" },
+    { "action": "edit", "resource": "manifest.json", "effect": "ask" },
+    { "action": "edit", "resource": "droits.html", "effect": "ask" },
+
+    // Shell : build et vérification autorisés, destruction et publication refusées.
+    { "action": "shell", "resource": "*", "effect": "ask" },
+    { "action": "shell", "resource": "node scripts/build_jsx.js", "effect": "allow" },
+    { "action": "shell", "resource": "node scripts/build_jsx.js --check", "effect": "allow" },
+    { "action": "shell", "resource": "python scripts/check_dashes.py *", "effect": "allow" },
+    { "action": "shell", "resource": "*sync-to-platform.ps1*", "effect": "allow" },
+    { "action": "shell", "resource": "python -m http.server *", "effect": "allow" },
+    { "action": "shell", "resource": "git status *", "effect": "allow" },
+    { "action": "shell", "resource": "git diff *", "effect": "allow" },
+    { "action": "shell", "resource": "git log *", "effect": "allow" },
+    { "action": "shell", "resource": "git add *", "effect": "allow" },
+    { "action": "shell", "resource": "git commit *", "effect": "ask" },
+    { "action": "shell", "resource": "git push *", "effect": "deny" },
+    { "action": "shell", "resource": "python build_books.py", "effect": "deny" },
+    { "action": "shell", "resource": "python build_books.py *", "effect": "deny" },
+    { "action": "shell", "resource": "rm *", "effect": "deny" },
+    { "action": "shell", "resource": "del *", "effect": "deny" },
+    { "action": "shell", "resource": "rmdir *", "effect": "deny" },
+    { "action": "shell", "resource": "move *", "effect": "deny" },
+
+    // Sous-agents : exploration et recherche uniquement.
+    { "action": "subagent", "resource": "*", "effect": "deny" },
+    { "action": "subagent", "resource": "explore", "effect": "allow" },
+    { "action": "subagent", "resource": "general", "effect": "allow" },
+    { "action": "webfetch", "resource": "*", "effect": "allow" },
+    { "action": "websearch", "resource": "*", "effect": "allow" },
+    { "action": "question", "resource": "*", "effect": "allow" }
+  ]
+}

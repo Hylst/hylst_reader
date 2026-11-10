@@ -2,6 +2,14 @@
 
 La mémoire projet complète est dans [`antigravity.md`](antigravity.md). La lire avant toute modification.
 
+## Configuration OpenCode
+
+- `opencode.jsonc` définit l'agent `bibliothecaire` et les permissions du projet.
+- `.opencode/agents/bibliothecaire.md` : gardien du catalogue, du build et du miroir.
+- `.opencode/commands/publier.md` : publication d'un livre depuis un export validé.
+- `.opencode/commands/verifier-miroir.md` : compilation, synchronisation et test du miroir.
+- `build_books.py` est interdit. `public/books/` n'est jamais régénéré.
+
 ## Règles courtes
 
 - Ne jamais régénérer automatiquement les HTML de `public/books/` : les corriger manuellement.

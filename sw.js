@@ -78,7 +78,6 @@ const APP_SHELL = [
     './public/covers/cover_algorithm_love.webp',
     './public/covers/cover_godefroi.webp',
     './public/covers/cover_atrophie.webp',
-    './public/covers/cover_nouvelles_alsaciennes.webp',
     './public/covers/cover_automatisation_ia.webp',
     './public/covers/cover_eclats_corbeau.webp'
 ];

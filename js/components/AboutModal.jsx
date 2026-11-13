@@ -215,11 +215,15 @@ function AboutModal({ onClose }) {
                     {activeTab === 'rights' && (
                         <div className="about-tab-content animate-fade-in">
                             <p className="about-hero-text" style={{ textAlign: 'left', fontSize: '1rem' }}>
-                                Les textes, illustrations et musiques de cette bibliothèque appartiennent à
-                                <strong> Geoffroy Streit</strong> et sont protégés par le droit d'auteur.
-                                La lecture, la courte citation avec mention du nom et le partage du lien sont
-                                autorisés. La reproduction, la réutilisation commerciale et l'entraînement de
-                                modèles d'intelligence artificielle ne le sont pas.
+                                Les textes et les musiques de cette bibliothèque sont de
+                                <strong> Geoffroy Streit</strong> et protégés par le droit d'auteur.
+                                Les illustrations sont générées avec des outils d'IA, à partir de mes
+                                indications, de mes essais et de mes retouches ; pour les trois premiers
+                                tomes des recueils, elles ont aussi demandé un travail de montage et
+                                d'assemblage. La lecture, la courte citation avec mention du nom et le
+                                partage du lien sont autorisés. La reproduction des textes, la
+                                réutilisation commerciale et l'entraînement de modèles sur les textes ne
+                                le sont pas sans accord.
                             </p>
                             <div className="rights-summary-grid">
                                 <div className="rights-summary-card allowed">
@@ -231,17 +235,19 @@ function AboutModal({ onClose }) {
                                     </ul>
                                 </div>
                                 <div className="rights-summary-card forbidden">
-                                    <h4><Icon.X /> Interdit sans accord</h4>
+                                    <h4><Icon.X /> À éviter sans accord</h4>
                                     <ul>
                                         <li>Recopier ou republier un texte, même partiellement.</li>
                                         <li>Adapter, traduire, revendre, intégrer à une offre payante.</li>
-                                        <li>Alimenter un corpus ou entraîner une IA.</li>
+                                        <li>Alimenter un corpus ou entraîner une IA sur les textes.</li>
                                     </ul>
                                 </div>
                             </div>
                             <p className="rights-note">
-                                Illustrations : la plupart sont générées ou retouchées avec l'aide d'une IA,
-                                sous ma direction. Les photographies et créations personnelles sont signalées.
+                                Illustrations : générées avec des outils d'IA, sous ma direction
+                                (prompts, essais, retouches, montages pour les trois premiers tomes des
+                                recueils). Elles ne sont pas présentées comme des créations entièrement
+                                manuelles.
                             </p>
                             <a className="btn btn-primary rights-page-link" href="droits.html">
                                 <Icon.Shield /> Lire la page complète des droits

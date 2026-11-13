@@ -106,7 +106,7 @@ draw.text((80, 384), "Livres, proses, poésies et récits", font=subtitle_font, 
 draw.text((80, 424), "Une liseuse web hors-ligne, sans compte.", font=body_font, fill=MUTED)
 
 draw.text((80, 556), "hylst.fr/books_reader", font=small_font, fill=ACCENT)
-draw.text((278, 556), "© 2026 Geoffroy Streit  ·  Tous droits réservés", font=small_font, fill=MUTED)
+draw.text((278, 556), "© 2026 Geoffroy Streit", font=small_font, fill=MUTED)
 
 # Filet lumineux en bas, rappel du bandeau de la liseuse.
 for i in range(3):

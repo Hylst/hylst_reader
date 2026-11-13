@@ -119,7 +119,7 @@ function BookHomeView({ book, onBack, onStartReading }) {
                     {!book.isImported && (
                         <div className="book-rights-row">
                             <p className="book-rights-line">
-                                Texte de <strong>Geoffroy Streit</strong> &middot; &copy; Tous droits réservés &middot;
+                                Texte de <strong>Geoffroy Streit</strong> &middot; &copy; 2026 &middot;
                                 {' '}<a href="droits.html">Citation &amp; IA</a>
                             </p>
                             <button type="button" className="btn btn-ghost book-cite-btn" onClick={copyCitation} title="Copier la référence de cette œuvre">

@@ -334,8 +334,8 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                             </a>
                         </div>
                         <div className="footer-rights">
-                            <span>&copy; 2026 Geoffroy Streit &middot; Tous droits réservés</span>
-                            <a href="droits.html" className="footer-rights-link" title="Droits d'auteur, citation et intelligence artificielle">
+                            <span>Textes et musiques &copy; 2026 Geoffroy Streit</span>
+                            <a href="droits.html" className="footer-rights-link" title="Droits, crédits, citation et intelligence artificielle">
                                 <Icon.Shield /> Droits &amp; IA
                             </a>
                         </div>

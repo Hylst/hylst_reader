@@ -298,7 +298,7 @@ def build_book(book: dict) -> str:
     <meta name="author" content="Geoffroy Streit (Hylst)">
     <meta name="robots" content="index, follow, max-image-preview:large, noai, noimageai">
     <meta name="copyright" content="© 2026 Geoffroy Streit">
-    <meta name="rights" content="Tous droits réservés. Reproduction et entraînement de modèles d'intelligence artificielle interdits sans autorisation écrite.">
+    <meta name="rights" content="Textes et musiques : © Geoffroy Streit. Illustrations générées avec des outils d'IA. Reproduction et entraînement de modèles soumis à accord écrit.">
     <meta name="tdm-reservation" content="1">
     <meta name="tdm-policy" content="{BASE}droits.html">
     <link rel="canonical" href="{url}">
@@ -346,7 +346,7 @@ def build_book(book: dict) -> str:
                     <h1>{html.escape(title)}</h1>
 {subtitle_html}                    <p class="author">{html.escape(author)}</p>
                     <p class="year">{html.escape(year)}</p>
-{illustration_html}                    <p class="rights">Texte de <strong>Geoffroy Streit</strong> · © Tous droits réservés · <a href="{SITE_PATH}droits.html">Citation &amp; IA</a></p>
+{illustration_html}                    <p class="rights">Texte de <strong>Geoffroy Streit</strong> · © 2026 · <a href="{SITE_PATH}droits.html">Citation &amp; IA</a></p>
                     <a class="cta" href="{SITE_PATH}?book={book_id}">Lire dans la liseuse</a>
                 </div>
             </div>

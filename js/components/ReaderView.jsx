@@ -513,7 +513,7 @@ function ReaderView({ book, onBack, settings, onUpdateSettings, currentTrack, is
                                     </button>
                                     {!book.isImported && (
                                         <p className="chapter-rights">
-                                            Texte de <strong>{book.author}</strong> &middot; &copy; Tous droits réservés &middot;
+                                            Texte de <strong>{book.author}</strong> &middot; &copy; 2026 &middot;
                                             {' '}<a href="droits.html">Droits &amp; IA</a>
                                         </p>
                                     )}

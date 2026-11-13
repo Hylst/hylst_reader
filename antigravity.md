@@ -25,6 +25,8 @@
 
 ## État actuel
 
+- Version **1.8.51** publiée le 13/11, cache Service Worker source `hylst-reader-v100`, build `507871c4f320`, SW `hylst-reader-507871c4f320`. 13 livres, 186 chapitres, 465 fichiers runtime, 26 illustrations de chapitre pour *Nouvelles satiriques alsaciennes*.
+- **Nouvelles satiriques alsaciennes, édition illustrée** : 26 illustrations approuvées par l'auteur, une par nouvelle, WebP 1344 × 896, style graphite dense et stylo bille, aucun texte dans l'image. Les cinq versions étendues (`014`, `015`, `016`, `017`, `021`) remplacent les versions courtes ; le recueil passe de 27 781 à 28 408 mots. Licence Qwen Image 2.1 non commerciale, diffusion gratuite.
 - Version **1.8.50** déployée le 09/11, cache Service Worker source `hylst-reader-v99`, build `b0bcfcc94ccb`, SW `hylst-reader-b0bcfcc94ccb`. 409 fichiers runtime, 12 livres, 160 chapitres (52 pour Atrophie dont 4 interludes documentaires), 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.
 - **Refonte intégrale et expansion pessimiste d'*Atrophie* (édition 67 100 mots)** : volumétrie triplée (passage de 21 750 à 67 106 mots), intégration de 4 chapitres-piliers (2 500 à 3 700 mots), 4 interludes documentaires S.Y.N.D.I.C., Fers de marche articulés de Léonce (4,5 kg par jambe), Écœurement Sémantique, hécatombe civile du pollen et chute tragique de Tristan sous le Frisson Divin. Zéro tiret cadratin ou demi-cadratin.
 - Version **1.8.49** déployée le 09/11, cache Service Worker source `hylst-reader-v99`, build `a4765c3db052`, SW `hylst-reader-a4765c3db052`. 405 fichiers runtime, 12 livres, 156 chapitres, 14 URL au sitemap. `verify-release.ps1` entièrement vert en production.

@@ -1,6 +1,7 @@
 # La Bibliothèque de Hylst - TODO
 
 ## 🎯 Priorités Actuelles
+- [x] **Nouvelles satiriques alsaciennes illustrées (1.8.51)** : 26 illustrations approuvées et intégrées, une par nouvelle, 26 WebP 1344 × 896 dans `public/books/nouvelles-satiriques-alsaciennes/assets/` ; cinq versions étendues publiées (`014`, `015`, `016`, `017`, `021`), recueil à 28 408 mots ; cache SW `hylst-reader-v100`, build `507871c4f320`. Déployé le 13/11.
 - [x] **Expansion littéraire et refonte pessimiste d'*Atrophie* (1.8.50)** : passage de 21 750 à 67 106 mots (multiplié par 3), 4 chapitres-piliers (2 500-3 700 mots), 4 interludes documentaires S.Y.N.D.I.C., intégration des Fers de marche de Léonce, chute tragique de Tristan et Frisson Divin. Déployé le 09/11 (build `b0bcfcc94ccb`).
 - [x] **Nightprowler XII (1.8.49)** : enrichissement de *Pistes inachevées* avec schéma vectoriel triptyque SVG (1200×800, `chapitre-12-schema.svg`), 3 tables d6 de complications, incidents de herse et périls de Kalaar. Déployé le 09/11 (build `a4765c3db052`).
 - [x] **Régénération intégrale des 48 illustrations d'Atrophie Flux 3 Klein (1.8.48)**

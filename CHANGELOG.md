@@ -1,6 +1,17 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.51] - 2026-11-13
+
+### Ajouté & Modifié
+- **Nouvelles satiriques alsaciennes, édition illustrée** : les 26 nouvelles du recueil reçoivent une illustration de chapitre, une par texte, en tête de lecture.
+  - 26 WebP 1344 × 896 dans `public/books/nouvelles-satiriques-alsaciennes/assets/`, style graphite dense et stylo bille, aucun texte dans l'image.
+  - Figures `chapter-figure` insérées après la ligne d'auteur, texte alternatif « Illustration de [titre] », chargement différé.
+  - Les cinq versions étendues (`014`, `015`, `016`, `017`, `021`) remplacent les versions courtes : le recueil passe de 27 781 à 28 408 mots.
+  - `sw.js` passe au cache `hylst-reader-v100` dans la source, build `507871c4f320` dans le miroir. Le précache découvre les 26 illustrations dans les chapitres.
+  - Licence des illustrations : Qwen Image 2.1, `qwen-research`, diffusion gratuite et non commerciale.
+- **Vérifications** : `build_jsx.js --check` à jour, `check_dashes.py` sans tiret cadratin ou demi-cadratin sur 247 fichiers du miroir, 465 fichiers runtime contrôlés, catalogue à 13 livres, 26 chapitres et 26 images en HTTP 200 sur le miroir local.
+
 ## [1.8.50] - 2026-11-09
 
 ### Ajouté & Modifié

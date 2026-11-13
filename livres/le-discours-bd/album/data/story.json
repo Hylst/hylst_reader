@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "meta": {
+    "start": "NODE-PLANCHE-1",
+    "title": "Le Discours",
+    "lang": "fr",
+    "mode": "lineaire"
+  },
+  "nodes": [
+    {
+      "id": "NODE-PLANCHE-1",
+      "title": "Planche 1 : Les Coulisses du Pouvoir",
+      "text": "Dans les salons dorés de la préfecture du Bas-Rhin, trois cents notables trinquent au vin d'honneur du congrès régional des maires.",
+      "image": "assets/planche-1-case-1.webp",
+      "choices": [
+        {
+          "id": "CHOICE-1-2",
+          "label": "Continuer",
+          "to": "NODE-PLANCHE-2",
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "NODE-PLANCHE-2",
+      "title": "Planche 2 : La Méprise Oratoire",
+      "text": "Armand gravit les trois marches de l'estrade et lit le tract syndical à la place de son discours.",
+      "image": "assets/planche-2-case-3.webp",
+      "choices": [
+        {
+          "id": "CHOICE-2-3",
+          "label": "Continuer",
+          "to": "NODE-PLANCHE-3",
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "NODE-PLANCHE-3",
+      "title": "Planche 3 : La Salle Foudroyée",
+      "text": "Un silence de plomb tombe sur l'assemblée. Le préfet s'arrête de boire.",
+      "image": "assets/planche-3-case-1.webp",
+      "choices": [
+        {
+          "id": "CHOICE-3-4",
+          "label": "Continuer",
+          "to": "NODE-PLANCHE-4",
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "NODE-PLANCHE-4",
+      "title": "Planche 4 : Le Triomphe de l'Absurde",
+      "text": "Le vieux maire applaudit, la salle se lève, le préfet propose le train de nuit. Vincent regarde son patron recevoir les hommages.",
+      "image": "assets/planche-4-case-4.webp",
+      "ending": true
+    }
+  ],
+  "stats": [],
+  "inventory": {},
+  "deductions": {},
+  "characters": {},
+  "timeline": [],
+  "gallery": [],
+  "endings": [
+    {
+      "id": "END-TRIOMPHE",
+      "label": "Le triomphe de l'absurde",
+      "node": "NODE-PLANCHE-4"
+    }
+  ],
+  "reading_mode": "scroll"
+}

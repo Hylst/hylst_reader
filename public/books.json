@@ -1824,5 +1824,71 @@
         "path": "books/nouvelles-satiriques-alsaciennes/26-le-jardin-des-illusions.html"
       }
     ]
+  },
+  {
+    "id": "le-discours-bd",
+    "title": "Le Discours",
+    "subtitle": "Bande dessinée",
+    "author": "Hylst (Geoffroy Streit)",
+    "year": 2026,
+    "badge": "Nouveau",
+    "authorship": "human",
+    "aiAssisted": true,
+    "illustrationNote": "Seize cases générées localement avec Z-Image Turbo (Apache-2.0), sans texte incrusté ; bulles et récitatifs rendus en HTML.",
+    "design": {
+      "fonts": {
+        "heading": "Georgia",
+        "body": "Georgia",
+        "googleFonts": ""
+      },
+      "colors": {
+        "background": "#1a1918",
+        "text": "#f3ede2",
+        "primary": "#c99738",
+        "secondary": "#262422",
+        "accent": "#8b2500"
+      },
+      "variables": {
+        "--book-bg": "#1a1918",
+        "--book-text": "#f3ede2",
+        "--book-accent": "#c99738",
+        "--book-accent-dark": "#8b2500",
+        "--book-surface": "#262422",
+        "--book-border": "rgba(201, 151, 56, 0.3)",
+        "--book-font-body": "Georgia, 'Times New Roman', serif",
+        "--book-font-heading": "Georgia, serif"
+      }
+    },
+    "coverPath": "covers/le-discours-bd.webp",
+    "introPath": "books/le-discours-bd/intro.html",
+    "chapters": [
+      {
+        "id": "planche-1.html",
+        "title": "Planche 1 : Les Coulisses du Pouvoir",
+        "path": "books/le-discours-bd/chapitres/planche-1.html"
+      },
+      {
+        "id": "planche-2.html",
+        "title": "Planche 2 : La Méprise Oratoire",
+        "path": "books/le-discours-bd/chapitres/planche-2.html"
+      },
+      {
+        "id": "planche-3.html",
+        "title": "Planche 3 : La Salle Foudroyée",
+        "path": "books/le-discours-bd/chapitres/planche-3.html"
+      },
+      {
+        "id": "planche-4.html",
+        "title": "Planche 4 : Le Triomphe de l'Absurde",
+        "path": "books/le-discours-bd/chapitres/planche-4.html"
+      }
+    ],
+    "tags": [
+      "bd",
+      "satire",
+      "politique",
+      "alsace",
+      "adaptation"
+    ]
   }
 ]

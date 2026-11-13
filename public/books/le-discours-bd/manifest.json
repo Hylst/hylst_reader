@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "le-discours-bd",
+  "title": "Le Discours",
+  "subtitle": "Bande dessinée",
+  "author": "Hylst (Geoffroy Streit)",
+  "year": 2026,
+  "language": "fr",
+  "description": "Armand Dupont, député de Bischwiller, prononce par erreur le tract syndical glissé dans son discours. La salle applaudit. Adaptation en quatre planches de la nouvelle Le Discours.",
+  "content_rating": "tous-publics",
+  "source": "atelier/ouvrages/le-discours-bd",
+  "cover": "couverture.webp",
+  "intro": "intro.html",
+  "chapters": [
+    {
+      "id": "planche-1.html",
+      "title": "Planche 1 : Les Coulisses du Pouvoir",
+      "path": "chapitres/planche-1.html"
+    },
+    {
+      "id": "planche-2.html",
+      "title": "Planche 2 : La Méprise Oratoire",
+      "path": "chapitres/planche-2.html"
+    },
+    {
+      "id": "planche-3.html",
+      "title": "Planche 3 : La Salle Foudroyée",
+      "path": "chapitres/planche-3.html"
+    },
+    {
+      "id": "planche-4.html",
+      "title": "Planche 4 : Le Triomphe de l'Absurde",
+      "path": "chapitres/planche-4.html"
+    }
+  ],
+  "design": {
+    "fonts": {
+      "heading": "Georgia",
+      "body": "Georgia",
+      "googleFonts": ""
+    },
+    "colors": {
+      "background": "#1a1918",
+      "text": "#f3ede2",
+      "primary": "#c99738",
+      "secondary": "#262422",
+      "accent": "#8b2500"
+    },
+    "variables": {}
+  }
+}

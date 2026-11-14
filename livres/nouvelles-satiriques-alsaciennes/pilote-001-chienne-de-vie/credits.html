@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none';">
+  <title>Crédits et licences | Chienne de Vie, pilote</title>
+  <meta name="description" content="Crédits, licences et provenance des images, voix et polices du pilote de lecture Chienne de Vie.">
+  <link rel="stylesheet" href="css/pilote.css">
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <p class="badge">Pilote de lecture</p>
+      <h1>Crédits et licences</h1>
+      <p class="byline">Chienne de Vie, nouvelle 1 du recueil <em>Nouvelles satiriques alsaciennes</em></p>
+    </header>
+
+    <section>
+      <h2>Texte</h2>
+      <p>Texte de Geoffroy Streit. Tous droits réservés. Le texte intégral est publié dans la bibliothèque ; cette page en propose la lecture audio illustrée.</p>
+    </section>
+
+    <section>
+      <h2>Illustration</h2>
+      <p>Image générée localement avec Qwen Image 2.1 (<code>qwen-image-21-uc-sdcpp</code>), seed 20261113, dimensions 1344 x 896. Licence <code>qwen-research</code>, non commerciale. Prompt et fiche dans <code>media/direction/fiche-illustration.md</code>.</p>
+      <p>Onze chiens sont visibles. La meute est représentée, le texte en mentionne quatorze : l'écart est assumé pour le pilote.</p>
+    </section>
+
+    <section>
+      <h2>Voix</h2>
+      <p>Voix synthétiques générées avec Qwen3-TTS 12 Hz 1,7 B, VoiceDesign, Base et CustomVoice. Licence Apache-2.0. Aucune voix réelle n'a été clonée : les références de clonage sont des prises générées pour le pilote.</p>
+      <table class="voice-table">
+        <caption>Rôles et méthodes de la version 6.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Rôle</th>
+            <th scope="col">Méthode</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Narrateur</td><td>Base ICL, référence <code>n02</code>, 21 lignes</td></tr>
+          <tr><td>Jean-Pierre</td><td>Base ICL, référence <code>jp03</code>, 8 lignes</td></tr>
+          <tr><td>Marie</td><td>CustomVoice Serena, 2 lignes</td></tr>
+          <tr><td>Huissier</td><td>Base x-vector, 3 lignes</td></tr>
+          <tr><td>Médecin</td><td>VoiceDesign, 3 lignes</td></tr>
+        </tbody>
+      </table>
+      <p>Master : 24 kHz mono, -16 LUFS, TP -1,5 dBTP, 321,3 s. Export web : <code>assets/narration-chienne-de-vie-v6.ogg</code>.</p>
+    </section>
+
+    <section>
+      <h2>Police</h2>
+      <p>Merriweather, Sorkin Type, licence SIL Open Font License 1.1. Deux fichiers variables locaux, normal et italique, couvrent les graisses 300 à 900 dans <code>assets/fonts/</code>. Aucune requête vers un service de polices.</p>
+    </section>
+
+    <section>
+      <h2>Code et page</h2>
+      <p>HTML, CSS et scripts locaux. Aucun CDN, aucune ressource distante au runtime. Chaque page porte une CSP stricte. Le code du dépôt est sous licence MIT ; le texte et l'illustration gardent leurs droits propres.</p>
+    </section>
+
+    <section>
+      <h2>Statut</h2>
+      <p>Lecture audio validée par l'auteur le 12 novembre 2026 et publiée en ligne le 14 novembre 2026. Les versions V1 à V5, les extraits de casting et les extraits de test du narrateur restent des archives locales de QA, tracées dans le manifeste avec le statut <code>archived</code>.</p>
+      <p><strong>Limite commerciale.</strong> L'illustration Qwen Image 2.1 est sous licence non commerciale. Toute diffusion commerciale exige un nouveau tirage avec un modèle commercial.</p>
+    </section>
+
+    <footer class="footer">
+      <p><a href="index.html">Revenir à la lecture</a> · <a href="../../../?book=nouvelles-satiriques-alsaciennes">Lire dans la bibliothèque</a></p>
+      <p>Page statique, sans CDN ni script. Crédits de la lecture audio de Chienne de Vie.</p>
+    </footer>
+  </main>
+</body>
+</html>

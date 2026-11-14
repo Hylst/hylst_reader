@@ -1692,6 +1692,11 @@
     },
     "coverPath": "covers/nouvelles-satiriques-alsaciennes.webp",
     "introPath": "books/nouvelles-satiriques-alsaciennes/intro.html",
+    "audio": {
+      "label": "Écouter Chienne de Vie",
+      "description": "Lecture théâtrale en cinq voix, version 6, 5 min 21 s.",
+      "path": "livres/nouvelles-satiriques-alsaciennes/pilote-001-chienne-de-vie/"
+    },
     "chapters": [
       {
         "id": "01-chienne-de-vie.html",

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "type": "pilote-lecture",
+  "meta": {
+    "title": "Chienne de Vie",
+    "subtitle": "Pilote de lecture",
+    "author": "Geoffroy Streit",
+    "lang": "fr",
+    "collection": "Nouvelles satiriques alsaciennes",
+    "number": 1,
+    "mode": "lineaire",
+    "statut": "pilote validé, non publié",
+    "date_validation": "2026-11-12",
+    "illustration": "assets/illustration-chienne-de-vie.webp",
+    "narration": "assets/narration-chienne-de-vie-v6.ogg",
+    "narration_v1": "assets/narration-chienne-de-vie-v1.ogg",
+    "narration_v2": "assets/narration-chienne-de-vie.ogg",
+    "narration_v4": "assets/narration-chienne-de-vie-v4.ogg",
+    "narration_v5": "assets/narration-chienne-de-vie-v5.ogg",
+    "narration_v6": "assets/narration-chienne-de-vie-v6.ogg",
+    "comparaison": "comparaison.html",
+    "credits": "credits.html",
+    "duree_narration_s": 321.3,
+    "source_texte": "../../../manuscrit/001-chienne-de-vie.md"
+  },
+  "chapitres": [
+    {
+      "id": "CHAPITRE-1",
+      "titre": "Chienne de Vie",
+      "fichier": "index.html",
+      "mots": 865
+    }
+  ],
+  "credits": {
+    "texte": "Geoffroy Streit, tous droits réservés",
+    "illustration": "Qwen Image 2.1 (qwen-image-21-uc-sdcpp), licence qwen-research non commerciale",
+    "voix": "Qwen3-TTS VoiceDesign, Base ICL (n02, jp03), Base x-vector et CustomVoice Serena, licence Apache-2.0",
+    "police": "Merriweather, licence SIL Open Font License 1.1",
+    "page": "credits.html"
+  }
+}

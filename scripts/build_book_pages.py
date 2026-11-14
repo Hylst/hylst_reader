@@ -210,6 +210,19 @@ def build_book(book: dict) -> str:
     intro_desc_html = re.sub(
         r'<(?:p|div)[^>]*class="[^"]*(?:chapter-byline|chapter-epigraph|chapter-continuation|chapter-tags|provenance-note)[^"]*"[^>]*>.*?</(?:p|div)>',
         " ", intro_desc_html, flags=re.S | re.I)
+    audio = book.get("audio") or {}
+    audio_html = ""
+    if audio.get("path"):
+        audio_label = html.escape(audio.get("label", "Écouter"))
+        audio_desc = html.escape(audio.get("description", ""))
+        audio_path = html.escape(audio["path"])
+        audio_html = (
+            '            <section class="section audio">\n'
+            f'                <h2>{audio_label}</h2>\n'
+            f'                <p>{audio_desc}</p>\n'
+            f'                <p><a class="cta" href="{SITE_PATH}{audio_path}">Ouvrir la lecture audio</a></p>\n'
+            '            </section>\n'
+        )
     intro_text = strip_html(intro_desc_html)
     for prefix in (title, subtitle):
         if prefix and intro_text.lower().startswith(prefix.lower()):
@@ -356,7 +369,7 @@ def build_book(book: dict) -> str:
                 {intro_html or f"<p>{html.escape(description)}</p>"}
             </section>
 
-            <section class="section">
+{audio_html}            <section class="section">
                 <h2>Sommaire</h2>
                 <ol class="chapters">
 {chapter_items(chapters)}

@@ -127,6 +127,14 @@ body {
   font-size: 0.9em;
 }
 
+.credits-page a {
+  color: var(--accent-gold);
+}
+
+.credits-page a:hover {
+  color: var(--text-color);
+}
+
 .book-intro {
   text-align: center;
   margin-bottom: 3.5rem;

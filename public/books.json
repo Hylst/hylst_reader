@@ -1834,7 +1834,7 @@
     "badge": "Nouveau",
     "authorship": "human",
     "aiAssisted": true,
-    "illustrationNote": "Seize cases générées localement avec Z-Image Turbo (Apache-2.0), sans texte incrusté ; bulles et récitatifs rendus en HTML.",
+    "illustrationNote": "Seize cases générées localement avec FLUX.3 Image Klein (licence FLUX Kommunity non commerciale), sans texte incrusté ; bulles et récitatifs rendus en HTML.",
     "design": {
       "fonts": {
         "heading": "Georgia",

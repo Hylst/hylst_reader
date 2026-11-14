@@ -1,43 +1,61 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "meta": {
     "title": "Le Discours (BD)",
     "slug": "le-discours-bd",
     "author": "Geoffroy Streit",
-    "lang": "fr"
+    "lang": "fr",
+    "note": "Quatre planches, seize cases. Lecture de gauche à droite, de haut en bas."
   },
   "pages": [
     {
       "id": "planche-1",
       "title": "Planche 1 : Les Coulisses du Pouvoir",
+      "layout": "A",
       "panels": [
         {
           "id": "panel-1-1",
           "image": "assets/planche-1-case-1.webp",
-          "caption": "Dans les salons dorés de la préfecture du Bas-Rhin, trois cents notables du département trinquaient au vin d'honneur du congrès régional des maires."
+          "format": "large",
+          "caption": "Dans les salons dorés de la préfecture du Bas-Rhin, trois cents notables du département trinquaient au vin d'honneur du congrès régional des maires.",
+          "caption_pos": "tl",
+          "caption_width": 58
         },
         {
           "id": "panel-1-2",
           "image": "assets/planche-1-case-2.webp",
-          "caption": "Monsieur Armand Dupont, député de Bischwiller et questeur de l'Assemblée, possédait une voix d'orgue de cathédrale et l'art souverain de ne jamais froisser un électeur rural."
+          "format": "portrait",
+          "caption": "Monsieur Armand Dupont, député de Bischwiller et questeur de l'Assemblée, possédait une voix d'orgue de cathédrale et l'art souverain de ne jamais froisser un électeur rural.",
+          "caption_pos": "tl",
+          "caption_width": 56
         },
         {
           "id": "panel-1-3",
           "image": "assets/planche-1-case-3.webp",
+          "format": "portrait",
           "dialogues": [
             {
               "speaker": "Vincent",
-              "text": "Votre discours sur l'attractivité des zones artisanales et les rond-points fleuris, monsieur le député. J'ai glissé les citations d'usage sur la fierté alsacienne."
+              "text": "Votre discours sur l'attractivité des zones artisanales et les rond-points fleuris, monsieur le député. J'ai glissé les citations d'usage sur la fierté alsacienne.",
+              "x": 30,
+              "y": 11,
+              "w": 42,
+              "tail": "br"
             }
           ]
         },
         {
           "id": "panel-1-4",
           "image": "assets/planche-1-case-4.webp",
+          "format": "large",
           "dialogues": [
             {
               "speaker": "Armand Dupont",
-              "text": "Tu as bien abrégé la partie sur les subventions d'assainissement, Vincent ? Le préfet a faim, les truites au riesling refroidissent au buffet."
+              "text": "Tu as bien abrégé la partie sur les subventions d'assainissement, Vincent ? Le préfet a faim, les truites au riesling refroidissent au buffet.",
+              "x": 70,
+              "y": 26,
+              "w": 44,
+              "tail": "bl"
             }
           ]
         }
@@ -46,108 +64,163 @@
     {
       "id": "planche-2",
       "title": "Planche 2 : La Méprise Oratoire",
+      "layout": "A",
       "panels": [
         {
           "id": "panel-2-1",
           "image": "assets/planche-2-case-1.webp",
-          "caption": "Armand gravit les trois marches d'un pas martial sous les applaudissements nourris des conseillers généraux."
+          "format": "large",
+          "caption": "Armand gravit les trois marches d'un pas martial sous les applaudissements nourris des conseillers généraux.",
+          "caption_pos": "tl",
+          "caption_width": 52
         },
         {
           "id": "panel-2-2",
           "image": "assets/planche-2-case-2.webp",
-          "caption": "Dans la pile préparée par Vincent, une feuille d'épreuve dactylographiée s'était glissée par inadvertance."
+          "format": "portrait",
+          "caption": "Dans la pile préparée par Vincent, une feuille d'épreuve dactylographiée s'était glissée par inadvertance.",
+          "caption_pos": "tl",
+          "caption_width": 56
         },
         {
           "id": "panel-2-3",
           "image": "assets/planche-2-case-3.webp",
+          "format": "portrait",
           "dialogues": [
             {
               "speaker": "Armand Dupont",
-              "text": "Mes chers concitoyens, l'heure n'est plus aux faux-fuyants des commissions ! Nous sommes gouvernés par une caste d'intermédiaires parasites qui engraissent leurs clientèles sur le dos des travailleurs du fer et de la terre !"
+              "text": "Mes chers concitoyens, l'heure n'est plus aux faux-fuyants des commissions ! Nous sommes gouvernés par une caste d'intermédiaires parasites qui engraissent leurs clientèles sur le dos des travailleurs du fer et de la terre !",
+              "x": 28,
+              "y": 13,
+              "w": 42,
+              "tail": "br"
             }
           ]
         },
         {
           "id": "panel-2-4",
           "image": "assets/planche-2-case-4.webp",
-          "caption": "Au pied de l'estrade, Vincent sentit ses jambes se dérober sous lui."
+          "format": "large",
+          "caption": "Au pied de l'estrade, Vincent sentit ses jambes se dérober sous lui.",
+          "caption_pos": "tl",
+          "caption_width": 48
         }
       ]
     },
     {
       "id": "planche-3",
       "title": "Planche 3 : La Salle Foudroyée",
+      "layout": "B",
       "panels": [
         {
           "id": "panel-3-1",
           "image": "assets/planche-3-case-1.webp",
-          "caption": "Un silence de plomb tomba d'un coup sur l'assemblée. Monsieur le préfet s'arrêta la flûte à mi-lèvres."
+          "format": "banner",
+          "caption": "Un silence de plomb tomba d'un coup sur l'assemblée. Monsieur le préfet s'arrêta la flûte à mi-lèvres.",
+          "caption_pos": "bl",
+          "caption_width": 40
         },
         {
           "id": "panel-3-2",
           "image": "assets/planche-3-case-2.webp",
+          "format": "portrait",
           "dialogues": [
             {
               "speaker": "Armand Dupont",
-              "text": "Les notables s'empiffrent de terrines aux frais de la caisse d'allocations pendant que les ateliers ferment un à un le long de la Moder ! Il est temps de balayer ces faux dévots !"
+              "text": "Les notables s'empiffrent de terrines aux frais de la caisse d'allocations pendant que les ateliers ferment un à un le long de la Moder ! Il est temps de balayer ces faux dévots !",
+              "x": 28,
+              "y": 13,
+              "w": 44,
+              "tail": "br"
             }
           ]
         },
         {
           "id": "panel-3-3",
           "image": "assets/planche-3-case-3.webp",
-          "caption": "L'orateur frappa du poing sur le pupitre. Le micro émit un larsen aigu qui fit sursauter deux évêques auxiliaires."
+          "format": "portrait",
+          "caption": "L'orateur frappa du poing sur le pupitre. Le micro émit un larsen aigu qui fit sursauter deux évêques auxiliaires.",
+          "caption_pos": "tl",
+          "caption_width": 56
         },
         {
           "id": "panel-3-4",
           "image": "assets/planche-3-case-4.webp",
-          "caption": "Armand leva les bras au ciel, salua d'un geste auguste et descendit de la tribune d'un pas martial."
+          "format": "large",
+          "caption": "Armand leva les bras au ciel, salua d'un geste auguste et descendit de la tribune d'un pas martial.",
+          "caption_pos": "tl",
+          "caption_width": 48
         }
       ]
     },
     {
       "id": "planche-4",
       "title": "Planche 4 : Le Triomphe de l'Absurde",
+      "layout": "C",
       "panels": [
         {
           "id": "panel-4-1",
           "image": "assets/planche-4-case-1.webp",
+          "format": "portrait",
           "dialogues": [
             {
               "speaker": "Le vieux maire",
-              "text": "Ça, c'est parlé vrai !"
+              "text": "Ça, c'est parlé vrai !",
+              "x": 75,
+              "y": 14,
+              "w": 34,
+              "tail": "bl"
             }
           ]
         },
         {
           "id": "panel-4-2",
           "image": "assets/planche-4-case-2.webp",
-          "caption": "En un instant, toute la travée centrale se leva, trépignant sur les parquets cirés dans une ovation délirante."
+          "format": "portrait",
+          "caption": "En un instant, toute la travée centrale se leva, trépignant sur les parquets cirés dans une ovation délirante.",
+          "caption_pos": "tl",
+          "caption_width": 56
         },
         {
           "id": "panel-4-3",
           "image": "assets/planche-4-case-3.webp",
+          "format": "large",
           "dialogues": [
             {
               "speaker": "Le Préfet",
-              "text": "C'était d'une audace inouïe, mon cher député ! Vous partez pour Paris par le train de nuit de vingt-deux heures !"
+              "text": "C'était d'une audace inouïe, mon cher député ! Vous partez pour Paris par le train de nuit de vingt-deux heures !",
+              "x": 70,
+              "y": 18,
+              "w": 44,
+              "tail": "bl"
             },
             {
               "speaker": "Armand Dupont",
-              "text": "Monsieur le préfet... un devoir républicain..."
+              "text": "Monsieur le préfet... un devoir républicain...",
+              "x": 26,
+              "y": 80,
+              "w": 34,
+              "tail": "tr"
             }
           ]
         },
         {
           "id": "panel-4-4",
           "image": "assets/planche-4-case-4.webp",
+          "format": "large",
           "dialogues": [
             {
               "speaker": "Le Préfet",
-              "text": "La République a besoin d'hommes qui savent crier la vérité du peuple sans y croire une seconde."
+              "text": "La République a besoin d'hommes qui savent crier la vérité du peuple sans y croire une seconde.",
+              "x": 78,
+              "y": 14,
+              "w": 36,
+              "tail": "bl"
             }
           ],
-          "caption": "Dans le buffet d'honneur, Vincent regardait son patron recevoir les hommages en tremblant de tous ses membres."
+          "caption": "Dans le buffet d'honneur, Vincent regardait son patron recevoir les hommages en tremblant de tous ses membres.",
+          "caption_pos": "bl",
+          "caption_width": 54
         }
       ]
     }

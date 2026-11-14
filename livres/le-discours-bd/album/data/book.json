@@ -189,17 +189,17 @@
             {
               "speaker": "Le Préfet",
               "text": "C'était d'une audace inouïe, mon cher député ! Vous partez pour Paris par le train de nuit de vingt-deux heures !",
-              "x": 70,
-              "y": 18,
-              "w": 44,
-              "tail": "bl"
+              "x": 74,
+              "y": 66,
+              "w": 36,
+              "tail": "tl"
             },
             {
               "speaker": "Armand Dupont",
               "text": "Monsieur le préfet... un devoir républicain...",
-              "x": 26,
+              "x": 16,
               "y": 80,
-              "w": 34,
+              "w": 30,
               "tail": "tr"
             }
           ]
@@ -212,10 +212,10 @@
             {
               "speaker": "Le Préfet",
               "text": "La République a besoin d'hommes qui savent crier la vérité du peuple sans y croire une seconde.",
-              "x": 78,
-              "y": 14,
-              "w": 36,
-              "tail": "bl"
+              "x": 76,
+              "y": 62,
+              "w": 34,
+              "tail": "tl"
             }
           ],
           "caption": "Dans le buffet d'honneur, Vincent regardait son patron recevoir les hommages en tremblant de tous ses membres.",

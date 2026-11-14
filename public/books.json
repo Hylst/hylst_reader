@@ -1842,7 +1842,7 @@
     "illustrationNote": "Seize cases générées localement avec FLUX.3 Image Klein (licence FLUX Kommunity non commerciale), sans texte incrusté ; bulles et récitatifs rendus en HTML.",
     "audio": {
       "label": "Écouter la voix test",
-      "description": "Armand Dupont, une réplique de 7,76 s générée localement avec Qwen3-TTS VoiceDesign. Une seule voix test, pas encore l'album complet.",
+      "description": "Armand Dupont, une réplique de 7,44 s générée localement avec Qwen3-TTS (clonage Base ICL sur une prise masculine mesurée). Une seule voix test, pas encore l'album complet.",
       "path": "livres/le-discours-bd/album/voix.html"
     },
     "design": {

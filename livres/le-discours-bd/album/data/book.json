@@ -78,7 +78,7 @@
           "id": "panel-2-2",
           "image": "assets/planche-2-case-2.webp",
           "format": "portrait",
-          "caption": "Dans la pile préparée par Vincent, une feuille d'épreuve dactylographiée s'était glissée par inadvertance.",
+          "caption": "La troisième page n'était pas la sienne. Armand reconnut le tampon violet du syndicat.",
           "caption_pos": "tl",
           "caption_width": 56
         },
@@ -101,7 +101,7 @@
           "id": "panel-2-4",
           "image": "assets/planche-2-case-4.webp",
           "format": "large",
-          "caption": "Au pied de l'estrade, Vincent sentit ses jambes se dérober sous lui.",
+          "caption": "Au pied de l'estrade, Vincent aurait pu crier. Il ne cria pas.",
           "caption_pos": "tl",
           "caption_width": 48
         }
@@ -147,7 +147,6 @@
           "id": "panel-3-4",
           "image": "assets/planche-3-case-4.webp",
           "format": "large",
-          "caption": "Armand leva les bras au ciel, salua d'un geste auguste et descendit de la tribune d'un pas martial.",
           "caption_pos": "tl",
           "caption_width": 48
         }
@@ -177,7 +176,7 @@
           "id": "panel-4-2",
           "image": "assets/planche-4-case-2.webp",
           "format": "portrait",
-          "caption": "En un instant, toute la travée centrale se leva, trépignant sur les parquets cirés dans une ovation délirante.",
+          "caption": "Le tract, la veille : « Les notables s'empiffrent de terrines aux frais de la caisse d'allocations. »",
           "caption_pos": "tl",
           "caption_width": 56
         },
@@ -188,7 +187,7 @@
           "dialogues": [
             {
               "speaker": "Le Préfet",
-              "text": "C'était d'une audace inouïe, mon cher député ! Vous partez pour Paris par le train de nuit de vingt-deux heures !",
+              "text": "C'était d'une audace inouïe, mon cher député. Vous partez pour Paris par le train de nuit. Demain, vous direz que le tract est un faux.",
               "x": 74,
               "y": 66,
               "w": 36,
@@ -218,12 +217,17 @@
               "tail": "tl"
             }
           ],
-          "caption": "Dans le buffet d'honneur, Vincent regardait son patron recevoir les hommages en tremblant de tous ses membres.",
+          "caption": "Vincent avait le communiqué dans une poche et le tract dans l'autre. Il ne bougea pas.",
           "caption_pos": "bl",
           "caption_width": 54
         }
       ]
     }
   ],
-  "reading_order": ["planche-1", "planche-2", "planche-3", "planche-4"]
+  "reading_order": [
+    "planche-1",
+    "planche-2",
+    "planche-3",
+    "planche-4"
+  ]
 }

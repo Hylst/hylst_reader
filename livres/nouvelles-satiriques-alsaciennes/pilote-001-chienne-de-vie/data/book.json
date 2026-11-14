@@ -3,25 +3,21 @@
   "type": "pilote-lecture",
   "meta": {
     "title": "Chienne de Vie",
-    "subtitle": "Pilote de lecture",
+    "subtitle": "Lecture audio",
     "author": "Geoffroy Streit",
     "lang": "fr",
     "collection": "Nouvelles satiriques alsaciennes",
     "number": 1,
     "mode": "lineaire",
-    "statut": "pilote validé, non publié",
+    "statut": "publié le 2026-11-14",
     "date_validation": "2026-11-12",
     "illustration": "assets/illustration-chienne-de-vie.webp",
     "narration": "assets/narration-chienne-de-vie-v6.ogg",
-    "narration_v1": "assets/narration-chienne-de-vie-v1.ogg",
-    "narration_v2": "assets/narration-chienne-de-vie.ogg",
-    "narration_v4": "assets/narration-chienne-de-vie-v4.ogg",
-    "narration_v5": "assets/narration-chienne-de-vie-v5.ogg",
-    "narration_v6": "assets/narration-chienne-de-vie-v6.ogg",
-    "comparaison": "comparaison.html",
     "credits": "credits.html",
     "duree_narration_s": 321.3,
-    "source_texte": "../../../manuscrit/001-chienne-de-vie.md"
+    "source_texte": null,
+    "date_publication": "2026-11-14",
+    "source_texte_note": "manuscrit/001-chienne-de-vie.md (archive interne, non livré)"
   },
   "chapitres": [
     {

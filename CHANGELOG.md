@@ -1,6 +1,24 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.53] - 2026-11-15
+
+### Ajouté & Modifié
+- **Casting des voix du Discours (BD 1.3.2)** : la page `livres/le-discours-bd/album/voix.html` devient un casting test à quatre cartes, une par rôle, avec lecteur audio, réplique citée, description de timbre et mesures.
+  - Armand Dupont est validé par l'auteur : `voix-dupont-planche1-v2.wav`, 7,44 s, clonage Base ICL (seed 4250) sur une prise masculine mesurée.
+  - Trois prises test VoiceDesign sont publiées : Vincent (`voix-vincent-planche1.wav`, 8,16 s, seed 7200), le préfet (`voix-prefet-planche4.wav`, 10 s, seed 7200) et le vieux maire (`voix-maire-planche4.wav`, 1,84 s, seed 7300). Aucune voix réelle n'est clonée.
+  - Mesures au même script (librosa.pyin, 60 à 400 Hz, fenêtre 2048) : Armand 113,3 Hz de médiane et 117,1 Hz de moyenne ; Vincent 115,2 / 112,3 ; préfet 90,9 / 91,4 ; maire 120,0 / 110,8. Les quatre prises sont en 24 kHz mono PCM 16 bits, normalisées entre -16,5 et -17,1 LUFS, sans écrêtage.
+  - La hauteur d'Armand est republiée en médiane (113,3 Hz) pour être comparable aux trois autres rôles : l'ancien chiffre de 110,9 Hz n'est plus reproductible avec la chaîne de mesure actuelle.
+- **Catalogue et fiche** : le bloc `audio` de `le-discours-bd` dans `public/books.json` décrit désormais les quatre voix test et non plus une seule ; la fiche statique du livre est régénérée depuis ce bloc par `scripts/build_book_pages.py`.
+- **Crédits** : `album/credits.html` distingue la voix validée d'Armand (clonage Base ICL) des trois tirages VoiceDesign en attente de validation.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 239 fichiers sources sans tiret cadratin ou demi-cadratin ; 267 fichiers dans le miroir.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX à jour.
+- Miroir synchronisé, build `3df7b76a1985`, cache Service Worker `hylst-reader-3df7b76a1985`, index en `?v=3df7b76a1985`, 528 fichiers runtime, sitemap à 17 URL avec `lastmod` au 15/11.
+- Miroir local `http://127.0.0.1:8765/books_reader/` : fiche BD, page de casting, crédits, `books.json` et les quatre WAV en HTTP 200. Page de casting contrôlée en capture 1200 px : quatre cartes, lecteurs et citations conformes.
+- Reste à faire : validation d'oreille des trois nouvelles prises, puis production de l'album complet en Base ICL (une référence par rôle, une graine par ligne).
+
 ## [1.8.52] - 2026-11-14
 
 ### Ajouté & Modifié

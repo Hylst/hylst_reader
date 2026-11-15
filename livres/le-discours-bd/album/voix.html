@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none';">
-  <title>Voix test : Armand Dupont - Le Discours</title>
+  <title>Voix du Discours - Le Discours</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/voix.css">
 </head>
 <body>
   <header class="site-header">
-    <h1>Voix test</h1>
+    <h1>Voix du Discours</h1>
     <nav class="site-nav">
       <a href="index.html">Lire la BD</a>
       <a href="credits.html">Crédits</a>
@@ -19,25 +19,54 @@
   <main class="voice-page">
     <section class="voice-intro">
       <p class="voice-kicker">Le Discours · bande dessinée</p>
-      <h2>Armand Dupont</h2>
-      <p>Une seule réplique a été générée pour le moment&nbsp;: la voix test du député, avant le congrès des maires. Prise du 14 novembre 2026, elle dure 7,44 secondes.</p>
+      <h2>Casting test</h2>
+      <p>Quatre rôles, quatre prises. La voix d'Armand Dupont est validée. Vincent, le préfet et le vieux maire sont proposés à l'écoute avant la production de l'album audio complet.</p>
     </section>
 
-    <section class="voice-card" id="voix">
-      <h2>Écouter la voix test</h2>
+    <section class="voice-card" id="dupont">
+      <h2>Armand Dupont</h2>
       <audio controls preload="metadata">
         <source src="assets/audio/voix-dupont-planche1-v2.wav" type="audio/wav">
         Votre navigateur ne prend pas en charge la lecture audio. <a href="assets/audio/voix-dupont-planche1-v2.wav">Télécharger le fichier</a>.
       </audio>
       <blockquote class="voice-quote">«&nbsp;Tu as bien abrégé la partie sur les subventions d'assainissement, Vincent&nbsp;? Le préfet a faim, les truites au riesling refroidissent au buffet.&nbsp;»</blockquote>
-      <p class="voice-note">Voix de synthèse générée localement avec Qwen3-TTS&nbsp;: une prise masculine mesurée à 118,6 Hz sert de référence, puis la réplique est clonée en Base ICL (seed 4250). Hauteur moyenne mesurée&nbsp;: 110,9 Hz. 24 kHz mono, aucun écrêtage. Aucune voix réelle n'a été clonée. Licence Apache-2.0.</p>
+      <p class="voice-note">Voix de synthèse générée localement avec Qwen3-TTS&nbsp;: casting VoiceDesign filtré par mesure de hauteur, puis clonage Base ICL (seed 4250) sur une prise masculine mesurée. Hauteur médiane&nbsp;: 113,3 Hz, moyenne 117,1 Hz. 24 kHz mono, 7,44 s. Validée par l'auteur.</p>
     </section>
 
-    <p class="voice-note">La première prise (VoiceDesign seule) avait une hauteur moyenne de 237 Hz, trop haute pour un homme de 56 ans&nbsp;: elle a été retirée et archivée. Cette version attend encore votre validation d'oreille.</p>
+    <section class="voice-card" id="vincent">
+      <h2>Vincent</h2>
+      <audio controls preload="metadata">
+        <source src="assets/audio/voix-vincent-planche1.wav" type="audio/wav">
+        Votre navigateur ne prend pas en charge la lecture audio. <a href="assets/audio/voix-vincent-planche1.wav">Télécharger le fichier</a>.
+      </audio>
+      <blockquote class="voice-quote">«&nbsp;Votre discours sur l'attractivité des zones artisanales et les rond-points fleuris, monsieur le député. J'ai glissé les citations d'usage sur la fierté alsacienne.&nbsp;»</blockquote>
+      <p class="voice-note">Jeune homme de 28 ans, voix claire et débit rapide. VoiceDesign, consigne de timbre juvénile et de ton déférent. Hauteur médiane mesurée&nbsp;: 115,2 Hz. 24 kHz mono, 8,16 s, normalisé à -16,5 LUFS.</p>
+    </section>
+
+    <section class="voice-card" id="prefet">
+      <h2>Le Préfet</h2>
+      <audio controls preload="metadata">
+        <source src="assets/audio/voix-prefet-planche4.wav" type="audio/wav">
+        Votre navigateur ne prend pas en charge la lecture audio. <a href="assets/audio/voix-prefet-planche4.wav">Télécharger le fichier</a>.
+      </audio>
+      <blockquote class="voice-quote">«&nbsp;C'était d'une audace inouïe, mon cher député. Vous partez pour Paris par le train de nuit. Demain, vous direz que le tract est un faux.&nbsp;»</blockquote>
+      <p class="voice-note">Homme de 64 ans, voix de basse sèche et autoritaire, débit lent. VoiceDesign, consigne de ton condescendant et froid. Hauteur médiane mesurée&nbsp;: 90,9 Hz. 24 kHz mono, 10 s, normalisé à -17,1 LUFS.</p>
+    </section>
+
+    <section class="voice-card" id="maire">
+      <h2>Le vieux maire</h2>
+      <audio controls preload="metadata">
+        <source src="assets/audio/voix-maire-planche4.wav" type="audio/wav">
+        Votre navigateur ne prend pas en charge la lecture audio. <a href="assets/audio/voix-maire-planche4.wav">Télécharger le fichier</a>.
+      </audio>
+      <blockquote class="voice-quote">«&nbsp;Ça, c'est parlé vrai&nbsp;!&nbsp;»</blockquote>
+      <p class="voice-note">Homme de 75 ans, voix grave et rocailleuse, accent alsacien marqué, parle fort. VoiceDesign, consigne de ton bourru et satisfait. Hauteur médiane mesurée&nbsp;: 120 Hz, moyenne 110,8 Hz. 24 kHz mono, 1,84 s, normalisé à -17,1 LUFS.</p>
+    </section>
 
     <section class="voice-next">
-      <h2>Les autres voix</h2>
-      <p>Vincent, le préfet et le vieux maire sont prévus dans la fiche de casting, mais leurs répliques ne sont pas encore générées. Cette page sera complétée quand l'album audio sera produit.</p>
+      <h2>La suite</h2>
+      <p>Si ce casting convient, chaque rôle reçoit une référence propre et les huit répliques des quatre planches sont produites en Base ICL, avec une graine par ligne. Les récitatifs seront confiés à une voix de narrateur distincte. La page sera alors remplacée par l'album audio complet.</p>
+      <p>Les prises test sont des tirages VoiceDesign&nbsp;: le timbre sera fixé par clonage pour la production, comme pour Armand Dupont. Aucune voix réelle n'a été clonée.</p>
     </section>
 
     <p class="voice-links"><a href="index.html">Lire la bande dessinée</a> · <a href="credits.html">Crédits et licences</a></p>

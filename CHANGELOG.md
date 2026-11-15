@@ -1,6 +1,25 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.54] - 2026-11-15
+
+### Ajouté & Modifié
+- **Album audio du Discours (BD 1.3.3)** : les quatre planches sont produites en lecture théâtrale, 17 lignes au total (9 récitatifs et 8 répliques) portées par cinq voix de synthèse. Page `livres/le-discours-bd/album/ecouter.html` avec l'album complet, une piste par planche, le résumé des cases et une section de fabrication. Navigation « Écouter » ajoutée dans `album/index.html`, `album/voix.html` et `album/credits.html`, style `.voice-cast` ajouté à `css/voix.css`.
+  - Production en Base ICL (`Qwen/Qwen3-TTS-12Hz-1.7B-Base`) sur une référence mesurée par rôle : les quatre prises validées par l'auteur (Dupont, Vincent, préfet, maire) et, pour le narrateur, l'ouverture de 0 à 22,5 s du master `narration-chienne-de-vie-v6.wav`, afin de garder le même conteur que le pilote du recueil.
+  - Une graine par ligne (20261115 + ordre) et un instruct par réplique. Hauteurs médianes mesurées : narrateur de 90,9 à 101,5 Hz, Dupont de 103,6 à 107,5 Hz, Vincent 113,9 Hz, préfet de 85,3 à 94,7 Hz, maire 110,7 Hz, toutes dans la plage du rôle ; pics à 0,93 au plus.
+  - Durées : album 114,28 s (1 min 54 s), planches 33,01 / 25,33 / 22,01 / 30,34 s, pour 100,9 s de parole. Le silence final est complété à la seconde pleine quand il manque moins de 0,25 s, afin que le lecteur HTML affiche la durée annoncée.
+  - Diffusion en MP3 mono 48 kHz à 96 kbit/s (2,6 Mo au total). Chrome annonçait 80,8 s pour l'OGG Vorbis de 113,9 s et une durée infinie pour l'Opus ; le MP3 donne 114,281292 s, 33,009958 s, 25,326 s, 22,01 s et 30,335333 s, conformes à ffprobe. L'OGG Vorbis est retiré du dossier.
+  - Loudness mesuré à la lecture des MP3 : de -17,1 à -17,7 LUFS selon la piste, crête à -1,5 dBTP.
+- **Contrôle d'intelligibilité** : transcription Whisper des 17 prises, similarité supérieure à 0,9 pour 16 lignes. La ligne 07 (tribune d'Armand) est complète mais compte 33 mots transcrits pour 35 attendus, d'où un score brut de 0,217. Les tournures « ronds.fluris », « par les vrais » et « alzacienne » sont déjà présentes dans les prises validées : la production reste fidèle à ce que l'auteur a approuvé.
+- **Catalogue** : le bloc `audio` de `le-discours-bd` dans `public/books.json` pointe vers `album/ecouter.html` avec le label « Écouter l'album audio ». `album/credits.html` décrit la chaîne Base ICL et le narrateur du pilote ; `album/voix.html` renvoie vers l'album et rappelle que les prises de casting restent les références de timbre.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 240 fichiers sources et 268 fichiers du miroir sans tiret cadratin ou demi-cadratin.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX à jour.
+- `python scripts/verifier-integrite.py` (hub) : adresses, queries, humans.txt et révisions Workbox conformes.
+- Miroir synchronisé, build `f6c2f8e67ede`, cache Service Worker `hylst-reader-f6c2f8e67ede`, index en `?v=f6c2f8e67ede`, 538 fichiers, 17 URL au sitemap avec `lastmod` au 15/11.
+- Miroir local `http://127.0.0.1:8765/books_reader/` : page d'écoute et cinq MP3 en 200 (`audio/mpeg`), ancien OGG en 404, durées natives contrôlées par CDP dans Chrome (album 114,28 s, planches 33,01 / 25,33 / 22,01 / 30,34 s), captures 1200 px conformes.
+
 ## [1.8.53] - 2026-11-15
 
 ### Ajouté & Modifié

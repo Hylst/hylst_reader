@@ -1841,9 +1841,9 @@
     "aiAssisted": true,
     "illustrationNote": "Seize cases générées localement avec FLUX.3 Image Klein (licence FLUX Kommunity non commerciale), sans texte incrusté ; bulles et récitatifs rendus en HTML.",
     "audio": {
-      "label": "Écouter le casting des voix",
-      "description": "Quatre rôles, quatre prises de 1,84 à 10 s générées localement avec Qwen3-TTS : Armand Dupont (validé, clonage Base ICL, 113,3 Hz), Vincent (115,2 Hz), le préfet (90,9 Hz) et le vieux maire (120 Hz), ces trois derniers en VoiceDesign. L'album audio complet reste à produire.",
-      "path": "livres/le-discours-bd/album/voix.html"
+      "label": "Écouter l'album audio",
+      "description": "Les quatre planches en lecture théâtrale, 17 répliques et récitatifs portés par cinq voix de synthèse, 1 min 54 s. Une piste par planche et une piste complète, générées localement avec Qwen3-TTS.",
+      "path": "livres/le-discours-bd/album/ecouter.html"
     },
     "design": {
       "fonts": {

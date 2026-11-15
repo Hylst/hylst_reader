@@ -175,7 +175,7 @@ function AboutModal({ onClose }) {
                                     <a href="https://demozoo.org/sceners/2341/" target="_blank" rel="noopener noreferrer" className="creator-link-btn" title="Demozoo">
                                         <Icon.Cpu /> <span>Contributions Demoscene &middot; code, musique, gfx (Demozoo)</span>
                                     </a>
-                                    <a href="mailto:geoffroy.streit@gmail.com" className="creator-link-btn" title="Email">
+                                    <a href="mailto:geoffroy.streit@ik.me" className="creator-link-btn" title="Email">
                                         <Icon.Mail /> <span>Me contacter</span>
                                     </a>
                                 </div>

@@ -329,8 +329,8 @@ function LibraryView({ books, onImport, onImportDirectory, onOpenBook, settings,
                             Créé par <strong>Geoffroy Streit</strong> alias <em>Hylst</em>
                             &nbsp;&middot;&nbsp; Artiste &eacute;clectique, développeur bancal, &eacute;crivain &agrave; ses heures
                             &nbsp;&middot;&nbsp;
-                            <a href="mailto:geoffroy.streit@gmail.com" className="footer-mail">
-                                <Icon.Mail /> geoffroy.streit@gmail.com
+                            <a href="mailto:geoffroy.streit@ik.me" className="footer-mail">
+                                <Icon.Mail /> geoffroy.streit@ik.me
                             </a>
                         </div>
                         <div className="footer-rights">

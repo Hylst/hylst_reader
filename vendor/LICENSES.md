@@ -24,6 +24,7 @@ Babel sert uniquement à précompiler `js/*.jsx` vers `js/dist/*.js` avec `scrip
 
 - **JSZip 3.10.2** : correctifs de détection de type binaire cross-realm et de support Blob.
 - **DOMPurify 3.4.17** : utilisé uniquement pour assainir les contenus importés (EPUB, dossiers HML, JSON). Les livres intégrés au dépôt ne sont pas filtrés.
+- **epub.js 0.3.93** : `epub.min.js` embarque `@xmldom/xmldom`, visé par des avis de sécurité élevés. Ce code ne sert que si le navigateur n'a pas de `DOMParser` ou si un appel force xmldom ; aucun appel ne le force dans `epub.min.js`. Dans la liseuse, les EPUB passent donc toujours par le `DOMParser` natif et le code xmldom n'est jamais exécuté (constat du 15/11/2026). À revoir si epub.js est mis à jour.
 - **Babel 8.0.9** : version volontairement figée. Babel 8.1.1 est sorti le 2026-11-02 et n'a pas encore été validé avec cette application.
 - **React 18.3.1** : pas de CVE connue pour l'usage client UMD de cette application. Les CVE React Server Components ne s'appliquent pas ici (aucun rendu serveur, aucun RSC).
 

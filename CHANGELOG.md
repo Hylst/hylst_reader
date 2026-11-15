@@ -12,10 +12,15 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - **Catalogue et fiche** : le bloc `audio` de `le-discours-bd` dans `public/books.json` décrit désormais les quatre voix test et non plus une seule ; la fiche statique du livre est régénérée depuis ce bloc par `scripts/build_book_pages.py`.
 - **Crédits** : `album/credits.html` distingue la voix validée d'Armand (clonage Base ICL) des trois tirages VoiceDesign en attente de validation.
 
+### Corrigé avant publication
+- **Contact** : adresse `geoffroy.streit@ik.me` dans la source (`droits.html`, `index.html`, `js/components/AboutModal.jsx`, `js/components/LibraryView.jsx`, `README.md`). La production l'affiche depuis le correctif du 12/11, fait dans le miroir seulement : la synchronisation de 1.8.53 y a donc remis l'ancienne adresse Gmail, ce que `verifier-integrite.py` du hub a bloqué avant tout push.
+- **CSP en balise meta** : la directive `frame-ancestors 'none'` est retirée des cinq pages autonomes (album du *Discours* : `index.html`, `voix.html`, `credits.html` ; pilote audio de *Chienne de Vie* : `index.html`, `credits.html`). Les navigateurs l'ignorent en balise meta et affichaient une erreur console ; l'en-tête Nginx de `/books_reader/` sert déjà `frame-ancestors 'self'`.
+- **Vendors** : `vendor/LICENSES.md` note que le code `@xmldom/xmldom` embarqué par `epub.min.js` n'est jamais exécuté (le `DOMParser` natif sert toujours, aucun appel ne force xmldom).
+
 ### Vérifié
 - `python scripts/check_dashes.py --root .` : 239 fichiers sources sans tiret cadratin ou demi-cadratin ; 267 fichiers dans le miroir.
 - `node scripts/build_jsx.js --check` : 10 fichiers JSX à jour.
-- Miroir synchronisé, build `3df7b76a1985`, cache Service Worker `hylst-reader-3df7b76a1985`, index en `?v=3df7b76a1985`, 528 fichiers runtime, sitemap à 17 URL avec `lastmod` au 15/11.
+- Miroir synchronisé, build `02bf7f2dd17b` (après les correctifs ci-dessus ; le premier build `3df7b76a1985` n'a jamais été déployé), cache Service Worker `hylst-reader-02bf7f2dd17b`, index en `?v=02bf7f2dd17b`, 528 fichiers runtime, sitemap à 17 URL avec `lastmod` au 15/11.
 - Miroir local `http://127.0.0.1:8765/books_reader/` : fiche BD, page de casting, crédits, `books.json` et les quatre WAV en HTTP 200. Page de casting contrôlée en capture 1200 px : quatre cartes, lecteurs et citations conformes.
 - Reste à faire : validation d'oreille des trois nouvelles prises, puis production de l'album complet en Base ICL (une référence par rôle, une graine par ligne).
 

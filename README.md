@@ -66,6 +66,6 @@ Pour comprendre en profondeur le fonctionnement de l'application, consultez nos 
 
 ## 📜 Licence & Crédits
 
-Créé par **Geoffroy Streit (Hylst)** - Mail : geoffroy.streit@gmail.com  
+Créé par **Geoffroy Streit (Hylst)** - Mail : geoffroy.streit@ik.me  
 Développé par **Antigravity**.  
 Tous les contenus musicaux et littéraires natifs sont la propriété exclusive de Geoffroy Streit (Hylst).

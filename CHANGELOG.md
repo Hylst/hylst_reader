@@ -1,6 +1,27 @@
 # Changelog
 Toutes les modifications notables apportées au projet **La Bibliothèque de Hylst** sont documentées dans ce fichier.
 
+## [1.8.52] - 2026-11-14
+
+### Ajouté & Modifié
+- **Le Discours, bande dessinée (14e livre)** : adaptation en bande dessinée de la nouvelle du recueil *Nouvelles satiriques alsaciennes*, entrée `le-discours-bd` dans `public/books.json`, couverture `covers/le-discours-bd.webp`, introduction et quatre chapitres HTML (`planche-1` à `planche-4`).
+  - 4 planches, 16 cases générées localement avec FLUX.3 Image Klein (`flux3-klein-sdcpp`), licence FLUX Kommunity non commerciale, 8 fiches de référence. Aucun texte incrusté dans les images : bulles et récitatifs sont rendus en HTML.
+  - Deux lectures : pages de bande dessinée dans la liseuse (`css/reader.css`, 247 lignes ajoutées, cadrage natif des cases) et album autonome `livres/le-discours-bd/album/`, avec `data/book.json`, `data/story.json` et `css/style.css`.
+  - Planche 4 : bulles déplacées hors des visages dans le lecteur et dans l'album.
+- **Chienne de Vie, lecture audio (pilote 001)** : lecture théâtrale en cinq voix de la première nouvelle du recueil, version 6, 5 min 21 s (321,3 s).
+  - Narration `assets/narration-chienne-de-vie-v6.ogg` (2,4 Mo) générée localement avec Qwen3-TTS, master 24 kHz mono à -16 LUFS, TP -1,5 dBTP. Rôles : narrateur (Base ICL `n02`), Jean-Pierre (Base ICL `jp03`), Marie (CustomVoice Serena), huissier (Base x-vector), médecin (VoiceDesign). Aucune voix réelle clonée.
+  - Page de lecture `livres/nouvelles-satiriques-alsaciennes/pilote-001-chienne-de-vie/` avec illustration locale Qwen Image 2.1, polices Merriweather auto-hébergées, crédits détaillés et bloc `audio` dans le catalogue. Lien depuis la fiche du recueil.
+- **Voix test d'Armand Dupont (BD 1.3.1)** : réplique de 7,44 s `album/assets/audio/voix-dupont-planche1-v2.wav`, page `album/voix.html`, bloc `audio` dans le catalogue et lien depuis la fiche du livre.
+  - Génération locale Qwen3-TTS : casting VoiceDesign filtré par mesure de hauteur, puis clonage Base ICL (seed 4250) sur une prise masculine mesurée à 118,6 Hz ; hauteur moyenne du rendu 110,9 Hz, 24 kHz mono, aucun écrêtage.
+  - La première prise (VoiceDesign seule, 237 Hz) a été retirée et archivée : trop haute pour un homme de 56 ans. La nouvelle prise attend la validation d'oreille de l'auteur.
+- **Le Discours, nouvelle 0.12.0** : le texte du recueil est enrichi et restructuré. Les répliques sont séparées en paragraphes de dialogue, la scène gagne le doute de Vincent, la feuille ronéotypée, la carte de visite du préfet, la cantine des fonderies de Niederbronn, le délégué syndical sur le quai et le trajet de nuit jusqu'à Paris.
+- **Miroir et production** : build `221242868565`, cache source `hylst-reader-v100` inchangé (aucune modification runtime hors contenus), 529 fichiers dans le miroir, 14 livres, 190 chapitres, sitemap à 17 URL avec `lastmod` au 14/11.
+
+### Vérifié
+- `python scripts/check_dashes.py --root .` : 239 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
+- `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
+- Production `https://hylst.fr/books_reader/` : index et Service Worker au build `221242868565`, fiche BD, album, page voix, WAV, page pilote et OGG en HTTP 200.
+
 ## [1.8.51] - 2026-11-13
 
 ### Ajouté & Modifié

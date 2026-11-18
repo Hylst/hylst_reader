@@ -128,7 +128,7 @@ Annexes
 - Le Service Worker ne supprime que les caches prefixes `hylst-reader-`. Bump de `CACHE_NAME` a chaque version.
 - `node scripts/build_jsx.js` puis `--check` si du JSX bouge.
 - Synchronisation par `scripts/sync-to-platform.ps1`, qui preserve l'`index.html` de production et exclut les sources `.jsx` et Babel.
-- Miroir de production : `D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader`, teste via `http://127.0.0.1:8765/books_reader/` et non depuis la racine source.
+- Miroir de production : `D:\0CODE\hylst.fr.platforms\it.hylst.fr\books_reader`, teste via `http://127.0.0.1:8765/books_reader/` et non depuis la racine source.
 - Apres chaque version : `CHANGELOG.md`, `todo.md`, `antigravity.md`, puis `changelog.md`, `securite.md`, `todo.md` et `hylst_IT_platform_content.md` cote plateforme.
 
 ## 7. Integration technique (faite le 06/11/2026, a reprendre a chaque chapitre publie)

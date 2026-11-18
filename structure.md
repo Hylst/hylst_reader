@@ -65,7 +65,7 @@ Hylst_Reader/
 │   ├── fetch_book_fonts.py  # Récupération des polices de lecture
 │   ├── generate_pwa_icons.py # Génération des icônes PWA
 │   ├── make_social_share.py # Composition de l'image Open Graph
-│   ├── sync-to-platform.ps1 # Synchronisation sûre vers Cours_Memos/Docker/books_reader
+│   ├── sync-to-platform.ps1 # Synchronisation sûre vers it.hylst.fr/books_reader
 │   ├── verify-release.ps1   # Contrôle build, tirets, sitemap, 301, CSP meta et en-tête, fichiers sensibles
 │   └── vendor/babel.min.js  # Babel, outil de build uniquement (non servi)
 ├── livres_pour_import/      # [Ignoré par Git] Sources des livres en local
@@ -92,7 +92,7 @@ Hylst_Reader/
 - **`scripts/build_jsx.js`** : compile les 10 fichiers JSX vers `js/dist/*.js` avec Babel en mode build. `--check` échoue si la sortie est périmée. Chaque fichier est encapsulé dans une IIFE.
 - **`scripts/build_book_pages.py`** : génère les 10 fiches statiques `livres/<id>/` avec métadonnées, JSON-LD, CSP et icônes.
 - **`scripts/check_dashes.py`** : refuse tout tiret cadratin ou demi-cadratin dans les fichiers servis.
-- **`scripts/sync-to-platform.ps1`** : compile le JSX, génère les fiches, calcule l'empreinte de build, préserve l'index de production et synchronise `Cours_Memos/Docker/books_reader`. Il exclut les sources `.jsx` et `scripts/vendor/babel.min.js` du miroir.
+- **`scripts/sync-to-platform.ps1`** : compile le JSX, génère les fiches, calcule l'empreinte de build, préserve l'index de production et synchronise `it.hylst.fr/books_reader`. Il exclut les sources `.jsx` et `scripts/vendor/babel.min.js` du miroir.
 - **`scripts/verify-release.ps1`** : contrôle localement `js/dist` et la règle zéro tiret, puis en production le build, le SW, les 12 URL du sitemap, le 301 des fiches, la CSP meta, l'en-tête CSP Books Reader, l'absence d'en-tête global et les fichiers sensibles.
 - **`sw.js`** : précache l'app shell, `public/books.json`, les 105 contenus, les 11 couvertures et les 11 fiches, puis sert le local en Network-First avec repli cache.
 - **`index.html`** : charge les styles, le thème avant premier rendu et les fichiers `js/dist/*.js`. Babel n'est plus chargé par le navigateur.

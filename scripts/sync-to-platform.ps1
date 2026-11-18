@@ -5,7 +5,7 @@
 
 .DESCRIPTION
     Copie uniquement les fichiers runtime (css, js, public, vendor, livres, manifest.json,
-    sw.js, droits.html) dans D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader.
+    sw.js, droits.html) dans D:\0CODE\hylst.fr.platforms\it.hylst.fr\books_reader.
 
     L'index.html de production est PRÉSERVÉ : il contient le patch plateforme
     (vendor/, /assets/fonts/fonts.css, canonical). Le script vérifie que ce patch
@@ -28,7 +28,7 @@
     Racine du projet source. Par défaut : le dossier parent de scripts/.
 
 .PARAMETER Target
-    Miroir de production. Par défaut : D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader
+    Miroir de production. Par défaut : D:\0CODE\hylst.fr.platforms\it.hylst.fr\books_reader
 
 .PARAMETER Commit
     Ajoute books_reader au commit Git de la plateforme. Ne pousse jamais.
@@ -49,7 +49,7 @@
 [CmdletBinding()]
 param(
     [string]$Source = '',
-    [string]$Target = 'D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader',
+    [string]$Target = 'D:\0CODE\hylst.fr.platforms\it.hylst.fr\books_reader',
     [switch]$Commit,
     [switch]$Prune,
     [switch]$DryRun

@@ -21,6 +21,6 @@ La mémoire projet complète est dans [`antigravity.md`](antigravity.md). La lir
 - Le Service Worker ne supprime que les caches préfixés `hylst-reader-`.
 - Compiler le JSX avec `node scripts/build_jsx.js`, puis vérifier avec `--check`.
 - Synchroniser avec `scripts/sync-to-platform.ps1`. Il préserve l'`index.html` de production et exclut les sources `.jsx` et Babel.
-- Le miroir de production est `D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader`.
+- Le miroir de production est `D:\0CODE\hylst.fr.platforms\it.hylst.fr\books_reader`.
 - Tester le miroir via `http://127.0.0.1:8765/books_reader/`, pas la racine source.
 - Après chaque version : `CHANGELOG.md`, `todo.md`, `antigravity.md`, puis les docs plateforme (`changelog.md`, `securite.md`, `todo.md`, `hylst_IT_platform_content.md`).

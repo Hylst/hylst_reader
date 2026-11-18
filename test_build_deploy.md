@@ -18,7 +18,7 @@ L'application est statique, mais le JSX doit être précompilé et les polices v
    ```
 2. Servir la racine de la plateforme :
    ```powershell
-   cd D:\0CODE\AntiGravity\Cours_Memos\Docker
+   cd D:\0CODE\hylst.fr.platforms\it.hylst.fr
    python -m http.server 8765 --bind 127.0.0.1
    ```
 3. Ouvrir [http://127.0.0.1:8765/books_reader/](http://127.0.0.1:8765/books_reader/).
@@ -26,7 +26,7 @@ L'application est statique, mais le JSX doit être précompilé et les polices v
 Le miroir fournit `/assets/fonts/fonts.css`, `js/dist` et l'index de production. Tester avec et sans slash, puis en navigation privée pour le Service Worker.
 
 ### Méthode B : avec Node.js
-Après le sync, lancer `npx serve` depuis `Cours_Memos/Docker` et ouvrir `/books_reader/`.
+Après le sync, lancer `npx serve` depuis `it.hylst.fr` et ouvrir `/books_reader/`.
 
 > [!CAUTION]
 > Ne pas servir la racine du dépôt source pour valider une version : `index.html` référence `js/dist` et `/assets/fonts`, qui ne sont pas à la racine source.
@@ -60,9 +60,9 @@ Le déploiement actuel ne se fait pas via un service Coolify dédié au lecteur,
 
 | Élément | Valeur |
 |---|---|
-| Dossier de production | `D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader` |
+| Dossier de production | `D:\0CODE\hylst.fr.platforms\it.hylst.fr\books_reader` |
 | Dépôt plateforme | `Hylst/cours_info` (privé, branche `main`) |
-| Racine du dépôt | `D:\0CODE\AntiGravity\Cours_Memos\Docker` |
+| Racine du dépôt | `D:\0CODE\hylst.fr.platforms\it.hylst.fr` |
 | Conteneur | Nginx statique, app Coolify `hylst-cours` |
 | URL | `https://hylst.fr/books_reader/` |
 | Build | Précompilation JSX (`scripts/build_jsx.js`) puis copie statique, pas de Dockerfile dédié |
@@ -78,8 +78,8 @@ node scripts/build_jsx.js --check
 powershell -ExecutionPolicy Bypass -File .\scripts\sync-to-platform.ps1
 
 # 3. Vérifier, puis committer (option -Commit), et pousser manuellement
-git -C D:\0CODE\AntiGravity\Cours_Memos\Docker status --short -- books_reader
-git -C D:\0CODE\AntiGravity\Cours_Memos\Docker push origin main
+git -C D:\0CODE\hylst.fr.platforms\it.hylst.fr status --short -- books_reader
+git -C D:\0CODE\hylst.fr.platforms\it.hylst.fr push origin main
 ```
 
 Points critiques :
@@ -130,11 +130,11 @@ server {
     }
 }
 ```
-*(Exemple générique. La configuration réellement utilisée par hylst.fr est `Cours_Memos/Docker/nginx-coolify-reference.conf`, appliquée dans le panel Coolify ; ne pas utiliser ce bloc seul pour remplacer la configuration existante).*
+*(Exemple générique. La configuration réellement utilisée par hylst.fr est `it.hylst.fr/nginx-coolify-reference.conf`, appliquée dans le panel Coolify ; ne pas utiliser ce bloc seul pour remplacer la configuration existante).*
 
 ### Étape 3.5 : Redirection des fiches livres sans slash
 
-La configuration de référence `Cours_Memos/Docker/nginx-coolify-reference.conf` contient le bloc appliqué en production le 04/11/2026 pour rediriger `/books_reader/livres/<id>` vers `/books_reader/livres/<id>/` en 301, query conservée :
+La configuration de référence `it.hylst.fr/nginx-coolify-reference.conf` contient le bloc appliqué en production le 04/11/2026 pour rediriger `/books_reader/livres/<id>` vers `/books_reader/livres/<id>/` en 301, query conservée :
 
 ```nginx
 location ~ ^/books_reader/livres/([^/]+)$ {

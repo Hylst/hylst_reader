@@ -11,7 +11,7 @@ L'application est statique, mais le JSX doit être précompilé et les polices v
 ### Méthode A : miroir local (recommandée)
 1. Compiler et synchroniser depuis le dépôt source :
    ```powershell
-   cd D:\0CODE\AntiGravity\Hylst_Reader
+   cd D:\0CODE\0FINAL\art\books_reader
    node scripts/build_jsx.js
    node scripts/build_jsx.js --check
    powershell -ExecutionPolicy Bypass -File .\scripts\sync-to-platform.ps1

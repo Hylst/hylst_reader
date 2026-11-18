@@ -50,7 +50,7 @@ Version **1.8.50** déployée en production le 09/11, cache Service Worker sourc
 
 ## 0. Deux chemins à ne pas confondre
 
-- Racine du depot du lecteur : `D:\0CODE\AntiGravity\Hylst_Reader` (c'est la que vivent `public/`, `js/`, `css/`, `scripts/`).
+- Racine du depot du lecteur : `D:\0CODE\0FINAL\art\books_reader` (c'est la que vivent `public/`, `js/`, `css/`, `scripts/`).
 - Archive des sources : `D:\0HYLST\0 HYLST ART 2024\ecrits\` (miroir du site de 2004, encodage cp1252).
 
 Les commandes `git`, `python scripts/check_dashes.py` et `node scripts/build_jsx.js` se lancent depuis la racine du depot, pas depuis l'archive.

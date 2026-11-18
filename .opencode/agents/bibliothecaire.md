@@ -46,7 +46,7 @@ Tu es le bibliothécaire de **La Bibliothèque de Hylst**. Tu administres l'appl
 2. `node scripts/build_jsx.js --check`
 3. `python scripts/check_dashes.py --root .`
 4. `powershell -ExecutionPolicy Bypass -File .\scripts\sync-to-platform.ps1`
-5. Servir `D:\0CODE\AntiGravity\Cours_Memos\Docker` sur `http://127.0.0.1:8765/books_reader/`
+5. Servir `D:\0CODE\hylst.fr.platforms\it.hylst.fr` sur `http://127.0.0.1:8765/books_reader/`
 6. Vérifier le catalogue : 12 entrées avant ajout, 13 après, aucune entrée perdue.
 7. Vérifier les chemins d'introduction, de chapitres et de couverture de chaque entrée touchée.
 

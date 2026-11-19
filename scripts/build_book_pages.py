@@ -7,6 +7,7 @@ Elles renvoient vers la liseuse pour la lecture complete.
 """
 import html
 import json
+import os
 import re
 from pathlib import Path
 
@@ -15,7 +16,8 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "livres"
 STYLE_PATH = ROOT / "css" / "book-page.css"
-BASE = "https://hylst.fr/books_reader/"
+# Domaine lu dans SITE_URL (https://hylst.fr par defaut) : index.html et droits.html, ecrits a la main, sont a reprendre a part.
+BASE = (os.environ.get("SITE_URL") or "https://hylst.fr").rstrip("/") + "/books_reader/"
 SITE_PATH = "/books_reader/"
 SITE = "La Bibliothèque de Hylst"
 

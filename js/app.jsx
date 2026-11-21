@@ -285,7 +285,7 @@ function App() {
         if (canonical) {
             canonical.setAttribute('href', isPublicBookView
                 ? new URL(`livres/${encodeURIComponent(activeBook.id)}/`, document.baseURI).href
-                : 'https://hylst.fr/books_reader/');
+                : 'https://art.hylst.fr/hylst_biblio/');
         }
     }, [activeBook, currentView]);
 

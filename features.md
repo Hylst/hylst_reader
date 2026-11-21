@@ -14,11 +14,11 @@ Conçu comme un livre physique de grande qualité, la liseuse adapte et peaufine
 - **Dropcaps automatiques** : Lettrine agrandie au premier paragraphe de chaque chapitre.
 - **Mise en page théâtre** : didascalies bleues, répliques alignées à gauche et conservation des retours de ligne du manuscrit.
 - **Navigation de fin de partie** : un bloc « Fin de la partie » avec la partie suivante est toujours visible sous le dernier paragraphe, même barre masquée. Une pastille `1 / 7 · Suivant` reste accessible en lecture immersive.
-- **Accès direct** : `https://hylst.fr/books_reader` redirige en 301 vers `https://hylst.fr/books_reader/`, qui reste l'URL canonique.
+- **Accès direct** : `https://art.hylst.fr/hylst_biblio` redirige en 301 vers `https://art.hylst.fr/hylst_biblio/`, qui reste l'URL canonique.
 - **L'Odyssée de l'énergie** : les 10 chapitres sont disponibles, avec relecture orthographique complète, données actualisées et mention de transparence sur l'assistance IA en dernière de couverture.
 - **Recueils** : 36 textes répartis en trois volumes, dont 29 publiés sur Wattpad et 7 retrouvés dans les archives (escapades de 1995, poèmes de 1996 et 1999, prose de 2020). Mise en page prose/poésie, dates d'origine, lien vers la version originale quand elle existe et illustrations d'origine affichées en tête de chapitre et dans le sommaire. Création littéraire 100 % humaine, sans assistance d'IA.
 - **Quinte ou Les Harmoniques de l'Âme** : nouvelle en sept parties, version remaniée par l'auteur, avec introduction et note de provenance.
-- **Deux URL** : `/books_reader/` reste l'URL canonique, `/bibliotheque/` y redirige en 301 avec conservation de la query string.
+- **Deux URL** : `/hylst_biblio/` reste l'URL canonique, `/bibliotheque/` y redirige en 301 avec conservation de la query string.
 - **Réglages du texte** : Choix de la largeur de colonne (Étroit, Moyen, Large), alignement (Gauche ou Justifié), et taille du texte (de 70% à 170% de la taille de base).
 - **Mode Focus Absolu** : Un double-clic ou double-tap masque instantanément toutes les interfaces pour ne laisser que le texte pur et l'ambiance.
 
@@ -47,7 +47,7 @@ L'application fonctionne à 100% sans serveur de base de données en s'appuyant 
   - **Fichier unique** : Sélectionnez un fichier `.EPUB`, `.TXT`, `.MD` ou `.JSON` pour l'ouvrir instantanément.
   - **Dossier HML local** : Grâce à l'API File System Access, sélectionnez un dossier complet d'ouvrage structuré pour en recréer le sommaire et le graphisme personnalisé.
   - **Assainissement** : chaque contenu importé passe par DOMPurify avant stockage et avant rendu (scripts, iframes, gestionnaires d'événements et URL `javascript:` neutralisés).
-- **CSP stricte** : balise meta et en-tête Nginx limités à `/books_reader/`, avec `script-src 'self'`, `style-src 'self'` et `frame-ancestors 'self'`. Les autres applications de la plateforme conservent leurs propres politiques.
+- **CSP stricte** : balise meta et en-tête Nginx limités à `/hylst_biblio/`, avec `script-src 'self'`, `style-src 'self'` et `frame-ancestors 'self'`. Les autres applications de la plateforme conservent leurs propres politiques.
 
 ---
 

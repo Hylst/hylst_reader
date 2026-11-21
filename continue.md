@@ -40,7 +40,7 @@ Version **1.8.50** déployée en production le 09/11, cache Service Worker sourc
 
 ### Repères techniques
 
-- Liens PDF : chemin absolu `/books_reader/public/books/sciences-et-technologie-jeux-videos/pdf/...`, identique dans la liseuse et dans la fiche statique.
+- Liens PDF : chemin absolu `/hylst_biblio/public/books/sciences-et-technologie-jeux-videos/pdf/...`, identique dans la liseuse et dans la fiche statique.
 - Les PDF ne sont pas précachés par le Service Worker ; seuls l'introduction, les chapitres, les couvertures et les fiches le sont.
 - `public/books.json` est la source du catalogue et du précache. Toute nouvelle entrée doit être suivie de `python scripts/build_book_pages.py`, d'un bump de `CACHE_NAME` et d'une synchronisation.
 - `css/book-page.css` est réécrit par `scripts/build_book_pages.py` : toute modification de style passe par la constante `STYLE` du script, pas seulement par le fichier CSS.
@@ -128,7 +128,7 @@ Annexes
 - Le Service Worker ne supprime que les caches prefixes `hylst-reader-`. Bump de `CACHE_NAME` a chaque version.
 - `node scripts/build_jsx.js` puis `--check` si du JSX bouge.
 - Synchronisation par `scripts/sync-to-platform.ps1`, qui preserve l'`index.html` de production et exclut les sources `.jsx` et Babel.
-- Miroir de production : `D:\0CODE\hylst.fr.platforms\it.hylst.fr\books_reader`, teste via `http://127.0.0.1:8765/books_reader/` et non depuis la racine source.
+- Miroir de production : `D:\0CODE\hylst.fr.platforms\it.hylst.fr\books_reader`, teste via `http://127.0.0.1:8765/hylst_biblio/` et non depuis la racine source.
 - Apres chaque version : `CHANGELOG.md`, `todo.md`, `antigravity.md`, puis `changelog.md`, `securite.md`, `todo.md` et `hylst_IT_platform_content.md` cote plateforme.
 
 ## 7. Integration technique (faite le 06/11/2026, a reprendre a chaque chapitre publie)

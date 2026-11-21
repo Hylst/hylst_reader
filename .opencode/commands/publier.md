@@ -11,7 +11,7 @@ Publie `$ARGUMENTS` dans La Bibliothèque de Hylst.
 4. Copie les fichiers dans `public/books/$ARGUMENTS/` et la couverture dans `public/covers/`. Ne touche à aucun autre livre.
 5. Ajoute une seule entrée dans `public/books.json`, en conservant les 12 entrées existantes et leur ordre. Demande l'accord avant d'écrire ce fichier.
 6. Lance `node scripts/build_jsx.js`, puis `--check`, puis `python scripts/check_dashes.py --root .`.
-7. Synchronise avec `.\scripts\sync-to-platform.ps1`, sers `D:\0CODE\AntiGravity\Cours_Memos\Docker` sur `http://127.0.0.1:8765/books_reader/` et teste l'entrée ajoutée.
+7. Synchronise avec `.\scripts\sync-to-platform.ps1`, sers `D:\0CODE\AntiGravity\Cours_Memos\Docker` sur `http://127.0.0.1:8765/hylst_biblio/` et teste l'entrée ajoutée.
 8. Rends un rapport : fichiers créés, entrée de catalogue, nombre d'entrées avant et après, résultats des tests, problèmes, décision humaine restante.
 
 Ne lance jamais `build_books.py`. Ne pousse pas sur GitHub. Si une étape échoue, arrête-toi et explique.

@@ -86,8 +86,8 @@ Le déploiement réel ne se fait pas depuis ce dépôt seul. Le miroir de produc
 D:\0CODE\hylst.fr.platforms\it.hylst.fr\books_reader
 ```
 
-Il appartient au dépôt `Hylst/cours_info`, déployé par Coolify (`hylst-cours`) sur `https://hylst.fr/books_reader/`.
+Il appartient au dépôt `Hylst/cours_info`, déployé par Coolify (`hylst-cours`) sur `https://art.hylst.fr/hylst_biblio/`.
 
 Utiliser `scripts/sync-to-platform.ps1` : il compile le JSX, génère les fiches statiques, copie uniquement les fichiers runtime, préserve l'`index.html` de production (vendor, polices de la plateforme, canonical), calcule une empreinte de build, met à jour `sw.js` et les `?v=`, puis vérifie les empreintes. Les sources `.jsx` et Babel ne sont pas copiés. `-Commit` crée un commit local ; le script ne pousse jamais.
 
-Le 301 `/books_reader/livres/<id>` vers `/books_reader/livres/<id>/` est décrit dans `it.hylst.fr/nginx-coolify-reference.conf` et appliqué dans Coolify.
+Le 301 `/hylst_biblio/livres/<id>` vers `/hylst_biblio/livres/<id>/` est décrit dans `it.hylst.fr/nginx-coolify-reference.conf` et appliqué dans Coolify.

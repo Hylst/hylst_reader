@@ -17,7 +17,7 @@
 - Tous les tableaux `<table class="chapter-stats-table">` doivent être encapsulés dans `<div class="chapter-table-scroll" data-cols="N" role="region" aria-label="Tableau du chapitre" tabindex="0">`.
 - Préserver tous les textes et données d'origine (1999-2011).
 - Pas de CDN au runtime, CSP `script-src 'self'`.
-- Synchronisation miroir via `scripts/sync-to-platform.ps1 -Prune` et vérification sur `http://127.0.0.1:8765/books_reader/`.
+- Synchronisation miroir via `scripts/sync-to-platform.ps1 -Prune` et vérification sur `http://127.0.0.1:8765/hylst_biblio/`.
 
 ## Review Focus
 
@@ -97,6 +97,6 @@
 
 - [ ] **Step 1: Synchroniser vers le miroir**
   Exécuter `scripts/sync-to-platform.ps1 -Prune`.
-- [ ] **Step 2: Tester sur `http://127.0.0.1:8765/books_reader/`**
+- [ ] **Step 2: Tester sur `http://127.0.0.1:8765/hylst_biblio/`**
 - [ ] **Step 3: Mettre à jour la documentation (CHANGELOG, todo, antigravity, docs plateforme)**
 - [ ] **Step 4: Commits et déploiement**

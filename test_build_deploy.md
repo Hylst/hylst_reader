@@ -1,6 +1,6 @@
 # Guide de Test, de Build et de Déploiement · La Bibliothèque de Hylst
 
-Ce guide explique pas-à-pas comment tester l'application **La Bibliothèque de Hylst** sur votre ordinateur sous Windows, comment générer la version statique et comment la déployer de façon premium sur votre VPS Hostinger géré par **Coolify** au sein d'un container Nginx, spécifiquement dans un sous-dossier `/books_reader/` pour l'URL : `https://hylst.fr/books_reader/`.
+Ce guide explique pas-à-pas comment tester l'application **La Bibliothèque de Hylst** sur votre ordinateur sous Windows, comment générer la version statique et comment la déployer de façon premium sur votre VPS Hostinger géré par **Coolify** au sein d'un container Nginx, spécifiquement dans un sous-dossier `/hylst_biblio/` pour l'URL : `https://art.hylst.fr/hylst_biblio/`.
 
 ---
 
@@ -21,19 +21,19 @@ L'application est statique, mais le JSX doit être précompilé et les polices v
    cd D:\0CODE\hylst.fr.platforms\it.hylst.fr
    python -m http.server 8765 --bind 127.0.0.1
    ```
-3. Ouvrir [http://127.0.0.1:8765/books_reader/](http://127.0.0.1:8765/books_reader/).
+3. Ouvrir [http://127.0.0.1:8765/hylst_biblio/](http://127.0.0.1:8765/hylst_biblio/).
 
 Le miroir fournit `/assets/fonts/fonts.css`, `js/dist` et l'index de production. Tester avec et sans slash, puis en navigation privée pour le Service Worker.
 
 ### Méthode B : avec Node.js
-Après le sync, lancer `npx serve` depuis `it.hylst.fr` et ouvrir `/books_reader/`.
+Après le sync, lancer `npx serve` depuis `it.hylst.fr` et ouvrir `/hylst_biblio/`.
 
 > [!CAUTION]
 > Ne pas servir la racine du dépôt source pour valider une version : `index.html` référence `js/dist` et `/assets/fonts`, qui ne sont pas à la racine source.
 
 ### Vérifier le mode hors ligne
 1. Utiliser un profil Chromium neuf, sans Service Worker existant.
-2. Charger `http://127.0.0.1:8765/books_reader/` et attendre l'activation du Service Worker (`navigator.serviceWorker.ready`).
+2. Charger `http://127.0.0.1:8765/hylst_biblio/` et attendre l'activation du Service Worker (`navigator.serviceWorker.ready`).
 3. Dans DevTools, onglet Application, vérifier le cache `hylst-reader-<build>` : 322 entrées au build `0b632e9d5101`, dont les 28 illustrations de chapitre, les 16 couvertures à venir et les 77 fontes de la plateforme.
 4. Passer en mode hors ligne (Network, Offline), puis ouvrir la bibliothèque, `droits.html`, chaque fiche avec et sans slash, puis un livre dans la liseuse.
 5. Vérifier que le texte et les illustrations s'affichent, sans requête en erreur. Les PDF de *Sciences et technologie* ne sont pas précachés : ce comportement est attendu.
@@ -64,7 +64,7 @@ Le déploiement actuel ne se fait pas via un service Coolify dédié au lecteur,
 | Dépôt plateforme | `Hylst/cours_info` (privé, branche `main`) |
 | Racine du dépôt | `D:\0CODE\hylst.fr.platforms\it.hylst.fr` |
 | Conteneur | Nginx statique, app Coolify `hylst-cours` |
-| URL | `https://hylst.fr/books_reader/` |
+| URL | `https://art.hylst.fr/hylst_biblio/` |
 | Build | Précompilation JSX (`scripts/build_jsx.js`) puis copie statique, pas de Dockerfile dédié |
 
 Procédure recommandée :
@@ -90,7 +90,7 @@ Points critiques :
 
 Les sections 3.1 à 3.4 ci-dessous décrivent la configuration Coolify générique ; la section 3.5 documente le 301 réellement appliqué à Books Reader.
 
-Pour héberger l'application sur votre VPS Hostinger configuré avec Coolify sous l'URL `https://hylst.fr/books_reader/`, suivez ces étapes détaillées.
+Pour héberger l'application sur votre VPS Hostinger configuré avec Coolify sous l'URL `https://art.hylst.fr/hylst_biblio/`, suivez ces étapes détaillées.
 
 ### Étape 3.1 : Création du Service sur Coolify
 1. Connectez-vous à votre console **Coolify**.
@@ -105,15 +105,15 @@ Coolify va cloner votre projet et le servir au travers d'un container Docker éq
 * **Destination Directory** (répertoire servi) : `./` (puisqu'il n'y a pas de dossier `dist/` ou `build/` intermédiaire, tous vos fichiers `index.html`, `sw.js`, `css/` et `js/` sont à la racine).
 * **URL de destination (FQDN)** : Indiquez votre domaine suivi du sous-dossier exact :
   ```
-  https://hylst.fr/books_reader/
+  https://art.hylst.fr/hylst_biblio/
   ```
 
 ### Étape 3.3 : Pourquoi les chemins ne se cassent pas en sous-dossier ?
 L'application a été conçue pour utiliser des **chemins relatifs et non absolus** :
 - **Correct (Relatif)** : `css/variables.css`, `js/dist/app.js` (ou `./public/covers/...`).
-- **Absolu volontaire** : `/assets/fonts/fonts.css` et `/hml/...` sont servis à la racine de la plateforme, pas dans `/books_reader/`.
+- **Absolu volontaire** : `/assets/fonts/fonts.css` et `/hml/...` sont servis à la racine de la plateforme, pas dans `/hylst_biblio/`.
 
-Grâce à cette précaution, le container Nginx statique créé par Coolify servira tous vos fichiers à la perfection au sein de `/books_reader/`.
+Grâce à cette précaution, le container Nginx statique créé par Coolify servira tous vos fichiers à la perfection au sein de `/hylst_biblio/`.
 
 ### Étape 3.4 : [Optionnel] Configuration Nginx avancée
 Si vous devez gérer le routage Nginx ou le fallback d'URL (utile pour éviter les erreurs 404 lors du rafraîchissement d'une page profonde), Coolify vous permet de personnaliser le fichier de configuration Nginx du container. Vous pouvez y ajouter cette règle simple :
@@ -123,10 +123,10 @@ server {
     listen 80;
     server_name localhost;
 
-    location /books_reader/ {
+    location /hylst_biblio/ {
         alias /usr/share/nginx/html/;
         index index.html index.htm;
-        try_files $uri $uri/ /books_reader/index.html;
+        try_files $uri $uri/ /hylst_biblio/index.html;
     }
 }
 ```
@@ -134,12 +134,12 @@ server {
 
 ### Étape 3.5 : Redirection des fiches livres sans slash
 
-La configuration de référence `it.hylst.fr/nginx-coolify-reference.conf` contient le bloc appliqué en production le 04/11/2026 pour rediriger `/books_reader/livres/<id>` vers `/books_reader/livres/<id>/` en 301, query conservée :
+La configuration de référence `it.hylst.fr/nginx-coolify-reference.conf` contient le bloc appliqué en production le 04/11/2026 pour rediriger `/hylst_biblio/livres/<id>` vers `/hylst_biblio/livres/<id>/` en 301, query conservée :
 
 ```nginx
-location ~ ^/books_reader/livres/([^/]+)$ {
-    return 301 /books_reader/livres/$1/$is_args$args;
+location ~ ^/hylst_biblio/livres/([^/]+)$ {
+    return 301 /hylst_biblio/livres/$1/$is_args$args;
 }
 ```
 
-Le bloc regex ne capte ni `/books_reader/livres/` ni les fichiers `.html`. La configuration est enregistrée dans la base Coolify et dans le conteneur `hylst-cours`, avec sauvegarde préalable dans `/root/hylst-nginx-backup-20261104-booksreader301/`.
+Le bloc regex ne capte ni `/hylst_biblio/livres/` ni les fichiers `.html`. La configuration est enregistrée dans la base Coolify et dans le conteneur `hylst-cours`, avec sauvegarde préalable dans `/root/hylst-nginx-backup-20261104-booksreader301/`.

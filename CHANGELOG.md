@@ -18,7 +18,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `node scripts/build_jsx.js --check` : 10 fichiers JSX à jour.
 - `python scripts/verifier-integrite.py` (hub) : adresses, queries, humans.txt et révisions Workbox conformes.
 - Miroir synchronisé, build `f6c2f8e67ede`, cache Service Worker `hylst-reader-f6c2f8e67ede`, index en `?v=f6c2f8e67ede`, 538 fichiers, 17 URL au sitemap avec `lastmod` au 15/11.
-- Miroir local `http://127.0.0.1:8765/books_reader/` : page d'écoute et cinq MP3 en 200 (`audio/mpeg`), ancien OGG en 404, durées natives contrôlées par CDP dans Chrome (album 114,28 s, planches 33,01 / 25,33 / 22,01 / 30,34 s), captures 1200 px conformes.
+- Miroir local `http://127.0.0.1:8765/hylst_biblio/` : page d'écoute et cinq MP3 en 200 (`audio/mpeg`), ancien OGG en 404, durées natives contrôlées par CDP dans Chrome (album 114,28 s, planches 33,01 / 25,33 / 22,01 / 30,34 s), captures 1200 px conformes.
 
 ## [1.8.53] - 2026-11-15
 
@@ -33,14 +33,14 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 
 ### Corrigé avant publication
 - **Contact** : adresse `geoffroy.streit@ik.me` dans la source (`droits.html`, `index.html`, `js/components/AboutModal.jsx`, `js/components/LibraryView.jsx`, `README.md`). La production l'affiche depuis le correctif du 12/11, fait dans le miroir seulement : la synchronisation de 1.8.53 y a donc remis l'ancienne adresse Gmail, ce que `verifier-integrite.py` du hub a bloqué avant tout push.
-- **CSP en balise meta** : la directive `frame-ancestors 'none'` est retirée des cinq pages autonomes (album du *Discours* : `index.html`, `voix.html`, `credits.html` ; pilote audio de *Chienne de Vie* : `index.html`, `credits.html`). Les navigateurs l'ignorent en balise meta et affichaient une erreur console ; l'en-tête Nginx de `/books_reader/` sert déjà `frame-ancestors 'self'`.
+- **CSP en balise meta** : la directive `frame-ancestors 'none'` est retirée des cinq pages autonomes (album du *Discours* : `index.html`, `voix.html`, `credits.html` ; pilote audio de *Chienne de Vie* : `index.html`, `credits.html`). Les navigateurs l'ignorent en balise meta et affichaient une erreur console ; l'en-tête Nginx de `/hylst_biblio/` sert déjà `frame-ancestors 'self'`.
 - **Vendors** : `vendor/LICENSES.md` note que le code `@xmldom/xmldom` embarqué par `epub.min.js` n'est jamais exécuté (le `DOMParser` natif sert toujours, aucun appel ne force xmldom).
 
 ### Vérifié
 - `python scripts/check_dashes.py --root .` : 239 fichiers sources sans tiret cadratin ou demi-cadratin ; 267 fichiers dans le miroir.
 - `node scripts/build_jsx.js --check` : 10 fichiers JSX à jour.
 - Miroir synchronisé, build `02bf7f2dd17b` (après les correctifs ci-dessus ; le premier build `3df7b76a1985` n'a jamais été déployé), cache Service Worker `hylst-reader-02bf7f2dd17b`, index en `?v=02bf7f2dd17b`, 528 fichiers runtime, sitemap à 17 URL avec `lastmod` au 15/11.
-- Miroir local `http://127.0.0.1:8765/books_reader/` : fiche BD, page de casting, crédits, `books.json` et les quatre WAV en HTTP 200. Page de casting contrôlée en capture 1200 px : quatre cartes, lecteurs et citations conformes.
+- Miroir local `http://127.0.0.1:8765/hylst_biblio/` : fiche BD, page de casting, crédits, `books.json` et les quatre WAV en HTTP 200. Page de casting contrôlée en capture 1200 px : quatre cartes, lecteurs et citations conformes.
 - Reste à faire : validation d'oreille des trois nouvelles prises, puis production de l'album complet en Base ICL (une référence par rôle, une graine par ligne).
 
 ## [1.8.52] - 2026-11-14
@@ -62,7 +62,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 ### Vérifié
 - `python scripts/check_dashes.py --root .` : 239 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
 - `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
-- Production `https://hylst.fr/books_reader/` : index et Service Worker au build `221242868565`, fiche BD, album, page voix, WAV, page pilote et OGG en HTTP 200.
+- Production `https://art.hylst.fr/hylst_biblio/` : index et Service Worker au build `221242868565`, fiche BD, album, page voix, WAV, page pilote et OGG en HTTP 200.
 
 ## [1.8.51] - 2026-11-13
 
@@ -142,7 +142,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
 - Contrôle Tesseract OCR : 48/48 images d'Atrophie 100 % vierges de texte ou mentions parasites.
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `90ef30d837de`, 402 fichiers runtime vérifiés.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur tous les assets.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur tous les assets.
 - Production : déployée le 09/11 (commit plateforme `93f50ab5`, docs `5fcb2e18`), build `90ef30d837de`, SW `hylst-reader-90ef30d837de`, index `?v=90ef30d837de`. `verify-release.ps1` entièrement vert.
 
 ## [1.8.40] - 2026-11-09
@@ -160,7 +160,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
 - `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `c8c8705aa1e5`, 402 fichiers runtime vérifiés.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur tous les assets.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur tous les assets.
 - Production : déployée le 09/11 (commit plateforme `b281b8f5`, docs `adfddecb`), build `c8c8705aa1e5`, SW `hylst-reader-c8c8705aa1e5`, index `?v=c8c8705aa1e5`. `verify-release.ps1` entièrement vert.
 
 ## [1.8.39] - 2026-11-09
@@ -182,7 +182,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
 - Contrôle Tesseract OCR : 48/48 images d'Atrophie 100 % vierges de texte parasite.
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `20cdd2868200`, 402 fichiers runtime vérifiés.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur tous les assets.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur tous les assets.
 - Production : déployée le 09/11 (commit plateforme `0bda8cbb`, docs `06dbb4f9`), build `20cdd2868200`, SW `hylst-reader-20cdd2868200`, index `?v=20cdd2868200`. `verify-release.ps1` entièrement vert.
 
 ## [1.8.38] - 2026-11-09
@@ -238,7 +238,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `python scripts/test_neuro_svg.py` : 3/3 schémas SVG validés.
 - `python scripts/test_neuro_art.py` : 4/4 illustrations Krea WebP validées.
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `59670cfcb111`, 402 fichiers runtime vérifiés.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur tous les assets.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur tous les assets.
 - Production : déployée le 09/11 (commit plateforme `6fd89cdc`, docs `691ada2e`), build `59670cfcb111`, SW `hylst-reader-59670cfcb111`, index `?v=59670cfcb111`. `verify-release.ps1` entièrement vert.
 
 ## [1.8.36] - 2026-11-09
@@ -266,7 +266,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `python scripts/test_neuro_svg.py` : 3/3 schémas SVG validés.
 - `python scripts/test_neuro_art.py` : 4/4 illustrations Krea WebP validées.
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `b4a05e753aea`, 399 fichiers runtime vérifiés.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur tous les assets.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur tous les assets.
 - Production : déployée le 09/11 (commit plateforme `30c72d7b`, docs `d3c9ff9c`), build `b4a05e753aea`, SW `hylst-reader-b4a05e753aea`, index `?v=b4a05e753aea`. `verify-release.ps1` entièrement vert.
 
 ## [1.8.35] - 2026-11-09
@@ -290,7 +290,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
 - `python scripts/test_assets_atrophie.py` : 48/48 illustrations WebP conformes.
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `f45d0fcef3ea`, 385 fichiers runtime vérifiés.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur tous les assets.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur tous les assets.
 - Production : déployée le 09/11 (commit plateforme `ac6cabe3`, docs `1c7b8b45`), build `f45d0fcef3ea`, SW `hylst-reader-f45d0fcef3ea`, index `?v=f45d0fcef3ea`. `verify-release.ps1` entièrement vert.
 
 ## [1.8.34] - 2026-11-09
@@ -329,7 +329,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `node scripts/build_jsx.js --check` : 10 fichiers JSX compilés et à jour.
 - `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `da7807980fa5`, 286 fichiers runtime vérifiés.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur tous les assets.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur tous les assets.
 - Production : déployée le 08/11 (commit plateforme `a8ad11a5`, docs `fd1da5b4`), build `da7807980fa5`, SW `hylst-reader-da7807980fa5`, index `?v=da7807980fa5`. `verify-release.ps1` entièrement vert.
 
 ## [1.8.32] - 2026-11-08
@@ -353,7 +353,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
 - Validation des 3 introductions et des 11 fiches statiques regénérées.
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `b6d90941bf41`, 286 fichiers runtime vérifiés.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitres.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur index, SW, fiches, chapitres.
 - Production : déployée le 08/11 (commit plateforme `2f2d3269`, docs `7184e940`), build `b6d90941bf41`, SW `hylst-reader-b6d90941bf41`, index `?v=b6d90941bf41`. `verify-release.ps1` entièrement vert. Lignes de provenance des 3 tomes de poésie vérifiées en direct sur la production.
 
 ## [1.8.31] - 2026-11-08
@@ -377,7 +377,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `node scripts/test-sw-policy.js` : 6/6 tests de politique Service Worker validés.
 - Régénération des 11 fiches statiques de livres avec affichage des périodes d'écriture réelles et des notes d'illustrations.
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `a268efd0d8b6`, 286 fichiers runtime vérifiés.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitres.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur index, SW, fiches, chapitres.
 - Production : déployée le 08/11 (commit plateforme `4acec827`, docs `8da8b6e3`), build `a268efd0d8b6`, SW `hylst-reader-a268efd0d8b6`, index `?v=a268efd0d8b6`. `verify-release.ps1` entièrement vert. Lignes de transparence des dates et mentions d'illustrations vérifiées en direct sur la production.
 
 ## [1.8.30] - 2026-11-08
@@ -405,7 +405,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Validation DOM des 7 chapitres de Tome IV : balises HTML équilibrées, 0 erreur.
 - Rendu visuel desktop et mobile 390 px inspecté et validé via Chrome headless.
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `1939c2d25914`, 286 fichiers runtime vérifiés, 4 fichiers orphelins décalés purgés proprement du miroir.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitres 01 à 07.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur index, SW, fiches, chapitres 01 à 07.
 - Production : déployée le 08/11 (commit plateforme `687c843d`, docs `328e9bfa`), build `1939c2d25914`, SW `hylst-reader-1939c2d25914`, index `?v=1939c2d25914`. `verify-release.ps1` entièrement vert : build cohérent, 13 URL, 11 fiches, 301, CSP meta et Nginx, `.env` 403, sources 404. Fiche statique Tome IV et chapitres 01 à 07 en 200 sur le domaine de production.
 
 ## [1.8.29] - 2026-11-08
@@ -432,7 +432,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Validation DOM des 5 chapitres de *Sciences et technologie* : balises HTML équilibrées, 0 erreur.
 - Rendu visuel mobile 390 px inspecté et validé via Chrome headless avec affichage net des figures d'archives.
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `514f57879866`, 283 fichiers runtime vérifiés.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitres et les 5 illustrations WebP.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur index, SW, fiches, chapitres et les 5 illustrations WebP.
 - Production : déployée le 08/11 (commit plateforme `c80b771b`, docs `0e4445fd`), build `514f57879866`, SW `hylst-reader-514f57879866`, index `?v=514f57879866`. `verify-release.ps1` entièrement vert : build cohérent, 13 URL, 11 fiches, 301, CSP meta et Nginx, `.env` 403, sources 404. Fiche statique en `<p class="year">2001-2002</p>` et illustrations d'archives en 200 sur le domaine de production.
 
 ## [1.8.28] - 2026-11-08
@@ -464,7 +464,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Validation des 11 chapitres de Tome II : balises HTML équilibrées, 0 erreur DOM, métadonnées `books.json` synchronisées.
 - Rendu visuel desktop (1440 px) et mobile (390 px) inspecté et validé via Chrome headless.
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `7665440676e7`, 278 fichiers runtime vérifiés, 6 fichiers orphelins décalés purgés proprement du miroir.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitres 01 à 11.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur index, SW, fiches, chapitres 01 à 11.
 - Production : déployée le 08/11 (commit plateforme `7c69dc42`, docs `44ac5c69`), build `7665440676e7`, SW `hylst-reader-7665440676e7`, index `?v=7665440676e7`. `verify-release.ps1` entièrement vert : build cohérent, 13 URL, 11 fiches, 301, CSP meta et Nginx, `.env` 403, sources 404. Chapitre 05 et fiche Tome II en 200 sur le domaine de production.
 
 ## [1.8.27] - 2026-11-08
@@ -488,7 +488,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Validation des 6 chapitres (VIII à XIII) et des 7 SVGs : balises HTML équilibrées, 100 % des tableaux enveloppés, 0 tiret long, 0 erreur.
 - Rendu visuel desktop et mobile 390 px vérifié via Chrome headless pour XIII.
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `ffbc6d92d427`, 277 fichiers runtime vérifiés, zéro dossier de travail.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitres 8 à 13.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur index, SW, fiches, chapitres 8 à 13.
 - Production : déployée le 08/11 (commit plateforme `256085f7`, docs `48005aec`), build `ffbc6d92d427`, SW `hylst-reader-ffbc6d92d427`, index `?v=ffbc6d92d427`. `verify-release.ps1` entièrement vert : build cohérent, 13 URL, 11 fiches, 301, CSP meta et Nginx, `.env` 403, sources 404, aucun Babel ni JSX servi. Chapitre 13 et ses annexes complètes en 200 sur le domaine de production.
 
 ## [1.8.26] - 2026-11-08
@@ -506,7 +506,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Balises HTML équilibrées, 23 tableaux enveloppés avec `data-cols` exact, XML valide sur `chapitre-11-schema.svg` (17 393 octets).
 - Rendu visuel desktop et mobile 390 px vérifié via Chrome headless (captures sans débordement, images et schémas vectoriels chargés, typographie saine).
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `07ddbab6e488`, 277 fichiers runtime vérifiés, zéro dossier de travail.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitre 11 et schéma SVG.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur index, SW, fiches, chapitre 11 et schéma SVG.
 - Production : déployée le 08/11 (commit plateforme `734046f2`, docs `d45979b7`), build `07ddbab6e488`, SW `hylst-reader-07ddbab6e488`, index `?v=07ddbab6e488`. `verify-release.ps1` entièrement vert : build cohérent, 13 URL, 11 fiches, 301, CSP meta et Nginx, `.env` 403, sources 404, aucun Babel ni JSX servi. Chapitre 11 et son schéma SVG en 200 sur le domaine de production.
 
 ## [1.8.25] - 2026-11-08
@@ -525,7 +525,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Validations HTML/XML : balises équilibrées sur IX et X, 68 tableaux enveloppés avec `data-cols` exact, XML valide sur `chapitre-9-schema.svg` (14 512 octets) et `chapitre-10-schema.svg` (17 615 octets).
 - Rendu visuel desktop et mobile 390 px vérifié via Chrome headless (captures sans débordement, images et schémas vectoriels chargés, typographie saine).
 - Synchronisation miroir (`scripts/sync-to-platform.ps1 -Prune`) : build `712e7d5f6378`, 276 fichiers runtime vérifiés, zéro dossier de travail.
-- Serveur local `http://127.0.0.1:8765/books_reader/` : HTTP 200 sur index, SW, fiches, chapitres 9 et 10, plans et schémas SVG.
+- Serveur local `http://127.0.0.1:8765/hylst_biblio/` : HTTP 200 sur index, SW, fiches, chapitres 9 et 10, plans et schémas SVG.
 - Production : déployée le 08/11 (commit plateforme `f1bdfc1c`, docs `c11f3c62`), build `712e7d5f6378`, SW `hylst-reader-712e7d5f6378`, index `?v=712e7d5f6378`. `verify-release.ps1` entièrement vert : build cohérent, 13 URL, 11 fiches, 301, CSP meta et Nginx, `.env` 403, sources 404, aucun Babel ni JSX servi. Chapitres 9, 10 et leurs schémas SVG en 200 sur le domaine de production.
 
 ## [1.8.24] - 2026-11-08
@@ -819,7 +819,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `node scripts/build_jsx.js` : 10 fichiers JSX compilés ; `--check` à jour.
 - `python scripts/build_book_pages.py` : 10 fiches générées.
 - Synchronisation du miroir : build `82df59e049b6`, cache `hylst-reader-82df59e049b6`, 245 fichiers runtime vérifiés, sitemap à 12 URL, 26 placeholders `?v=` et JSON-LD à 10 entrées `Book`.
-- Contrôle local sur `http://127.0.0.1:8765/books_reader/` : page d'accueil, deux fiches, cinq chapitres du Tome IV, six fichiers du livre Sciences, quatre PDF et les deux couvertures répondent en 200. Les PDF téléchargés ont exactement les poids du manifeste.
+- Contrôle local sur `http://127.0.0.1:8765/hylst_biblio/` : page d'accueil, deux fiches, cinq chapitres du Tome IV, six fichiers du livre Sciences, quatre PDF et les deux couvertures répondent en 200. Les PDF téléchargés ont exactement les poids du manifeste.
 - Contrôle visuel Chrome headless des deux fiches et de la page livre *Sciences et technologie* : couvertures, sommaire, bloc PDF et citation conformes.
 - Déploiement du 07/11 : build `82df59e049b6`, cache `hylst-reader-82df59e049b6`, index `?v=82df59e049b6`, commits plateforme `30e645a4` puis `31aead70` (correctif d'index). `verify-release.ps1` entièrement vert : 12 URL, 10 fiches, 301, CSP meta et Nginx, `.env` 403, sources 404. Les deux fiches, les neuf chapitres et leurs introductions, les quatre PDF, le manifeste et les deux couvertures répondent en 200 ; `books.json` sert 10 livres et 74 chapitres ; JSON-LD valide à 10 entrées `Book`.
 
@@ -862,7 +862,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `python scripts/check_dashes.py --root . --all` : 149 fichiers contrôlés, zéro tiret cadratin ou demi-cadratin.
 - Contrôle visuel Chrome headless du chapitre VI sur page d'aperçu chargeant `css/reader.css` et `css/book-fonts.css` : titres, tableaux à deux et trois colonnes, étiquettes non justifiées et note de source conformes.
 - Contrôle visuel Chrome headless de la page livre : sommaire à six entrées sous le bouton de lecture. Contrôle du chapitre I sur page d'aperçu : illustration affichée dans la colonne de lecture, ratio 3:2 conservé.
-- Huit URL locales en 200 sur `http://127.0.0.1:8765/books_reader/` : `public/books.json`, `chapitre-6.html`, la fiche statique, `css/reader.css`, `css/components.css`, `sw.js` et les illustrations des chapitres I et VI.
+- Huit URL locales en 200 sur `http://127.0.0.1:8765/hylst_biblio/` : `public/books.json`, `chapitre-6.html`, la fiche statique, `css/reader.css`, `css/components.css`, `sw.js` et les illustrations des chapitres I et VI.
 - Synchronisation du miroir : build `ca5f4163630e`, cache `hylst-reader-ca5f4163630e`, 222 fichiers runtime vérifiés, 115 fichiers contrôlés sans tiret dans le miroir.
 - Sitemap local : 10 URL, `lastmod` 06/11, l'URL `livres/nightprowler-carnets-de-samarande/` est présente ; le script de synchronisation la réajoute automatiquement si elle manque.
 
@@ -912,7 +912,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - `scripts/verify-release.ps1` : tous les contrôles passent, y compris build, sitemap, 301, CSP meta, en-tête CSP Books Reader, absence d'en-tête global, `.env` 403 et Babel/JSX en 404.
 - Lighthouse production mobile : performance 91, accessibilité 100, bonnes pratiques 100, SEO 100, LCP 3,3 s, CLS 0, TBT 10 ms.
 - Lighthouse production desktop : performance 97, accessibilité 100, bonnes pratiques 100, SEO 100, LCP 1,3 s, CLS 0,008, TBT 0 ms.
-- En-tête CSP Nginx actif depuis le 04/11 : configuration `28f5c867ffdb657d541daf8b0997a133`, base64 Coolify `375eebfe92a2b0bf80f37641a8f407d6`, sauvegarde `/root/hylst-nginx-backup-20261104-booksreader-csp/`. L'en-tête est limité à `/books_reader/`, absent sur la racine et CogniAI, et les CSP propres de UX-UI et Data Science Explorer restent inchangées. Persistance confirmée après deux redéploiements, conteneur final `zg4880k00soco08c4wkg48ks-20261104T154607`.
+- En-tête CSP Nginx actif depuis le 04/11 : configuration `28f5c867ffdb657d541daf8b0997a133`, base64 Coolify `375eebfe92a2b0bf80f37641a8f407d6`, sauvegarde `/root/hylst-nginx-backup-20261104-booksreader-csp/`. L'en-tête est limité à `/hylst_biblio/`, absent sur la racine et CogniAI, et les CSP propres de UX-UI et Data Science Explorer restent inchangées. Persistance confirmée après deux redéploiements, conteneur final `zg4880k00soco08c4wkg48ks-20261104T154607`.
 
 ## [1.8.6] - 2026-11-04
 ### Modifié
@@ -922,7 +922,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - **CSP en balise meta** : politique `default-src 'self'`, `script-src 'self'`, `object-src 'none'`, `base-uri 'self'`, images et médias limités au même domaine, aux données et aux blobs. Les scripts de thème et d'enregistrement du Service Worker sont externalisés dans `js/theme-boot.js` et `js/sw-register.js`. Les styles inline restent autorisés pour les pages statiques et les attributs React.
 - **Polices et musique locales** : l'index source utilise `/assets/fonts/fonts.css` comme la production, et les 282 pistes de `js/music_data.js` pointent vers `/hml/` au lieu de l'URL absolue. Aucune requête externe au premier chargement.
 - **Retour de citation annoncé** : la confirmation « Citation copiée dans le presse-papiers » est exposée dans une région `role="status" aria-live="polite"`, avec la classe `.sr-only`.
-- **Redirection 301 active** : le bloc Nginx `/books_reader/livres/<id>` vers `/books_reader/livres/<id>/` est ajouté à `nginx-coolify-reference.conf`, appliqué dans la base Coolify et dans le conteneur, puis testé en production le 04/11 avec conservation de la query.
+- **Redirection 301 active** : le bloc Nginx `/hylst_biblio/livres/<id>` vers `/hylst_biblio/livres/<id>/` est ajouté à `nginx-coolify-reference.conf`, appliqué dans la base Coolify et dans le conteneur, puis testé en production le 04/11 avec conservation de la query.
 - Version 1.8.6, cache Service Worker source `hylst-reader-v60`.
 
 ### Vérifié
@@ -934,12 +934,12 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Thème : bascule sombre, sépia et clair, mémorisation après rechargement, couleur d'interface mise à jour.
 - Manifeste et icônes : 5 icônes PNG en 200, manifeste en 200. `.env`, `sources/`, `livres_pour_import/` et `scripts/` restent inaccessibles.
 - Aucune requête externe, aucune requête échouée et aucune réponse HTTP en erreur au premier chargement.
-- Production `https://hylst.fr/books_reader/` vérifiée après déploiement : build `f24c89706fb0` et SW `hylst-reader-f24c89706fb0` actifs, 9/9 URL du sitemap en 200, 7/7 fiches avec CSP et icônes, Babel et les sources `.jsx` en 404.
+- Production `https://art.hylst.fr/hylst_biblio/` vérifiée après déploiement : build `f24c89706fb0` et SW `hylst-reader-f24c89706fb0` actifs, 9/9 URL du sitemap en 200, 7/7 fiches avec CSP et icônes, Babel et les sources `.jsx` en 404.
 - Production, premier chargement propre : 1 330 388 octets transférés, 57 requêtes, 0 requête externe, 0 requête échouée, 0 erreur console, 0 violation CSP.
 - Production, axe sans violation sur 9 états : bibliothèque sombre, sépia et clair, fiche livre, liseuse, paramètres, musique, fiche statique et page de droits.
 - Production, citation annoncée en `aria-live`, sommaire au clavier avec changement de chapitre et retour du focus, thèmes mémorisés.
 - Production, hors ligne en profil vierge : cache `hylst-reader-f24c89706fb0`, bibliothèque, fiche *Les Ficelles du bonheur* et fiche statique de *Quinte* accessibles sans réseau.
-- Le 301 des fiches sans slash est actif : les 7 URL `/books_reader/livres/<id>` répondent 301 vers leur version avec slash, query conservée, et les versions avec slash restent en 200. Les autres applications de la plateforme restent en 200.
+- Le 301 des fiches sans slash est actif : les 7 URL `/hylst_biblio/livres/<id>` répondent 301 vers leur version avec slash, query conservée, et les versions avec slash restent en 200. Les autres applications de la plateforme restent en 200.
 
 
 ### Ajouté
@@ -965,7 +965,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - Manifeste : icônes PNG servies en 200, aucune erreur d'installabilité hors navigation privée.
 - Caches : ancien cache `hylst-reader-*` supprimé, cache voisin non préfixé conservé.
 - 7/7 fiches statiques affichent la section de citation et déclarent leurs icônes.
-- Production `https://hylst.fr/books_reader/` vérifiée le 04/11 : build `87ac090303b6` et SW `hylst-reader-87ac090303b6` actifs, 7 fiches et 9/9 URL du sitemap en 200, icônes 200, citation et canonical présents, axe sans violation sur 11 états, sommaire au clavier avec changement de chapitre et retour du focus, paramètres par Échap, cache voisin préservé, 0 requête externe, 0 erreur console, 0 requête échouée, fumée 10 pages / 129 assets / 0 anomalie, `.env` 403, `sources/` et `livres_pour_import/` 404.
+- Production `https://art.hylst.fr/hylst_biblio/` vérifiée le 04/11 : build `87ac090303b6` et SW `hylst-reader-87ac090303b6` actifs, 7 fiches et 9/9 URL du sitemap en 200, icônes 200, citation et canonical présents, axe sans violation sur 11 états, sommaire au clavier avec changement de chapitre et retour du focus, paramètres par Échap, cache voisin préservé, 0 requête externe, 0 erreur console, 0 requête échouée, fumée 10 pages / 129 assets / 0 anomalie, `.env` 403, `sources/` et `livres_pour_import/` 404.
 
 ## [1.8.4] - 2026-11-04
 ### Ajouté
@@ -974,11 +974,11 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - **Navigation navigateur** : ouverture d'un livre avec `history.pushState`, retour et avance gérés par `popstate`, bouton retour de la fiche qui revient à la bibliothèque sans quitter le site.
 - **Accessibilité des modales** : fermeture par Échap, piège de focus, attributs `role="dialog"` et `aria-modal="true"`, restauration du focus sur l'élément déclencheur (À propos, Paramètres, Bibliothèque musicale).
 - **Polices auto-hébergées** : Outfit et Merriweather dans `public/fonts/`, déclarations dans `css/book-fonts.css`. L'injection de Google Fonts au passage en thème sépia est supprimée, y compris pour les livres qui utilisaient Merriweather.
-- **Manifeste PWA** : `id`, `start_url` et `scope` alignés sur `./`, soit la racine `/books_reader/`.
+- **Manifeste PWA** : `id`, `start_url` et `scope` alignés sur `./`, soit la racine `/hylst_biblio/`.
 - **Sitemap** : les sept livres pointent vers leurs fiches statiques.
 
 ### Corrigé
-- **Fiches statiques sans slash final** : les liens internes sont désormais absolus (`/books_reader/...`) et fonctionnent avec ou sans slash, au lieu de pointer vers la racine du domaine.
+- **Fiches statiques sans slash final** : les liens internes sont désormais absolus (`/hylst_biblio/...`) et fonctionnent avec ou sans slash, au lieu de pointer vers la racine du domaine.
 - **Livres importés** : plus de mention de droits ni de bouton de citation attribués à Geoffroy Streit ; le titre du livre reste affiché dans l'onglet, le canonical reste la bibliothèque et l'URL ne change pas.
 - **Dimensions des couvertures** : les fiches statiques déclarent la largeur et la hauteur réelles de chaque image.
 - **Empreinte de build** : `sw.js` entre dans le calcul de l'empreinte. Une modification du Service Worker renouvelle donc le cache, même sans autre changement.
@@ -1026,7 +1026,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 ## [1.8.0] - 2026-11-04
 ### Ajouté
 - **Nouveau nom** : l'application devient **La Bibliothèque de Hylst**, avec le nom court PWA **Biblio Hylst** et la signature « Livres, proses, poésies et récits de Geoffroy Streit ». Le titre, le header, le footer, la modale À propos, le manifeste, les icônes PWA, les métadonnées sociales et la documentation sont alignés.
-- **Alias `/bibliotheque/`** : la nouvelle URL courte redirige en 301 vers `/books_reader/`, query string conservée. L'URL existante reste canonique pour ne casser ni les favoris, ni le référencement.
+- **Alias `/bibliotheque/`** : la nouvelle URL courte redirige en 301 vers `/hylst_biblio/`, query string conservée. L'URL existante reste canonique pour ne casser ni les favoris, ni le référencement.
 - **Quinte ou Les Harmoniques de l'Âme** : nouvelle en sept parties dans sa version remaniée par l'auteur, avec introduction, provenance et métadonnées `authorship: human`, `aiAssisted: false`.
 - **Illustrations des 29 textes** : récupération des couvertures Wattpad d'origine, affichées en tête de chapitre et en miniature dans le sommaire.
 - **Badge Nouveau** sur *L'Odyssée de l'énergie* et sur *Quinte*.
@@ -1098,7 +1098,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 
 ## [1.5.0] - 2026-11-03
 ### Ajouté
-- **Accès sans slash final** : `https://hylst.fr/books_reader` fonctionne désormais comme `https://hylst.fr/books_reader/`, grâce à une base d'URL explicite dans l'index de production. Le redirect 301 canonique reste recommandé côté Nginx.
+- **Accès sans slash final** : `https://art.hylst.fr/hylst_biblio` fonctionne désormais comme `https://art.hylst.fr/hylst_biblio/`, grâce à une base d'URL explicite dans l'index de production. Le redirect 301 canonique reste recommandé côté Nginx.
 - **Transparence IA** : *L'Odyssée de l'énergie* affiche en bas de sa dernière de couverture une mention discrète précisant l'usage d'outils d'intelligence artificielle comme assistants de recherche, de documentation, de vérification des sources, de brainstorming et de rédaction.
 
 ### Modifié
@@ -1167,7 +1167,7 @@ Toutes les modifications notables apportées au projet **La Bibliothèque de Hyl
 - **Nettoyage Littéraire** : Réécriture complète des tirets cadratins et retrait des ornements `✦` qui font trop « généré par IA » pour un rendu plus naturel et fluide.
 - **Remplacement de « Dualis-IA »** par la dénomination officielle de l'essai : *« L'odyssée de l'IA : 2 futurs, un choix »* (ou tournures de phrases adaptées comme « ce projet », « ce livre »).
 - **Couverture Chapitre 5** : Génération de l'illustration manquante `chapitre-5-cover.webp` en WebP dans un style artistique premium sépia/or homogène avec les 4 précédents chapitres.
-- **Documentation Technique Complète** : Création de `structure.md` (arborescence), `features.md` (fonctions), `readme-dev.md` (architecture) et `test_build_deploy.md` (guide pas-à-pas pour Windows local et déploiement VPS Hostinger + Coolify + Nginx statique dans `/books_reader/`).
+- **Documentation Technique Complète** : Création de `structure.md` (arborescence), `features.md` (fonctions), `readme-dev.md` (architecture) et `test_build_deploy.md` (guide pas-à-pas pour Windows local et déploiement VPS Hostinger + Coolify + Nginx statique dans `/hylst_biblio/`).
 
 ### Modifié
 - **Modularisation React Majeure** : Division du fichier unique massif `js/app.jsx` (2000 lignes) en composants ES6 réutilisables chargés par Babel en ligne dans `js/components/` (`Icon.jsx`, `Ambience.jsx`, `AboutModal.jsx`, `GlobalSettingsModal.jsx`, `MusicPlayerModal.jsx`, `LibraryView.jsx`, `BookHomeView.jsx`, `ReaderView.jsx`). `js/app.jsx` est allégé et plus lisible (ramené à 380 lignes).

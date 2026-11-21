@@ -16,9 +16,10 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "livres"
 STYLE_PATH = ROOT / "css" / "book-page.css"
-# Domaine lu dans SITE_URL (https://hylst.fr par defaut) : index.html et droits.html, ecrits a la main, sont a reprendre a part.
-BASE = (os.environ.get("SITE_URL") or "https://hylst.fr").rstrip("/") + "/books_reader/"
-SITE_PATH = "/books_reader/"
+# Domaine et chemin lus dans SITE_URL et SITE_PATH (art.hylst.fr/hylst_biblio par defaut).
+# index.html et droits.html, ecrits a la main, sont a reprendre a part.
+SITE_PATH = (os.environ.get("SITE_PATH") or "/hylst_biblio/").rstrip("/") + "/"
+BASE = (os.environ.get("SITE_URL") or "https://art.hylst.fr").rstrip("/") + SITE_PATH
 SITE = "La Bibliothèque de Hylst"
 
 

@@ -184,7 +184,7 @@ L'introduction dit :
 - ce que le lecteur ne doit pas y chercher : une mise à jour technique de 2026 ;
 - la mention de provenance et l'absence d'assistance IA.
 
-Elle liste les quatre parties avec leur lien PDF, en chemin absolu `/books_reader/public/books/sciences-et-technologie-jeux-videos/pdf/...`, pour fonctionner aussi bien dans la liseuse que sur la fiche statique.
+Elle liste les quatre parties avec leur lien PDF, en chemin absolu `/hylst_biblio/public/books/sciences-et-technologie-jeux-videos/pdf/...`, pour fonctionner aussi bien dans la liseuse que sur la fiche statique.
 
 ### 6.4 Chapitres
 
@@ -291,7 +291,7 @@ Générés :
 - Les quatre PDF existent, pages et poids cohérents, première page rendue en PNG pour contrôle visuel.
 - Les chapitres contiennent la date d'origine et la note de source.
 - Les chapitres du Tome IV ne contiennent plus `lol`, `:o)`, `☺`, `qques`, `vmt`, `tjrs`, `g bcp`.
-- Les liens PDF répondent en 200 sur `http://127.0.0.1:8765/books_reader/public/books/sciences-et-technologie-jeux-videos/pdf/...`.
+- Les liens PDF répondent en 200 sur `http://127.0.0.1:8765/hylst_biblio/public/books/sciences-et-technologie-jeux-videos/pdf/...`.
 - Les deux couvertures sont en WebP 600x900, poids inférieur à 250 Ko, texte lisible.
 - La page livre et la fiche statique affichent les nouveaux sommaire.
 - `powershell -ExecutionPolicy Bypass -File scripts/sync-to-platform.ps1` : miroir synchronisé, sitemap complet.

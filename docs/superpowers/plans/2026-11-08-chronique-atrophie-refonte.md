@@ -384,4 +384,4 @@ git push origin main
 
 Attendre le déploiement Coolify et exécuter :
 Run: `powershell -ExecutionPolicy Bypass -File scripts/verify-release.ps1`
-Expected: 100 % vert avec HTTP 200 sur `https://hylst.fr/books_reader/livres/chronique-une-atrophie-programmee/`.
+Expected: 100 % vert avec HTTP 200 sur `https://art.hylst.fr/hylst_biblio/livres/chronique-une-atrophie-programmee/`.

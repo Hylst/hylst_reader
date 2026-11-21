@@ -9,7 +9,7 @@ const vm = require('vm');
 const listeners = {};
 const context = {
     self: {
-        registration: { scope: 'https://example.test/books_reader/' },
+        registration: { scope: 'https://example.test/hylst_biblio/' },
         location: { origin: 'https://example.test' },
         addEventListener(type, handler) { listeners[type] = handler; },
         skipWaiting() { },
@@ -69,15 +69,15 @@ function request(url, options = {}) {
     });
 
     await test('shouldBypassCache refuse audio, Range et extensions sonores', () => {
-        const base = new URL('https://example.test/books_reader/');
+        const base = new URL('https://example.test/hylst_biblio/');
         assert.strictEqual(context.shouldBypassCache(request('https://example.test/hml/track.mp3'), new URL('https://example.test/hml/track.mp3')), true);
         assert.strictEqual(context.shouldBypassCache(request('https://example.test/hml/track.mp3', { destination: 'audio' }), new URL('https://example.test/hml/track.mp3')), true);
-        assert.strictEqual(context.shouldBypassCache(request('https://example.test/books_reader/video.webm', { destination: 'video' }), new URL('https://example.test/books_reader/video.webm')), true);
-        assert.strictEqual(context.shouldBypassCache(request('https://example.test/books_reader/file.json', { headers: { Range: 'bytes=0-10' } }), new URL('https://example.test/books_reader/file.json')), true);
-        assert.strictEqual(context.shouldBypassCache(request('https://example.test/books_reader/file.wav'), new URL('https://example.test/books_reader/file.wav')), true);
-        assert.strictEqual(context.shouldBypassCache(request('https://example.test/books_reader/'), new URL('https://example.test/books_reader/')), false);
+        assert.strictEqual(context.shouldBypassCache(request('https://example.test/hylst_biblio/video.webm', { destination: 'video' }), new URL('https://example.test/hylst_biblio/video.webm')), true);
+        assert.strictEqual(context.shouldBypassCache(request('https://example.test/hylst_biblio/file.json', { headers: { Range: 'bytes=0-10' } }), new URL('https://example.test/hylst_biblio/file.json')), true);
+        assert.strictEqual(context.shouldBypassCache(request('https://example.test/hylst_biblio/file.wav'), new URL('https://example.test/hylst_biblio/file.wav')), true);
+        assert.strictEqual(context.shouldBypassCache(request('https://example.test/hylst_biblio/'), new URL('https://example.test/hylst_biblio/')), false);
         assert.strictEqual(context.shouldBypassCache(request('https://example.test/hml/cover.webp', { destination: 'image' }), new URL('https://example.test/hml/cover.webp')), false);
-        assert.strictEqual(context.shouldBypassCache(request('https://example.test/books_reader/data.json', { method: 'POST' }), new URL('https://example.test/books_reader/data.json')), true);
+        assert.strictEqual(context.shouldBypassCache(request('https://example.test/hylst_biblio/data.json', { method: 'POST' }), new URL('https://example.test/hylst_biblio/data.json')), true);
     });
 
     await test('trimCache conserve les entrées les plus récentes', async () => {
@@ -108,7 +108,7 @@ function request(url, options = {}) {
         assert.strictEqual(ok, true);
         assert.strictEqual(calls, 2);
         assert.strictEqual(puts.length, 1);
-        assert.strictEqual(puts[0].url, 'https://example.test/books_reader/asset.txt');
+        assert.strictEqual(puts[0].url, 'https://example.test/hylst_biblio/asset.txt');
     });
 
     await test('cacheUrl échoue après deux réponses non 200', async () => {

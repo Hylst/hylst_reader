@@ -22,7 +22,7 @@
 - Chaque partie scientifique affiche un résumé 2026, le sommaire d'origine, le lien PDF et une note de source.
 - Les PDF ne sont pas précachés par le Service Worker.
 - Le cache source passe de `hylst-reader-v66` à `hylst-reader-v67`.
-- Le miroir de production est `D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader`. Test local via `http://127.0.0.1:8765/books_reader/`.
+- Le miroir de production est `D:\0CODE\AntiGravity\Cours_Memos\Docker\books_reader`. Test local via `http://127.0.0.1:8765/hylst_biblio/`.
 - Aucune synchronisation ni compilation JSX n'est lancée avant que les deux livres soient complets.
 
 ## Review Focus
@@ -30,7 +30,7 @@
 - Un texte réécrit qui trahit la voix de l'auteur (vocabulaire remplacé, ironie gommée, digressions supprimées) : la réécriture doit rester une correction, pas une réécriture littéraire.
 - Un sommaire d'origine inventé ou une pagination présentée comme exacte alors que l'original est ambigu : les numéros incertains doivent être signalés ou omis, jamais devinés.
 - Un PDF tronqué ou sans images qui passerait la vérification de poids : contrôler le nombre de pages et rendre la première page en PNG.
-- Un lien PDF relatif qui casse dans la liseuse ou dans la fiche statique : utiliser le chemin absolu `/books_reader/public/books/sciences-et-technologie-jeux-videos/pdf/...`.
+- Un lien PDF relatif qui casse dans la liseuse ou dans la fiche statique : utiliser le chemin absolu `/hylst_biblio/public/books/sciences-et-technologie-jeux-videos/pdf/...`.
 - Un chapitre ajouté au catalogue mais absent du précache du Service Worker, ou l'inverse : vérifier que `sw.js` liste bien chaque nouvelle introduction et chaque nouveau chapitre.
 
 ---
@@ -651,7 +651,7 @@ Structure commune :
     </ol>
   </div>
   <div class="chapter-download">
-    <a class="chapter-download-link" href="/books_reader/public/books/sciences-et-technologie-jeux-videos/pdf/partie-a-introduction-histoire-interfaces-manuelles.pdf" download>Télécharger la partie A en PDF</a>
+    <a class="chapter-download-link" href="/hylst_biblio/public/books/sciences-et-technologie-jeux-videos/pdf/partie-a-introduction-histoire-interfaces-manuelles.pdf" download>Télécharger la partie A en PDF</a>
     <p class="chapter-download-meta">21 pages · 913 Ko · mise en page d'origine</p>
     <p class="chapter-download-note">Le PDF reproduit le document Word de 2001-2002, images et schémas compris.</p>
   </div>
@@ -775,7 +775,7 @@ Expected: synchronisation terminée, aucune erreur, sitemap à 12 URL.
 
 Démarrer le serveur local sur `D:\0CODE\AntiGravity\Cours_Memos\Docker` (port 8765) s'il ne tourne pas. Vérifier :
 
-- `http://127.0.0.1:8765/books_reader/` charge la bibliothèque avec neuf livres ;
+- `http://127.0.0.1:8765/hylst_biblio/` charge la bibliothèque avec neuf livres ;
 - les deux nouvelles pages livre s'ouvrent, les sommaires sont complets ;
 - les chapitres s'affichent, les dates et notes de source sont visibles ;
 - les quatre liens PDF répondent en 200 et téléchargent un fichier non vide ;

@@ -29,7 +29,7 @@ L'objectif principal actuel est d'affiner l'expérience de lecture et la perform
 - **Animations** : CSS3 avancé avec keyframes, transitions et gestion fine du z-index.
 - **Algorithmes** : Calcul intelligent du temps de lecture basé sur la vitesse et la longueur du contenu.
 - **Automation** : Python pour le build des livres et la conversion d'images.
-- **Versioning** : Git (Github: [hylst_reader](https://github.com/Hylst/hylst_reader)) avec suivi détaillé des changements.
+- **Versioning** : Git (Github: [hylst_biblio](https://github.com/Hylst/hylst_biblio) (ancien `hylst_reader`)) avec suivi détaillé des changements.
 
 ---
 *Ce document sert de référence pour maintenir la continuité du développement 
